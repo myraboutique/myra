@@ -56,6 +56,23 @@
     <script src="index.route.js"></script>
     <script src="components/_/_.service.js"></script>
       <script src="/bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>
+
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/menu-maker.js"></script>
+      <script type="text/javascript">
+         $(document).ready(function(e) {
+          $(".menu-toggle").click(function(){
+	        $(".navbar").slideToggle()
+
+	        })
+	        $(".navbar ul li").click(function(){
+		      $(this).find("ul").slideToggle()
+		      $(this).toggleClass("active");
+
+		   })
+
+});
+</script>
   </section>
 </body>
 
