@@ -1,0 +1,45 @@
+
+  <div class="centered">
+		<div id="login" class="animate form">
+        <form autocomplete="on" style="padding-top:20px;">
+          <h1><strong></strong>Please Register</h1>
+
+          <p class="paragraph">
+            <input id="username" name="username" ng-model="vm.name"required="required" type="text" placeholder="Name of User"/>
+          </p>
+
+           <p class="paragraph">
+						<select ng-model="vm.type">
+						  <option value="">Type of User</option>
+						  <option value="admin">admin</option>
+              <option value="user">user</option>
+					  </select>
+          </p>
+
+					<p class="paragraph">
+            <input id="username" name="username" ng-model="vm.email" required="required" type="text" placeholder="Email Address"/>
+          </p>
+
+					<p class="paragraph">
+            <input id="" name="" required="required" ng-model="vm.password" type="password" placeholder="Password" />
+          </p>
+
+					<p class="paragraph">
+            <input id="" name="" required="required" type="text" ng-model="vm.number" placeholder="Phone Number" />
+          </p>
+
+					<p class="paragraph">
+						<textarea rows="4" cols="50" placeholder="Address" ng-model="vm.address"></textarea>
+          </p>
+          <div class="register-btm-btn-box">
+					<div class="submit-button">
+            <input type="submit" value="Submit" class="register-submit-btn" ng-click="vm.submit()"/>
+ 					</div>
+					<div class="cancel-button">
+            <input type="submit" value="Cancel" class="register-cancel-btn" />
+ 					</div>
+				</div>
+
+      </form>
+    </div>
+	</div>

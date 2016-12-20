@@ -1,0 +1,23 @@
+  
+
+    <div class="centered">
+		<div id="login" class="animate form">
+        <form   autocomplete="on" style="padding-top:20px;">
+          <h1><strong></strong>Please Login</h1>
+          <p class="paragraph">
+            <input id="username" name="username"  ng-model="vm.username" required="required" type="text" placeholder="Email Address"/>
+          </p>
+          <p class="paragraph">
+            <input id="password" name="password" ng-model="vm.password" required="required" type="password" placeholder="Password" />
+          </p>
+
+					<p class="forget-password float-left">
+            <a href="#/forgotpassword">Forget Password?</a>
+ 					</p>
+          <p class="login button float-right" style="text-align: center;">
+            <input type="submit" value="Login" style="text-align: center;" ng-click="vm.data()"/>
+ 					</p>
+
+      </form>
+    </div>
+	</div>

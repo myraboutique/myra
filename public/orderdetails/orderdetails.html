@@ -1,0 +1,468 @@
+<div class="container">
+
+	<!-- Header Section Start Here -->
+	<div class="main-header">
+		<div class="logo"><img src="assets/images/logo.png" alt=""></div>
+	<div id='cssmenu'>
+	  <ul>
+	    <li><a href='#/home' ><span>Home</span></a></li>
+			<li><a href='#/customerdetails'><span>Customer Details</span></a></li>
+			<li><a href='#/order' class="active"><span>Order Form</span></a></li>
+			<li><a href='#/alert'><span>Alerts</span></a></li>
+	    <li class='active has-sub'><a href=''><span>Settings</span></a>
+	      <ul>
+	        <li><a href='#/register'><span>Add User</span></a></li>
+	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
+					<li><a href='#/materialtype'><span>Material Type</span></a></li>
+	      </ul>
+	    </li>
+	    <li><a href='#/logout'><span>Logout</span></a></li>
+	  </ul>
+	</div>
+	</div>
+	<!-- Header Section End Here -->
+
+	<div class="inner-heading-bar">Order Form</div>
+
+	<div class="main-contant-part">
+
+		<!-- Left Form Section Start Here -->
+		<div class="order-form-left-section">
+			<div class="form-section-box">
+				<div class="form-heading">Customer Details</div>
+
+				<div class="form-box">
+					<label>Name:</label>
+					<select>
+				  <option value="volvo">User Name</option>
+				  <option value="saab">User Name</option>
+				  <option value="mercedes">User Name</option>
+				  <option value="audi">User Name</option>
+			  </select>
+				</div>
+
+				<div class="form-box">
+					<label>Contact Number:</label>
+					<input id="" name="" required="required" type="text" placeholder="Contact Number" />
+				</div>
+
+				<div class="form-box">
+					<label>Email Id:</label>
+					<input id="" name="" required="required" type="text" placeholder="Email Id" />
+				</div>
+			</div>
+
+
+			<div class="form-section-box">
+				<div class="form-heading">Cloth Description</div>
+
+				<div class="form-box">
+					<label>Type:</label>
+					<select ng-model="vm.typesel" ng-change="vm.typeSelect(vm.typesel)" ng-options="data as data.title for data in vm.type">
+					<option value="">-- Please Select --</option></select>
+				</div>
+
+				<div class="form-box">
+					<label>Material Source:</label>
+					<select>
+				  <option value="volvo">Material Source</option>
+				  <option value="saab">Material Source</option>
+				  <option value="mercedes">Material Source</option>
+				  <option value="audi">Material Source</option>
+			  </select>
+				</div>
+
+				<div class="form-box">
+					<label>Choose Color:</label>
+					<input id="" name="" required="required" type="text" placeholder="Choose Color" />
+				</div>
+
+				<div class="form-box">
+					<label>Customization:</label>
+					<div class="customization-check-box">
+						<input type="checkbox" name="vehicle" value="" class="checkbox">
+						<textarea class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description"></textarea>
+					</div>
+				</div>
+
+				<div class="form-box">
+					<label>Cloth Description:</label>
+					<textarea rows="4" cols="50" placeholder="Cloth Description"></textarea>
+				</div>
+
+				<div class="form-box">
+					<label>Date of Delivery:</label>
+					<input id="" name="" required="required" type="text" placeholder="Date of Delivery" />
+					<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+				</div>
+
+				<div class="form-box">
+					<label>Alert Day:</label>
+					<input id="" name="" required="required" type="text" placeholder="Alert Day" />
+				</div>
+
+				<div class="form-box">
+					<label>Amount:</label>
+					<input id="" name="" required="required" type="text" placeholder="Amount" />
+				</div>
+
+			</div>
+
+			<div class="form-section-box" ng-if="vm.clothtype">
+				<div class="form-heading">Measurement</div>
+				<div class="measurement-li-box">
+					<ul ng-repeat="type in vm.clothtype">
+						<li>{{type}} <span><input class="measurement-input" name="" required="required" type="text" placeholder="Add Size" /><img src="assets/images/inc-icon.png" alt=""></span></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="submit-button">
+				<input type="submit" value="Save" />
+			</div>
+			<div class="submit-button">
+				<input type="submit" value="Add Next" ng-click="vm.next1=true" />
+			</div>
+			<div class="cancel-button">
+				<input type="submit" value="Cancel" />
+			</div>
+		</div><br/><br/>
+		<!-- Left Form Section End Here -->
+		
+		<!-- Left Form Section Start Here -->
+		<div class="order-form-left-section" ng-if="vm.next1">
+		
+			<div class="form-section-box">
+				<div class="form-heading">Cloth Description</div>
+
+				<div class="form-box">
+					<label>Type:</label>
+					<select ng-model="vm.typesel" ng-change="vm.typeSelect(vm.typesel)" ng-options="data as data.title for data in vm.type">
+					<option value="">-- Please Select --</option></select>
+				</div>
+
+				<div class="form-box">
+					<label>Material Source:</label>
+					<select>
+				  <option value="volvo">Material Source</option>
+				  <option value="saab">Material Source</option>
+				  <option value="mercedes">Material Source</option>
+				  <option value="audi">Material Source</option>
+			  </select>
+				</div>
+
+				<div class="form-box">
+					<label>Choose Color:</label>
+					<input id="" name="" required="required" type="text" placeholder="Choose Color" />
+				</div>
+
+				<div class="form-box">
+					<label>Customization:</label>
+					<div class="customization-check-box">
+						<input type="checkbox" name="vehicle" value="" class="checkbox">
+						<textarea class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description"></textarea>
+					</div>
+				</div>
+
+				<div class="form-box">
+					<label>Cloth Description:</label>
+					<textarea rows="4" cols="50" placeholder="Cloth Description"></textarea>
+				</div>
+
+				<div class="form-box">
+					<label>Date of Delivery:</label>
+					<input id="" name="" required="required" type="text" placeholder="Date of Delivery" />
+					<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+				</div>
+
+				<div class="form-box">
+					<label>Alert Day:</label>
+					<input id="" name="" required="required" type="text" placeholder="Alert Day" />
+				</div>
+
+				<div class="form-box">
+					<label>Amount:</label>
+					<input id="" name="" required="required" type="text" placeholder="Amount" />
+				</div>
+
+			</div>
+
+			<div class="form-section-box" ng-if="vm.clothtype">
+				<div class="form-heading">Measurement</div>
+				<div class="measurement-li-box">
+					<ul ng-repeat="type in vm.clothtype">
+						<li>{{type}} <span><input class="measurement-input" name="" required="required" type="text" placeholder="Add Size" /><img src="assets/images/inc-icon.png" alt=""></span></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="submit-button">
+				<input type="submit" value="Save" />
+			</div>
+			<div class="submit-button">
+				<input type="submit" value="Add Next" ng-click="vm.showNext2()" />
+			</div>
+			<div class="cancel-button">
+				<input type="submit" value="Cancel" />
+			</div>
+
+		</div>
+		<!-- Left Form Section End Here -->
+
+		<!-- Left Form Section Start Here -->
+		<div class="order-form-left-section" ng-if="vm.next2">
+		
+			<div class="form-section-box">
+				<div class="form-heading">Cloth Description</div>
+
+				<div class="form-box">
+					<label>Type:</label>
+					<select ng-model="vm.typesel" ng-change="vm.typeSelect(vm.typesel)" ng-options="data as data.title for data in vm.type">
+					<option value="">-- Please Select --</option></select>
+				</div>
+
+				<div class="form-box">
+					<label>Material Source:</label>
+					<select>
+				  <option value="volvo">Material Source</option>
+				  <option value="saab">Material Source</option>
+				  <option value="mercedes">Material Source</option>
+				  <option value="audi">Material Source</option>
+			  </select>
+				</div>
+
+				<div class="form-box">
+					<label>Choose Color:</label>
+					<input id="" name="" required="required" type="text" placeholder="Choose Color" />
+				</div>
+
+				<div class="form-box">
+					<label>Customization:</label>
+					<div class="customization-check-box">
+						<input type="checkbox" name="vehicle" value="" class="checkbox">
+						<textarea class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description"></textarea>
+					</div>
+				</div>
+
+				<div class="form-box">
+					<label>Cloth Description:</label>
+					<textarea rows="4" cols="50" placeholder="Cloth Description"></textarea>
+				</div>
+
+				<div class="form-box">
+					<label>Date of Delivery:</label>
+					<input id="" name="" required="required" type="text" placeholder="Date of Delivery" />
+					<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+				</div>
+
+				<div class="form-box">
+					<label>Alert Day:</label>
+					<input id="" name="" required="required" type="text" placeholder="Alert Day" />
+				</div>
+
+				<div class="form-box">
+					<label>Amount:</label>
+					<input id="" name="" required="required" type="text" placeholder="Amount" />
+				</div>
+
+			</div>
+
+			<div class="form-section-box" ng-if="vm.clothtype">
+				<div class="form-heading">Measurement</div>
+				<div class="measurement-li-box">
+					<ul ng-repeat="type in vm.clothtype">
+						<li>{{type}} <span><input class="measurement-input" name="" required="required" type="text" placeholder="Add Size" /><img src="assets/images/inc-icon.png" alt=""></span></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="submit-button">
+				<input type="submit" value="Save" />
+			</div>
+			<div class="submit-button">
+				<input type="submit" value="Add Next" ng-click="vm.showNext3()" />
+			</div>
+			<div class="cancel-button">
+				<input type="submit" value="Cancel" />
+			</div>
+
+		</div>
+		<!-- Left Form Section End Here -->
+
+			<!-- Left Form Section Start Here -->
+		<div class="order-form-left-section" ng-if="vm.next3">
+		
+			<div class="form-section-box">
+				<div class="form-heading">Cloth Description</div>
+
+				<div class="form-box">
+					<label>Type:</label>
+					<select ng-model="vm.typesel" ng-change="vm.typeSelect(vm.typesel)" ng-options="data as data.title for data in vm.type">
+					<option value="">-- Please Select --</option></select>
+				</div>
+
+				<div class="form-box">
+					<label>Material Source:</label>
+					<select>
+				  <option value="volvo">Material Source</option>
+				  <option value="saab">Material Source</option>
+				  <option value="mercedes">Material Source</option>
+				  <option value="audi">Material Source</option>
+			  </select>
+				</div>
+
+				<div class="form-box">
+					<label>Choose Color:</label>
+					<input id="" name="" required="required" type="text" placeholder="Choose Color" />
+				</div>
+
+				<div class="form-box">
+					<label>Customization:</label>
+					<div class="customization-check-box">
+						<input type="checkbox" name="vehicle" value="" class="checkbox">
+						<textarea class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description"></textarea>
+					</div>
+				</div>
+
+				<div class="form-box">
+					<label>Cloth Description:</label>
+					<textarea rows="4" cols="50" placeholder="Cloth Description"></textarea>
+				</div>
+
+				<div class="form-box">
+					<label>Date of Delivery:</label>
+					<input id="" name="" required="required" type="text" placeholder="Date of Delivery" />
+					<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+				</div>
+
+				<div class="form-box">
+					<label>Alert Day:</label>
+					<input id="" name="" required="required" type="text" placeholder="Alert Day" />
+				</div>
+
+				<div class="form-box">
+					<label>Amount:</label>
+					<input id="" name="" required="required" type="text" placeholder="Amount" />
+				</div>
+
+			</div>
+
+			<div class="form-section-box" ng-if="vm.clothtype">
+				<div class="form-heading">Measurement</div>
+				<div class="measurement-li-box">
+					<ul ng-repeat="type in vm.clothtype">
+						<li>{{type}} <span><input class="measurement-input" name="" required="required" type="text" placeholder="Add Size" /><img src="assets/images/inc-icon.png" alt=""></span></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="submit-button">
+				<input type="submit" value="Save" />
+			</div>
+			<div class="submit-button">
+				<input type="submit" value="Add Next" ng-click="vm.showNext4()" />
+			</div>
+			<div class="cancel-button">
+				<input type="submit" value="Cancel" />
+			</div>
+
+		</div>
+		<!-- Left Form Section End Here -->
+
+			<!-- Left Form Section Start Here -->
+		<div class="order-form-left-section" ng-if="vm.next4">
+		
+			<div class="form-section-box">
+				<div class="form-heading">Cloth Description</div>
+
+				<div class="form-box">
+					<label>Type:</label>
+					<select ng-model="vm.typesel" ng-change="vm.typeSelect(vm.typesel)" ng-options="data as data.title for data in vm.type">
+					<option value="">-- Please Select --</option></select>
+				</div>
+
+				<div class="form-box">
+					<label>Material Source:</label>
+					<select>
+				  <option value="volvo">Material Source</option>
+				  <option value="saab">Material Source</option>
+				  <option value="mercedes">Material Source</option>
+				  <option value="audi">Material Source</option>
+			  </select>
+				</div>
+
+				<div class="form-box">
+					<label>Choose Color:</label>
+					<input id="" name="" required="required" type="text" placeholder="Choose Color" />
+				</div>
+
+				<div class="form-box">
+					<label>Customization:</label>
+					<div class="customization-check-box">
+						<input type="checkbox" name="vehicle" value="" class="checkbox">
+						<textarea class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description"></textarea>
+					</div>
+				</div>
+
+				<div class="form-box">
+					<label>Cloth Description:</label>
+					<textarea rows="4" cols="50" placeholder="Cloth Description"></textarea>
+				</div>
+
+				<div class="form-box">
+					<label>Date of Delivery:</label>
+					<input id="" name="" required="required" type="text" placeholder="Date of Delivery" />
+					<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+				</div>
+
+				<div class="form-box">
+					<label>Alert Day:</label>
+					<input id="" name="" required="required" type="text" placeholder="Alert Day" />
+				</div>
+
+				<div class="form-box">
+					<label>Amount:</label>
+					<input id="" name="" required="required" type="text" placeholder="Amount" />
+				</div>
+
+			</div>
+
+			<div class="form-section-box" ng-if="vm.clothtype">
+				<div class="form-heading">Measurement</div>
+				<div class="measurement-li-box">
+					<ul ng-repeat="type in vm.clothtype">
+						<li>{{type}} <span><input class="measurement-input" name="" required="required" type="text" placeholder="Add Size" /><img src="assets/images/inc-icon.png" alt=""></span></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="submit-button">
+				<input type="submit" value="Save" />
+			</div>
+			<div class="cancel-button">
+				<input type="submit" value="Cancel" />
+			</div>
+
+		</div>
+		<!-- Left Form Section End Here -->
+
+		
+
+		<!-- Right Address Section Start Here -->
+		<div class="order-form-right-address-section">
+			<div class="form-address-heading-rt">Customer Billing Address <span><a href="#"><img src="assets/images/edit-icon.png" title="Edit" alt="Edit"></a></span></div>
+			<p>
+				A-1, NRI Tower,<br> Opp. Pride Hotel, Judges Bunglow Road,<br> Satellite, Ahmedabad-380054. India<br> Phone : 079-40372200
+			</p>
+		</div>
+		<!-- Right Address Section End Here -->
+	</div>
+
+
+
+	
+
+	<!-- Footer Section Start Here -->
+						<div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+						<!-- Footer Section End Here -->
+					</div>
