@@ -36,9 +36,13 @@
 
 			 <div class="form-box">
 			  <label>Measurement:</label>
-        <input id="" name="" required="required" type="text" placeholder="Measurement" class="clothmeasurementinput"/>
-				<span class="clothaddbutton"><a href="">Add</a></span>
+        <input id="" name="" required="required" type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
+				<span class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></span>
 			 </div>
+
+			 <div class="form-box" ng-repeat="data in vm.selectMeasurement" style="margin-left:161px;">
+				 {{data}}
+			  </div>
 
 			 <div class="form-box">
 				  <label>isActive:</label>

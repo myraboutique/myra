@@ -9,4 +9,11 @@ function newclothController($resource) {
   // if(!vm.token){
   //   window.location = '#/login';
   // }
+  vm.measurement = measuremet;
+  vm.selectMeasurement = [];
+
+  function measuremet(data){
+    vm.selectMeasurement.push(data);
+    vm.measu = "";
+  }
 }

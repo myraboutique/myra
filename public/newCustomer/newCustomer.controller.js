@@ -4,7 +4,7 @@ angular.module('myra')
 newCustomerController.$inject = ['$resource'];
 
 function newCustomerController($resource) {
-
+ 
   var vm = this ;
   vm.check = check ;
   vm.cancel = cancel;
@@ -35,6 +35,7 @@ function newCustomerController($resource) {
 
       customerdetails.$save(function(info){
        console.log(info) ;
+      
        })
       window.location = '#/customerdetails';
    }
