@@ -98,6 +98,15 @@
       controller: 'editController',
       controllerAs: 'vm'
     })
+    .state('edit', {
+    url: '/edit',
+    templateUrl: 'customerdetails/edit/edit.html',
+    controller: 'editController',
+    controllerAs: 'vm',
+    params: {
+      'referer': null
+                    }
+  })
     .state('home', {
       url: '/home',
       templateUrl: 'home/home.html',

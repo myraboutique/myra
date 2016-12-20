@@ -52,6 +52,15 @@ body{margin:0px; padding:0px; background:#292929;font-family: 'Open Sans', sans-
 input {
     outline: none;
 }
+.inputdatipicker
+{
+  width:100% !important;
+}
+.datepickerbx
+{
+  width:50% ;
+}
+._720kb-datepicker-calendar{margin-top: 34px !important;}
 .container{width:1170px; margin: 0 auto; display: block;}
 .main-header{width:100%; display: block; background: #fff; height:70px;}
 .logo{float: left; margin: 13px 0 0 30px;}

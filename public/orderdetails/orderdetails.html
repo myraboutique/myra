@@ -80,19 +80,20 @@
 				<div class="form-box">
 					<label>Customization:</label>
 					<div class="customization-check-box">
-						<input type="checkbox" name="vehicle" value="" class="checkbox">
-						<textarea class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description"></textarea>
+						<input type="checkbox" ng-model="vm.checked" name="vehicle" value="" class="checkbox">
+						<textarea ng-disabled="!vm.checked" class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description"></textarea>
 					</div>
 				</div>
 
 				<div class="form-box">
 					<label>Cloth Description:</label>
-					<textarea rows="4" cols="50" placeholder="Cloth Description"></textarea>
+					<textarea  rows="4" cols="50" placeholder="Cloth Description"></textarea>
 				</div>
 
 				<div class="form-box">
 					<label>Date of Delivery:</label>
-					<input id="" name="" required="required" type="text" placeholder="Date of Delivery" />
+					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+					<input class="inputdatipicker" id="" name="" required="required" type="text" placeholder="Date of Delivery" />
 					<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
 				</div>
 
@@ -128,10 +129,10 @@
 			</div>
 		</div><br/><br/>
 		<!-- Left Form Section End Here -->
-		
+
 		<!-- Left Form Section Start Here -->
 		<div class="order-form-left-section" ng-if="vm.next1">
-		
+
 			<div class="form-section-box">
 				<div class="form-heading">Cloth Description</div>
 
@@ -211,7 +212,7 @@
 
 		<!-- Left Form Section Start Here -->
 		<div class="order-form-left-section" ng-if="vm.next2">
-		
+
 			<div class="form-section-box">
 				<div class="form-heading">Cloth Description</div>
 
@@ -291,7 +292,7 @@
 
 			<!-- Left Form Section Start Here -->
 		<div class="order-form-left-section" ng-if="vm.next3">
-		
+
 			<div class="form-section-box">
 				<div class="form-heading">Cloth Description</div>
 
@@ -371,7 +372,7 @@
 
 			<!-- Left Form Section Start Here -->
 		<div class="order-form-left-section" ng-if="vm.next4">
-		
+
 			<div class="form-section-box">
 				<div class="form-heading">Cloth Description</div>
 
@@ -446,7 +447,7 @@
 		</div>
 		<!-- Left Form Section End Here -->
 
-		
+
 
 		<!-- Right Address Section Start Here -->
 		<div class="order-form-right-address-section">
@@ -460,7 +461,7 @@
 
 
 
-	
+
 
 	<!-- Footer Section Start Here -->
 						<div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>

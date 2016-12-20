@@ -1,118 +1,125 @@
-  <div class="container">
+<div class="container">
 
-	<!-- Header Section Start Here -->
-   <div class="main-header">
-    <div class="logo"><img src="images/logo.png" alt=""></div>
-			<div id='cssmenu'>
-	  <ul>
-	    <li><a href='#/home' ><span>Home</span></a></li>
-			<li><a href='#/customerdetails'><span>Customer Details</span></a></li>
-			<li><a href='#/order'><span>Order Form</span></a></li>
-			<li><a href='#/alert'><span>Alerts</span></a></li>
-	    <li class='active has-sub'><a href=''><span>Settings</span></a>
-	      <ul>
-	        <li><a href='#/register'><span>Add User</span></a></li>
-	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
-					<li><a href='#/materialtype'><span>Material Type</span></a></li>
-	      </ul>
-	    </li>
-	    <li><a href='#/logout'><span>Logout</span></a></li>
-	  </ul>
-	</div>
-	 </div>
-	 <!-- Header Section End Here -->
+<!-- Header Section Start Here -->
+ <div class="main-header">
+  <div class="logo"><img src="assets/images/logo.png" alt=""></div>
+  <div class="navbar">
+   <ul>
+   <li><a href="#/home">Home</a></li>
+    <li><a href="#/customerdetails" class="active">Customer Details</a></li>
+    <li><a href="#/order">Order Form</a></li>
+    <li><a href="#/alert">Alerts</a></li>
+    <li><a href="#/contactas">Contact Us</a></li>
+    <li><a href="#/logout">Logout</a></li>
+   </ul>
+  </div>
+ </div>
+ <!-- Header Section End Here -->
 
-	 <div class="inner-heading-bar">Add New Customer</div>
+ <div class="inner-heading-bar">Add New Customer</div>
 
-	 <div class="main-contant-part">
-		<!-- Left Form Section Start Here -->
-    <div class="order-form-left-section add-new-form">
-      <div class="form-section-box">
-       <div class="form-heading">Basic Information</div>
+<div class="main-contant-part">
+  <!-- Left Form Section Start Here -->
+  <div class="order-form-left-section add-new-form">
+    <div class="form-section-box">
+     <div class="form-heading">Basic Information</div>
 
-			 <div class="form-box">
-			  <label>Customer Name:</label>
-			  <input id="" name="" required="required" type="text" placeholder="Customer Name" />
-		   </div>
+     <div class="form-box">
+      <label>Customer Name:</label>
+      <input id="" ng-model="vm.customerName" name="" required="required" type="text" placeholder="Customer Name" />
+     </div>
 
-			 <div class="form-box">
-			  <label>Gender:</label>
-				<select class="birthdate">
-				  <option value="volvo">Male</option>
-				  <option value="saab">Female</option>
-			  </select>
-			 </div>
-
-			 <div class="form-box">
-			  <label>Birth Date:</label>
-			  <input id="" name="" required="required" type="text" placeholder="Select Date" />
-				<img class="date-icon-right" src="images/date-icon.png" alt="">
-       </div>
-
-			 <div class="form-box">
-			  <label>Anniversary:</label>
-			  <input id="" name="" required="required" type="text" placeholder="Select Date" />
-				<img class="date-icon-right" src="images/date-icon.png" alt="">
-       </div>
-
-			</div>
+     <div class="form-box">
+      <label>Gender:</label>
+      <select class="birthdate" ng-model="vm.gender">
+        <option value="volvo">Male</option>
+        <option value="saab">Female</option>
+      </select>
+     </div>
 
 
-			<div class="form-section-box">
-			 <div class="form-heading">Contact Information</div>
+     <div class="form-box">
 
-			 <div class="form-box">
-			  <label>Mobile Number:</label>
-			  <input id="" name="" required="required" type="text" placeholder="Mobile Number" />
-		   </div>
+      <label>Birth Date:</label>
+    <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+      <input class="inputdatipicker" id="" ng-model="vm.birthDate" name="" required="required" type="text" placeholder="Select Date" />
+      <img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+    </datepicker>
 
-			 <div class="form-box">
-			  <label>Phone Number:</label>
-			  <input id="" name="" required="required" type="text" placeholder="Phone Number" />
-			 </div>
+     </div>
 
-			 <div class="form-box">
-			  <label>Email Id:</label>
-			  <input id="" name="" required="required" type="text" placeholder="Email Id" />
-			 </div>
+     <div class="form-box">
+      <label>Anniversary:</label>
+     <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+      <input class="inputdatipicker" id="" ng-model="vm.anniversaryDate" name="" required="required" type="text" placeholder="Select Date" />
+      <img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+    </datepicker>
+     </div>
 
-			 <div class="form-box">
-			  <label>Address:</label>
-			  <textarea rows="4" cols="50" placeholder="Address"></textarea>
-			 </div>
-
-			 <div class="form-box">
-			  <label>Billing Address:</label>
-			  <div class="customization-check-box">
-				 <input type="checkbox" name="vehicle" value="" class="checkbox" ><span class="billing-addres-checkbox">Same as abobe</span>
-				 <input type="checkbox" name="vehicle" value="" class="checkbox" ><span class="billing-addres-checkbox">Other</span>
-				 <textarea class="customization-check-box-textarea" rows="4" cols="50" placeholder=""></textarea>
-				</div>
-			 </div>
-
-			 <div class="form-box">
-			  <label>Remarks:</label>
-			  <textarea rows="4" cols="50" placeholder="Remarks Description"></textarea>
-			 </div>
-
-			</div>
-
-      <div class="add-new-btm-btn">
-			<div class="submit-button">
-				<input type="submit" value="Save" />
-			</div>
-			<div class="cancel-button">
-				<input type="submit" value="Cancel" />
-			</div>
-	   </div>
+    </div>
 
 
-		</div>
-		<!-- Left Form Section End Here -->
+    <div class="form-section-box">
+     <div class="form-heading">Contact Information</div>
+
+     <div class="form-box">
+      <label>Mobile Number:</label>
+      <input id="" ng-model="vm.mobileNumber" name="" required="required" type="text" placeholder="Mobile Number" />
+     </div>
+
+     <div class="form-box">
+      <label>Phone Number:</label>
+      <input id="" ng-model="vm.phoneNumber" name="" required="required" type="text" placeholder="Phone Number" />
+     </div>
+
+     <div class="form-box">
+      <label>Email Id:</label>
+      <input id="" ng-model="vm.email" name="" required="required" type="text" placeholder="Email Id" />
+     </div>
+
+     <div class="form-box">
+      <label>Address:</label>
+      <textarea ng-model="vm.address" rows="4" cols="50" placeholder="Address"></textarea>
+     </div>
+
+     <div class="form-box">
+      <label>Billing Address:</label>
+      <div class="customization-check-box">
+       <input type="checkbox" ng-model="vm.sameasabove" name="vehicle" value="" class="checkbox">
+           <span class="billing-addres-checkbox">Same as above</span>
+       <input type="checkbox" ng-model="vm.other" name="vehicle" value="" class="checkbox">
+           <span class="billing-addres-checkbox">Other</span>
+       <textarea ng-if="vm.sameasabove" ng-model="vm.address" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
+
+       </textarea>
+       <textarea ng-if="!vm.sameasabove" ng-model="vm.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
+       </textarea>
+      </div>
+     </div>
+
+     <div class="form-box">
+      <label>Remarks:</label>
+      <textarea ng-model="vm.remarks" rows="4" cols="50" placeholder="Remarks Description"></textarea>
+     </div>
+
+    </div>
+
+    <div class="add-new-btm-btn">
+    <div class="submit-button">
+      <input type="submit" value="Save" ng-click="vm.check()" />
+    </div>
+    <div class="cancel-button">
+      <input type="submit" value="Cancel" ng-click="vm.cancel()"/>
+    </div>
+   </div>
 
 
-	 </div>
-	 <!-- Footer Section Start Here -->
-	 <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
-	 <!-- Footer Section End Here -->
-	</div>
+  </div>
+  <!-- Left Form Section End Here -->
+
+
+ </div>
+ <!-- Footer Section Start Here -->
+ <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+ <!-- Footer Section End Here -->
+</div>

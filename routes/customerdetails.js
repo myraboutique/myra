@@ -6,7 +6,7 @@ module.exports = (function(){
 
     m.route('/api/customerdetails')
       .get(api.GET)
-      .post(api.POST);
-
+      .post(api.POST)
+      .put(api.PUT);
     return m;
 })();

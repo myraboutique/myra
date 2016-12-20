@@ -9,7 +9,8 @@
     'ngResource',
     // 'ngStorage',
     // 'hSweetAlert',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    '720kb.datepicker'
     ]);
 
 })();

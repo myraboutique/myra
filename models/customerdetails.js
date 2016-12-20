@@ -4,22 +4,22 @@ var db = require('../core/db');
 var Sequelize = require('sequelize');
 
 var CustomerDetails = db.define('customerdetails', {
-    id: {
-        type: Sequelize.INTEGER,
-        unique: true,
-        autoIncrement: true,
-        primaryKey: true,
-    },
-    name: Sequelize.STRING,
-    gender: Sequelize.STRING,
-    birthdate: Sequelize.DATEONLY,
-    anniverysarydate: Sequelize.DATEONLY,
-    mobilenumber: Sequelize.BIGINT,
-    phonenumber: Sequelize.BIGINT,
-    emailid: Sequelize.STRING,
-    address: Sequelize.STRING,
-    billingaddress: Sequelize.STRING,
-    remark: Sequelize.STRING
+  id: {
+      type: Sequelize.INTEGER,
+      unique: true,
+      autoIncrement: true,
+      primaryKey: true,
+  },
+  customerName : Sequelize.STRING,
+  gender : Sequelize.STRING,
+  birthDate : Sequelize.STRING,
+  anniversaryDate : Sequelize.STRING,
+  mobileNumber : Sequelize.BIGINT,
+  phoneNumber : Sequelize.BIGINT,
+  email : Sequelize.STRING,
+  address : Sequelize.STRING,
+  billingAddress : Sequelize.STRING,
+  remarks : Sequelize.STRING,
 }, {
         timestamps: false
     });
