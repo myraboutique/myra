@@ -38,6 +38,12 @@
       controller: 'addorderController',
       controllerAs: 'vm'
     })
+    .state('editorder', {
+      url: '/editorder/:data',
+      templateUrl: 'orderdetails/editorder/editorder.html',
+      controller: 'editorderController',
+      controllerAs: 'vm'
+    })
     .state('logout', {
       url: '/logout',
       templateUrl: 'logout/logout.html',

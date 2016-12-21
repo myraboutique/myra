@@ -74,7 +74,6 @@ input {
 .paging ul li{
 list-style: none;
 display: inline;
-padding: 0 5px 0 5px;
 }
 .paging ul li a{ text-decoration: none;}
 
