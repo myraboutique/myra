@@ -11,7 +11,7 @@
     // 'hSweetAlert',
     'ui.bootstrap',
     '720kb.datepicker',
-    'ui.bootstrap'
+    'angularUtils.directives.dirPagination'
     ]);
 
 })();

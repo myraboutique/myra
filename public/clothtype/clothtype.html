@@ -39,8 +39,9 @@
 						<th>Type</th>
 						<th>Measurement</th>
 					</tr>
-					<tr ng-repeat="data in vm.type">
-						<td class="top-purpal-color-row2"><a ui-sref="editclothtype({data:'{{data}}'})" class="customer-name-link">{{data.title}}</a></td>
+          <!-- ng-repeat="data in vm.type"  -->
+					<tr dir-paginate="data in vm.type|itemsPerPage:10">
+						<td class="top-purpal-color-row2">{{data.title}}</td>
 						<td class="top-purpal-color-row2">{{data.measurement}}</td>
 					</tr>
 
@@ -48,6 +49,13 @@
 		 </div>
 		</div>
 		<!-- Customer Details page Section End Here -->
+    <div class="paging">
+     <dir-pagination-controls
+                max-size="10"
+               direction-links="true"
+               boundary-links="true" >
+       </dir-pagination-controls>
+      </div>
 	 </div>
 	 <!-- Footer Section Start Here -->
 	 <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>

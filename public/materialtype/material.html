@@ -39,8 +39,8 @@
         <th>Material Type</th>
         <!--<th>Action</th>-->
       </tr>
-
-      <tr ng-repeat="newdata in vm.materialdata">
+<!-- ng-repeat="newdata in vm.materialdata"  -->
+      <tr dir-paginate="newdata in vm.materialdata|itemsPerPage:10" >
         <td data-th="Material Type: " class="top-purpal-color-row2">{{newdata.materialtype}}</td>
         <!--<td data-th="Action: " class="top-purpal-color-row2">{{newdata.active}}</td>-->
       </tr>
@@ -48,6 +48,13 @@
    </div>
   </div>
   <!-- Customer Details page Section End Here -->
+  <div class="paging">
+   <dir-pagination-controls
+              max-size="10"
+             direction-links="true"
+             boundary-links="true" >
+     </dir-pagination-controls>
+    </div>
  </div>
  <!-- Footer Section Start Here -->
  <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
