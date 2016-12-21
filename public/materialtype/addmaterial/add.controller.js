@@ -20,7 +20,7 @@ function materialcancel()
     window.location = "#/materialtype"
   }
  function materialsave()
- {
+ { console.log("inside save function")
    var addmaterial = new AddMaterial();
     if(vm.active)
     {
@@ -35,7 +35,7 @@ function materialcancel()
    addmaterial.$save(function(info){
     console.log(info) ;
     })
-
+ window.location = "#/materialtype"
  }
 
 }

@@ -13,7 +13,7 @@ module.exports = (function()
      db.sync().then(function ()
       {
         models.findAll().then(function (info)
-        {
+        {  
             res.json(info);
         });
       });
