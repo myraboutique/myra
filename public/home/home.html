@@ -9,18 +9,18 @@
     </span>
 		<div class="navbar">
      <ul>
-      <li><a href="#" class="active">Home</a></li>
-			<li><a href="#">Customer Details</a></li>
-			<li><a href="#">Order Form</a></li>
-			<li><a href="#">Alerts</a></li>
-			<li><a href="#">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
+      <li><a href="#/home" class="active">Home</a></li>
+			<li><a href="#/customerdetails">Customer Details</a></li>
+			<li><a href="#/order">Order Form</a></li>
+			<li><a href="#/alert">Alerts</a></li>
+			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 				<ul>
-	        <li><a href='#'><span>Add User</span></a></li>
-	        <li><a href='#'><span>Cloth Type</span></a></li>
-					<li><a href='#'><span>Material Type</span></a></li>
+	        <li><a href='#/register'><span>Add User</span></a></li>
+	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
+					<li><a href='#/materialtype'><span>Material Type</span></a></li>
 	      </ul>
 			</li>
-			<li><a href="#">Logout</a></li>
+			<li><a href="#/logout">Logout</a></li>
 		 </ul>
 		</div>
 
@@ -57,3 +57,18 @@
 	 <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
 	 <!-- Footer Section End Here -->
 	</div>
+
+	     <script type="text/javascript">
+         $(document).ready(function(e) {
+          $(".menu-toggle").click(function(){
+	        $(".navbar").slideToggle()
+
+	        })
+	        $(".navbar ul li").click(function(){
+		      $(this).find("ul").slideToggle()
+		      $(this).toggleClass("active");
+
+		   })
+
+});
+</script>

@@ -22,7 +22,7 @@ function resetpasswordController($resource,$http) {
           function(response){
             vm.token.password = vm.newpassword;
             localStorage.setItem('token',JSON.stringify(vm.token));
-            window.location = '#/order';
+            window.location = '#/register';
         },
         function(err){
           console.log(err);
