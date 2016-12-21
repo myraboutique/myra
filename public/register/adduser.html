@@ -55,7 +55,12 @@
 
 			 <div class="form-box">
 			  <label>Password:</label>
-			     <input id="" name="" required="required" ng-model="vm.password" type="password" placeholder="Password" />
+			     <input id="" name="" required="required"  type="password" placeholder="Password" />
+       </div>
+
+			  <div class="form-box">
+			  <label>Confirm Password:</label>
+			     <input id="" name="" required="required" ng-model="vm.password" type="password" placeholder="Confirm Password" />
        </div>
 
 
@@ -74,7 +79,7 @@
             <input type="submit" value="Submit" class="register-submit-btn" ng-click="vm.submit()"/>
  					</div>
 					<div class="cancel-button">
-            <input type="submit" value="Cancel" class="register-cancel-btn" />
+            <input type="submit" value="Cancel" class="register-cancel-btn" ui-sref="register"/>
  					</div>
 				</div>
 

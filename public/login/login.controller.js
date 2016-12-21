@@ -16,7 +16,7 @@ function loginController($resource) {
     login.$save(function(info){
       if(info.email){
         localStorage.setItem('token',JSON.stringify(info));
-        window.location = '#/order';
+        window.location = '#/home';
       } else {
         swal(info.status);
       } 
