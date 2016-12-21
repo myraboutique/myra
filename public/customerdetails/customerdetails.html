@@ -1,62 +1,77 @@
 <div class="container">
 
 	<!-- Header Section Start Here -->
-   <div class="main-header">
-    <div class="logo"><img src="assets/images/logo.png" alt=""></div>
-	<span class="menu-toggle">
+	<div class="main-header">
+		<div class="logo"><img src="assets/images/logo.png" alt=""></div>
+		<span class="menu-toggle">
       <i></i>
       <i></i>
       <i></i>
     </span>
 		<div class="navbar">
-     <ul>
-      <li><a href="#/home" >Home</a></li>
-			<li><a href="#/customerdetails"  class="active">Customer Details</a></li>
-			<li><a href="#/order">Order Form</a></li>
-			<li><a href="#/alert">Alerts</a></li>
-			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
-				<ul>
-	        <li><a href='#/register'><span>Add User</span></a></li>
-	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
-					<li><a href='#/materialtype'><span>Material Type</span></a></li>
-	      </ul>
-			</li>
-			<li><a href="#/logout">Logout</a></li>
-		 </ul>
+			<ul>
+				<li><a href="#/home">Home</a></li>
+				<li><a href="#/customerdetails" class="active">Customer Details</a></li>
+				<li><a href="#/order">Order Form</a></li>
+				<li><a href="#/alert">Alerts</a></li>
+				<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
+					<ul>
+						<li><a href='#/register'><span>Add User</span></a></li>
+						<li><a href='#/clothtype'><span>Cloth Type</span></a></li>
+						<li><a href='#/materialtype'><span>Material Type</span></a></li>
+					</ul>
+				</li>
+				<li><a href="#/logout">Logout</a></li>
+			</ul>
 		</div>
-	 </div>
-	 <!-- Header Section End Here -->
+	</div>
+	<!-- Header Section End Here -->
 
-	 <div class="inner-heading-bar">Customer Details</div>
+	<div class="inner-heading-bar">Customer Details</div>
 
-	 <div class="main-contant-part">
+	<div class="main-contant-part">
 		<!-- Customer Details page Section Start Here -->
 		<div class="customer-detail-page-contant">
-     <div class="right-add-new-button"><a href="#/newcustomer">Add New</a></div>
-		 <div class="details-table">
-			 <table class="table-part" border="0" cellspacing="0" cellpadding="0">
+			<div class="right-add-new-button"><a href="#/newcustomer">Add New</a></div>
+			<p>
+   <div class="search-box-main"><input type="text" ng-model="vm.search.customerName" placeholder="Search by Name"></div>
+</p>
+			<div class="details-table">
+				<table class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
-					<th> Name</th>
-					<th> Email Id</th>
-					<th>Contact Number</th>
-					<th>Billing Address</th>
+						<th>
+							<a href="" ng-click="vm.order('Name')">
+								<font>Name</font>&nbsp
+								<span ng-show="vm.predicate == 'Name'">
+                <span ng-show="!vm.reverse">
+                    <img src="assets/images/up-arrow-1.png" alt="Zika Report">
+                </span>
+								<span ng-show="vm.reverse">
+                   <img src="assets/images/down-arrow-1.png" alt="Zika Report">
+                </span>
+								</span>
+							</a>
+						</th>
+						<th> Email Id</th>
+						<th>Contact Number</th>
+						<th>Billing Address</th>
 					</tr>
 
-    <tr ng-repeat="newdata in vm.data">
-        <td data-th="Customer Name: " class="top-purpal-color-row2"><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.customerName}}</a></td>
-        <td data-th="Customer Email Id: " class="top-purpal-color-row2">{{newdata.email}}</td>
-        <td data-th="Contact Number: " class="top-purpal-color-row2">{{newdata.mobileNumber}}</td>
-        <td data-th="Billing Address: " class="top-purpal-color-row2">{{newdata.billingAddress}}</td>
-    </tr>
-</table>
-		 </div>
+					<tr ng-repeat="newdata in vm.data | orderBy:vm.predicate:vm.reverse | filter:vm.search">
+						<td data-th="Customer Name: " class="top-purpal-color-row2"><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.customerName}}</a></td>
+						<td data-th="Customer Email Id: " class="top-purpal-color-row2">{{newdata.email}}</td>
+						<td data-th="Contact Number: " class="top-purpal-color-row2">{{newdata.mobileNumber}}</td>
+						<td data-th="Billing Address: " class="top-purpal-color-row2">{{newdata.billingAddress}}</td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<!-- Customer Details page Section End Here -->
-	 </div>
-	 <!-- Footer Section Start Here -->
-	 <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
-	 <!-- Footer Section End Here -->
 	</div>
+	<!-- Footer Section Start Here -->
+	<div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+	<!-- Footer Section End Here -->
+</div>
 <script type="text/javascript">
          $(document).ready(function(e) {
           $(".menu-toggle").click(function(){

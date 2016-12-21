@@ -9,6 +9,7 @@ module.exports = (function () {
     m.route('/api/measurement')
         .get(api.GET)
         .post(api.POST)
+        .put(api.UPDATE);
 
     return m;
 })();

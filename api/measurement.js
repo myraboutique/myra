@@ -6,7 +6,10 @@ module.exports = (function(){
           db.measurement.find(req, res);
         },
         POST : function(req,res,next){
-            db.measurement.create(req,res);
+            db.measurement.Create(req,res);
+        },
+        UPDATE: function(req,res,next){
+            db.measurement.Update(req,res);
         }       
     };
     return m;

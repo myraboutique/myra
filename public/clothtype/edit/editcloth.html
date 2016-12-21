@@ -27,7 +27,7 @@
 	 </div>
 	 <!-- Header Section End Here -->
 
-	 <div class="inner-heading-bar">Add New ClothType</div>
+	 <div class="inner-heading-bar">Edit ClothType</div>
 
 	 <div class="main-contant-part minpageheight">
 		<!-- Left Form Section Start Here -->
@@ -36,12 +36,12 @@
      
 			 <div class="form-box">
 			  <label>Cloth Type</label>
-			  <input id="" name="" required="required" type="text" placeholder="Cloth Type" />
+			  <input id="" name="" required="required" type="text" ng-model="vm.clothtype.title" placeholder="Cloth Type" />
 		   </div>
 
 			 <div class="form-box">
 			  <label>Measurement:</label>
-        <input id="" name="" required="required" type="text" placeholder="Measurement" class="clothmeasurementinput"/>
+        <input id="" name="" required="required" type="text" ng-model="vm.clothtype.measurement" placeholder="Measurement" class="clothmeasurementinput"/>
 				<span class="clothaddbutton"><a href="">Add</a></span>
 			 </div>
 

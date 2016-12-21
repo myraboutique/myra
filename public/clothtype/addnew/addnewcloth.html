@@ -36,7 +36,7 @@
      
 			 <div class="form-box">
 			  <label>Cloth Type</label>
-			  <input id="" name="" required="required" type="text" placeholder="Cloth Type" />
+			  <input id="" name="" required="required" type="text" ng-model="vm.title" placeholder="Cloth Type" />
 		   </div>
 
 			 <div class="form-box">
@@ -51,7 +51,7 @@
 
 			 <div class="form-box">
 				  <label>isActive:</label>
-				 <input type="checkbox" class="billing-addres-checkbox clothcheck"/>
+				 <input type="checkbox" class="billing-addres-checkbox clothcheck" ng-model="vm.isActive"/>
 			 
 			 </div>
          
@@ -61,7 +61,7 @@
 
       <div class="add-new-btm-btn">
 			<div class="submit-button">
-				<input type="submit" value="Save" />
+				<input type="submit" value="Save" ng-click="vm.addClothtype()"/>
 			</div>
 			<div class="cancel-button">
 				<input type="submit" value="Cancel" ui-sref="clothtype"/>

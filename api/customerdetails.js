@@ -10,7 +10,10 @@ module.exports = (function(){
     },
     PUT : function(req,res,next){
         db.customerdetails.update(req,res);
-      }
+      },
+     FindId : function(req,res,next){
+       db.customerdetails.findid(req,res);
+     } 
   };
   return m;
 })();
