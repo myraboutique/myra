@@ -16,7 +16,8 @@ function newCustomerController($resource) {
       }
 
    function check(){
-
+     vm.formSubmitted = true;
+     if(form.$valid){
      var customerdetails = new CustomerDetails() ;
      customerdetails.customerName = vm.customerName ;
      customerdetails.gender = vm.gender ;
@@ -39,6 +40,6 @@ function newCustomerController($resource) {
        })
       window.location = '#/customerdetails';
    }
-
+   }
 
 }
