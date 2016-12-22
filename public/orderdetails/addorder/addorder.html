@@ -89,7 +89,7 @@
 					<label>Customization:</label>
 					<div class="customization-check-box">
 						<input type="checkbox" ng-model="vm.order.checked" name="vehicle" value="" class="checkbox">
-						<textarea ng-disabled="!vm.checked" ng-model="vm.order.customization" class="customization-check-box-textarea" rows="4" cols="50"
+						<textarea ng-disabled="!vm.order.checked" ng-model="vm.order.customization" class="customization-check-box-textarea" rows="4" cols="50"
 							placeholder="Customization Description"></textarea>
 					</div>
 				</div>
@@ -102,17 +102,16 @@
 				<div class="form-box">
 					<label>Date of Order:</label>
 					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-						<input class="inputdatipicker" ng-model="vm.order.orderdate | date:'dd-MM-yyyy'" id="" name="" required="required" type="text" placeholder="Date of Order"
-						/>
+						<input class="inputdatipicker" ng-model="vm.order.orderdate" id="" name="" required="required" type="text" placeholder="Date of Order"/>
 						<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
 				</div>
 
 				<div class="form-box">
 					<label>Date of Delivery:</label>
 					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-						<input class="inputdatipicker" ng-model="vm.order.date" id="" name="" required="required" type="text" placeholder="Date of Delivery"
-						/>
+						<input class="inputdatipicker" ng-model="vm.order.date" id="" name="" ng-change="vm.change()" required="required" type="text" placeholder="Date of Delivery"/>
 						<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+						<span ng-if="vm.order.orderdate > vm.order.date">can't select</span>
 				</div>
 
 				<div class="form-box">
@@ -182,7 +181,7 @@
 					<label>Customization:</label>
 					<div class="customization-check-box">
 						<input type="checkbox" ng-model="vm.order1.checked" name="vehicle" value="" class="checkbox">
-						<textarea ng-disabled="!vm.checked" ng-model="vm.order1.customization" class="customization-check-box-textarea" rows="4"
+						<textarea ng-disabled="!vm.order1.checked" ng-model="vm.order1.customization" class="customization-check-box-textarea" rows="4"
 							cols="50" placeholder="Customization Description"></textarea>
 					</div>
 				</div>
@@ -275,7 +274,7 @@
 					<label>Customization:</label>
 					<div class="customization-check-box">
 						<input type="checkbox" ng-model="vm.order2.checked" name="vehicle" value="" class="checkbox">
-						<textarea ng-disabled="!vm.checked" ng-model="vm.order2.customization" class="customization-check-box-textarea" rows="4"
+						<textarea ng-disabled="!vm.order2.checked" ng-model="vm.order2.customization" class="customization-check-box-textarea" rows="4"
 							cols="50" placeholder="Customization Description"></textarea>
 					</div>
 				</div>
@@ -367,7 +366,7 @@
 					<label>Customization:</label>
 					<div class="customization-check-box">
 						<input type="checkbox" ng-model="vm.order3.checked" name="vehicle" value="" class="checkbox">
-						<textarea ng-disabled="!vm.checked" ng-model="vm.order3.customization" class="customization-check-box-textarea" rows="4"
+						<textarea ng-disabled="!vm.order3.checked" ng-model="vm.order3.customization" class="customization-check-box-textarea" rows="4"
 							cols="50" placeholder="Customization Description"></textarea>
 					</div>
 				</div>
@@ -459,7 +458,7 @@
 					<label>Customization:</label>
 					<div class="customization-check-box">
 						<input type="checkbox" ng-model="vm.order4.checked" name="vehicle" value="" class="checkbox">
-						<textarea ng-disabled="!vm.checked" ng-model="vm.order4.customization" class="customization-check-box-textarea" rows="4"
+						<textarea ng-disabled="!vm.order4.checked" ng-model="vm.order4.customization" class="customization-check-box-textarea" rows="4"
 							cols="50" placeholder="Customization Description"></textarea>
 					</div>
 				</div>

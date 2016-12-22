@@ -45,6 +45,20 @@ function addorderController($resource) {
     vm.material = info;
   });
 
+  vm.change = change;
+
+  function change(){
+    //alert(vm.order.orderdate.getTime());
+    //alert(vm.order.date.getTime());
+    var order = new Date(vm.order.orderdate);
+    var delevery = new Date(vm.order.date);
+    if(order.getTime() <= delevery.getTime()){
+      alert("is max")
+    } else {
+      alert("not")
+    }
+  }
+
   function selectCustomer(info){
     vm.seleCust = info;
     vm.contact = info.mobileNumber;
