@@ -27,18 +27,18 @@
 	 </div>
 	 <!-- Header Section End Here -->
 
-	 <div class="inner-heading-bar">Cloth Type</div>
+	 <div class="inner-heading-bar">Order Details</div>
 
 	 <div class="main-contant-part minpageheight">
 		<!-- Customer Details page Section Start Here -->
 		<div class="customer-detail-page-contant">
-     <div class="right-add-new-button"><a href="#/addorder">Add New</a></div>
+     <div class="right-add-new-button"><a href="#/addorder">Order Form</a></div>
 		 <div class="details-table">
 			 	<table class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
 						<th>
 								<a href="" ng-click="vm.order('customerName')">
-								<font>Name</font>&nbsp
+								<font>Customer Name</font>&nbsp
 								<span ng-show="vm.predicate == 'customerName'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -78,7 +78,7 @@
 						<th>Status</th>
 					</tr>
 					<tr ng-repeat="data in vm.type | orderBy:vm.predicate:vm.reverse">
-						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link">{{vm.customername[$index]}}</a></td>
+						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link">{{data.customerName}}</a></td>
 						<td class="top-purpal-color-row2">{{data.orderdate}}</td>
 						<td class="top-purpal-color-row2">{{data.date}}</td>
 						<td class="top-purpal-color-row2">{{data.status}}</td>

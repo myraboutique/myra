@@ -4,6 +4,8 @@ module.exports = (function () {
   var models = require('../models').login;
   var db = require('../core/db');
   var sequelize = require('sequelize');
+  var nodemailer = require('nodemailer');
+ var crypto = require('crypto'); 
 
   var m = {
     login: function (req, res, next) {
@@ -14,7 +16,7 @@ module.exports = (function () {
               status: 'User not Found!'
             });
           } else if (user.dataValues.password != req.body.password) {
-           return res.status(200).json({
+            return res.status(200).json({
               status: 'Password does not match!',
             });
           } else {
@@ -24,23 +26,23 @@ module.exports = (function () {
       });
     },
     register: function (req, res) {
-      db.sync().then(function(){
-        models.findOne({ where : {email : req.body.email}}).then(function(user){
-          if(user){
+      db.sync().then(function () {
+        models.findOne({ where: { email: req.body.email } }).then(function (user) {
+          if (user) {
             return res.status(200).json({
               status: 'user already exists'
             });
           } else {
-            db.sync().then(function(){
+            db.sync().then(function () {
               models.create({
-                name : req.body.name,
+                name: req.body.name,
                 email: req.body.email,
                 type: req.body.type,
-                password:req.body.password,
-                number:req.body.mobilenumber,
+                password: req.body.password,
+                number: req.body.mobilenumber,
                 address: req.body.address,
-                isActive:req.body.isActive
-              }).then(function(user){
+                isActive: req.body.isActive
+              }).then(function (user) {
                 res.json(user);
               })
             })
@@ -48,27 +50,81 @@ module.exports = (function () {
         })
       })
     },
-    update: function(req, res){
-      db.sync().then(function(){
+    update: function (req, res) {
+     
+      db.sync().then(function () {
         models.update(
           {
-          password : req.body.password
-        },
-        {
-          where : { id : req.body.id}
-        }
-        ).then(function(info){
+            password: req.body.password
+          },
+          {
+            where: { id: req.body.id }
+          }
+        ).then(function (info) {
           res.json(info);
         })
       })
     },
-    Find: function(req,res){
-      db.sync().then(function(){
-        models.findAll().then(function(info){
+     update1: function (req, res) {
+      db.sync().then(function () {
+        models.update(
+          {
+            password: req.body[1]
+          },
+          {
+            where: { id: req.body[0] }
+          }
+        ).then(function (info) {
           res.json(info);
         })
       })
-    }
-  };
-  return m;
+    },
+    Find: function (req, res) {
+      db.sync().then(function () {
+        models.findAll().then(function (info) {
+          res.json(info);
+        })
+      })
+    },
+    forgot: function (req, res) {
+
+      db.sync().then(function () {
+        models.findOne({ where: { email: req.body.email } }).then(function (user) {
+          console.log(req.body);
+          if (!user) {
+            return res.status(200).json({
+              status: 'User not Found!'
+            });
+          } else {
+            var transpoter = nodemailer.createTransport({
+              service: 'Gmail',
+              auth: {
+                user: 'ankurpatel1302@gmail.com',
+                pass: 'ankur1302'
+              }
+            });
+
+            var mainOptions = {
+              from: 'Ankur Patel <ankurpatel1302@gmail.com>',
+              to: req.body.email,
+              subject: 'Password Reset',
+              text: 'You are receiving this because have requested the reset of the password for your account.\n\n' +
+              'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+              'http://localhost:3000/#/password/'+user.dataValues.id+' \n\n' +
+              'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+            };
+          transpoter.sendMail(mainOptions, function (error, info) {
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('message sent');
+               res.json(user);
+            }
+          });
+        };
+      })
+    })
+  }
+};
+return m;
 })();

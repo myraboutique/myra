@@ -44,8 +44,8 @@
       <label>Gender:</label>
      <select ng-model="vm.gender" class="paragraph">
 						  <option value="">Please Select</option>
-						  <option value="male">male</option>
-              <option value="female">female</option>
+						  <option value="male">Male</option>
+              <option value="female">Female</option>
 					  </select>
      </div>
 
@@ -97,14 +97,9 @@
      <div class="form-box">
       <label>Billing Address:</label>
       <div class="customization-check-box">
-       <input type="checkbox" ng-model="vm.sameasabove" name="vehicle" value="" class="checkbox">
-           <span class="billing-addres-checkbox">Same as above</span>
        <input type="checkbox" ng-model="vm.other" name="vehicle" value="" class="checkbox">
            <span class="billing-addres-checkbox">Other</span>
-       <textarea ng-if="vm.sameasabove" ng-model="vm.address" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
-
-       </textarea>
-       <textarea ng-if="!vm.sameasabove" ng-model="vm.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
+       <textarea ng-if="vm.other" ng-model="vm.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
        </textarea>
       </div>
      </div>

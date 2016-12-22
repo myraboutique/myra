@@ -83,6 +83,12 @@
       controller: 'clothtypeController',
       controllerAs: 'vm'
     })
+     .state('password', {
+      url: '/password/:data',
+      templateUrl: 'password/password.html',
+      controller: 'passwordController',
+      controllerAs: 'vm',
+    })
     .state('addclothtype', {
       url: '/addclothtype',
       templateUrl: 'clothtype/addnew/addnewcloth.html',

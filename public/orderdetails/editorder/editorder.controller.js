@@ -14,10 +14,10 @@ function editorderController($resource,$stateParams,$http) {
   var measurement = $resource('/api/measurement');
   vm.orderform = JSON.parse($stateParams.referer);
   vm.measurement = JSON.parse(vm.orderform.measurement);
-  var customer = $resource('/api/customerdetails/:id');
-  customer.get({id:vm.orderform.customerid},function(info){
-    vm.customer = info;
-  });
+ var customer = $resource('/api/customerdetails/:id');
+ customer.get({id:vm.orderform.customerid},function(info){
+   vm.customer = info;
+ });
   
   vm.final = final;
   
@@ -33,7 +33,7 @@ function editorderController($resource,$stateParams,$http) {
   
 
   function final(){
-    vm.orderform = JSON.stringify(vm.measurement);
+    //vm.orderform.push(JSON.stringify(vm.measurement));
      $http.put('/api/orderdetails',vm.orderform)
         .then(
           function(response){

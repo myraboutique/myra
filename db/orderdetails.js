@@ -23,6 +23,8 @@ module.exports = (function(){
         models.create(
           {
           customerid : req.body.customerid,
+          customerName : req.body.customerName,
+          customeremail : req.body.customeremail,
           type :  req.body.type,
           material: req.body.material,
           color : req.body.color,
@@ -42,6 +44,7 @@ module.exports = (function(){
      
     },
     Update : function(req,res){
+      console.log(req.body);
       db.sync().then(function(){
         models.update(
           {

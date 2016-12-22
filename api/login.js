@@ -11,8 +11,14 @@ module.exports = (function(){
         Update: function(req, res, next){
             db.login.update(req,res);
         },
+        Update1: function(req, res, next){
+            db.login.update1(req,res);
+        },
         GET: function(req,res,next){
             db.login.Find(req,res);
+        },
+        forgotpassword : function(req,res,next){
+            db.login.forgot(req,res);
         }
     };
     return m;

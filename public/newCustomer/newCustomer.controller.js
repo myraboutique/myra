@@ -26,7 +26,7 @@ function newCustomerController($resource) {
      customerdetails.phoneNumber =vm.phoneNumber;
      customerdetails.email = vm.email ;
      customerdetails.address = vm.address ;
-     if(vm.sameasabove){
+     if(!vm.other){
        customerdetails.billingAddress = vm.address ;
      } else {
        customerdetails.billingAddress = vm.billingAddress ;

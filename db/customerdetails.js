@@ -71,7 +71,6 @@ module.exports = (function()
          findid : function(req,res){
            db.sync().then(function(){
              models.findOne({ where: {id:  req.params.id} }).then(function(info){
-               console.log(info.dataValues);
                res.json(info.dataValues);
              })
            })

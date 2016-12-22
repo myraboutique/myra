@@ -5,19 +5,31 @@ registerController.$inject = ['$resource'];
 
 function registerController($resource) {
   var vm = this;
+  vm.check = false;
    vm.token = JSON.parse(localStorage.getItem('token'));
   // if(!vm.token){
   //   window.location = '#/login';
   // }
  var vm = this;
   vm.submit = submit;
+  vm.confirm = confirm;
   var Register = $resource('/api/register');
 
   Register.query(function(info){
     vm.user = info;
   })
 
+  function confirm(){
+    if(vm.password1 == vm.password){
+      vm.check = false;
+    } else {
+      vm.check = true;
+    }
+  }
+
   function submit(){
+    vm.formSubmitted = true;
+    if(userform.$valid){
     var register = new Register()
     register.name = vm.name;
     register.email = vm.email;
@@ -30,5 +42,5 @@ function registerController($resource) {
       window.location = '#/register';
     });
   }
-
+  }
 }

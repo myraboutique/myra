@@ -11,6 +11,8 @@ var OrderDetails = db.define('orderdetails', {
         primaryKey: true,
     },
     customerid : Sequelize.INTEGER,
+    customerName :Sequelize.STRING,
+    customeremail : Sequelize.STRING, 
     type: Sequelize.STRING,
     material: Sequelize.STRING,
     color: Sequelize.STRING,
