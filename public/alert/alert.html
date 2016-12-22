@@ -41,7 +41,8 @@
                     <th>Order</th>
 										<th>Action</th>
                   </tr>
-                  <tr ng-repeat="data in vm.user">
+                  <!-- ng-repeat="data in vm.user" -->
+                  <tr dir-paginate="data in vm.user|itemsPerPage:10" >
                     <td data-th="Customer Name: " class="top-purpal-color-row2">{{data.customerName}}</td>
                     <td data-th="Anniversary Date: " class="top-purpal-color-row2"><input type="checkbox"  name="Anniversary Date" value="" class="checkbox" ></td>
                     <td data-th="Date of Birth: " class="top-purpal-color-row2"><input type="checkbox" name="Date of Birth" value="" class="checkbox" ></td>
@@ -52,8 +53,13 @@
  		 </div>
  		</div>
  		<!-- Customer Details page Section End Here -->
-
-
+    <div class="paging">
+     <dir-pagination-controls
+                max-size="10"
+               direction-links="true"
+               boundary-links="true" >
+       </dir-pagination-controls>
+      </div>
 	 </div>
 	 <!-- Footer Section Start Here -->
 	 <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>

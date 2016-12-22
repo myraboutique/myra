@@ -60,6 +60,24 @@ input {
 {
   width:50% ;
 }
+.paging
+{
+  width:200px;
+  display:table;
+  margin:0 auto;
+  text-align: center;
+}
+.paging ul{
+  margin:20px 0 0 0;
+  padding:0px;
+}
+.paging ul li{
+list-style: none;
+display: inline;
+padding: 0 5px 0 5px;
+}
+.paging ul li a{ text-decoration: none;}
+
 ._720kb-datepicker-calendar{margin-top: 34px !important;}
 .container{width:1170px; margin: 0 auto; display: block;}
 .main-header{width:100%; display: inline-block; background: #fff;}
