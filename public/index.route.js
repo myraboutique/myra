@@ -39,10 +39,13 @@
       controllerAs: 'vm'
     })
     .state('editorder', {
-      url: '/editorder/:data',
+      url: '/editorder',
       templateUrl: 'orderdetails/editorder/editorder.html',
       controller: 'editorderController',
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+       params: {
+      'referer': null
+            }
     })
     .state('logout', {
       url: '/logout',

@@ -12,6 +12,7 @@ function newclothController($resource) {
   vm.measurement = measuremet;
   vm.selectMeasurement = [];
   vm.addClothtype = addClothtype;
+  vm.isActive = true;
   var Clothtype = $resource('/api/measurement');
 
   function measuremet(data){

@@ -38,6 +38,7 @@ function addorderController($resource) {
     vm.seleCust = info;
     vm.contact = info.mobileNumber;
     vm.email = info.email;
+    vm.address = info.address
   }
 
   function typeSelect(selecttype){
@@ -84,7 +85,9 @@ function addorderController($resource) {
     console.log(vm.data);
     var orderdetails = new Orderdetails();
       if(i< vm.data.length){
-      orderdetails.customerid = vm.seleCust.customerName;
+      orderdetails.customerid = vm.seleCust.id;
+      orderdetails.customerName = vm.seleCust.customerName;
+      orderdetails.customeremail = vm.seleCsut.email;
       orderdetails.type = vm.data[i].type.title
       orderdetails.material = vm.data[i].materialtype.materialtype;
       orderdetails.color = vm.data[i].color;
@@ -101,6 +104,7 @@ function addorderController($resource) {
         final();
       });
     } else {
+      window.location = '#/order';
       console.log("ankur");
     }
  

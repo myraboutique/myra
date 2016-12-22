@@ -553,6 +553,7 @@ width: 60% !important;
 }
 .clothaddbutton{
 float:right;
+margin-right: -17px;
 }
 .clothaddbutton a{
 float: right;

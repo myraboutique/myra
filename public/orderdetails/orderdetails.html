@@ -36,13 +36,49 @@
 		 <div class="details-table">
 			 	<table class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
-						<th>Name</th>
-						<th>Order Date</th>
-						<th>Delivery Date</th>
+						<th>
+								<a href="" ng-click="vm.order('customerName')">
+								<font>Name</font>&nbsp
+								<span ng-show="vm.predicate == 'customerName'">
+                <span ng-show="!vm.reverse">
+                    <img src="assets/images/up-arrow-1.png" alt="Zika Report">
+                </span>
+								<span ng-show="vm.reverse">
+                   <img src="assets/images/down-arrow-1.png" alt="Zika Report">
+                </span>
+								</span>
+							</a>
+						</th>
+						<th>
+								<a href="" ng-click="vm.order('orderdate')">
+								<font>Order Date</font>&nbsp
+								<span ng-show="vm.predicate == 'orderdate'">
+                <span ng-show="!vm.reverse">
+                    <img src="assets/images/up-arrow-1.png" alt="Zika Report">
+                </span>
+								<span ng-show="vm.reverse">
+                   <img src="assets/images/down-arrow-1.png" alt="Zika Report">
+                </span>
+								</span>
+							</a>
+						</th>
+						<th>
+								<a href="" ng-click="vm.order('date')">
+								<font>Delivery Date</font>&nbsp
+								<span ng-show="vm.predicate == 'date'">
+                <span ng-show="!vm.reverse">
+                    <img src="assets/images/up-arrow-1.png" alt="Zika Report">
+                </span>
+								<span ng-show="vm.reverse">
+                   <img src="assets/images/down-arrow-1.png" alt="Zika Report">
+                </span>
+								</span>
+							</a>
+						</th>
 						<th>Status</th>
 					</tr>
-					<tr ng-repeat="data in vm.type">
-						<td class="top-purpal-color-row2"><a ui-sref="editclothtype({data:'{{data}}'})" class="customer-name-link">{{data.id}}</a></td>
+					<tr ng-repeat="data in vm.type | orderBy:vm.predicate:vm.reverse">
+						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link">{{vm.customername[$index]}}</a></td>
 						<td class="top-purpal-color-row2">{{data.orderdate}}</td>
 						<td class="top-purpal-color-row2">{{data.date}}</td>
 						<td class="top-purpal-color-row2">{{data.status}}</td>

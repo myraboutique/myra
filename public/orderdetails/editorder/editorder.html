@@ -3,26 +3,26 @@
 	<!-- Header Section Start Here -->
 	<div class="main-header">
 		<div class="logo"><img src="assets/images/logo.png" alt=""></div>
-	<span class="menu-toggle">
+		<span class="menu-toggle">
       <i></i>
       <i></i>
       <i></i>
     </span>
 		<div class="navbar">
-     <ul>
-      <li><a href="#/home" >Home</a></li>
-			<li><a href="#/customerdetails">Customer Details</a></li>
-			<li><a href="#/order"  class="active">Order Form</a></li>
-			<li><a href="#/alert">Alerts</a></li>
-			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
-				<ul>
-	        <li><a href='#/register'><span>Add User</span></a></li>
-	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
-					<li><a href='#/materialtype'><span>Material Type</span></a></li>
-	      </ul>
-			</li>
-			<li><a href="#/logout">Logout</a></li>
-		 </ul>
+			<ul>
+				<li><a href="#/home">Home</a></li>
+				<li><a href="#/customerdetails">Customer Details</a></li>
+				<li><a href="#/order" class="active">Order Form</a></li>
+				<li><a href="#/alert">Alerts</a></li>
+				<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
+					<ul>
+						<li><a href='#/register'><span>Add User</span></a></li>
+						<li><a href='#/clothtype'><span>Cloth Type</span></a></li>
+						<li><a href='#/materialtype'><span>Material Type</span></a></li>
+					</ul>
+				</li>
+				<li><a href="#/logout">Logout</a></li>
+			</ul>
 		</div>
 	</div>
 	<!-- Header Section End Here -->
@@ -31,11 +31,11 @@
 
 	<div class="main-contant-part">
 
-			<!-- Right Address Section Start Here -->
+		<!-- Right Address Section Start Here -->
 		<div class="order-form-right-address-section">
 			<div class="form-address-heading-rt">Customer Billing Address <span><a href="#"><img src="assets/images/edit-icon.png" title="Edit" alt="Edit"></a></span></div>
 			<p>
-				A-1, NRI Tower,<br> Opp. Pride Hotel, Judges Bunglow Road,<br> Satellite, Ahmedabad-380054. India<br> Phone : 079-40372200
+			{{vm.customer.address}}
 			</p>
 		</div>
 		<!-- Right Address Section End Here -->
@@ -45,21 +45,19 @@
 			<div class="form-section-box">
 				<div class="form-heading">Customer Details</div>
 
-				<div class="form-box" >
+				<div class="form-box">
 					<label>Name:</label>
-					<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer">
-				 <option value="">-- Please Select --</option></select>
-			  </select>
+					<input id="" name=""  ng-model="vm.customer.customerName" type="text" placeholder="Contact Number" />
 				</div>
 
 				<div class="form-box">
 					<label>Contact Number:</label>
-					<input id="" name="" required="required" ng-model="vm.contact" type="text" placeholder="Contact Number" />
+					<input id="" name="" required="required" ng-model="vm.customer.mobileNumber" type="text" placeholder="Contact Number" />
 				</div>
 
 				<div class="form-box">
 					<label>Email Id:</label>
-					<input id="" name="" required="required" type="text" ng-model="vm.email" placeholder="Email Id" />
+					<input id="" name="" required="required" type="text" ng-model="vm.customer.email" placeholder="Email Id" />
 				</div>
 			</div>
 
@@ -69,99 +67,101 @@
 
 				<div class="form-box">
 					<label>Type:</label>
-					<select ng-model="vm.order.type" ng-change="vm.typeSelect(vm.order.type)" ng-options="data as data.title for data in vm.type">
-					<option value="">-- Please Select --</option></select>
+					<input id="" name="" ng-model="vm.orderform.type" required="required" type="text" placeholder="Choose Color" />
 				</div>
 
 				<div class="form-box">
 					<label>Material Source:</label>
-					<select ng-model="vm.order.materialtype" ng-options="data as data.materialtype for data in vm.material">
-				  <option value="">-- Please Select --</option></select>
-			  </select>
+					<input id="" name="" ng-model="vm.orderform.material" required="required" type="text" placeholder="Choose Color" />
+					</select>
 				</div>
 
 				<div class="form-box">
 					<label>Choose Color:</label>
-					<input id="" name="" ng-model="vm.order.color" required="required" type="text" placeholder="Choose Color" />
+					<input id="" name="" ng-model="vm.orderform.color" required="required" type="text" placeholder="Choose Color" />
 				</div>
 
 				<div class="form-box">
 					<label>Customization:</label>
 					<div class="customization-check-box">
-						<input type="checkbox" ng-model="vm.checked" name="vehicle" value="" class="checkbox">
-						<textarea ng-disabled="!vm.checked" ng-model="vm.order.customization" class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description"></textarea>
+						<textarea ng-model="vm.orderform.customization" class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description"></textarea>
 					</div>
 				</div>
 
 				<div class="form-box">
 					<label>Cloth Description:</label>
-					<textarea  rows="4" cols="50" ng-model="vm.order.cloth" placeholder="Cloth Description"></textarea>
+					<textarea rows="4" cols="50" ng-model="vm.orderform.cloth" placeholder="Cloth Description"></textarea>
 				</div>
 
 				<div class="form-box">
 					<label>Date of Order:</label>
 					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-					<input class="inputdatipicker" ng-model="vm.order.orderdate" id="" name="" required="required" type="text" placeholder="Date of Order" />
-					<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+						<input class="inputdatipicker" ng-model="vm.orderform.orderdate" id="" name="" required="required" type="text" placeholder="Date of Order"
+						/>
+						<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
 				</div>
 
 				<div class="form-box">
 					<label>Date of Delivery:</label>
 					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-					<input class="inputdatipicker" ng-model="vm.order.date" id="" name="" required="required" type="text" placeholder="Date of Delivery" />
-					<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+						<input class="inputdatipicker" ng-model="vm.orderform.date" id="" name="" required="required" type="text" placeholder="Date of Delivery"
+						/>
+						<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
 				</div>
 
 				<div class="form-box">
 					<label>Alert Day:</label>
-					<input id="" name="" required="required" ng-model="vm.order.alertday" type="text" placeholder="Alert Day" />
+					<input id="" name="" required="required" ng-model="vm.orderform.alertday" type="text" placeholder="Alert Day" />
 				</div>
 
 				<div class="form-box">
 					<label>Amount:</label>
-					<input id="" name="" required="required" ng-model="vm.order.amount" type="text" placeholder="Amount" />
+					<input id="" name="" required="required" ng-model="vm.orderform.amount" type="text" placeholder="Amount" />
+				</div>
+
+				<div class="form-box">
+					<label>Status:</label>
+					<select ng-model="vm.orderform.status">
+					<option value="">--Please select---</option>
+				  <option value="New">New</option>
+					<option value="inprogress">InProgress</option>
+					<option value="Complete">Complete</option>
+					</select>
 				</div>
 
 			</div>
 
-			<div class="form-section-box" ng-if="vm.clothtype">
+			<div class="form-section-box">
 				<div class="form-heading">Measurement</div>
 				<div class="measurement-li-box">
-					<ul ng-repeat="type in vm.clothtype">
-						{{$index}}
-						<li>{{type}} <span><input ng-model="vm.order.measurement[$index]" class="measurement-input" name="" required="required" type="text" placeholder="Add Size" /><img src="assets/images/inc-icon.png" alt=""></span></li>
+					<ul ng-repeat="type in vm.tyepemeasurement">
+						<li>{{type}} <span><input ng-model=" vm.measurement[$index]" class="measurement-input" name="" required="required" type="text" placeholder="Add Size" /><img src="assets/images/inc-icon.png" alt=""></span></li>
 					</ul>
 				</div>
 			</div>
-            
+
+		
 			<div class="add-next-btn-box">
-			<div class="submit-button">
-				<input type="submit" value="Save" ng-click="vm.final(vm.order)" />
-			</div>
-			<div class="submit-button">
-				<input class="add-next-button" type="submit" value="Add Next" ng-click="vm.showNext1(vm.order)" />
-			</div>
-			<div class="cancel-button">
-				<input type="submit" value="Cancel" />
-			</div>
+				<div class="submit-button">
+					<input type="submit" value="Save" ng-click="vm.final()" />
+				</div>
+				<div class="cancel-button">
+					<input type="submit" value="Cancel" />
+				</div>
 			</div>
 
 		</div><br/><br/>
 		<!-- Left Form Section End Here -->
 
-	
+
 	</div>
 
-
-
-
-
 	<!-- Footer Section Start Here -->
-						<div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
-						<!-- Footer Section End Here -->
-					</div>
+	<div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+	<!-- Footer Section End Here -->
+</div>
 
- <script type="text/javascript">
+<script type="text/javascript">
          $(document).ready(function(e) {
           $(".menu-toggle").click(function(){
 	        $(".navbar").slideToggle()

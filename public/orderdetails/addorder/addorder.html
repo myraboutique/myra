@@ -35,7 +35,7 @@
 		<div class="order-form-right-address-section">
 			<div class="form-address-heading-rt">Customer Billing Address <span><a href="#"><img src="assets/images/edit-icon.png" title="Edit" alt="Edit"></a></span></div>
 			<p>
-				A-1, NRI Tower,<br> Opp. Pride Hotel, Judges Bunglow Road,<br> Satellite, Ahmedabad-380054. India<br> Phone : 079-40372200
+			{{vm.address}}
 			</p>
 		</div>
 		<!-- Right Address Section End Here -->
@@ -82,7 +82,7 @@
 
 				<div class="form-box">
 					<label>Choose Color:</label>
-					<input id="" name="" ng-model="vm.order.color" required="required" type="text" placeholder="Choose Color" />
+					<input id="" name="color" ng-model="vm.order.color" required="required" type="text" placeholder="Choose Color" />
 				</div>
 
 				<div class="form-box">
