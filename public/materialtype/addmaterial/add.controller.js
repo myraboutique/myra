@@ -15,6 +15,7 @@ function addController($resource) {
   // if(!vm.token){
   //   window.location = '#/login';
   // }
+  vm.active = true;
 function materialcancel()
   {
     window.location = "#/materialtype"

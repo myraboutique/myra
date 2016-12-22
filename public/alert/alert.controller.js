@@ -8,8 +8,12 @@ function alertController($resource) {
    vm.token = JSON.parse(localStorage.getItem('token'));
   // if(!vm.token){
   //   window.location = '#/login';
+  
   // }
-   var Register = $resource('/api/register');
+   var Register = $resource('/api/customerdetails');
+  //  vm.anniversary = true;
+  //  vm.birthdate = true;
+  //  vm.order = true;
 
   Register.query(function(info){
     vm.user = info;
