@@ -33,10 +33,10 @@
     <!-- Left Form Section Start Here -->
     <form name="form" novalidate>
     <div class="order-form-left-section add-new-form">
-      
+
       <div class="form-section-box">
         <div class="form-heading">Basic Information</div>
-        
+
           <div class="form-box">
             <label>Customer Name:</label>
             <input id="" ng-minlength="5" ng-maxlength="20" ng-required="true" ng-model="vm.customerName" name="customerName" type="text"
@@ -97,8 +97,8 @@
         <div class="form-box">
           <label>Email Id:</label>
           <input id="" ng-model="vm.email" name="email" required="required" type="email" placeholder="Email Id" />
-          <span ng-show="form.email.$error.required && (form.email.$touched || vm.formSubmitted)">Email Address must be required</span>	
-				 	<span ng-show="form.email.$invalid && (form.email.$touched || vm.formSubmitted)">Enter Valid Email Address</span>					
+          <span ng-show="form.email.$error.required && (form.email.$touched || vm.formSubmitted)">Email Address must be required</span>
+				 	<span ng-show="form.email.$invalid && (form.email.$touched || vm.formSubmitted)">Enter Valid Email Address</span>
 		   </div>
 
         <div class="form-box">
@@ -111,7 +111,7 @@
           <label>Billing Address:</label>
           <div class="customization-check-box">
             <input type="checkbox" ng-model="vm.other" name="vehicle" value="" class="checkbox">
-            <span class="billing-addres-checkbox">Other</span>
+            <strong class="billing-addres-checkbox">Other</strong>
             <textarea ng-if="vm.other" ng-model="vm.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
        </textarea>
           </div>
