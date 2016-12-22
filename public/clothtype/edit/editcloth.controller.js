@@ -1,12 +1,14 @@
 angular.module('myra')
-  .controller('editController', editController);
+  .controller('editclothController', editclothController);
 
-editController.$inject = ['$resource'];
+editclothController.$inject = ['$resource','$stateParams'];
 
-function editController($resource) {
+function editclothController($resource,$stateParams) {
   var vm = this;
    vm.token = JSON.parse(localStorage.getItem('token'));
   // if(!vm.token){
   //   window.location = '#/login';
   // }
+  vm.clothtype = JSON.parse($stateParams.data);
+  
 }

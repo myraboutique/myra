@@ -11,9 +11,21 @@ function newclothController($resource) {
   // }
   vm.measurement = measuremet;
   vm.selectMeasurement = [];
+  vm.addClothtype = addClothtype;
+  var Clothtype = $resource('/api/measurement');
 
   function measuremet(data){
     vm.selectMeasurement.push(data);
     vm.measu = "";
+  }
+
+  function addClothtype(){
+    var clothtype = new Clothtype();
+    clothtype.title = vm.title;
+    clothtype.measurement = JSON.stringify(vm.selectMeasurement);
+    clothtype.isActive = vm.isActive;
+    clothtype.$save(function(info){
+      window.location = '#/clothtype';
+    })
   }
 }

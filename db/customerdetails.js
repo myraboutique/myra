@@ -66,7 +66,15 @@ module.exports = (function()
                res.json(info)
              });
          })
-         }//////end of update
+         },//////end of update
+
+         findid : function(req,res){
+           db.sync().then(function(){
+             models.findOne({ where: {id:  req.params.id} }).then(function(info){
+               res.json(info);
+             })
+           })
+         }
 };
   return m;
 

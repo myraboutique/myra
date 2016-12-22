@@ -32,6 +32,12 @@
       controller: 'orderController',
       controllerAs: 'vm'
     })
+    .state('addorder', {
+      url: '/addorder',
+      templateUrl: 'orderdetails/addorder/addorder.html',
+      controller: 'addorderController',
+      controllerAs: 'vm'
+    })
     .state('logout', {
       url: '/logout',
       templateUrl: 'logout/logout.html',
@@ -75,9 +81,9 @@
       controllerAs: 'vm'
     })
     .state('editclothtype', {
-      url: '/editclothtype',
+      url: '/editclothtype/:data',
       templateUrl: 'clothtype/edit/editcloth.html',
-      controller: 'editController',
+      controller: 'editclothController',
       controllerAs: 'vm'
     })
     .state('materialtype', {
@@ -105,8 +111,8 @@
     controllerAs: 'vm',
     params: {
       'referer': null
-                    }
-  })
+            }
+    })
     .state('home', {
       url: '/home',
       templateUrl: 'home/home.html',

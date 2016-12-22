@@ -14,13 +14,25 @@ module.exports = (function(){
        })
      })
     },
-    create: function(req, res){
-     // console.log(req.body.measurement);
+    Create: function(req, res){
       db.sync().then(function(){
         models.create({
           title:req.body.title,
           measurement :req.body.measurement,
           isActive : req.body.isActive
+        }).then(function(info){
+          res.json(info);
+        })
+      })
+    },
+    Update: function(req,res){
+      db.sync().then(function(){
+        models.update({
+          title:req.body.title,
+          measurement :req.body.measurement,
+          isActive : req.body.isActive
+        },{
+          where:{id:req.body.id}
         }).then(function(info){
           res.json(info);
         })

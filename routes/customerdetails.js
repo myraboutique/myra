@@ -8,5 +8,9 @@ module.exports = (function(){
       .get(api.GET)
       .post(api.POST)
       .put(api.PUT);
+
+    m.route('/api/customerdetails/:id')
+      .get(api.FindId)  
+
     return m;
 })();
