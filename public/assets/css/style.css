@@ -377,6 +377,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
   color: #8F8F8F;
   font-size: 14px;
   padding: 8px 12px 8px 8px;
+  background: #fff;
   border: 1px solid rgb(178, 178, 178);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
