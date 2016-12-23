@@ -47,7 +47,7 @@
   src: local('Open Sans Extrabold Italic'), local('OpenSans-ExtraboldItalic'), url(http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxnibbpXgLHK_uTT48UMyjSM.woff2) format('woff2'), url(http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxkCDe67GEgBv_HnyvHTfdew.woff) format('woff');
 }
 
-body{margin:0px; padding:0px; background:#292929;font-family: 'Open Sans', sans-serif;}
+body{margin:0px; padding:0px; background-color:#292929 !important; font-family: 'Open Sans', sans-serif;}
 .home-page{display:table; text-align:center;margin: 0 auto;}
 input {
     outline: none;
@@ -82,7 +82,7 @@ display: inline;
 .main-header{width:100%; display: inline-block; background: #fff;}
 .logo{float: left; margin: 13px 0 0 30px;}
 
-.navbar{float: right;}
+.navbar{float: right;min-height: auto !important;margin-bottom: 0px !important;border: 0px !important;}
 .navbar ul{float: left; margin: 0px; padding: 0px;}
 .navbar ul li{ position:relative; list-style: none;float: left;}
 .navbar ul li a{ font-size: 15px; color: #333; border-bottom: 4px solid #fff; line-height:66px; padding: 0 15px 0 15px; text-decoration:none; float: left;font-style: normal;font-weight: 400;}
@@ -349,6 +349,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
   box-sizing: border-box;
   margin-bottom: 15px;
 }
+.form-box span{
+  margin-left: 30%;
+  color: #da2d2d;
+  margin-top: -15px;
+  float: left;
+  padding-bottom: 15px;
+}
 .form-section-box textarea{
   width: 70%;
   float: left;
@@ -396,6 +403,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
 .form-box{width:100%; display: inline-block;position: relative;}
 
 .customization-check-box{width: 70%; float: left;}
+.customization-check-box strong{font-style: normal;font-weight: 300; padding-left: 6px;}
 .form-section-box .form-box .customization-check-box .checkbox{
   float: left;
   width: auto;
@@ -513,6 +521,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
 .alerts-page-table{width:70%;margin: 0 auto;float: none;}
 
 .home-banner{width: 100%; float: left;height: 378px;}
+.home-banner img{width:100%; height:100%;}
 .home-baner-btm-bar{width: 100%; float: left; background: #ff36b6; padding: 25px 0px; text-align: center;}
 .home-baner-btm-bar h2{font-size: 25px; color: #fff; font-weight:600;margin: 0px;}
 .home-baner-btm-bar p{font-size: 17px; color: #fff;}
@@ -550,11 +559,11 @@ margin-left: 0px;
 min-height: 440px;
 }
 .clothmeasurementinput{
-width: 60% !important;
+width: 57% !important;
 }
 .clothaddbutton{
-float:right;
-margin-right: -17px;
+  float: left;
+  margin-left: 12px;
 }
 .clothaddbutton a{
 float: right;

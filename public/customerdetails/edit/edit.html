@@ -94,9 +94,9 @@
       <label>Billing Address:</label>
       <div class="customization-check-box">
        <input type="checkbox" ng-model="vm.sameasabove" name="vehicle" value="" class="checkbox" >
-       <span class="billing-addres-checkbox">Same as abobe</span>
+       <strong class="billing-addres-checkbox">Same as abobe</strong>
        <input type="checkbox" ng-model="vm.other" name="vehicle" value="" class="checkbox" >
-       <span class="billing-addres-checkbox">Other</span>
+       <strong class="billing-addres-checkbox">Other</strong>
        <textarea ng-if="vm.sameasabove" ng-model="vm.data.address" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
        </textarea>
        <textarea ng-if="!vm.sameasabove" ng-model="vm.data.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
