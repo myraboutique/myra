@@ -28,55 +28,66 @@
 	 <!-- Header Section End Here -->
 
 	 <div class="inner-heading-bar">Add New User</div>
-
-	 <div class="main-contant-part">
+	 <form name="userform" novalidate>
+	 <div class="main-contant-part" >
 		<!-- Left Form Section Start Here -->
     <div class="order-form-left-section add-new-form">
       <div class="form-section-box form-section-box-2">
 
 			 <div class="form-box">
 			  <label>User Name:</label>
-			  <input id="" name="" required="required" type="text" ng-model="vm.name" placeholder="Customer Name" />
+			  <input id="" name="username" ng-minlength="3" ng-maxlength="50" required type="text" ng-model="vm.name" placeholder="Customer Name"/>
+				<span ng-show="userform.username.$error.required && (userform.username.$dirty || vm.formSubmitted)">user name must be required</span>
+			  <span ng-show="userform.username.$error.minlength && (userform.username.$dirty || vm.formSubmitted)">length must be greater then 3</span>
+				<span ng-show="userform.username.$error.maxlength && (userform.username.$dirty || vm.formSubmitted)">length must be less then 50</span>						
 		   </div>
 
 			 <div class="form-box">
 			  <label>Type of User:</label>
-					<select ng-model="vm.type" class="paragraph">
+					<select ng-model="vm.type" class="paragraph" required name="typeOfUser">
 						  <option value="">User Type</option>
-						  <option value="admin">admin</option>
-              <option value="user">user</option>
+						  <option value="admin">Admin</option>
+              <option value="user">User</option>
 					  </select>
-			 </div>
+			 	<span ng-show="userform.typeOfUser.$invalid && (userform.typeOfUser.$touched || vm.formSubmitted)">Type of User must be required</span>						
+		   </div>
 
 			 <div class="form-box">
 			  <label>Email Address:</label>
-			  <input id="username" name="username" ng-model="vm.email" required="required" type="text" placeholder="Email Address"/>
-       </div>
+			  <input id="username" name="emailAddress" ng-model="vm.email" required="required" type="email" placeholder="Email Address"/>
+       	<span ng-show="userform.emailAddress.$error.required && (userform.emailAddress.$touched || vm.formSubmitted)">Email Address must be required</span>	
+				 	<span ng-show="userform.emailAddress.$invalid && (userform.emailAddress.$touched || vm.formSubmitted)">Enter Valid Email Address</span>					
+		   </div>
 
 			 <div class="form-box">
 			  <label>Password:</label>
-			     <input id="" name="" required="required"  type="password" placeholder="Password" />
-       </div>
+			     <input id="" name="" required="required"  type="password" placeholder="Password" ng-model="vm.password1"/>
+       	<span ng-show="userform.username.$invalid && (userform.username.$touched || vm.formSubmitted)">Password must be required</span>						
+		   </div>
 
 			  <div class="form-box">
 			  <label>Confirm Password:</label>
-			     <input id="" name="" required="required" ng-model="vm.password" type="password" placeholder="Confirm Password" />
-       </div>
+			     <input id="" name="" required="required" ng-model="vm.password" type="password" placeholder="Confirm Password" ng-change="vm.confirm()"/>
+       	<span ng-show="userform.username.$invalid && (userform.username.$touched || vm.formSubmitted)">Confirm Password must be required</span>	
+				 <span ng-if="vm.check">Confirm password does not match</span>						
+		   </div>
 
 
          <div class="form-box">
 			  <label>Phone Number:</label>
 			  <input id="" name="" required="required" type="text" ng-model="vm.number" placeholder="Phone Number" />
+		   	<span ng-show="userform.username.$invalid && (userform.username.$touched || vm.formSubmitted)">Phone Number must be required</span>						
 		   </div>
 
         <div class="form-box">
 			  <label>Address:</label>
 			  <textarea rows="4" cols="50" placeholder="Address" ng-model="vm.address"></textarea>
-			 </div>
+			 	<span ng-show="userform.username.$invalid && (userform.username.$touched || vm.formSubmitted)">Adress must be required</span>						
+		   </div>
 
         <div class="register-btm-btn-box">
 					<div class="submit-button">
-            <input type="submit" value="Submit" class="register-submit-btn" ng-click="vm.submit()"/>
+            <input type="button" value="Submit" class="register-submit-btn" ng-click="vm.submit()"/>
  					</div>
 					<div class="cancel-button">
             <input type="submit" value="Cancel" class="register-cancel-btn" ui-sref="register"/>
@@ -94,6 +105,7 @@
 
 
 	 </div>
+	 </form>
 	 <!-- Footer Section Start Here -->
 	 <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
 	 <!-- Footer Section End Here -->

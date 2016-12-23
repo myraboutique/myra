@@ -27,18 +27,17 @@
 	 </div>
 	 <!-- Header Section End Here -->
 
-	 <div class="inner-heading-bar">Add New ClothType</div>
+	 <div class="inner-heading-bar">Add New Style</div>
 
 	 <div class="main-contant-part minpageheight">
 		<!-- Left Form Section Start Here -->
     <div class="order-form-left-section add-new-form">
       <div class="form-section-box">
-     
-			 <div class="form-box">
-			  <label>Cloth Type</label>
-			  <input id="" name="" required="required" type="text" placeholder="Cloth Type" />
-		   </div>
 
+			 <div class="form-box">
+			  <label>Style:</label>
+			  <input id="" name="" required="required" type="text" placeholder="Style" ng-model="vm.title"/>
+		   </div>
 			 <div class="form-box">
 			  <label>Measurement:</label>
         <input id="" name="" required="required" type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
@@ -51,17 +50,17 @@
 
 			 <div class="form-box">
 				  <label>isActive:</label>
-				 <input type="checkbox" class="billing-addres-checkbox clothcheck"/>
-			 
-			 </div>
+				 <input type="checkbox" class="billing-addres-checkbox clothcheck" ng-model="vm.isActive"/>
          
-		
+			 </div>
+
+
 
 			</div>
 
       <div class="add-new-btm-btn">
 			<div class="submit-button">
-				<input type="submit" value="Save" />
+				<input type="submit" value="Save" ng-click="vm.addClothtype()"/>
 			</div>
 			<div class="cancel-button">
 				<input type="submit" value="Cancel" ui-sref="clothtype"/>

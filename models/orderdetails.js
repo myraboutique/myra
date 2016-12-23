@@ -10,9 +10,20 @@ var OrderDetails = db.define('orderdetails', {
         autoIncrement: true,
         primaryKey: true,
     },
-    state: Sequelize.STRING,
-    travellingCaseCount: Sequelize.STRING,
-    localCaseCount: Sequelize.STRING
+    customerid : Sequelize.INTEGER,
+    customerName :Sequelize.STRING,
+    customeremail : Sequelize.STRING, 
+    type: Sequelize.STRING,
+    material: Sequelize.STRING,
+    color: Sequelize.STRING,
+    customization : Sequelize.STRING,
+    cloth: Sequelize.STRING,
+    date: Sequelize.STRING,
+    orderdate: Sequelize.STRING,
+    alertday: Sequelize.STRING,
+    amount: Sequelize.BIGINT,
+    measurement: Sequelize.STRING,
+    status: Sequelize.STRING
 }, {
         timestamps: false
     });

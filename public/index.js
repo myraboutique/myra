@@ -10,7 +10,8 @@
     // 'ngStorage',
     // 'hSweetAlert',
     'ui.bootstrap',
-    '720kb.datepicker'
+    '720kb.datepicker',
+    'angularUtils.directives.dirPagination'
     ]);
 
 })();

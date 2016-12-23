@@ -4,5 +4,15 @@ angular.module('myra')
 forgotpasswordController.$inject = ['$resource'];
 
 function forgotpasswordController($resource) {
-  
+  var vm = this;
+    vm.submit = submit;
+    var Forgot = $resource('/api/forgot');
+    function submit(){
+      var forgot = new Forgot();
+      forgot.email = vm.email;
+      forgot.$save(function(info){
+        swal('your reset password link has been send in your email');
+        window.location = '#/login';
+      });
+    }
 }

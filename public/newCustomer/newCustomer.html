@@ -1,143 +1,152 @@
 <div class="container">
 
-<!-- Header Section Start Here -->
- <div class="main-header">
-  <div class="logo"><img src="assets/images/logo.png" alt=""></div>
- <span class="menu-toggle">
+  <!-- Header Section Start Here -->
+  <div class="main-header">
+    <div class="logo"><img src="assets/images/logo.png" alt=""></div>
+    <span class="menu-toggle">
       <i></i>
       <i></i>
       <i></i>
     </span>
-		<div class="navbar">
-     <ul>
-      <li><a href="#/home" >Home</a></li>
-			<li><a href="#/customerdetails" class="active">Customer Details</a></li>
-			<li><a href="#/order">Order Form</a></li>
-			<li><a href="#/alert" >Alerts</a></li>
-			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
-				<ul>
-	        <li><a href='#/register'><span>Add User</span></a></li>
-	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
-					<li><a href='#/materialtype'><span>Material Type</span></a></li>
-	      </ul>
-			</li>
-			<li><a href="#/logout">Logout</a></li>
-		 </ul>
-		</div>
- </div>
- <!-- Header Section End Here -->
+    <div class="navbar">
+      <ul>
+        <li><a href="#/home">Home</a></li>
+        <li><a href="#/customerdetails" class="active">Customer Details</a></li>
+        <li><a href="#/order">Order Form</a></li>
+        <li><a href="#/alert">Alerts</a></li>
+        <li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
+          <ul>
+            <li><a href='#/register'><span>Add User</span></a></li>
+            <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
+            <li><a href='#/materialtype'><span>Material Type</span></a></li>
+          </ul>
+        </li>
+        <li><a href="#/logout">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Header Section End Here -->
 
- <div class="inner-heading-bar">Add New Customer</div>
+  <div class="inner-heading-bar">Add New Customer</div>
 
-<div class="main-contant-part">
-  <!-- Left Form Section Start Here -->
-  <div class="order-form-left-section add-new-form">
-    <div class="form-section-box">
-     <div class="form-heading">Basic Information</div>
+  <div class="main-contant-part">
+    <!-- Left Form Section Start Here -->
+    <form name="form" novalidate>
+    <div class="order-form-left-section add-new-form">
+      
+      <div class="form-section-box">
+        <div class="form-heading">Basic Information</div>
+        
+          <div class="form-box">
+            <label>Customer Name:</label>
+            <input id="" ng-minlength="5" ng-maxlength="20" ng-required="true" ng-model="vm.customerName" name="customerName" type="text"
+              placeholder="Customer Name" />
+            <span ng-show="form.customerName.$error.required && (form.customerName.$dirty || vm.formSubmitted)">user name must be required</span>
+            <span ng-show="form.customerName.$error.minlength && (form.customerName.$dirty || vm.formSubmitted)">length must be greater then 3</span>
+            <span ng-show="form.customerName.$error.maxlength && (form.customerName.$dirty || vm.formSubmitted)">length must be less then 50</span>
 
-     <div class="form-box">
-      <label>Customer Name:</label>
-      <input id="" ng-model="vm.customerName" name="" required="required" type="text" placeholder="Customer Name" />
-     </div>
-
-     <div class="form-box">
-      <label>Gender:</label>
-     <select ng-model="vm.gender" class="paragraph">
+          </div>
+          <div class="form-box">
+            <label>Gender:</label>
+            <select ng-model="vm.gender" class="paragraph" required name="gender" >
 						  <option value="">Please Select</option>
-						  <option value="male">male</option>
-              <option value="female">female</option>
+						  <option value="male">Male</option>
+              <option value="female">Female</option>
 					  </select>
-     </div>
+            <span ng-show="form.gender.$error.required && (form.customerName.$dirty || vm.formSubmitted)">Gender must be required</span>
+          </div>
 
 
-     <div class="form-box">
+          <div class="form-box">
+            <label>Birth Date:</label>
+            <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+              <input class="inputdatipicker" id="" ng-model="vm.birthDate" name="" required="required" type="text" placeholder="Select Date"
+              />
+              <img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+            </datepicker>
+          </div>
 
-      <label>Birth Date:</label>
-    <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-      <input class="inputdatipicker" id="" ng-model="vm.birthDate" name="" required="required" type="text" placeholder="Select Date" />
-      <img class="date-icon-right" src="assets/images/date-icon.png" alt="">
-    </datepicker>
+          <div class="form-box">
+            <label>Anniversary:</label>
+            <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+              <input class="inputdatipicker" id="" ng-model="vm.anniversaryDate" name="" required="required" type="text" placeholder="Select Date"
+              />
+              <img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+            </datepicker>
+          </div>
 
-     </div>
-
-     <div class="form-box">
-      <label>Anniversary:</label>
-     <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-      <input class="inputdatipicker" id="" ng-model="vm.anniversaryDate" name="" required="required" type="text" placeholder="Select Date" />
-      <img class="date-icon-right" src="assets/images/date-icon.png" alt="">
-    </datepicker>
-     </div>
-
-    </div>
-
-
-    <div class="form-section-box">
-     <div class="form-heading">Contact Information</div>
-
-     <div class="form-box">
-      <label>Mobile Number:</label>
-      <input id="" ng-model="vm.mobileNumber" name="" required="required" type="text" placeholder="Mobile Number" />
-     </div>
-
-     <div class="form-box">
-      <label>Phone Number:</label>
-      <input id="" ng-model="vm.phoneNumber" name="" required="required" type="text" placeholder="Phone Number" />
-     </div>
-
-     <div class="form-box">
-      <label>Email Id:</label>
-      <input id="" ng-model="vm.email" name="" required="required" type="text" placeholder="Email Id" />
-     </div>
-
-     <div class="form-box">
-      <label>Address:</label>
-      <textarea ng-model="vm.address" rows="4" cols="50" placeholder="Address"></textarea>
-     </div>
-
-     <div class="form-box">
-      <label>Billing Address:</label>
-      <div class="customization-check-box">
-       <input type="checkbox" ng-model="vm.sameasabove" name="vehicle" value="" class="checkbox">
-           <span class="billing-addres-checkbox">Same as above</span>
-       <input type="checkbox" ng-model="vm.other" name="vehicle" value="" class="checkbox">
-           <span class="billing-addres-checkbox">Other</span>
-       <textarea ng-if="vm.sameasabove" ng-model="vm.address" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
-
-       </textarea>
-       <textarea ng-if="!vm.sameasabove" ng-model="vm.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
-       </textarea>
       </div>
-     </div>
 
-     <div class="form-box">
-      <label>Remarks:</label>
-      <textarea ng-model="vm.remarks" rows="4" cols="50" placeholder="Remarks Description"></textarea>
-     </div>
+
+      <div class="form-section-box">
+        <div class="form-heading">Contact Information</div>
+
+        <div class="form-box">
+          <label>Mobile Number:</label>
+          <input id="" ng-model="vm.mobileNumber" name="mobilenumber" ng-minlength="10" ng-maxlength="11" required="required" type="text" placeholder="Mobile Number" />
+          <span ng-show="form.mobilenumber.$error.required && (form.customerName.$dirty || vm.formSubmitted)">Mobile number must be required</span>
+          <span ng-show="form.mobilenumber.$error.minlength && (form.customerName.$dirty || vm.formSubmitted)">length must 10</span>
+          <span ng-show="form.mobilenumber.$error.maxlength && (form.customerName.$dirty || vm.formSubmitted)">length 10</span>
+        </div>
+
+        <div class="form-box">
+          <label>Phone Number:</label>
+          <input id="" ng-model="vm.phoneNumber" name="" required="required" type="text" placeholder="Phone Number" />
+        </div>
+
+        <div class="form-box">
+          <label>Email Id:</label>
+          <input id="" ng-model="vm.email" name="email" required="required" type="email" placeholder="Email Id" />
+          <span ng-show="form.email.$error.required && (form.email.$touched || vm.formSubmitted)">Email Address must be required</span>	
+				 	<span ng-show="form.email.$invalid && (form.email.$touched || vm.formSubmitted)">Enter Valid Email Address</span>					
+		   </div>
+
+        <div class="form-box">
+          <label>Address:</label>
+          <textarea ng-model="vm.address" required rows="4" cols="50" placeholder="Address" name="address"></textarea>
+          <span ng-show="form.address.$error.required && (form.address.$touched || vm.formSubmitted)">Address must be required</span>
+        </div>
+
+        <div class="form-box">
+          <label>Billing Address:</label>
+          <div class="customization-check-box">
+            <input type="checkbox" ng-model="vm.other" name="vehicle" value="" class="checkbox">
+            <span class="billing-addres-checkbox">Other</span>
+            <textarea ng-if="vm.other" ng-model="vm.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
+       </textarea>
+          </div>
+        </div>
+
+        <div class="form-box">
+          <label>Remarks:</label>
+          <textarea ng-model="vm.remarks" rows="4" cols="50" placeholder="Remarks Description"></textarea>
+        </div>
+
+      </div>
+
+      <div class="add-new-btm-btn">
+        <div class="submit-button">
+          <input type="submit" value="Save" ng-click="vm.check()" />
+        </div>
+        <div class="cancel-button">
+          <input type="submit" value="Cancel" ng-click="vm.cancel()" />
+        </div>
+      </div>
+
 
     </div>
-
-    <div class="add-new-btm-btn">
-    <div class="submit-button">
-      <input type="submit" value="Save" ng-click="vm.check()" />
-    </div>
-    <div class="cancel-button">
-      <input type="submit" value="Cancel" ng-click="vm.cancel()"/>
-    </div>
-   </div>
+    </form>
+    <!-- Left Form Section End Here -->
 
 
   </div>
-  <!-- Left Form Section End Here -->
-
-
- </div>
- <!-- Footer Section Start Here -->
- <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
- <!-- Footer Section End Here -->
+  <!-- Footer Section Start Here -->
+  <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+  <!-- Footer Section End Here -->
 </div>
 
 
- <script type="text/javascript">
+<script type="text/javascript">
          $(document).ready(function(e) {
           $(".menu-toggle").click(function(){
 	        $(".navbar").slideToggle()

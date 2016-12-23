@@ -16,7 +16,7 @@ var Register = db.define('users', {
     password: Sequelize.STRING,
     number: Sequelize.BIGINT,
     address: Sequelize.STRING,
-    isActive: Sequelize.BOOLEAN,
+    isActive: Sequelize.BOOLEAN
 }, {
         timestamps: false
     });

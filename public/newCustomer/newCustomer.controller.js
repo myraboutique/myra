@@ -16,7 +16,8 @@ function newCustomerController($resource) {
       }
 
    function check(){
-
+     vm.formSubmitted = true;
+     if(form.$valid){
      var customerdetails = new CustomerDetails() ;
      customerdetails.customerName = vm.customerName ;
      customerdetails.gender = vm.gender ;
@@ -26,7 +27,7 @@ function newCustomerController($resource) {
      customerdetails.phoneNumber =vm.phoneNumber;
      customerdetails.email = vm.email ;
      customerdetails.address = vm.address ;
-     if(vm.sameasabove){
+     if(!vm.other){
        customerdetails.billingAddress = vm.address ;
      } else {
        customerdetails.billingAddress = vm.billingAddress ;
@@ -39,6 +40,6 @@ function newCustomerController($resource) {
        })
       window.location = '#/customerdetails';
    }
-
+   }
 
 }

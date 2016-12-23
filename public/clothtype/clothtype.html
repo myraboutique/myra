@@ -17,7 +17,7 @@
 			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 				<ul>
 	        <li><a href='#/register'><span>Add User</span></a></li>
-	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
+	        <li><a href='#/clothtype'><span>Cloth Style</span></a></li>
 					<li><a href='#/materialtype'><span>Material Type</span></a></li>
 	      </ul>
 			</li>
@@ -27,7 +27,7 @@
 	 </div>
 	 <!-- Header Section End Here -->
 
-	 <div class="inner-heading-bar">Cloth Type</div>
+	 <div class="inner-heading-bar">Style</div>
 
 	 <div class="main-contant-part minpageheight">
 		<!-- Customer Details page Section Start Here -->
@@ -36,10 +36,11 @@
 		 <div class="details-table">
 			 	<table class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
-						<th>Type</th>
+						<th>Style</th>
 						<th>Measurement</th>
 					</tr>
-					<tr ng-repeat="data in vm.type">
+          <!-- ng-repeat="data in vm.type"  -->
+					<tr dir-paginate="data in vm.type|itemsPerPage:10">
 						<td class="top-purpal-color-row2">{{data.title}}</td>
 						<td class="top-purpal-color-row2">{{data.measurement}}</td>
 					</tr>
@@ -48,6 +49,13 @@
 		 </div>
 		</div>
 		<!-- Customer Details page Section End Here -->
+    <div class="paging">
+     <dir-pagination-controls
+                max-size="10"
+               direction-links="true"
+               boundary-links="true" >
+       </dir-pagination-controls>
+      </div>
 	 </div>
 	 <!-- Footer Section Start Here -->
 	 <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>

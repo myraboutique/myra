@@ -10,7 +10,7 @@ module.exports = (function(){
             host: 'localhost',
             port: 27017,
             user: 'root',
-            password: '123456',
+            password: 'root',
             database: 'myra'
         },
         logging: {

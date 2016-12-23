@@ -7,6 +7,8 @@ module.exports = (function(){
      m.route('/api/orderdetails')
         .post(api.POST)
         .get(api.GET)
+        .put(api.UPDATE)
+        .delete(api.DELETE)
 
     return m;
 })();

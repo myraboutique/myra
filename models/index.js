@@ -4,7 +4,6 @@ module.exports = (function(){
     var orderdetails = require('./orderdetails');
     var customerdetails = require('./customerdetails');
    var measurement = require('./measurement');
-   var test = require('./test');
    var addmaterial = require('./addmaterial') ;
 
     var m = {
