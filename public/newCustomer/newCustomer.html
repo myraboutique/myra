@@ -34,12 +34,14 @@
   <div class="order-form-left-section add-new-form">
     <div class="form-section-box">
      <div class="form-heading">Basic Information</div>
-
+<form name="form" ng-model="form" novalidate>
      <div class="form-box">
       <label>Customer Name:</label>
-      <input id="" ng-model="vm.customerName" name="" required="required" type="text" placeholder="Customer Name" />
-     </div>
-
+      <input id="" ng-minlength="5" ng-maxlength="50" ng-required="true" ng-model="vm.customerName" name="customerName" type="text" placeholder="Customer Name" />
+      <p class="help-block" ng-if="form.customerName.$submitted && form.customerName.$error.required">
+             <i><b>QC Module Name</b></i> should be atleast 2 characters long.
+           </p>
+         </div>
      <div class="form-box">
       <label>Gender:</label>
      <select ng-model="vm.gender" class="paragraph">
