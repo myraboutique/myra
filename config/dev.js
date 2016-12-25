@@ -1,17 +1,17 @@
 module.exports = (function(){
     var m = {
         server: {
-            host: 'https://myraboutique.herokuapp.com/',
+            host: 'localhost',
             port: 3000,
             ssl: false
         },
         db: {
             type: 'mysql',
-            host: 'sql6.freemysqlhosting.net',
+            host: 'localhost',
             port: 27017,
-            user: 'sql6150869',
-            password: 'Please wait',
-            database: 'sql6150869'
+            user: 'root',
+            password: 'root',
+            database: 'myra'
         },
         logging: {
             level: "info"
