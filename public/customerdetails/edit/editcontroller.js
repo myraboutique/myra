@@ -1,14 +1,17 @@
 angular.module('myra')
-  .controller('editController', editController);
+  .controller('editcustomerController', editcustomerController);
 
-editController.$inject = ['$stateParams','$resource','$http']
+editcustomerController.$inject = ['$stateParams','$resource','$http']
 
-function editController($stateParams,$resource,$http) {
+function editcustomerController($stateParams,$resource,$http) {
 
   var vm= this ;
+   vm.token = JSON.parse(localStorage.getItem('token'));
+  if(!vm.token){
+    window.location = '#/login';
+  }
   vm.save = save ;
   vm.cancel = cancel ;
-  console.log("inside edit controller")
   vm.data = JSON.parse($stateParams.referer)
 
 var CustomerDetails = $resource('/api/customerdetails')
@@ -19,12 +22,9 @@ function cancel(){
   window.location = "#/customerdetails"
 }
 
-function save(){
-  if(vm.sameasabove){
-    customerdetails.billingAddress = vm.address ;
-  } else {
-    customerdetails.billingAddress = vm.billingAddress ;
-  }
+function save(form){
+
+  if(form.$valid){
      $http.put('/api/customerdetails', vm.data)
         .then(
             function(response){
@@ -37,5 +37,7 @@ function save(){
          );
 
        }
+  }
+    
 
 }

@@ -7,6 +7,7 @@ module.exports = (function(){
      m.route('/api/addmaterial')
         .post(api.POST)
         .get(api.GET)
+        .put(api.UPDATE)
 
     return m;
 })();

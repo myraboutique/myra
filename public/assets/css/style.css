@@ -49,6 +49,10 @@
 
 body{margin:0px; padding:0px; background-color:#292929 !important; font-family: 'Open Sans', sans-serif;}
 .home-page{display:table; text-align:center;margin: 0 auto;}
+a:hover, a:focus {
+    color: #fff;
+    text-decoration: none !important;
+}
 input {
     outline: none;
 }
@@ -200,6 +204,12 @@ transform: translate(-50%, -50%);
     font-style: italic;
 }
 .centered #login .paragraph{position: relative; display: block;}
+.centered #login .paragraph .span-error{
+  color: #da2d2d;
+  margin-top: 0px;
+  float: left;
+  padding-bottom: 15px;
+}
 .centered #login .paragraph em{position: absolute;top: 29px; left: 50px; width: 18px; height:14px; display: table; z-index: 99;}
 .centered #login input{
   width: 100%;
@@ -414,10 +424,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
 .customization-check-box-textarea{width: 100% !important;margin-top: -12px;}
 .measurement-li-box{width:100%; display: inline-block;}
 .measurement-li-box ul{margin: 0px; padding: 0px;}
-.measurement-li-box ul li{list-style: none; display: table; background:url("../images/mesurment-li-icon.png") no-repeat left; line-height:60px;padding-left: 34px;width:38%; font-weight: 600; font-size: 14px;color: #474747;}
-.measurement-li-box ul li span{float: right; position: relative;width: 60%;}
-.measurement-li-box ul li span img{position: absolute;top: 10px; right: 0px; z-index: 999; float: right;width:38px; height: 36px;}
-.form-section-box .measurement-input{width:90% !important; float: right;margin-bottom: 0px;margin-top: 10px;padding-right: 40px;}
+.measurement-li-box ul li{list-style: none; display: table; background:url("../images/mesurment-li-icon.png") no-repeat left; line-height:19px;padding-left: 34px;width:58%; font-weight: 600; font-size: 14px;color: #474747;}
+.measurement-li-box ul li i{line-height: 60px; font-style: normal;display: inline-block;padding-top: 4px;}
+.measurement-li-box ul li strong{float: right; position: relative;width: 60%; font-weight: 400;}
+.measurement-li-box ul li strong span {
+    color: #da2d2d;
+    margin-top: 0px;
+    float: left;
+}
+.measurement-li-box ul li strong img{position: absolute;top: 10px; right: 0px; z-index: 9; float: right;width:38px; height: 36px;}
+.form-section-box .measurement-input{width:100% !important; float: left;margin-bottom: 0px;margin-top: 10px;padding-right: 40px;padding-bottom: 7px;}
 .submit-button input{
     width:105px;
     cursor: pointer;
@@ -516,7 +532,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
   display: table;
   box-shadow: none;
 }
-.right-add-new-button a:hover{background: #e0229b;}
+.right-add-new-button a:hover{background: #e0229b;color: #fff;}
 
 .alerts-page-table{width:70%;margin: 0 auto;float: none;}
 
@@ -570,7 +586,7 @@ float: right;
 cursor: pointer;
 background: #ff36b6;
 text-decoration: none;
-padding: 7px 9px;
+padding: 7px 7px;
 font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
 color: #fff;
 font-size: 15px;
@@ -586,6 +602,27 @@ transition: all 0.2s linear;
 text-align: center;
 }
 .clothaddbutton a:hover{background: #e527a0;}
+.form-box-measurement-add{
+ margin-left: 30%;
+ width: 70%;
+ float: left;
+ box-sizing: border-box;
+ font-size: 13px;
+ border-radius: 3px;
+ border: 1px solid #D2D2D2 ;
+ background: #efefef ;
+ padding: 4px 8px;
+ color: #333;
+ position: relative;
+ margin-bottom: 6px;
+}
+.disable{
+  color: grey;
+}
+.form-box-measurement-add button{
+ width: 18px; height: 18px;line-height: 18px;border: 0px; cursor: pointer; text-align: center; border-radius: 100px; float: right; background: #565656 ; font-size: 12px; font-style: normal; color: #fff; font-weight: 600;
+ /*width: 18px; height: 18px;line-height: 18px; cursor: pointer; text-align: center; border-radius: 100px; float: right; background: #565656 ; font-size: 12px; font-style: normal; color: #fff; font-weight: 600;*/
+}
 .float-left{  float: left;  width: 40% !important;  text-align: left;  margin-top: 15px !important;}
 .float-right{  float: right;  width: 50% !important;  text-align: right;  margin-top: 30px !important;}
 
@@ -597,7 +634,8 @@ text-align: center;
 }
 
 
-.details-table{width:100%; float: left;}
+._720kb-datepicker-calendar-header-middle span{padding-bottom: 0px; margin-top: 0px; margin-left: 0px;}
+.details-table{width:100%; float: left;min-height: 400px;}
 .table-part {
 	width: 100%;
 	float: left;
@@ -635,7 +673,7 @@ text-align: center;
   cursor: pointer;
   text-decoration: none;
   background:#ff36b6;
-  padding: 4px 5px;
+  padding:0px 5px;
   color: #fff;
   font-size:13px;
   border: 1px solid #e928a3;
@@ -648,6 +686,8 @@ text-align: center;
   transition: all 0.2s linear;
   display: table;
   box-shadow: none;
+  border: 0px;
+  line-height: 23px;
 }
 .table-part .top-purpal-color-row2 .reset-button:hover {text-decoration: none !important;background: #e0229b;}
 .table-part .top-purpal-color-row2 {

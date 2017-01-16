@@ -7,9 +7,9 @@ function registerController($resource) {
   var vm = this;
   vm.check = false;
    vm.token = JSON.parse(localStorage.getItem('token'));
-  // if(!vm.token){
-  //   window.location = '#/login';
-  // }
+  if(!vm.token){
+    window.location = '#/login';
+  }
  var vm = this;
   vm.submit = submit;
   vm.confirm = confirm;
@@ -27,7 +27,7 @@ function registerController($resource) {
     }
   }
 
-  function submit(){
+  function submit(userform){
     vm.formSubmitted = true;
     if(userform.$valid){
     var register = new Register()
@@ -39,7 +39,12 @@ function registerController($resource) {
     register.address = vm.address;
     register.isActive = true;
     register.$save(function(info){
-      window.location = '#/register';
+      if(info.status){
+        swal(info.status);
+      } else {
+         window.location = '#/register';
+      }
+     
     });
   }
   }

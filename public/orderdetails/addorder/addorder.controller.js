@@ -7,130 +7,152 @@ function addorderController($resource) {
   var vm = this;
 
   vm.token = JSON.parse(localStorage.getItem('token'));
-  // if(!vm.token){
-  //   window.location = '#/login';
-  // }
-
+  if (!vm.token) {
+    window.location = '#/login';
+  }
+  vm.datepattern = "/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/i";
   var measurement = $resource('/api/measurement');
   var customerdetails = $resource('/api/customerdetails');
   var Addmaterial = $resource('/api/addmaterial');
   var Orderdetails = $resource('/api/orderdetails');
-  //vm.order.date = new Date();
-  vm.typeSelect = typeSelect;
-  vm.showNext2 = showNext2;
-  vm.showNext3 = showNext3;
-  vm.showNext4 = showNext4;
-  vm.showNext1 = showNext1;
   vm.order = [];
-  vm.order1 = [];
-  vm.order2 = [];
-  vm.order3 = [];
-  vm.order4 = [];
+  vm.clothtype = [];
+   vm.cancel = cancel;
+  var myDate = new Date();
+  var month = myDate.getMonth() + 1;
+  var orderdate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
+  vm.order = [
+    {
+      orderdate: orderdate
+    }
+  ]
+  vm.typeSelect = typeSelect;
+  vm.items = [{}];
+  vm.add = add;
   vm.final = final;
-  vm.order.orderdate = new Date();
-  vm.order1.orderdate = new Date();
-  vm.order2.orderdate = new Date();
-  vm.order3.orderdate = new Date();
-  vm.order4.orderdate = new Date();
+  // vm.cancelbtn = cancelbtn;
+  function cancel(){
+       window.location = '#/order';
+      }
+
   vm.selectCustomer = selectCustomer;
   vm.data = [];
 
-  measurement.query(function(info){
+  measurement.query(function (info) {
     vm.type = info;
   });
-  customerdetails.query(function(info){
+  customerdetails.query(function (info) {
     vm.customer = info;
   });
-  Addmaterial.query(function(info){
+  Addmaterial.query(function (info) {
     vm.material = info;
   });
 
   vm.change = change;
-
-  function change(){
-    //alert(vm.order.orderdate.getTime());
-    //alert(vm.order.date.getTime());
-    var order = new Date(vm.order.orderdate);
-    var delevery = new Date(vm.order.date);
-    if(order.getTime() <= delevery.getTime()){
-      alert("is max")
-    } else {
-      alert("not")
-    }
-  }
-
-  function selectCustomer(info){
+  vm.alertchange = alertchange;
+ 
+  function selectCustomer(info) {
     vm.seleCust = info;
     vm.contact = info.mobileNumber;
     vm.email = info.email;
     vm.address = info.address
   }
 
-  function typeSelect(selecttype){
-    vm.type.forEach(function(e){
-      if(e.id == selecttype.id){
-        vm.clothtype = selecttype.measurement.split(',');
+  function change(orderdate, deliverydate) {
+    var b = orderdate.split('/');
+    var a = deliverydate.split('/');
+    var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
+    var orderDate = new Date(b[2], b[1] - 1, b[0]);
+    orderDate.setHours(0, 0, 0, 0, 0);
+    deliveryDate.setHours(0, 0, 0, 0, 0);
+    if (deliveryDate < orderDate) {
+      vm.date1 = true;
+    } else {
+      vm.date1 = false;
+    }
+  }
+
+
+  function alertchange(orderdate, deliverydate, alertdate) {
+    var b = orderdate.split('/');
+    var a = deliverydate.split('/');
+    var c = alertdate.split('/');
+    var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
+    var orderDate = new Date(b[2], b[1] - 1, b[0]);
+    var alertDate = new Date(c[2], c[1] - 1, c[0]);
+    orderDate.setHours(0, 0, 0, 0, 0);
+    deliveryDate.setHours(0, 0, 0, 0, 0);
+    alertDate.setHours(0, 0, 0, 0, 0);
+    if (alertDate > deliveryDate) {
+      vm.date2 = true;
+    } else {
+      vm.date2 = false;
+    }
+
+    if (alertDate < orderDate) {
+      vm.date3 = true;
+    } else {
+      vm.date3 = false;
+    }
+  }
+
+  var pos = 0;
+  function typeSelect(selecttype) {
+    vm.type.forEach(function (e) {
+      if (e.id == selecttype.id) {
+        vm.clothtype[pos] = selecttype.measurement.split(',');
       }
     });
-  }
-
-  function showNext1(info){
+    pos++;
     
-    vm.next1 = true;
-    vm.data.push(info);
-   
   }
 
-  function showNext2(info){
- 
-    vm.next2 = true;
-    vm.data.push(info);
-  }
-
-  function showNext3(info){
-    
-    vm.next3 = true;
-    vm.data.push(info);
-  }
-
-  function showNext4(info){
-     
-    vm.next4 = true;
-    vm.data.push(info);
-  }
-    var i = 0;
-  function final(info){
-    if(info){
-       vm.data.push(info);
+  function add(orderform,inform) {
+    vm.formSubmitted = true;
+    if (orderform.$valid) {
+      vm.formSubmitted = false;
+      vm.order.push({ orderdate: orderdate });
+      console.log(vm.order);
+      vm.items.push({});
     }
-    console.log(vm.data);
-    var orderdetails = new Orderdetails();
-      if(i< vm.data.length){
-      orderdetails.customerid = vm.seleCust.id;
-      orderdetails.customerName = vm.seleCust.customerName;
-      orderdetails.customeremail = vm.seleCust.email;
-      orderdetails.type = vm.data[i].type.title
-      orderdetails.material = vm.data[i].materialtype.materialtype;
-      orderdetails.color = vm.data[i].color;
-      if(vm.data[i].checked){
-      orderdetails.customization = vm.data[i].customization;
+  }
+
+  function final(orderform) {
+    vm.formSubmitted = true;
+    if (orderform.$valid) {
+      var orderdetails = new Orderdetails();
+      var i = 0;
+      var rOrder = function () {
+        if (i < vm.order.length) {
+          orderdetails.customerid = vm.seleCust.id;
+          orderdetails.customerName = vm.seleCust.customerName;
+          orderdetails.customeremail = vm.seleCust.email;
+          orderdetails.type = vm.order[i].type.title
+          orderdetails.material = vm.order[i].materialtype.materialtype;
+          orderdetails.color = vm.order[i].color;
+          if (vm.order[i].checked) {
+            orderdetails.customization = vm.order[i].customization;
+          } else {
+            orderdetails.customization = "";
+          }
+          orderdetails.cloth = vm.order[i].cloth
+          orderdetails.orderdate = vm.order[i].orderdate
+          orderdetails.date = vm.order[i].deliverydate
+          orderdetails.alertday = vm.order[i].alertday
+          orderdetails.amount = vm.order[i].amount
+          orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
+          orderdetails.status = 'new';
+          orderdetails.$save(function (info) {
+            i++;
+            rOrder();
+          });
+        } else {
+          window.location = '#/order';
+        }
       }
-      orderdetails.cloth = vm.data[i].cloth
-      orderdetails.orderdate = vm.data[i].orderdate
-      orderdetails.date = vm.data[i].date
-      orderdetails.alertday = vm.data[i].alertday
-      orderdetails.amount = vm.data[i].amount
-      orderdetails.measurement = JSON.stringify(vm.data[i].measurement);
-      orderdetails.status = 'new';
-      orderdetails.$save(function(info){
-        i++;
-        final();
-      });
-    } else {
-      window.location = '#/order';
-      console.log("ankur");
+      rOrder();
     }
- 
-  } 
+
+  }
 
 }

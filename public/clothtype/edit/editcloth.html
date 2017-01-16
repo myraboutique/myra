@@ -13,7 +13,7 @@
       <li><a href="#/home" >Home</a></li>
 			<li><a href="#/customerdetails">Customer Details</a></li>
 			<li><a href="#/order">Order Form</a></li>
-			<li><a href="#/alert" class="active">Alerts</a></li>
+			<li><a href="#/alert" >Alerts</a></li>
 			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 				<ul>
 	        <li><a href='#/register'><span>Add User</span></a></li>
@@ -27,55 +27,74 @@
 	 </div>
 	 <!-- Header Section End Here -->
 
-	 <div class="inner-heading-bar">Edit ClothType</div>
+	 <div class="inner-heading-bar">Edit Style</div>
 
 	 <div class="main-contant-part minpageheight">
 		<!-- Left Form Section Start Here -->
+		<form name="form" novalidate>
     <div class="order-form-left-section add-new-form">
       <div class="form-section-box">
-     
-			 <div class="form-box">
-			  <label>Cloth Type</label>
-			  <input id="" name="" required="required" type="text" ng-model="vm.clothtype.title" placeholder="Cloth Type" />
-		   </div>
 
+			 <div class="form-box">
+			  <label>Style:</label>
+			  <input id="" name="style" required="required" type="text" placeholder="Style" ng-model="vm.data.title"/>
+					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style must be required</span>
+		   </div>
 			 <div class="form-box">
 			  <label>Measurement:</label>
-        <input id="" name="" required="required" type="text" ng-model="vm.clothtype.measurement" placeholder="Measurement" class="clothmeasurementinput"/>
-				<span class="clothaddbutton"><a href="">Add</a></span>
+        <input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
+				<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
+				<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement must be required</span>
 			 </div>
 
+			 <div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
+				 {{data}}
+        <button ng-click="vm.delete($index)">X</button>
+			  </div>
+
 			 <div class="form-box">
-				  <label>isActive:</label>
-				 <input type="checkbox" class="billing-addres-checkbox clothcheck"/>
-			 
+				  <label>IsActive:</label>
+				 <input type="checkbox" class="billing-addres-checkbox clothcheck" ng-model="vm.data.isActive"/>
+
 			 </div>
-         
-		
+
+
 
 			</div>
 
       <div class="add-new-btm-btn">
 			<div class="submit-button">
-				<input type="submit" value="Update" />
+				<input type="submit" value="Save" ng-click="vm.update(form)"/>
 			</div>
 			<div class="cancel-button">
-				<input type="submit" value="Cancel" />
+				<input type="submit" value="Cancel" ui-sref="clothtype"/>
 			</div>
 	   </div>
 
 
 		</div>
+		</form>
 	 </div>
 		<!-- Left Form Section End Here -->
 
-
+    <!-- Footer Section Start Here -->
+    <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+    <!-- Footer Section End Here -->
 	 </div>
-	 <!-- Footer Section Start Here -->
-	 <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
-	 <!-- Footer Section End Here -->
+
 	</div>
 
+	 <script type="text/javascript">
+         $(document).ready(function(e) {
+          $(".menu-toggle").click(function(){
+	        $(".navbar").slideToggle()
 
+	        })
+	        $(".navbar ul li").click(function(){
+		      $(this).find("ul").slideToggle()
+		      $(this).toggleClass("active");
 
-	
+		   })
+
+});
+</script>

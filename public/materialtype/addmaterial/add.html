@@ -38,31 +38,21 @@
 
      <div class="form-box">
       <label>Material Type</label>
-      <input id="mtype" name="materialtype" type="text" ng-minlength="5" ng-maxlength="50" ng-model="vm.materialtype"  placeholder="Material Type" required/>
-
-        <span ng-show="(frm.materialtype.$dirty || form.$submitted)">The dfffff name is required.</span>
-        <span ng-show="frm.materialtype.$error.minlength && frm.materialtype.$dirty && frm.materialtype.$invalid" class="email-validation-error">First Name must be more than 5 character</span>
-        <span ng-show="frm.materialtype.$error.maxlength && frm.materialtype.$dirty && frm.materialtype.$invalid" class="email-validation-error">First Name must be less than 50 character</span>
-
-
-      <!-- <span style="color:red;" ng-if="form.materialtype.$error.required">Materialtype is required field!</span> -->
-      <!-- <input id="" ng-minlength="5" ng-maxlength="50" ng-required="true" ng-model="vm.customerName" name="customerName" required="required" type="text" placeholder="Customer Name" /> -->
-      <!-- <p class="help-block" ng-if="form.customerName.$dirty && form.customerName.$error.minlength">
-             <i><b>QC Module Name</b></i> should be atleast 2 characters long.
-           </p> -->
-
-
-     </div>
+      <input id="mtype" name="materialtype" type="text" ng-minlength="3" ng-maxlength="15" ng-model="vm.materialtype"  placeholder="Material Type" required/>
+      	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Material name must be required</span>
+        	<span ng-show="frm.materialtype.$error.minlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name length must be greater then 3</span>
+          	<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name must be less then 15</span>
+      </div>
 
      <div class="form-box">
-        <label>isActive:</label>
+        <label>IsActive:</label>
        <input type="checkbox" ng-model="vm.active" class="billing-addres-checkbox clothcheck"/>
 
      </div>
     </div>
     <div class="add-new-btm-btn">
     <div class="submit-button">
-      <input ng-disabled="frm.$invalid" type="submit" value="Save" ng-click="vm.materialsave()" />
+      <input  type="submit" value="Save" ng-click=" vm.materialsave(frm)" />
     </div>
     <div class="cancel-button">
       <input type="submit" value="Cancel" ng-click="vm.materialcancel()" />

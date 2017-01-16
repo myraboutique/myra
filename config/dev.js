@@ -11,7 +11,7 @@ module.exports = (function(){
             port: 27017,
             user: 'root',
             password: 'root',
-            database: 'myra'
+            database: 'demo1'
         },
         logging: {
             level: "info"

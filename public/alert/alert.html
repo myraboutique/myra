@@ -38,16 +38,14 @@
                     <th>Customer Name</th>
                     <th>Anniversary Date</th>
                     <th>Date of Birth</th>
-                    <th>Order</th>
 										<th>Action</th>
                   </tr>
                   <!-- ng-repeat="data in vm.user" -->
                   <tr dir-paginate="data in vm.user|itemsPerPage:10" >
                     <td data-th="Customer Name: " class="top-purpal-color-row2">{{data.customerName}}</td>
-                    <td data-th="Anniversary Date: " class="top-purpal-color-row2"><input type="checkbox"  name="Anniversary Date" value="" class="checkbox" ></td>
-                    <td data-th="Date of Birth: " class="top-purpal-color-row2"><input type="checkbox" name="Date of Birth" value="" class="checkbox" ></td>
-                    <td data-th="Order: " class="top-purpal-color-row2"><input type="checkbox" name="Order" value="" class="checkbox" ></td>
-										<td data-th="Action: " class="top-purpal-color-row2 alerts-table-mobile"><button class="reset-button" href="#">Update</button></td>
+                    <td data-th="Anniversary Date: " class="top-purpal-color-row2"><input type="checkbox"  name="Anniversary Date" value="" class="checkbox" ng-model="data.anniversaryAlert"></td>
+                    <td data-th="Date of Birth: " class="top-purpal-color-row2"><input type="checkbox" name="Date of Birth" value="" class="checkbox" ng-model="data.birthdayAlert"></td>
+										<td data-th="Action: " class="top-purpal-color-row2 alerts-table-mobile"><button class="reset-button" ng-click="vm.update(data)">Update</button></td>
                   </tr>
                 </table>
  		 </div>

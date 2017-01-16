@@ -32,6 +32,19 @@ module.exports = (function()
         })
       })
 
+    },
+    Update: function(req,res){
+      db.sync().then(function(){
+        models.update({
+          materialtype : req.body.materialtype,
+          active :  req.body.active,
+        },
+        {
+          where:{id:req.body.id}
+        }).then(function(info){
+          res.json(info);
+        })
+      })
     }
 
 };

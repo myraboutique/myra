@@ -31,25 +31,29 @@
 
 	 <div class="main-contant-part minpageheight">
 		<!-- Left Form Section Start Here -->
+		<form name="form" novalidate>
     <div class="order-form-left-section add-new-form">
       <div class="form-section-box">
 
 			 <div class="form-box">
 			  <label>Style:</label>
-			  <input id="" name="" required="required" type="text" placeholder="Style" ng-model="vm.title"/>
+			  <input id="" name="style" required="required" type="text" placeholder="Style" ng-model="vm.title"/>
+					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style must be required</span>
 		   </div>
 			 <div class="form-box">
 			  <label>Measurement:</label>
-        <input id="" name="" required="required" type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
+        <input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
 				<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
+				<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement must be required</span>
 			 </div>
 
-			 <div class="form-box" ng-repeat="data in vm.selectMeasurement" style="margin-left:161px;">
+			 <div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
 				 {{data}}
+        <button ng-click="vm.delete($index)">X</button>
 			  </div>
 
 			 <div class="form-box">
-				  <label>isActive:</label>
+				  <label>IsActive:</label>
 				 <input type="checkbox" class="billing-addres-checkbox clothcheck" ng-model="vm.isActive"/>
 
 			 </div>
@@ -60,7 +64,7 @@
 
       <div class="add-new-btm-btn">
 			<div class="submit-button">
-				<input type="submit" value="Save" ng-click="vm.addClothtype()"/>
+				<input type="submit" value="Save" ng-click="vm.addClothtype(form)"/>
 			</div>
 			<div class="cancel-button">
 				<input type="submit" value="Cancel" ui-sref="clothtype"/>
@@ -69,6 +73,7 @@
 
 
 		</div>
+		</form>
 	 </div>
 		<!-- Left Form Section End Here -->
 

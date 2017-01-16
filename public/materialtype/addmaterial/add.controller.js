@@ -8,35 +8,32 @@ function addController($resource) {
   var AddMaterial = $resource('/api/addmaterial')
 
   var vm = this;
-  vm.materialsave = materialsave ;
-  vm.materialcancel = materialcancel ;
+  vm.materialsave = materialsave;
+  vm.materialcancel = materialcancel;
 
-   vm.token = JSON.parse(localStorage.getItem('token'));
-  // if(!vm.token){
-  //   window.location = '#/login';
-  // }
+  vm.token = JSON.parse(localStorage.getItem('token'));
+  if (!vm.token) {
+    window.location = '#/login';
+  }
   vm.active = true;
-function materialcancel()
-  {
+  function materialcancel() {
     window.location = "#/materialtype"
   }
- function materialsave()
- { console.log("inside save function")
-   var addmaterial = new AddMaterial();
-    if(vm.active)
-    {
-       addmaterial.active = vm.active;
-    }
-    else {
-      addmaterial.active = "false" ;
-    }
-   addmaterial.materialtype = vm.materialtype;
+  function materialsave(frm) {
+    vm.formSubmitted = true;
+      if(frm.$valid){
+    console.log("inside save function")
+    var addmaterial = new AddMaterial();
+    addmaterial.active = vm.active;
+    addmaterial.materialtype = vm.materialtype;
 
 
-   addmaterial.$save(function(info){
-    console.log(info) ;
+    addmaterial.$save(function (info) {
+      console.log(info);
+       window.location = "#/materialtype"
     })
- window.location = "#/materialtype"
- }
+   
+  }
+  }
 
 }

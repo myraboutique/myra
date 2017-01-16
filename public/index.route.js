@@ -65,6 +65,15 @@
       controller: 'newCustomerController',
       controllerAs: 'vm'
     })
+     .state('edit', {
+    url: '/edit',
+    templateUrl: 'customerdetails/edit/edit.html',
+    controller: 'editcustomerController',
+    controllerAs: 'vm',
+    params: {
+      'referer': null
+            }
+    })
     .state('reset-password', {
       url: '/resetpassword',
       templateUrl: 'reset-password/resetpassword.html',
@@ -96,10 +105,13 @@
       controllerAs: 'vm'
     })
     .state('editclothtype', {
-      url: '/editclothtype/:data',
+      url: '/editclothtype',
       templateUrl: 'clothtype/edit/editcloth.html',
       controller: 'editclothController',
-      controllerAs: 'vm'
+      controllerAs: 'vm',
+       params: {
+      'referer': null
+            }
     })
     .state('materialtype', {
       url: '/materialtype',
@@ -116,18 +128,13 @@
      .state('editmaterialtype', {
       url: '/editmaterialtype',
       templateUrl: 'materialtype/editmaterial/edit.html',
-      controller: 'editController',
-      controllerAs: 'vm'
-    })
-    .state('edit', {
-    url: '/edit',
-    templateUrl: 'customerdetails/edit/edit.html',
-    controller: 'editController',
-    controllerAs: 'vm',
-    params: {
+      controller: 'editmaterialController',
+      controllerAs: 'vm',
+       params: {
       'referer': null
             }
     })
+   
     .state('home', {
       url: '/home',
       templateUrl: 'home/home.html',

@@ -5,7 +5,7 @@ module.exports = (function () {
   var db = require('../core/db');
   var sequelize = require('sequelize');
   var nodemailer = require('nodemailer');
- var crypto = require('crypto'); 
+ var crypto = require('crypto');
 
   var m = {
     login: function (req, res, next) {
@@ -30,10 +30,11 @@ module.exports = (function () {
         models.findOne({ where: { email: req.body.email } }).then(function (user) {
           if (user) {
             return res.status(200).json({
-              status: 'user already exists'
+              status: 'Email address already exists'
             });
           } else {
             db.sync().then(function () {
+              console.log(req.body);
               models.create({
                 name: req.body.name,
                 email: req.body.email,
@@ -51,7 +52,7 @@ module.exports = (function () {
       })
     },
     update: function (req, res) {
-     
+
       db.sync().then(function () {
         models.update(
           {
@@ -89,7 +90,7 @@ module.exports = (function () {
     forgot: function (req, res) {
 
       db.sync().then(function () {
-        models.findOne({ where: { email: req.body.email } }).then(function (user) {
+        models.findOne({ where: { email: req.body } }).then(function (user) {
           console.log(req.body);
           if (!user) {
             return res.status(200).json({
@@ -110,7 +111,7 @@ module.exports = (function () {
               subject: 'Password Reset',
               text: 'You are receiving this because have requested the reset of the password for your account.\n\n' +
               'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-              'http://localhost:3000/#/password/'+user.dataValues.id+' \n\n' +
+              'https://myrabootique.herokuapp.com/#/forgotpassword/'+user.dataValues.id+' \n\n' +
               'If you did not request this, please ignore this email and your password will remain unchanged.\n'
             };
           transpoter.sendMail(mainOptions, function (error, info) {

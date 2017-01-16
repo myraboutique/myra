@@ -28,14 +28,14 @@
 	<!-- Header Section End Here -->
 
 	<div class="inner-heading-bar">Order Form</div>
-
+<form name="orderform" novalidate>
 	<div class="main-contant-part">
 
 		<!-- Right Address Section Start Here -->
 		<div class="order-form-right-address-section">
 			<div class="form-address-heading-rt">Customer Billing Address <span><a href="#"><img src="assets/images/edit-icon.png" title="Edit" alt="Edit"></a></span></div>
 			<p>
-			{{vm.customer.address}}
+				{{vm.customer.billingAddress}}
 			</p>
 		</div>
 		<!-- Right Address Section End Here -->
@@ -47,114 +47,157 @@
 
 				<div class="form-box">
 					<label>Name:</label>
-					<input id="" name=""  ng-model="vm.orderform.customerName" type="text" placeholder="Contact Number" />
+					<input id="" name="" ng-disabled="vm.customer.customerName" ng-model="vm.order.customerName" type="text" placeholder="Contact Number"
+					/>
 				</div>
 
 				<div class="form-box">
 					<label>Contact Number:</label>
-					<input id="" name="" required="required" ng-model="vm.customer.mobileNumber" type="text" placeholder="Contact Number" />
+					<input id="" name="" ng-disabled="vm.customer.mobileNumber" required="required" ng-model="vm.customer.mobileNumber" type="text"
+						placeholder="Contact Number" />
 				</div>
 
 				<div class="form-box">
 					<label>Email Id:</label>
-					<input id="" name="" required="required" type="text" ng-model="vm.orderform.customeremail" placeholder="Email Id" />
+					<input id="" name="" ng-disabled="vm.customer.email" required="required" type="text" ng-model="vm.customer.email"
+						placeholder="Email Id" />
 				</div>
 			</div>
-
 
 			<div class="form-section-box">
 				<div class="form-heading">Cloth Description</div>
 
 				<div class="form-box">
-					<label>Type:</label>
-					<input id="" name="" ng-model="vm.orderform.type" required="required" type="text" placeholder="Choose Color" />
+					<label>Cloth Type:</label>
+					<select ng-model="vm.order.type" required name="clothtype">
+				  			<option value="">-- Please Select --</option>
+								<option value="{{vm.order.type}}">{{vm.order.type}}</option>
+					</select>
+					<span ng-show="orderform.clothtype.$invalid && (orderform.clothtype.$touched || vm.formSubmitted)">Cloth type must be required</span>
 				</div>
+			
 
 				<div class="form-box">
 					<label>Material Source:</label>
-					<input id="" name="" ng-model="vm.orderform.material" required="required" type="text" placeholder="Choose Color" />
+					<select ng-model="vm.order.material" ng-options="data as data.materialtype for data in vm.material" required name="material">
+				  			<option value="">-- Please Select --</option></select>
 					</select>
+					<span ng-show="orderform.material.$invalid && (orderform.material.$touched || vm.formSubmitted)">Cloth material must be required</span>
 				</div>
 
 				<div class="form-box">
 					<label>Choose Color:</label>
-					<input id="" name="" ng-model="vm.orderform.color" required="required" type="text" placeholder="Choose Color" />
+					<input id="" name="color" ng-model="vm.order.color" ng-minlength="3" ng-maxlength="15" required="required"
+						type="text" placeholder="Choose Color" />
+					<span ng-show="orderform.color.$error.required && (orderform.color.$dirty || vm.formSubmitted)">Cloth color must be required</span>
+					<span ng-show="orderform.color.$error.minlength && (orderform.color.$dirty || vm.formSubmitted)">Cloth color length must be greater then 3</span>
+					<span ng-show="orderform.color.$error.maxlength && (orderform.color.$dirty || vm.formSubmitted)">Cloth color length must be less then 15</span>
 				</div>
 
-				<div class="form-box">
+				<div class="form-box" ng-if="vm.order.customization"> 
 					<label>Customization:</label>
 					<div class="customization-check-box">
-						<textarea ng-model="vm.orderform.customization" class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description"></textarea>
+						<textarea ng-minlength="10" ng-maxlength="100" ng-model="vm.order.customization"
+							class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description" name="customization"></textarea>
 					</div>
+					<span ng-show="orderform.customization.$error.minlength && (orderform.customization.$dirty || vm.formSubmitted)">Customization length must be greater then 10</span>
+					<span ng-show="orderform.customization.$error.maxlength && (orderform.customization.$dirty || vm.formSubmitted)">Customization length must be less then 100</span>
+
 				</div>
 
 				<div class="form-box">
 					<label>Cloth Description:</label>
-					<textarea rows="4" cols="50" ng-model="vm.orderform.cloth" placeholder="Cloth Description"></textarea>
+					<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="100" ng-model="vm.order.cloth" placeholder="Cloth Description"
+						required name="clothdesc"></textarea>
+					<span ng-show="orderform.clothdesc.$invalid && (orderform.clothdesc.$dirty || vm.formSubmitted)">Cloth description must be required</span>
+					<span ng-show="orderform.clothdesc.$error.minlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Cloth description length must be greater then 10</span>
+					<span ng-show="orderform.clothdesc.$error.maxlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Cloth description length must be less then 100</span>
 				</div>
 
 				<div class="form-box">
 					<label>Date of Order:</label>
 					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-						<input class="inputdatipicker" ng-model="vm.orderform.orderdate" id="" name="" required="required" type="text" placeholder="Date of Order"
-						/>
-						<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+						<input class="inputdatipicker " id="mydate" ng-model="vm.order.orderdate" name="orderdate" required="required"
+							type="text" placeholder="Date of Order" />
+					</datepicker>
+					<span ng-show="orderform.orderdate.$error.required && (orderform.orderdate.$dirty || vm.formSubmitted)">Order date must be required</span>
+					<!--<span ng-show="orderform['orderdate'+$index].$error.pattern && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
 				</div>
 
 				<div class="form-box">
 					<label>Date of Delivery:</label>
 					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-						<input class="inputdatipicker" ng-model="vm.orderform.date" id="" name="" required="required" type="text" placeholder="Date of Delivery"
-						/>
-						<img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+						<input class="inputdatipicker" ng-model="vm.order.date" ng-change=vm.change(vm.order.orderdate,vm.order.date)
+							id="" name="deliverydate" required="required" type="text" placeholder="Date of Delivery" />
+					</datepicker>
+					<span ng-show="orderform.deliverydate.$error.required && (orderform.deliverydate.$dirty || vm.formSubmitted)">Order date must be required</span>
+					<!--<span ng-show="orderform['deliverydate'+$index].$error.pattern && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
+					<span ng-if="vm.date1">please select deliverydate after order date</span>
 				</div>
 
 				<div class="form-box">
-					<label>Alert Day:</label>
-					<input id="" name="" required="required" ng-model="vm.orderform.alertday" type="text" placeholder="Alert Day" />
+					<label>Alert Date:</label>
+					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+						<input class="inputdatipicker" ng-model="vm.order.alertday" ng-change="vm.alertchange(vm.order.orderdate,vm.order.date,vm.order.alertday)"
+							id="" name="alertdate" required type="text" placeholder="Date of Alert" />
+					</datepicker>
+					<span ng-show="orderform.alertdate.$error.required && (orderform.alertdate.$dirty || vm.formSubmitted)">Order date must be required</span>
+					<!--<span ng-show="orderform['alertdate'+$index].$error.pattern && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
+					<span ng-if="vm.date2">please select alertdate before delivery date</span>
+					<span ng-if="vm.date3">please select alertdate after order date</span>
 				</div>
 
 				<div class="form-box">
 					<label>Amount:</label>
-					<input id="" name="" required="required" ng-model="vm.orderform.amount" type="text" placeholder="Amount" />
+					<input id="" name="amount" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required" ng-model="vm.order.amount"
+						type="text" placeholder="Amount" />
+					<span ng-show="orderform.amount.$error.required && (orderform.amount.$dirty || vm.formSubmitted)">Cloth amount must be required</span>
+					<span ng-show="orderform.amount.$error.pattern && (orderform.amount.$dirty || vm.formSubmitted)">Cloth amount must be a number</span>
+					<span ng-show="orderform.amount.$error.maxlength && (orderform.amount.$dirty || vm.formSubmitted)">Cloth amount length must be less then 10</span>
 				</div>
 
 				<div class="form-box">
 					<label>Status:</label>
-					<select ng-model="vm.orderform.status">
-					<option value="">--Please select---</option>
-				  <option value="New">New</option>
-					<option value="inprogress">InProgress</option>
-					<option value="Complete">Complete</option>
-					</select>
+					<select ng-model="vm.order.status" name="status"  required>
+							<option value="">-- Please Select --</option>
+							<option value="new">new</option>
+							<option value="inprogress">inprogress</option>
+							<option value="finish">finish</option>
+							</select>
+					<span ng-show="orderform.status.$invalid && (orderform.status.$touched || vm.formSubmitted)">Cloth style must be required</span>
 				</div>
 
 			</div>
 
-			<div class="form-section-box">
+			<div class="form-section-box" >
 				<div class="form-heading">Measurement</div>
 				<div class="measurement-li-box">
 					<ul ng-repeat="type in vm.tyepemeasurement">
-						<li>{{type}} <span><input ng-model=" vm.measurement[$index]" class="measurement-input" name="" required="required" type="text" placeholder="Add Size" /><img src="assets/images/inc-icon.png" alt=""></span></li>
+						<li><i>{{type}}</i>
+							<strong><input ng-model="vm.order.measurement[$index]" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="5" class="measurement-input" name="measurement{{$index}}" required="required" type="text" placeholder="Add Size" />
+									<span ng-show="orderform['measurement'+$index].$error.required && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">{{type}} must be required</span>
+							    <span ng-show="orderform['measurement'+$index].$error.pattern && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement must be a number</span>
+									 <span ng-show="orderform['measurement'+$index].$error.maxlength && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement length must less then 5</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong>
 					</ul>
 				</div>
 			</div>
 
-		
 			<div class="add-next-btn-box">
 				<div class="submit-button">
-					<input type="submit" value="Save" ng-click="vm.final()" />
+					<input type="submit" value="Save" ng-click="vm.final(orderform)" />
 				</div>
 				<div class="cancel-button">
-					<input type="submit" value="Cancel" />
+					<input type="submit" value="Cancel" ng-click="vm.cancelbtn()" />
 				</div>
 			</div>
 
-		</div><br/><br/>
+		</div>
 		<!-- Left Form Section End Here -->
 
 
 	</div>
+	</form>
 
 	<!-- Footer Section Start Here -->
 	<div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
