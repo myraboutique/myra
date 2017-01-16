@@ -39,7 +39,7 @@
 
           <div class="form-box">
             <label>Customer Name:</label>
-            <input id="" ng-minlength="5" ng-maxlength="20" ng-required="true" ng-model="vm.customerName" name="customerName" type="text"
+            <input id="" ng-minlength="4" ng-maxlength="20" ng-required="true" ng-model="vm.customerName" name="customerName" type="text"
               placeholder="Customer Name" />
             <span ng-show="form.customerName.$error.required && (form.customerName.$dirty || vm.formSubmitted)">User name required</span>
             <span ng-show="form.customerName.$error.minlength && (form.customerName.$dirty || vm.formSubmitted)">Length must be greater than 3</span>

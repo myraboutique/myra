@@ -108,7 +108,7 @@
 
 						<div class="form-box">
 							<label>Cloth Description:</label>
-							<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="100" ng-model="vm.order[$index].cloth" placeholder="Cloth Description" required name="clothdesc{{$index}}"></textarea>
+							<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="100" ng-model="vm.order[$index].cloth" placeholder="Cloth Description" required="required" name="clothdesc{{$index}}"></textarea>
 							<span ng-show="orderform['clothdesc'+$index].$invalid && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Cloth description must be required</span>
 							<span ng-show="orderform['clothdesc'+$index].$error.minlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Cloth description length must be greater then 10</span>
 						<span ng-show="orderform['clothdesc'+$index].$error.maxlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Cloth description length must be less then 100</span>
@@ -127,7 +127,8 @@
 						<div class="form-box">
 							<label>Date of Delivery:</label>
 							<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-								<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change=vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate)
+							<!--New change 00 --index inject -->
+								<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change=vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)
 									id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
 							</datepicker>
 						<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Order date must be required</span>
