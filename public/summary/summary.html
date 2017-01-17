@@ -11,10 +11,10 @@
 		<div class="navbar">
 			<ul>
 				<li><a href="#/home">Home</a></li>
-				<li><a href="#/customerdetails" class="active">Customer Details</a></li>
+				<li><a href="#/customerdetails" >Summary</a></li>
 				<li><a href="#/order">Order Form</a></li>
 				<li><a href="#/alert">Alerts</a></li>
-				<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
+				<li><a href="" class="active">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 					<ul>
 					 <li><a href='#/register'><span>Add User</span></a></li>
 	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
@@ -33,7 +33,6 @@
 	<div class="main-contant-part">
 		<!-- Customer Details page Section Start Here -->
 		<div class="customer-detail-page-contant">
-			<div class="right-add-new-button"><a href="#/newcustomer">Add New</a></div>
 			<p>
    <div class="search-box-main"><input type="text" ng-model="vm.search.customerName" placeholder="Search by Name"></div>
 </p>
@@ -56,7 +55,6 @@
 						<th> Email Id</th>
 						<th>Contact Number</th>
 						<th>Billing Address</th>
-						<th></th>
 					</tr>
 
 <!-- ng-repeat="newdata in vm.data" -->
@@ -65,7 +63,6 @@
         <td data-th="Customer Email Id: " class="top-purpal-color-row2">{{newdata.email}}</td>
         <td data-th="Contact Number: " class="top-purpal-color-row2">{{newdata.mobileNumber}}</td>
         <td data-th="Billing Address: " class="top-purpal-color-row2">{{newdata.billingAddress}}</td>
-				<td  class="top-purpal-color-row2"><a ng-click="vm.summary(newdata)" class="customer-name-link">OrderSummary</a></td>
     </tr>
 </table>
 		 </div>

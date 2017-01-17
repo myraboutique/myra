@@ -1,0 +1,69 @@
+<div class="container">
+
+	<!-- Header Section Start Here -->
+	<div class="main-header">
+		<div class="logo"><img src="assets/images/logo.png" alt=""></div>
+		<span class="menu-toggle">
+      <i></i>
+      <i></i>
+      <i></i>
+    </span>
+		<div class="navbar">
+			<ul>
+				<li><a href="#/home">Home</a></li>
+				<li><a href="#/customerdetails" >Summary</a></li>
+				<li><a href="#/order">Order Form</a></li>
+				<li><a href="#/alert">Alerts</a></li>
+				<li><a href="" class="active">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
+					<ul>
+					 <li><a href='#/register'><span>Add User</span></a></li>
+	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
+					<li><a href='#/materialtype'><span>Material Type</span></a></li>
+					<li><a href='#/summary'><span>Summary</span></a></li>
+					</ul>
+				</li>
+				<li><a href="#/logout">Logout</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- Header Section End Here -->
+
+	<div class="inner-heading-bar">Customer Details</div>
+
+	<div class="main-contant-part">
+		<!-- Customer Details page Section Start Here -->
+		<div class="customer-detail-page-contant">
+			<div class="details-table">
+				<h3>{{vm.data.customerName}}</h3>
+				<ul ng-repeat="data in vm.order">
+					<li><h4>order{{$index+1}}</h4></li>
+					<li>Cloth Type:{{data.type}}</li>
+					<li>Material Source:{{data.material}}</li>
+					<li>Color:{{data.color}}</li>
+					<li>Cloth Description:{{data.cloth}}</li>
+					<li>Measurement</li>
+					
+				</ul>
+		 </div>
+		</div>
+		<!-- Customer Details page Section End Here -->
+   
+   </div>
+	<!-- Footer Section Start Here -->
+	<div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+	<!-- Footer Section End Here -->
+</div>
+<script type="text/javascript">
+         $(document).ready(function(e) {
+          $(".menu-toggle").click(function(){
+	        $(".navbar").slideToggle()
+
+	        })
+	        $(".navbar ul li").click(function(){
+		      $(this).find("ul").slideToggle()
+		      $(this).toggleClass("active");
+
+		   })
+
+});
+</script>

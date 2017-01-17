@@ -13,6 +13,9 @@ module.exports = (function(){
     },
     DELETE : function(req,res,next){
       db.orderdetails.Delete(req,res);
+    },
+    summary: function(req,res,next){
+      db.orderdetails.Summary(req,res);
     }
   };
   return m;

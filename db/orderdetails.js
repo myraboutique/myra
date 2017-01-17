@@ -79,6 +79,15 @@ module.exports = (function(){
           res.json(info);
         })
       })
+    },
+    Summary: function(req,res){
+      db.sync().then(function(){
+        models.findAll({
+          where:{customerid:req.params.id}
+        }).then(function(info){
+          res.json(info);
+        })
+      })
     }
   };
   return m;

@@ -20,6 +20,21 @@
       controller: 'registerController',
       controllerAs: 'vm'
     })
+     .state('details', {
+      url: '/details',
+      templateUrl: 'summary/details/details.html',
+      controller: 'detailsController',
+      controllerAs: 'vm',
+        params: {
+      'referer': null
+            }
+    })
+     .state('summary', {
+      url: '/summary',
+      templateUrl: 'summary/summary.html',
+      controller: 'summaryController',
+      controllerAs: 'vm'
+    })
      .state('adduser', {
       url: '/adduser',
       templateUrl: 'register/adduser.html',
