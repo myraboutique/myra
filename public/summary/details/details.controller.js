@@ -13,7 +13,8 @@ function detailsController($resource, $stateParams) {
   }
   vm.data = JSON.parse($stateParams.referer);
   console.log(vm.data);
-  vm.order = [];
+  vm.type = [];
+  vm.measure = [];
   var Summary = $resource('/api/summary/:id');
   var measurement = $resource('/api/measurement');
 
@@ -24,9 +25,16 @@ function detailsController($resource, $stateParams) {
   measurement.query(function(info){
     vm.order.forEach(function(e){
       info.forEach(function(f){
-        
+         if(e.type == f.title){
+           vm.type.push(JSON.parse(e.measurement));
+           vm.measure.push(f.measurement.split(","));
+           console.log(e.measurement);
+           console.log(f.measurement);
+         } 
       })
-    })
+    });
+    console.log(vm.type);
+    console.log(vm.measure);
   })
 
 }
