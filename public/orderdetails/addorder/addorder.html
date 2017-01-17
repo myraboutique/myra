@@ -16,11 +16,10 @@
 				<li><a href="#/alert">Alerts</a></li>
 				<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 					<ul>
-					 <li><a href='#/register'><span>Add User</span></a></li>
+	        <li><a href='#/register'><span>Add User</span></a></li>
 	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
 					<li><a href='#/materialtype'><span>Material Type</span></a></li>
-					<li><a href='#/summary'><span>Summary</span></a></li>
-					</ul>
+	      </ul>
 				</li>
 				<li><a href="#/logout">Logout</a></li>
 			</ul>
@@ -48,7 +47,7 @@
 
 				<div class="form-box">
 					<label>Name:</label>
-					<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer"
+					<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer "
 						required name="customeruser">
 				 <option value="">-- Please Select --</option></select>
 					</select>
@@ -72,7 +71,7 @@
 
 						<div class="form-box">
 							<label>Type:</label>
-							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type"
+							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type | filter:data.isActive='true'"
 								required>
 								<option value="">-- Please Select --</option></select>
 							<span ng-show="orderform['clothtype'+$index].$invalid && (orderform['clothtype'+$index].$touched || vm.formSubmitted)">Cloth style must be required</span>
@@ -80,7 +79,7 @@
 
 						<div class="form-box">
 							<label>Material Source:</label>
-							<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material" required
+							<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material | filter:data.isActive='true'" required
 								name="material{{$index}}">
 				  			<option value="">-- Please Select --</option></select>
 							</select>

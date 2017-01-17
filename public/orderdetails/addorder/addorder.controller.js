@@ -30,6 +30,7 @@ function addorderController($resource) {
   vm.items = [{}];
   vm.add = add;
   vm.final = final;
+ 
   // vm.cancelbtn = cancelbtn;
   function cancel(){
        window.location = '#/order';
@@ -50,6 +51,8 @@ function addorderController($resource) {
 
   vm.change = change;
   vm.alertchange = alertchange;
+
+ 
  
   function selectCustomer(info) {
     vm.seleCust = info;
