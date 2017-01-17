@@ -51,7 +51,7 @@
 						required name="customeruser">
 				 <option value="">-- Please Select --</option></select>
 					</select>
-					<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name must be required</span>
+					<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name must be required.</span>
 				</div>
 
 				<div class="form-box">
@@ -74,7 +74,7 @@
 							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type | filter:data.isActive='true'"
 								required>
 								<option value="">-- Please Select --</option></select>
-							<span ng-show="orderform['clothtype'+$index].$invalid && (orderform['clothtype'+$index].$touched || vm.formSubmitted)">Cloth style must be required</span>
+							<span ng-show="orderform['clothtype'+$index].$invalid && (orderform['clothtype'+$index].$touched || vm.formSubmitted)">Cloth style must be required.</span>
 						</div>
 
 						<div class="form-box">
@@ -83,15 +83,15 @@
 								name="material{{$index}}">
 				  			<option value="">-- Please Select --</option></select>
 							</select>
-							<span ng-show="orderform['material'+$index].$invalid && (orderform['material'+$index].$touched || vm.formSubmitted)">Cloth material must be required</span>
+							<span ng-show="orderform['material'+$index].$invalid && (orderform['material'+$index].$touched || vm.formSubmitted)">Cloth material must be required.</span>
 						</div>
 
 						<div class="form-box">
 							<label>Choose Color:</label>
-							<input id="" name="color{{$index}}" ng-model="vm.order[$index].color" ng-minlength="3" ng-maxlength="15" required="required" type="text" placeholder="Choose Color"/>
-							<span ng-show="orderform['color'+$index].$error.required && (orderform['color'+$index].$dirty || vm.formSubmitted)">Cloth color must be required</span>
-							<span ng-show="orderform['color'+$index].$error.minlength && (orderform['color'+$index].$dirty || vm.formSubmitted)">Cloth color length must be greater then 3</span>
-						<span ng-show="orderform['color'+$index].$error.maxlength && (orderform['color'+$index].$dirty || vm.formSubmitted)">Cloth color length must be less then 15</span>
+							<input colorpicker id="" name="color{{$index}}" ng-model="vm.order[$index].color" ng-minlength="3" ng-maxlength="15" required="required" type="text" placeholder="Choose Color"/>
+							<span ng-show="orderform['color'+$index].$error.required && (orderform['color'+$index].$dirty || vm.formSubmitted)">Cloth color must be required.</span>
+							<span ng-show="orderform['color'+$index].$error.minlength && (orderform['color'+$index].$dirty || vm.formSubmitted)">Cloth color length must be greater then 3.</span>
+						<span ng-show="orderform['color'+$index].$error.maxlength && (orderform['color'+$index].$dirty || vm.formSubmitted)">Cloth color length must be less then 15.</span>
 						</div>
 
 						<div class="form-box">
@@ -101,17 +101,24 @@
 								<textarea ng-disabled="!vm.order[$index].checked" ng-minlength="10" ng-maxlength="100" ng-model="vm.order[$index].customization" class="customization-check-box-textarea"
 									rows="4" cols="50" placeholder="Customization Description" name="customization{{$index}}"></textarea>
 										</div>
-										<span ng-show="orderform['customization'+$index].$error.minlength && (orderform['customization'+$index].$dirty || vm.formSubmitted)">Customization length must be greater then 10</span>
-						<span ng-show="orderform['customization'+$index].$error.maxlength && (orderform['customization'+$index].$dirty || vm.formSubmitted)">Customization length must be less then 100</span>
+										<span ng-show="orderform['customization'+$index].$error.minlength && (orderform['customization'+$index].$dirty || vm.formSubmitted)">Customization length must be greater then 10.</span>
+						<span ng-show="orderform['customization'+$index].$error.maxlength && (orderform['customization'+$index].$dirty || vm.formSubmitted)">Customization length must be less then 100.</span>
 
 						</div>
 
 						<div class="form-box">
 							<label>Cloth Description:</label>
+<<<<<<< HEAD
 							<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="100" ng-model="vm.order[$index].cloth" placeholder="Cloth Description" required="required" name="clothdesc{{$index}}"></textarea>
 							<span ng-show="orderform['clothdesc'+$index].$invalid && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Cloth description must be required</span>
 							<span ng-show="orderform['clothdesc'+$index].$error.minlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Cloth description length must be greater then 10</span>
 						<span ng-show="orderform['clothdesc'+$index].$error.maxlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Cloth description length must be less then 100</span>
+=======
+							<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="100" ng-model="vm.order[$index].cloth" placeholder="Cloth Description" required name="clothdesc{{$index}}"></textarea>
+							<span ng-show="orderform['clothdesc'+$index].$invalid && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Cloth description must be required.</span>
+							<span ng-show="orderform['clothdesc'+$index].$error.minlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Cloth description length must be greater then 10.</span>
+						<span ng-show="orderform['clothdesc'+$index].$error.maxlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Cloth description length must be less then 100.</span>
+>>>>>>> origin/mahammad-develop-16jan2017
 						</div>
 
 						<div class="form-box">
@@ -120,7 +127,7 @@
 								<input class="inputdatipicker " id="mydate"  ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
 									type="text" placeholder="Date of Order" />
 							</datepicker>
-							<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Order date must be required</span>
+							<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Order date must be required.</span>
 							<!--<span ng-show="orderform['orderdate'+$index].$error.pattern && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
 						</div>
 
@@ -131,9 +138,9 @@
 								<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change=vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)
 									id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
 							</datepicker>
-						<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Order date must be required</span>
+						<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Order date must be required.</span>
 							<!--<span ng-show="orderform['deliverydate'+$index].$error.pattern && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
-							<span ng-if="vm.date1">please select deliverydate after order date</span>
+							<span ng-if="vm.date1">Please select deliverydate after order date.</span>
 						</div>
 
 						<div class="form-box">
@@ -142,19 +149,19 @@
 								<input class="inputdatipicker" ng-model="vm.order[$index].alertday"  ng-change="vm.alertchange(vm.order[$index].orderdate,vm.order[$index].deliverydate,vm.order[$index].alertday)"
 									id="" name="alertdate{{$index}}" required type="text" placeholder="Date of Alert" />
 							</datepicker>
-							<span ng-show="orderform['alertdate'+$index].$error.required && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">Order date must be required</span>
+							<span ng-show="orderform['alertdate'+$index].$error.required && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">Order date must be required.</span>
 							<!--<span ng-show="orderform['alertdate'+$index].$error.pattern && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
-							<span ng-if="vm.date2">please select alertdate before delivery date</span>
-							<span ng-if="vm.date3">please select alertdate after order date</span>
+							<span ng-if="vm.date2">Please select alertdate before delivery date.</span>
+							<span ng-if="vm.date3">Please select alertdate after order date.</span>
 						</div>
 
 						<div class="form-box">
 							<label>Amount:</label>
 							<input id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required" ng-model="vm.order[$index].amount"
 								type="text" placeholder="Amount" />
-							<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Cloth amount must be required</span>
-							<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Cloth amount must be a number</span>
-							<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Cloth amount length must be less then 10</span>
+							<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Cloth amount must be required.</span>
+							<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Cloth amount must be a number.</span>
+							<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Cloth amount length must be less then 10.</span>
 						</div>
 
 					</div>
@@ -165,9 +172,9 @@
 							<ul ng-repeat="type in vm.clothtype[$index]">
 								<li><i>{{type}}</i>
 									<strong><input ng-model="vm.order[$parent.$index].measurement[$index]" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="5" class="measurement-input" name="measurement{{$index}}" required="required" type="text" placeholder="Add Size" />
-									<span ng-show="orderform['measurement'+$index].$error.required && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">{{type}} must be required</span>
-							    <span ng-show="orderform['measurement'+$index].$error.pattern && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement must be a number</span>
-									 <span ng-show="orderform['measurement'+$index].$error.maxlength && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement length must less then 5</span>
+									<span ng-show="orderform['measurement'+$index].$error.required && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">{{type}} must be required.</span>
+							    <span ng-show="orderform['measurement'+$index].$error.pattern && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement must be a number.</span>
+									 <span ng-show="orderform['measurement'+$index].$error.maxlength && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement length must less then 5.</span>
 								  <img src="assets/images/inc-icon.png" alt=""></strong>
 							</ul>
 						</div>
