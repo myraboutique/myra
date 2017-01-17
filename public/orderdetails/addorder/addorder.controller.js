@@ -60,14 +60,18 @@ function addorderController($resource) {
     vm.email = info.email;
     vm.address = info.address
   }
-
-  function change(orderdate, deliverydate) {
+  //new change 00 --index inject
+  function change(orderdate, deliverydate,index) {
     var b = orderdate.split('/');
     var a = deliverydate.split('/');
     var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
     var orderDate = new Date(b[2], b[1] - 1, b[0]);
     orderDate.setHours(0, 0, 0, 0, 0);
     deliveryDate.setHours(0, 0, 0, 0, 0);
+    //new change 00
+    var alertday = a[0]-2 + '/' + a[1] + '/' + a[2];
+    vm.order[index].alertday = alertday;
+   
     if (deliveryDate < orderDate) {
       vm.date1 = true;
     } else {

@@ -29,7 +29,7 @@ var host = config.server.host;
 var urlPrefix = (config.server.ssl ? 'https://' : 'http://');
 var url = urlPrefix + host + ':' + port;
 
-// require('./cronservice/alert.controller.js')(app);
+// require('./cronservice/alert.controller.js')(app); .
 
 server.listen(port, function(){
     logger.log('Server started on : ' + url);
