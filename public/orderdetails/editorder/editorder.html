@@ -100,7 +100,7 @@
 
 				<div class="form-box">
 					<label>Choose Color:</label>
-					<input colorpicker id="" name="color" ng-model="vm.order.color" ng-minlength="3" ng-maxlength="15" ng-change="vm.colorchange(vm.order.color)"required="required"
+					<input style="background-color:{{vm.order.color}};" colorpicker  id="" name="color" ng-model="vm.order.color" ng-minlength="3" ng-maxlength="15" required="required"
 						type="text" placeholder="Choose Color" />
 					<span ng-show="orderform.color.$error.required && (orderform.color.$dirty || vm.formSubmitted)">Cloth color must be required</span>
 					<span ng-show="orderform.color.$error.minlength && (orderform.color.$dirty || vm.formSubmitted)">Cloth color length must be greater then 3</span>

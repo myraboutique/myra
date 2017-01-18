@@ -79,7 +79,8 @@
 
 						<div class="form-box">
 							<label>Material Source:</label>
-							<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material | filter:data.isActive='true'" required
+
+							<select ng-dropdown-multiselect="" ng-model="vm.order[$index].materialtype" selected-model="example13model" extra-settings="example13settings" ng-options="data as data.materialtype for data in vm.material | filter:data.isActive='true'" required
 								name="material{{$index}}">
 				  			<option value="">-- Please Select --</option></select>
 							</select>
@@ -88,7 +89,8 @@
 
 						<div class="form-box">
 							<label>Choose Color:</label>
-							<input colorpicker id="" name="color{{$index}}" ng-model="vm.order[$index].color" ng-minlength="3" ng-maxlength="15" required="required" type="text" placeholder="Choose Color"/>
+							<!--New 00:- ng-change=vm.hexatoname(vm.order[$index].color,$index) -->
+							<input style="background-color:{{vm.order[$index].color}};" colorpicker id="" name="color{{$index}}" ng-model="vm.order[$index].color" ng-minlength="3" ng-maxlength="15" required="required" type="text" placeholder="Choose Color"  />
 							<span ng-show="orderform['color'+$index].$error.required && (orderform['color'+$index].$dirty || vm.formSubmitted)">Cloth color must be required.</span>
 							<span ng-show="orderform['color'+$index].$error.minlength && (orderform['color'+$index].$dirty || vm.formSubmitted)">Cloth color length must be greater then 3.</span>
 						<span ng-show="orderform['color'+$index].$error.maxlength && (orderform['color'+$index].$dirty || vm.formSubmitted)">Cloth color length must be less then 15.</span>

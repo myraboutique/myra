@@ -21,7 +21,8 @@ function editorderController($resource, $stateParams, $http,$scope) {
   vm.cancelbtn = cancelbtn;
   vm.alertchange = alertchange;
   vm.change = change;
-  vm.colorchange = colorchange ;
+  // new change00 next line is not required 
+  //vm.colorchange = colorchange ;
   vm.typechnage = typechnage;
 
   customer.get({ id: vm.order.customerid }, function (info) {
@@ -46,7 +47,7 @@ function editorderController($resource, $stateParams, $http,$scope) {
   function typechnage(){
     vm.order.type = vm.order.type;
   }
-
+/* new change00 This is not required 
   function colorchange(color)
   {
     var bigint = parseInt(color, 16);
@@ -57,7 +58,7 @@ function editorderController($resource, $stateParams, $http,$scope) {
     vm.order.color=r + "," + g + "," + b;
     console.log(vm.order.color)
   }
-
+*/
 
   function change(orderdate, deliverydate) {
     var b = orderdate.split('/');
