@@ -56,12 +56,12 @@
 
 				<div class="form-box">
 					<label>Contact Number:</label>
-					<input id="" name="" ng-disabled="vm.contact" required="required" ng-model="vm.contact" type="text" placeholder="Contact Number" />
+					<input id="" name="" ng-disabled="vm.disable" required="required" ng-model="vm.contact" type="text" placeholder="Contact Number" />
 				</div>
 
 				<div class="form-box">
 					<label>Email Id:</label>
-					<input id="" name="" ng-disabled="vm.email" required="required" type="text" ng-model="vm.email" placeholder="Email Id" />
+					<input id="" name="" ng-disabled="vm.disable" required="required" type="text" ng-model="vm.email" placeholder="Email Id" />
 				</div>
 			</div>
 
@@ -101,18 +101,18 @@
 								<textarea ng-disabled="!vm.order[$index].checked" ng-minlength="10" ng-maxlength="100" ng-model="vm.order[$index].customization" class="customization-check-box-textarea"
 									rows="4" cols="50" placeholder="Customization Description" name="customization{{$index}}"></textarea>
 										</div>
-										<span ng-show="orderform['customization'+$index].$error.minlength && (orderform['customization'+$index].$dirty || vm.formSubmitted)">Customization length must be greater then 10.</span>
-						<span ng-show="orderform['customization'+$index].$error.maxlength && (orderform['customization'+$index].$dirty || vm.formSubmitted)">Customization length must be less then 100.</span>
+										<span ng-show="orderform['customization'+$index].$error.minlength && (orderform['customization'+$index].$dirty || vm.formSubmitted)">Customization length must be greater than 10.</span>
+						<span ng-show="orderform['customization'+$index].$error.maxlength && (orderform['customization'+$index].$dirty || vm.formSubmitted)">Customization length must be less than 100.</span>
 
 						</div>
 
 						<div class="form-box">
-							<label>Cloth Description:</label>
+							<label>Any Other Remark:</label>
 
-							<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="100" ng-model="vm.order[$index].cloth" placeholder="Cloth Description" required name="clothdesc{{$index}}"></textarea>
-							<span ng-show="orderform['clothdesc'+$index].$invalid && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Cloth description must be required.</span>
-							<span ng-show="orderform['clothdesc'+$index].$error.minlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Cloth description length must be greater then 10.</span>
-						<span ng-show="orderform['clothdesc'+$index].$error.maxlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Cloth description length must be less then 100.</span>
+							<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="300" ng-model="vm.order[$index].cloth" placeholder="Any Other Remark" required name="clothdesc{{$index}}"></textarea>
+							<span ng-show="orderform['clothdesc'+$index].$invalid && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remarks are required.</span>
+							<span ng-show="orderform['clothdesc'+$index].$error.minlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remark description length must be greater than 10.</span>
+						<span ng-show="orderform['clothdesc'+$index].$error.maxlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remark description length must be less than 300.</span>
 
 						</div>
 
@@ -146,8 +146,8 @@
 							</datepicker>
 							<span ng-show="orderform['alertdate'+$index].$error.required && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">Order date must be required.</span>
 							<!--<span ng-show="orderform['alertdate'+$index].$error.pattern && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
-							<span ng-if="vm.date2">Please select alertdate before delivery date.</span>
-							<span ng-if="vm.date3">Please select alertdate after order date.</span>
+							<span ng-if="vm.date2">Please select alert date before delivery date.</span>
+							<span ng-if="vm.date3">Please select alert date after order date.</span>
 						</div>
 
 						<div class="form-box">

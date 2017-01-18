@@ -1,9 +1,9 @@
 angular.module('myra')
   .controller('editorderController', editorderController);
 
-editorderController.$inject = ['$resource', '$stateParams', '$http'];
+editorderController.$inject = ['$resource', '$stateParams', '$http','$scope'];
 
-function editorderController($resource, $stateParams, $http) {
+function editorderController($resource, $stateParams, $http,$scope) {
   var vm = this;
 
   vm.token = JSON.parse(localStorage.getItem('token'));
@@ -16,11 +16,13 @@ function editorderController($resource, $stateParams, $http) {
 
   vm.order = JSON.parse($stateParams.referer);
   vm.order.measurement = JSON.parse(vm.order.measurement);
-
+  
   vm.final = final;
   vm.cancelbtn = cancelbtn;
   vm.alertchange = alertchange;
   vm.change = change;
+  vm.colorchange = colorchange ;
+  vm.typechnage = typechnage;
 
   customer.get({ id: vm.order.customerid }, function (info) {
     vm.customer = info;
@@ -40,6 +42,21 @@ function editorderController($resource, $stateParams, $http) {
       }
     })
   });
+
+  function typechnage(){
+    vm.order.type = vm.order.type;
+  }
+
+  function colorchange(color)
+  {
+    var bigint = parseInt(color, 16);
+    var r = (bigint >> 16) & 255;
+    var g = (bigint >> 8) & 255;
+    var b = bigint & 255;
+
+    vm.order.color=r + "," + g + "," + b;
+    console.log(vm.order.color)
+  }
 
 
   function change(orderdate, deliverydate) {
@@ -86,8 +103,9 @@ function editorderController($resource, $stateParams, $http) {
 
 
   function final(orderform) {
-    if(orderform.$valid){
+    if( orderform.$valid){
       vm.order.measurement = JSON.stringify(vm.order.measurement);
+     
        $http.put('/api/orderdetails',  vm.order)
       .then(
       function (response) {

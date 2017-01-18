@@ -33,10 +33,24 @@
 
 		<!-- Right Address Section Start Here -->
 		<div class="order-form-right-address-section">
-			<div class="form-address-heading-rt">Customer Billing Address <span><a href="#"><img src="assets/images/edit-icon.png" title="Edit" alt="Edit"></a></span></div>
+			<div class="form-address-heading-rt">Customer Billing Address <span>
+				<!--<a href="#"><img src="assets/images/edit-icon.png" title="Edit" alt="Edit"></a>-->
+				</span>
+				</div>
 			<p>
 				{{vm.customer.billingAddress}}
-			</p>
+			</p><br>
+			<div class="form-address-heading-rt">Status <span></a></span></div>
+		<div class="form-box">
+					<!--<label>Status:</label>-->
+					<select ng-model="vm.order.status" name="status"  required>
+							<option value="">-- Please Select --</option>
+							<option value="new">new</option>
+							<option value="inprogress">inprogress</option>
+							<option value="finish">finish</option>
+							</select>		
+					<span ng-show="orderform.status.$invalid && (orderform.status.$touched || vm.formSubmitted)">Order status is required.</span>				
+				</div>
 		</div>
 		<!-- Right Address Section End Here -->
 
@@ -69,8 +83,7 @@
 
 				<div class="form-box">
 					<label>Cloth Type:</label>
-					<select ng-model="vm.order.type" required name="clothtype">
-				  			<option value="">-- Please Select --</option>
+					<select ng-model="vm.order.type" required name="clothtype" ng-change="vm.typechnage()">
 								<option value="{{vm.order.type}}">{{vm.order.type}}</option>
 					</select>
 					<span ng-show="orderform.clothtype.$invalid && (orderform.clothtype.$touched || vm.formSubmitted)">Cloth type must be required</span>
@@ -78,16 +91,16 @@
 			
 
 				<div class="form-box">
-					<label>Material Source:</label>
-					<select ng-model="vm.order.material" ng-options="data as data.materialtype for data in vm.material" required name="material">
-				  			<option value="">-- Please Select --</option></select>
+					<label>Material Source:</label>	
+					<select ng-model="vm.order.material" ng-options="data.materialtype as data.materialtype for data in vm.material" required name="material">
 					</select>
+					
 					<span ng-show="orderform.material.$invalid && (orderform.material.$touched || vm.formSubmitted)">Cloth material must be required</span>
 				</div>
 
 				<div class="form-box">
 					<label>Choose Color:</label>
-					<input id="" name="color" ng-model="vm.order.color" ng-minlength="3" ng-maxlength="15" required="required"
+					<input colorpicker id="" name="color" ng-model="vm.order.color" ng-minlength="3" ng-maxlength="15" ng-change="vm.colorchange(vm.order.color)"required="required"
 						type="text" placeholder="Choose Color" />
 					<span ng-show="orderform.color.$error.required && (orderform.color.$dirty || vm.formSubmitted)">Cloth color must be required</span>
 					<span ng-show="orderform.color.$error.minlength && (orderform.color.$dirty || vm.formSubmitted)">Cloth color length must be greater then 3</span>
@@ -106,12 +119,12 @@
 				</div>
 
 				<div class="form-box">
-					<label>Cloth Description:</label>
-					<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="100" ng-model="vm.order.cloth" placeholder="Cloth Description"
+					<label>Any other remark:</label>
+					<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="100" ng-model="vm.order.cloth" placeholder="Any other remark"
 						required name="clothdesc"></textarea>
-					<span ng-show="orderform.clothdesc.$invalid && (orderform.clothdesc.$dirty || vm.formSubmitted)">Cloth description must be required</span>
-					<span ng-show="orderform.clothdesc.$error.minlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Cloth description length must be greater then 10</span>
-					<span ng-show="orderform.clothdesc.$error.maxlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Cloth description length must be less then 100</span>
+					<span ng-show="orderform.clothdesc.$invalid && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remarks are required</span>
+					<span ng-show="orderform.clothdesc.$error.minlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remark description length must be greater then 10</span>
+					<span ng-show="orderform.clothdesc.$error.maxlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remark description length must be less then 100</span>
 				</div>
 
 				<div class="form-box">
@@ -156,7 +169,7 @@
 					<span ng-show="orderform.amount.$error.maxlength && (orderform.amount.$dirty || vm.formSubmitted)">Cloth amount length must be less then 10</span>
 				</div>
 
-				<div class="form-box">
+				<!--<div class="form-box">
 					<label>Status:</label>
 					<select ng-model="vm.order.status" name="status"  required>
 							<option value="">-- Please Select --</option>
@@ -165,7 +178,7 @@
 							<option value="finish">finish</option>
 							</select>
 					<span ng-show="orderform.status.$invalid && (orderform.status.$touched || vm.formSubmitted)">Cloth style must be required</span>
-				</div>
+				</div>-->
 
 			</div>
 
