@@ -59,27 +59,45 @@ function editorderController($resource, $stateParams, $http,$scope) {
   }
 
 
-  function change(orderdate, deliverydate) {
+  function change(orderdate, deliverydate, valid) {
+  
+    if(orderdate && deliverydate){
     var b = orderdate.split('/');
     var a = deliverydate.split('/');
     var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
     var orderDate = new Date(b[2], b[1] - 1, b[0]);
     orderDate.setHours(0, 0, 0, 0, 0);
     deliveryDate.setHours(0, 0, 0, 0, 0);
+    //new change 00
+    var alertday = a[0] - 2 + '/' + a[1] + '/' + a[2];
+  
     if (deliveryDate < orderDate) {
       vm.date1 = true;
+      // alertchange();
+       
+      alertchange(orderDate, deliveryDate,  vm.order.alertday);
     } else {
       vm.date1 = false;
+     
+      // alertchange();
+      alertchange(orderDate, deliveryDate,  vm.order.alertday);
+    }
     }
   }
 
 
   function alertchange(orderdate, deliverydate, alertdate) {
-    var b = orderdate.split('/');
-    var a = deliverydate.split('/');
+    var type = typeof orderdate;
+    if (type == 'string') {
+      var b = orderdate.split('/');
+      var a = deliverydate.split('/');
+      var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
+      var orderDate = new Date(b[2], b[1] - 1, b[0]);
+    } else {
+      orderDate = orderdate;
+      deliveryDate = deliverydate;
+    }
     var c = alertdate.split('/');
-    var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
-    var orderDate = new Date(b[2], b[1] - 1, b[0]);
     var alertDate = new Date(c[2], c[1] - 1, c[0]);
     orderDate.setHours(0, 0, 0, 0, 0);
     deliveryDate.setHours(0, 0, 0, 0, 0);
@@ -89,7 +107,6 @@ function editorderController($resource, $stateParams, $http,$scope) {
     } else {
       vm.date2 = false;
     }
-
     if (alertDate < orderDate) {
       vm.date3 = true;
     } else {

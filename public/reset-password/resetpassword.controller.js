@@ -15,24 +15,28 @@ function resetpasswordController($resource,$http) {
   vm.check = check;
 
   function check(){
-    if(vm.password != vm.newpassword){
-      vm.passsame = true;
+    if(vm.password && vm.newpassword){
+    if(vm.password == vm.newpassword){
+      vm.passsame = false;
     } else {
-      vm.passsame = false
+      vm.passsame = true
+    }
     }
   }
 
   function reset(){
-    if(vm.token.password != vm.oldpassword){
-      vm.same = true;
-    } else {
+    
+    if(vm.token.password == vm.oldpassword){
       vm.same = false;
+    } else {
+      vm.same = true;
     }
+    
   }
   
   function change(form){
    vm.formSubmitted= true;
-   if(form.$valid){
+   if(form.$valid && !vm.same && !vm.passsame){
        vm.token.password = vm.newpassword;
        $http.put('/api/register',vm.token)
         .then(

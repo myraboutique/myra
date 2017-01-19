@@ -1,9 +1,9 @@
 angular.module('myra')
   .controller('addorderController', addorderController);
 
-addorderController.$inject = ['$resource','$scope'];
+addorderController.$inject = ['$resource', '$scope'];
 
-function addorderController($resource,$scope) {
+function addorderController($resource, $scope) {
   var vm = this;
 
   vm.token = JSON.parse(localStorage.getItem('token'));
@@ -18,7 +18,10 @@ function addorderController($resource,$scope) {
   var Orderdetails = $resource('/api/orderdetails');
   vm.order = [];
   vm.clothtype = [];
-   vm.cancel = cancel;
+  vm.date1 = false;
+  vm.date2 = false;
+  vm.date3 = false;
+  vm.cancel = cancel;
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
   var orderdate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
@@ -31,11 +34,11 @@ function addorderController($resource,$scope) {
   vm.items = [{}];
   vm.add = add;
   vm.final = final;
- 
+
   // vm.cancelbtn = cancelbtn;
-  function cancel(){
-       window.location = '#/order';
-      }
+  function cancel() {
+    window.location = '#/order';
+  }
 
   vm.selectCustomer = selectCustomer;
   vm.data = [];
@@ -53,8 +56,8 @@ function addorderController($resource,$scope) {
   vm.change = change;
   vm.alertchange = alertchange;
 
- 
- 
+
+
   function selectCustomer(info) {
     vm.seleCust = info;
     vm.contact = info.mobileNumber;
@@ -62,7 +65,8 @@ function addorderController($resource,$scope) {
     vm.address = info.address
   }
   //new change 00 --index inject
-  function change(orderdate, deliverydate,index,valid) {
+  function change(orderdate, deliverydate, index, valid) {
+    
     var b = orderdate.split('/');
     var a = deliverydate.split('/');
     var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
@@ -70,39 +74,43 @@ function addorderController($resource,$scope) {
     orderDate.setHours(0, 0, 0, 0, 0);
     deliveryDate.setHours(0, 0, 0, 0, 0);
     //new change 00
-    var alertday = a[0]-2 + '/' + a[1] + '/' + a[2];
-
-   vm.order[index].alertday='';
-   
+    var alertday = a[0] - 2 + '/' + a[1] + '/' + a[2];
+    vm.order[index].alertday = '';
     if (deliveryDate < orderDate) {
       vm.date1 = true;
-      
+      // alertchange();
+        vm.order[index].alertday = alertday;
+      alertchange(orderDate, deliveryDate, vm.alertdate[index]);
     } else {
       vm.date1 = false;
-      
-        vm.order[index].alertday = alertday;
+      vm.order[index].alertday = alertday;
+      // alertchange();
+      alertchange(orderDate, deliveryDate, vm.order[index].alertday);
     }
   }
 
 
   function alertchange(orderdate, deliverydate, alertdate) {
-    var b = orderdate.split('/');
-    var a = deliverydate.split('/');
+    var type = typeof orderdate;
+    if (type == 'string') {
+      var b = orderdate.split('/');
+      var a = deliverydate.split('/');
+      var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
+      var orderDate = new Date(b[2], b[1] - 1, b[0]);
+    } else {
+      orderDate = orderdate;
+      deliveryDate = deliverydate;
+    }
     var c = alertdate.split('/');
-    var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
-    var orderDate = new Date(b[2], b[1] - 1, b[0]);
     var alertDate = new Date(c[2], c[1] - 1, c[0]);
     orderDate.setHours(0, 0, 0, 0, 0);
     deliveryDate.setHours(0, 0, 0, 0, 0);
     alertDate.setHours(0, 0, 0, 0, 0);
     if (alertDate > deliveryDate) {
       vm.date2 = true;
-    
     } else {
-     
       vm.date2 = false;
     }
-
     if (alertDate < orderDate) {
       vm.date3 = true;
     } else {
@@ -118,12 +126,12 @@ function addorderController($resource,$scope) {
       }
     });
     pos++;
-    
+
   }
 
-  function add(orderform,inform) {
+  function add(orderform, inform) {
     vm.formSubmitted = true;
-    if (vm.data2 && vm.data3 && orderform.$valid) {
+    if (!vm.date2 && !vm.date3 && !vm.date1 && orderform.$valid) {
       vm.formSubmitted = false;
       vm.order.push({ orderdate: orderdate });
       console.log(vm.order);
@@ -133,7 +141,7 @@ function addorderController($resource,$scope) {
 
   function final(orderform) {
     vm.formSubmitted = true;
-    if (vm.data2 && vm.data3 && orderform.$valid) {
+    if (!vm.date2 && !vm.date3 && !vm.date1 && orderform.$valid) {
       var orderdetails = new Orderdetails();
       var i = 0;
       var rOrder = function () {

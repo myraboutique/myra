@@ -131,7 +131,7 @@
 					<label>Date of Order:</label>
 					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
 						<input class="inputdatipicker " id="mydate" ng-model="vm.order.orderdate" name="orderdate" required="required"
-							type="text" placeholder="Date of Order" />
+								ng-change="vm.change(vm.order.orderdate,vm.order.date)" type="text" placeholder="Date of Order" />
 					</datepicker>
 					<span ng-show="orderform.orderdate.$error.required && (orderform.orderdate.$dirty || vm.formSubmitted)">Order date must be required</span>
 					<!--<span ng-show="orderform['orderdate'+$index].$error.pattern && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
@@ -140,8 +140,8 @@
 				<div class="form-box">
 					<label>Date of Delivery:</label>
 					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-						<input class="inputdatipicker" ng-model="vm.order.date" ng-change=vm.change(vm.order.orderdate,vm.order.date)
-							id="" name="deliverydate" required="required" type="text" placeholder="Date of Delivery" />
+						<input class="inputdatipicker" ng-model="vm.order.date" 
+								ng-change="vm.change(vm.order.orderdate,vm.order.date)" id="" name="deliverydate" required="required" type="text" placeholder="Date of Delivery" />
 					</datepicker>
 					<span ng-show="orderform.deliverydate.$error.required && (orderform.deliverydate.$dirty || vm.formSubmitted)">Order date must be required</span>
 					<!--<span ng-show="orderform['deliverydate'+$index].$error.pattern && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
