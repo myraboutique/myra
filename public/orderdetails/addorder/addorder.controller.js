@@ -5,7 +5,7 @@ addorderController.$inject = ['$resource', '$scope'];
 
 function addorderController($resource, $scope) {
   var vm = this;
-
+  
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
     window.location = '#/login';
@@ -50,7 +50,13 @@ function addorderController($resource, $scope) {
     vm.customer = info;
   });
   Addmaterial.query(function (info) {
-    vm.material = info;
+    vm.material = [];                   //new 8564
+    info.forEach(function (ele){
+      vm.material.push({
+        'id':ele.id,
+        'label':ele.materialtype
+      })
+    })
   });
 
   vm.change = change;

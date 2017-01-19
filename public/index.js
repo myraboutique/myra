@@ -12,7 +12,8 @@
     'ui.bootstrap',
     '720kb.datepicker',
     'angularUtils.directives.dirPagination',
-    'colorpicker.module' //new changes
+    'colorpicker.module',
+    'angularjs-dropdown-multiselect'
     ]);
 
 })();
