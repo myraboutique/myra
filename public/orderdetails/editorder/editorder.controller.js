@@ -16,7 +16,9 @@ function editorderController($resource, $stateParams, $http,$scope) {
 
   vm.order = JSON.parse($stateParams.referer);
   vm.order.measurement = JSON.parse(vm.order.measurement);
-  
+   vm.date1 = false;
+  vm.date2 = false;
+  vm.date3 = false;
   vm.final = final;
   vm.cancelbtn = cancelbtn;
   vm.alertchange = alertchange;
@@ -121,7 +123,7 @@ function editorderController($resource, $stateParams, $http,$scope) {
 
 
   function final(orderform) {
-    if( orderform.$valid){
+    if(!vm.date2 && !vm.date3 && !vm.date1 &&  orderform.$valid){
       vm.order.measurement = JSON.stringify(vm.order.measurement);
      
        $http.put('/api/orderdetails',  vm.order)

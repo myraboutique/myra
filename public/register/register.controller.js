@@ -29,7 +29,7 @@ function registerController($resource) {
 
   function submit(userform){
     vm.formSubmitted = true;
-    if(userform.$valid){
+    if(!vm.check && userform.$valid){
     var register = new Register()
     register.name = vm.name;
     register.email = vm.email;
