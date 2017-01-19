@@ -1,11 +1,11 @@
 angular.module('myra')
   .controller('addorderController', addorderController);
 
-addorderController.$inject = ['$resource', '$scope'];
+addorderController.$inject = ['$resource','$scope'];
 
-function addorderController($resource, $scope) {
+function addorderController($resource,$scope) {
   var vm = this;
-  
+
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
     window.location = '#/login';
@@ -21,7 +21,7 @@ function addorderController($resource, $scope) {
   vm.date1 = false;
   vm.date2 = false;
   vm.date3 = false;
-  vm.cancel = cancel;
+   vm.cancel = cancel;
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
   var orderdate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
@@ -34,11 +34,11 @@ function addorderController($resource, $scope) {
   vm.items = [{}];
   vm.add = add;
   vm.final = final;
-
+ 
   // vm.cancelbtn = cancelbtn;
-  function cancel() {
-    window.location = '#/order';
-  }
+  function cancel(){
+       window.location = '#/order';
+      }
 
   vm.selectCustomer = selectCustomer;
   vm.data = [];
@@ -50,20 +50,14 @@ function addorderController($resource, $scope) {
     vm.customer = info;
   });
   Addmaterial.query(function (info) {
-    vm.material = [];                   //new 8564
-    info.forEach(function (ele){
-      vm.material.push({
-        'id':ele.id,
-        'label':ele.materialtype
-      })
-    })
+    vm.material = info;  
   });
 
   vm.change = change;
   vm.alertchange = alertchange;
 
-
-
+ 
+ 
   function selectCustomer(info) {
     vm.seleCust = info;
     vm.contact = info.mobileNumber;
@@ -71,7 +65,7 @@ function addorderController($resource, $scope) {
     vm.address = info.address
   }
   //new change 00 --index inject
-  function change(orderdate, deliverydate, index, valid) {
+ function change(orderdate, deliverydate, index, valid) {
     
     var b = orderdate.split('/');
     var a = deliverydate.split('/');
@@ -86,7 +80,7 @@ function addorderController($resource, $scope) {
       vm.date1 = true;
       // alertchange();
         vm.order[index].alertday = alertday;
-      alertchange(orderDate, deliveryDate, vm.alertdate[index]);
+      alertchange(orderDate, deliveryDate, vm.order[index].alertday);
     } else {
       vm.date1 = false;
       vm.order[index].alertday = alertday;
@@ -124,7 +118,7 @@ function addorderController($resource, $scope) {
     }
   }
 
-  var pos = 0;
+    var pos = 0;
   function typeSelect(selecttype) {
     vm.type.forEach(function (e) {
       if (e.id == selecttype.id) {
@@ -134,8 +128,9 @@ function addorderController($resource, $scope) {
     pos++;
 
   }
+ 
 
-  function add(orderform, inform) {
+  function add(orderform,inform) {
     vm.formSubmitted = true;
     if (!vm.date2 && !vm.date3 && !vm.date1 && orderform.$valid) {
       vm.formSubmitted = false;

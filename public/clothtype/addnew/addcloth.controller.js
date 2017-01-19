@@ -21,14 +21,15 @@ function newclothController($resource) {
   }
 
   function measuremet(data){
+    if(data){
     vm.selectMeasurement.push(data);
     vm.measu = "";
-   
+  }
   }
 
   function addClothtype(form){
     vm.formSubmitted = true;
-    if(form.$valid){
+    if(form.$valid && vm.selectMeasurement.length > 0){
     var newArr =  vm.selectMeasurement.join(",");
     var clothtype = new Clothtype();
     clothtype.title = vm.title;

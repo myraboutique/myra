@@ -47,7 +47,7 @@
   src: local('Open Sans Extrabold Italic'), local('OpenSans-ExtraboldItalic'), url(http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxnibbpXgLHK_uTT48UMyjSM.woff2) format('woff2'), url(http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxkCDe67GEgBv_HnyvHTfdew.woff) format('woff');
 }
 
-body{margin:0px; padding:0px; background-color:#292929 !important; font-family: 'Open Sans', sans-serif;}
+body{margin:0px; padding:0px; background:#292929 !important; font-family: 'Open Sans', sans-serif;}
 .home-page{display:table; text-align:center;margin: 0 auto;}
 a:hover, a:focus {
     color: #fff;
@@ -648,6 +648,7 @@ text-align: center;
 	text-align: left;
 	padding:0px 0px 0px 15px;
 	height:42px;
+      line-height: 42px;
 }
 .table-part .top-purpal-color-row {
 	background: #804168;
