@@ -110,7 +110,7 @@
 							<label>Any Other Remark:</label>
 
 							<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="300" ng-model="vm.order[$index].cloth" placeholder="Any Other Remark" required name="clothdesc{{$index}}"></textarea>
-							<span ng-show="orderform['clothdesc'+$index].$invalid && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remarks are required.</span>
+							<span ng-show="orderform['clothdesc'+$index].$error.required && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remarks are required.</span>
 							<span ng-show="orderform['clothdesc'+$index].$error.minlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remark description length must be greater than 10.</span>
 						<span ng-show="orderform['clothdesc'+$index].$error.maxlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remark description length must be less than 300.</span>
 
