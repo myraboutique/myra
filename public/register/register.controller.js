@@ -20,10 +20,12 @@ function registerController($resource) {
   })
 
   function confirm(){
+    if(vm.password && vm.password1){
     if(vm.password1 == vm.password){
       vm.check = false;
     } else {
       vm.check = true;
+    }
     }
   }
 

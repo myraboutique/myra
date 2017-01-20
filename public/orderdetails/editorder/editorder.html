@@ -103,8 +103,8 @@
 					<input style="background-color:{{vm.order.color}};" colorpicker  id="" name="color" ng-model="vm.order.color" ng-minlength="3" ng-maxlength="15" required="required"
 						type="text" placeholder="Choose Color" />
 					<span ng-show="orderform.color.$error.required && (orderform.color.$dirty || vm.formSubmitted)">Cloth color must be required</span>
-					<span ng-show="orderform.color.$error.minlength && (orderform.color.$dirty || vm.formSubmitted)">Cloth color length must be greater then 3</span>
-					<span ng-show="orderform.color.$error.maxlength && (orderform.color.$dirty || vm.formSubmitted)">Cloth color length must be less then 15</span>
+					<span ng-show="orderform.color.$error.minlength && (orderform.color.$dirty || vm.formSubmitted)">Cloth color length must be greater than 3</span>
+					<span ng-show="orderform.color.$error.maxlength && (orderform.color.$dirty || vm.formSubmitted)">Cloth color length must be less than 15</span>
 				</div>
 
 				<div class="form-box" ng-if="vm.order.customization"> 
@@ -113,8 +113,8 @@
 						<textarea ng-minlength="10" ng-maxlength="100" ng-model="vm.order.customization"
 							class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description" name="customization"></textarea>
 					</div>
-					<span ng-show="orderform.customization.$error.minlength && (orderform.customization.$dirty || vm.formSubmitted)">Customization length must be greater then 10</span>
-					<span ng-show="orderform.customization.$error.maxlength && (orderform.customization.$dirty || vm.formSubmitted)">Customization length must be less then 100</span>
+					<span ng-show="orderform.customization.$error.minlength && (orderform.customization.$dirty || vm.formSubmitted)">Customization length must be greater than 10</span>
+					<span ng-show="orderform.customization.$error.maxlength && (orderform.customization.$dirty || vm.formSubmitted)">Customization length must be less than 100</span>
 
 				</div>
 
@@ -123,8 +123,8 @@
 					<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="100" ng-model="vm.order.cloth" placeholder="Any other remark"
 						required name="clothdesc"></textarea>
 					<span ng-show="orderform.clothdesc.$invalid && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remarks are required</span>
-					<span ng-show="orderform.clothdesc.$error.minlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remark description length must be greater then 10</span>
-					<span ng-show="orderform.clothdesc.$error.maxlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remark description length must be less then 100</span>
+					<span ng-show="orderform.clothdesc.$error.minlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remark description length must be greater than 10</span>
+					<span ng-show="orderform.clothdesc.$error.maxlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remark description length must be less than 100</span>
 				</div>
 
 				<div class="form-box">
@@ -166,7 +166,7 @@
 						type="text" placeholder="Amount" />
 					<span ng-show="orderform.amount.$error.required && (orderform.amount.$dirty || vm.formSubmitted)">Cloth amount must be required</span>
 					<span ng-show="orderform.amount.$error.pattern && (orderform.amount.$dirty || vm.formSubmitted)">Cloth amount must be a number</span>
-					<span ng-show="orderform.amount.$error.maxlength && (orderform.amount.$dirty || vm.formSubmitted)">Cloth amount length must be less then 10</span>
+					<span ng-show="orderform.amount.$error.maxlength && (orderform.amount.$dirty || vm.formSubmitted)">Cloth amount length must be less than 10</span>
 				</div>
 
 				<!--<div class="form-box">
@@ -190,7 +190,7 @@
 							<strong><input ng-model="vm.order.measurement[$index]" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="5" class="measurement-input" name="measurement{{$index}}" required="required" type="text" placeholder="Add Size" />
 									<span ng-show="orderform['measurement'+$index].$error.required && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">{{type}} must be required</span>
 							    <span ng-show="orderform['measurement'+$index].$error.pattern && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement must be a number</span>
-									 <span ng-show="orderform['measurement'+$index].$error.maxlength && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement length must less then 5</span>
+									 <span ng-show="orderform['measurement'+$index].$error.maxlength && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement length must less than 5</span>
 								  <img src="assets/images/inc-icon.png" alt=""></strong>
 					</ul>
 				</div>

@@ -39,7 +39,7 @@
 
           <div class="form-box">
             <label>Customer Name:</label>
-            <input id="" ng-minlength="5" ng-maxlength="20" ng-required="true" ng-model="vm.data.customerName" name="customerName" type="text"
+            <input id="" ng-minlength="3" ng-maxlength="20" ng-required="true" ng-model="vm.data.customerName" name="customerName" type="text"
               placeholder="Customer Name" />
             <span ng-show="form.customerName.$error.required && (form.customerName.$dirty || vm.formSubmitted)">User name required</span>
             <span ng-show="form.customerName.$error.minlength && (form.customerName.$dirty || vm.formSubmitted)">Length must be greater than 3</span>
@@ -119,7 +119,7 @@
         <div class="form-box">
           <label>Billing Address:</label>
           <div class="customization-check-box">
-            <input type="checkbox" ng-model="vm.data.other" name="vehicle" value="" class="checkbox">
+            <input type="checkbox" ng-model="vm.data.other"  value="" class="checkbox">
             <strong class="billing-addres-checkbox">Other</strong>
             <textarea ng-if="vm.data.other" ng-model="vm.data.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
        </textarea>

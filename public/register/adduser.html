@@ -64,7 +64,7 @@
 
 			 <div class="form-box">
 			  <label>Password:</label>
-			     <input id="" name="password"  ng-minlength="3" ng-maxlength="20" required="required"  type="password" placeholder="Password" ng-model="vm.password1"/>
+			     <input id="" name="password"  ng-minlength="3" ng-maxlength="20" required="required" ng-change="vm.confirm()"  type="password" placeholder="Password" ng-model="vm.password1"/>
        	<span ng-show="userform.password.$invalid && (userform.password.$dirty || vm.formSubmitted)">Password must be required</span>
 				 	<span ng-show="userform.password.$error.minlength && (userform.password.$dirty || vm.formSubmitted)">Password length must be greater then 3</span>
 				<span ng-show="userform.password.$error.maxlength && (userform.password.$dirty || vm.formSubmitted)">Password length must be less then 20</span>						
