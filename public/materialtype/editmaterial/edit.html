@@ -39,17 +39,11 @@
      <div class="form-box">
       <label><em id="mandatory" style="color:Red">*</em> Material Type</label>
       <input id="mtype" name="materialtype" type="text" ng-minlength="3" ng-maxlength="15" ng-model="vm.data.materialtype"  placeholder="Material Type" required/>
-<<<<<<< HEAD
+
       	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Material Type is required.</span>
         	<span ng-show="frm.materialtype.$error.minlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name length must be greater than 3.</span>
           	<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name must be less than 15.</span>
-=======
-      	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Material name must be required</span>
-        	<span ng-show="frm.materialtype.$error.minlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name length must be greater then 3</span>
-          	<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name must be less then 15</span>
-          
 
->>>>>>> d68a59eb214cfa06e2bf2e83a402114545e72002
       </div>
 
      <div class="form-box">
