@@ -168,7 +168,7 @@ function addorderController($resource,$scope) {
           orderdetails.alertday = vm.order[i].alertday
           orderdetails.amount = vm.order[i].amount
           orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
-          orderdetails.status = 'new';
+          orderdetails.status = 'New';
           orderdetails.$save(function (info) {
             i++;
             rOrder();
