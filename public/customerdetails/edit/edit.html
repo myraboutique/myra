@@ -95,7 +95,7 @@
         <div class="form-box">
           <label>Phone Number</label>
           <input id="" ng-model="vm.data.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="11" ng-maxlength="12"  type="text" placeholder="Phone Number" />
-          <span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Not a valid number</span>
+          <span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number not a valid number</span>
           <span ng-show="form.phonenumber.$error.minlength && (form.phonenumber.$dirty || vm.formSubmitted)">Number should not be less than 8</span>
           <span ng-show="form.phonenumber.$error.maxlength && (form.phonenumber.$dirty || vm.formSubmitted)">Number should not be greater than 11</span>
         </div>
