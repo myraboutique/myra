@@ -5,7 +5,6 @@ editmaterialController.$inject = ['$resource', '$stateParams', '$http'];
 
 function editmaterialController($resource, $stateParams, $http) {
   var vm = this;
-  vm.status = false ;
   vm.materialcancel = materialcancel;
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
@@ -23,13 +22,8 @@ function editmaterialController($resource, $stateParams, $http) {
       $http.put('/api/addmaterial', vm.data)
         .then(
         function (response) {
-          if(response.status){
-            vm.flag = true ;
-          }
-          else {
-            console.log("put successfull")
-            window.location = '#/materialtype';
-          }
+          console.log("put successfull")
+          window.location = '#/materialtype';
         },
         function (response) {
           console.log("put unsuccessfull")
