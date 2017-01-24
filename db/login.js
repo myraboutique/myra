@@ -91,7 +91,6 @@ module.exports = (function () {
 
       db.sync().then(function () {
         models.findOne({ where: { email: req.body.email } }).then(function (user) {
-          console.log(req.body);
           if (!user) {
             return res.status(200).json({
               status: 'User not Found!'
@@ -125,7 +124,16 @@ module.exports = (function () {
         };
       })
     })
-  }
+  },
+    loginId: function (req, res) {
+      db.sync().then(function(){
+        models.findAll({
+          where:{id:req.params.id}
+        }).then(function(info){
+          res.json(info);
+        })
+      })
+    },
 };
 return m;
 })();

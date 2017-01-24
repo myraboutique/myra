@@ -2,7 +2,7 @@
 
 	<!-- Header Section Start Here -->
    <div class="main-header">
-    <div class="logo"><img src="assets/images/logo.png" alt=""></div>
+    	<div class="logo"><a href="#/home"><img src="assets/images/logo.png" alt=""></a></div>
 		<span class="menu-toggle">
       <i></i>
       <i></i>
@@ -36,7 +36,7 @@
 
 			 <div class="form-box">
 			  <label>User Name:</label>
-			  <input id="" name="username" ng-minlength="3" ng-maxlength="20" required type="text" ng-model="vm.name" placeholder="Customer Name"/>
+			  <input id="" name="username" ng-minlength="3" ng-maxlength="20" required type="text" ng-model="vm.name" placeholder="User Name"/>
 				<span ng-show="userform.username.$error.required && (userform.username.$dirty || vm.formSubmitted)">User name must be required</span>
 			  <span ng-show="userform.username.$error.minlength && (userform.username.$dirty || vm.formSubmitted)">User name length must be greater then 3</span>
 				<span ng-show="userform.username.$error.maxlength && (userform.username.$dirty || vm.formSubmitted)">User name length must be less then 20</span>						
@@ -54,9 +54,9 @@
 
 			 <div class="form-box">
 			  <label>Email Address:</label>
-			  <input id="username" name="emailAddress" ng-model="vm.email"  ng-minlength="10" ng-maxlength="50" required="required" type="email" placeholder="Email Address"/>
+			  <input id="username" name="emailAddress" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/" ng-model="vm.email"  ng-minlength="10" ng-maxlength="50" required="required" type="email" placeholder="Email Address"/>
        	<span ng-show="userform.emailAddress.$error.required && (userform.emailAddress.$dirty || vm.formSubmitted)">Email Address must be required</span>	
-				<span ng-show="userform.emailAddress.$invalid && (userform.emailAddress.$dirty || vm.formSubmitted)">Enter Valid Email Address</span>
+				 <span ng-show="form.emailAddress.$error.pattern && (form.emailAddress.$dirty || vm.formSubmitted)">Enter valid email address.</span>
 				<span ng-show="userform.emailAddress.$error.minlength && (userform.emailAddress.$dirty || vm.formSubmitted)">Email Address length must be greater then 10</span>
 				<span ng-show="userform.emailAddress.$error.maxlength && (userform.emailAddress.$dirty || vm.formSubmitted)">Email Address length must be less then 50</span>						
 		  					
@@ -65,7 +65,7 @@
 			 <div class="form-box">
 			  <label>Password:</label>
 			     <input id="" name="password"  ng-minlength="3" ng-maxlength="20" required="required" ng-change="vm.confirm()"  type="password" placeholder="Password" ng-model="vm.password1"/>
-       	<span ng-show="userform.password.$invalid && (userform.password.$dirty || vm.formSubmitted)">Password must be required</span>
+       	<span ng-show="userform.password.$error.required && (userform.password.$dirty || vm.formSubmitted)">Password must be required</span>
 				 	<span ng-show="userform.password.$error.minlength && (userform.password.$dirty || vm.formSubmitted)">Password length must be greater then 3</span>
 				<span ng-show="userform.password.$error.maxlength && (userform.password.$dirty || vm.formSubmitted)">Password length must be less then 20</span>						
 		  								
@@ -89,7 +89,7 @@
 
         <div class="form-box">
 			  <label>Address:</label>
-			  <textarea rows="4" cols="50" placeholder="Address" ng-minlength="20" ng-maxlength="100" ng-model="vm.address" name="address" required></textarea>
+			  <textarea rows="4" cols="50"  placeholder="Address" ng-minlength="20" ng-maxlength="100" ng-model="vm.address" name="address" required></textarea>
 			 	<span ng-show="userform.address.$error.required && (userform.address.$dirty || vm.formSubmitted)">Adress must be required</span>
 				 	<span ng-show="userform.address.$error.minlength && (userform.address.$dirty || vm.formSubmitted)">Adress length must be greater then 20</span>
 				<span ng-show="userform.address.$error.maxlength && (userform.address.$dirty || vm.formSubmitted)">Adress length must be less then 100</span>						

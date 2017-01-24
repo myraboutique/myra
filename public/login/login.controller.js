@@ -9,7 +9,8 @@ function loginController($resource) {
   vm.data = data;
   var Login = $resource('/api/login');
 
-  function data(){
+  function data(myform){
+    if(myform.$valid){
     var login = new Login()
     login.email = vm.username;
     login.password = vm.password;
@@ -23,6 +24,6 @@ function loginController($resource) {
     });
   }
 
-
+}
 
 }

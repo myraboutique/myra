@@ -77,11 +77,11 @@ function editorderController($resource, $stateParams, $http,$scope) {
     if (deliveryDate < orderDate) {
       vm.date1 = true;
       // alertchange();
-       
+       vm.order.alertday = alertday
       alertchange(orderDate, deliveryDate,  vm.order.alertday);
     } else {
       vm.date1 = false;
-     
+     vm.order.alertday = alertday
       // alertchange();
       alertchange(orderDate, deliveryDate,  vm.order.alertday);
     }

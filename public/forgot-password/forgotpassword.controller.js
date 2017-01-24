@@ -11,8 +11,13 @@ function forgotpasswordController($resource) {
       var forgot = new Forgot();
       forgot.email = vm.email;
       forgot.$save(function(info){
-        swal('your reset password link has been send in your email');
+        if(info.status){
+          swal(info.status)
+        } else {
+          swal('your reset password link has been send in your email');
         window.location = '#/login';
+        }
+        
       });
     }
 }

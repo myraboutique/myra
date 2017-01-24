@@ -9,6 +9,9 @@ module.exports = (function () {
     m.route('/api/login')
         .post(api.Login);
 
+    m.route('/api/login/:id')
+        .get(api.LoginId);    
+
     m.route('/api/register')
         .post(api.Register)
         .put(api.Update)

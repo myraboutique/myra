@@ -19,6 +19,9 @@ module.exports = (function(){
         },
         forgotpassword : function(req,res,next){
             db.login.forgot(req,res);
+        },
+         LoginId : function(req,res,next){
+            db.login.loginId(req,res);
         }
     };
     return m;

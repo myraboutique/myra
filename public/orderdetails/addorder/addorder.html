@@ -2,7 +2,7 @@
 
 	<!-- Header Section Start Here -->
 	<div class="main-header">
-		<div class="logo"><img src="assets/images/logo.png" alt=""></div>
+			<div class="logo"><a href="#/home"><img src="assets/images/logo.png" alt=""></a></div>
 		<span class="menu-toggle">
       <i></i>
       <i></i>
@@ -97,7 +97,7 @@
 						<div class="form-box">
 							<label>Customization:</label>
 							<div class="customization-check-box">
-								<input type="checkbox" ng-model="vm.order[$index].checked" name="vehicle" value="" class="checkbox"/>
+								<input type="checkbox" ng-model="vm.order[$index].checked" ng-change="vm.empty($index)" name="vehicle" value="" class="checkbox"/>
 								<textarea ng-disabled="!vm.order[$index].checked" ng-minlength="10" ng-maxlength="100" ng-model="vm.order[$index].customization" class="customization-check-box-textarea"
 									rows="4" cols="50" placeholder="Customization Description" name="customization{{$index}}"></textarea>
 										</div>
@@ -154,9 +154,9 @@
 							<label>Amount:</label>
 							<input id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required" ng-model="vm.order[$index].amount"
 								type="text" placeholder="Amount" />
-							<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Cloth amount must be required.</span>
-							<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Cloth amount must be a number.</span>
-							<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Cloth amount length must be less than 10.</span>
+							<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Order amount must be required.</span>
+							<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Order amount must be a number.</span>
+							<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Order amount length must be less than 10.</span>
 						</div>
 
 					</div>

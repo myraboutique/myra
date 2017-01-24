@@ -55,7 +55,11 @@ function addorderController($resource,$scope) {
 
   vm.change = change;
   vm.alertchange = alertchange;
+  vm.empty = empty;
 
+  function empty(index){
+      vm.order[index].customization = "";
+  }
  
  
   function selectCustomer(info) {

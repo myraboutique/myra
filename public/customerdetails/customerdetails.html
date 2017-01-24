@@ -2,7 +2,7 @@
 
 	<!-- Header Section Start Here -->
 	<div class="main-header">
-		<div class="logo"><img src="assets/images/logo.png" alt=""></div>
+		<div class="logo"><a href="#/home"><img src="assets/images/logo.png" alt=""></a></div>
 		<span class="menu-toggle">
       <i></i>
       <i></i>
@@ -41,7 +41,7 @@
 					<tr class="top-purpal-color-row">
 						<th>
 							<a href="" ng-click="vm.order('customerName')">
-								<font>Name</font>&nbsp
+								<font>Customer Name</font>&nbsp
 								<span ng-show="vm.predicate == 'customerName'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="">
@@ -52,19 +52,19 @@
 								</span>
 							</a>
 						</th>
-						<th> Email Id</th>
+						<th> Email Address</th>
 						<th>Contact Number</th>
 						<th>Billing Address</th>
-						<th></th>
+						<th>OrderSummary</th>
 					</tr>
 
 <!-- ng-repeat="newdata in vm.data" -->
     <tr dir-paginate="newdata in vm.data|itemsPerPage:10 | orderBy:vm.predicate:vm.reverse | filter:vm.search" >
-        <td data-th="Customer Name: " class="top-purpal-color-row2"><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.customerName}}</a></td>
-        <td data-th="Customer Email Id: " class="top-purpal-color-row2">{{newdata.email}}</td>
+        <td data-th="Name: " class="top-purpal-color-row2"><span><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.customerName}}</a></span></td>
+        <td data-th="Email Id: " class="top-purpal-color-row2">{{newdata.email}}</td>
         <td data-th="Contact Number: " class="top-purpal-color-row2">{{newdata.mobileNumber}}</td>
         <td data-th="Billing Address: " class="top-purpal-color-row2">{{newdata.billingAddress}}</td>
-				<td  class="top-purpal-color-row2"><a ng-click="vm.summary(newdata)" class="customer-name-link">OrderSummary</a></td>
+				<td data-th="OrderSummary: " class="top-purpal-color-row2"><a ng-click="vm.summary(newdata)" class="customer-name-link">OrderSummary</a></td>
     </tr>
 </table>
 		 </div>

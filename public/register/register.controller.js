@@ -1,9 +1,9 @@
 angular.module('myra')
   .controller('registerController', registerController);
 
-registerController.$inject = ['$resource'];
+registerController.$inject = ['$resource','$state'];
 
-function registerController($resource) {
+function registerController($resource,$state) {
   var vm = this;
   vm.check = false;
    vm.token = JSON.parse(localStorage.getItem('token'));
@@ -13,7 +13,9 @@ function registerController($resource) {
  var vm = this;
   vm.submit = submit;
   vm.confirm = confirm;
+  vm.resetPassword = resetPassword;
   var Register = $resource('/api/register');
+  
 
   Register.query(function(info){
     vm.user = info;
@@ -27,6 +29,12 @@ function registerController($resource) {
       vm.check = true;
     }
     }
+  }
+
+  function resetPassword(data){
+    console.log(data);
+     vm.selectData = JSON.stringify(data);
+        $state.go("reset-password", { 'referer': vm.selectData });
   }
 
   function submit(userform){

@@ -93,7 +93,11 @@
       url: '/resetpassword',
       templateUrl: 'reset-password/resetpassword.html',
       controller: 'resetpasswordController',
-      controllerAs: 'vm'
+       controllerAs: 'vm',
+       params: {
+      'referer': null
+            }
+      
     })
     .state('forgot-password', {
       url: '/forgotpassword',
