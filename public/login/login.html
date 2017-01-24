@@ -1,11 +1,11 @@
-  
+
 
     <div class="centered">
 		<div id="login" class="animate form">
         <form   autocomplete="on" style="padding-top:20px;" name="myform" novalidate>
           <h1><strong></strong>Please Login</h1>
           <p class="paragraph">
-            <input id="username" type="email" name="username"  ng-model="vm.username" required="required" type="text" placeholder="Email Address"/>
+            <input id="username" focus="true" type="email" name="username"  ng-model="vm.username" required="required" type="text" placeholder="Email Address"/>
             <span ng-show="myform.username.$error.required && (myform.username.$dirty || vm.formSubmitted)">Username must be required</span>
             <span ng-show="myform.username.$invalid && (myform.username.$dirty || vm.formSubmitted)">Username is not valid</span>
           </p>
@@ -20,7 +20,7 @@
 					<p class="forget-password float-right">
             <a href="#/forgotpassword">Forgot Password?</a>
  					</p>
-          
+
 
       </form>
     </div>

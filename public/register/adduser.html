@@ -39,7 +39,7 @@
 			  <input id="" name="username" ng-minlength="3" ng-maxlength="20" required type="text" ng-model="vm.name" placeholder="User Name"/>
 				<span ng-show="userform.username.$error.required && (userform.username.$dirty || vm.formSubmitted)">User name must be required</span>
 			  <span ng-show="userform.username.$error.minlength && (userform.username.$dirty || vm.formSubmitted)">User name length must be greater then 3</span>
-				<span ng-show="userform.username.$error.maxlength && (userform.username.$dirty || vm.formSubmitted)">User name length must be less then 20</span>						
+				<span ng-show="userform.username.$error.maxlength && (userform.username.$dirty || vm.formSubmitted)">User name length must be less then 20</span>
 		   </div>
 
 			 <div class="form-box">
@@ -49,17 +49,17 @@
 						  <option value="admin">Admin</option>
               <option value="user">User</option>
 					  </select>
-			 	<span ng-show="userform.typeOfUser.$invalid && (userform.typeOfUser.$dirty || vm.formSubmitted)">Type of User must be required</span>						
+			 	<span ng-show="userform.typeOfUser.$invalid && (userform.typeOfUser.$dirty || vm.formSubmitted)">Type of User must be required</span>
 		   </div>
 
 			 <div class="form-box">
 			  <label>Email Address:</label>
-			  <input id="username" name="emailAddress" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/" ng-model="vm.email"  ng-minlength="10" ng-maxlength="50" required="required" type="email" placeholder="Email Address"/>
-       	<span ng-show="userform.emailAddress.$error.required && (userform.emailAddress.$dirty || vm.formSubmitted)">Email Address must be required</span>	
+			  <input id="username" name="emailAddress" focus="true" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/" ng-model="vm.email"  ng-minlength="10" ng-maxlength="50" required="required" type="email" placeholder="Email Address"/>
+       	<span ng-show="userform.emailAddress.$error.required && (userform.emailAddress.$dirty || vm.formSubmitted)">Email Address must be required</span>
 				 <span ng-show="form.emailAddress.$error.pattern && (form.emailAddress.$dirty || vm.formSubmitted)">Enter valid email address.</span>
 				<span ng-show="userform.emailAddress.$error.minlength && (userform.emailAddress.$dirty || vm.formSubmitted)">Email Address length must be greater then 10</span>
-				<span ng-show="userform.emailAddress.$error.maxlength && (userform.emailAddress.$dirty || vm.formSubmitted)">Email Address length must be less then 50</span>						
-		  					
+				<span ng-show="userform.emailAddress.$error.maxlength && (userform.emailAddress.$dirty || vm.formSubmitted)">Email Address length must be less then 50</span>
+
 		   </div>
 
 			 <div class="form-box">
@@ -67,15 +67,15 @@
 			     <input id="" name="password"  ng-minlength="3" ng-maxlength="20" required="required" ng-change="vm.confirm()"  type="password" placeholder="Password" ng-model="vm.password1"/>
        	<span ng-show="userform.password.$error.required && (userform.password.$dirty || vm.formSubmitted)">Password must be required</span>
 				 	<span ng-show="userform.password.$error.minlength && (userform.password.$dirty || vm.formSubmitted)">Password length must be greater then 3</span>
-				<span ng-show="userform.password.$error.maxlength && (userform.password.$dirty || vm.formSubmitted)">Password length must be less then 20</span>						
-		  								
+				<span ng-show="userform.password.$error.maxlength && (userform.password.$dirty || vm.formSubmitted)">Password length must be less then 20</span>
+
 		   </div>
 
 			  <div class="form-box">
 			  <label>Confirm Password:</label>
 			     <input id="" name="confirm" required="required"  ng-model="vm.password" type="password" placeholder="Confirm Password" ng-change="vm.confirm()"/>
-       	<span ng-show="userform.confirm.$invalid && (userform.confirm.$dirty || vm.formSubmitted)">Confirm Password must be required</span>	
-				 <span ng-if="vm.check">Confirm password does not match</span>						
+       	<span ng-show="userform.confirm.$invalid && (userform.confirm.$dirty || vm.formSubmitted)">Confirm Password must be required</span>
+				 <span ng-if="vm.check">Confirm password does not match</span>
 		   </div>
 
 
@@ -84,7 +84,7 @@
 			  <input id="" name="phonenumber" required="required" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.number" placeholder="Phone Number" />
 		   	<span ng-show="userform.phonenumber.$error.required && (userform.phonenumber.$dirty || vm.formSubmitted)">Phone Number must be required</span>
 				 <span ng-show="userform.phonenumber.$error.pattern && (userform.phonenumber.$dirty || vm.formSubmitted)">Not a valid number!</span>
-				 											
+
 		   </div>
 
         <div class="form-box">
@@ -92,8 +92,8 @@
 			  <textarea rows="4" cols="50"  placeholder="Address" ng-minlength="20" ng-maxlength="100" ng-model="vm.address" name="address" required></textarea>
 			 	<span ng-show="userform.address.$error.required && (userform.address.$dirty || vm.formSubmitted)">Adress must be required</span>
 				 	<span ng-show="userform.address.$error.minlength && (userform.address.$dirty || vm.formSubmitted)">Adress length must be greater then 20</span>
-				<span ng-show="userform.address.$error.maxlength && (userform.address.$dirty || vm.formSubmitted)">Adress length must be less then 100</span>						
-		  								
+				<span ng-show="userform.address.$error.maxlength && (userform.address.$dirty || vm.formSubmitted)">Adress length must be less then 100</span>
+
 		   </div>
 
         <div class="register-btm-btn-box">
