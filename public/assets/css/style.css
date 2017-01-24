@@ -712,15 +712,14 @@ text-align: center;
 }
 .table-part tr td {
 	text-align: left;
-	padding:0px 0px 0px 15px;
-	height:42px;
-      line-height: 42px;
+	padding:8px 6px 8px 9px;
+
 }
 .table-part .top-purpal-color-row {
-	background: #804168;
+	background: #e0e0e0;
 }
 .table-part .top-purpal-color-row th {
-	color: #fff;
+	color: #3c3c3c;
 	font-size: 15px;
 	text-align: left;
 	padding:11px 05px 11px 9px;
@@ -846,7 +845,7 @@ text-align: center;
 
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  
+
   .minpageheight {min-height: 494px;}
   .datepickerbx { width: 100%;}
   .inner-heading-bar{padding: 0 0 0 20px;}
@@ -925,7 +924,7 @@ text-align: center;
 
 .centered {width:90%;}
 .table-part {
-	width: 100%;border-right: 1px solid #c8c8c8;
+	width: 100%;border-right: 1px solid #c8c8c8; display: inline-block; padding: 0px 10px;
 }
 .table-part .top-purpal-color-row th {
 	display: none;
@@ -966,4 +965,3 @@ text-align: center;
 @media only screen and (min-width: 480px) and (max-width: 640px) {
  .minpageheight {min-height: auto;}
 }
-
