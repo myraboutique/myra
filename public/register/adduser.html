@@ -81,9 +81,10 @@
 
          <div class="form-box">
 			  <label>Phone Number:</label>
-			  <input id="" name="phonenumber" required="required" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.number" placeholder="Phone Number" />
+			  <input id="" name="phonenumber" required="required" type="text" ng-minlength="10" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.number" placeholder="Phone Number" />
 		   	<span ng-show="userform.phonenumber.$error.required && (userform.phonenumber.$dirty || vm.formSubmitted)">Phone Number must be required</span>
 				 <span ng-show="userform.phonenumber.$error.pattern && (userform.phonenumber.$dirty || vm.formSubmitted)">Not a valid number!</span>
+				 <span ng-show="userform.phonenumber.$error.minlength && (userform.phonenumber.$dirty || vm.formSubmitted)">Phone number must be 10</span>
 				 											
 		   </div>
 

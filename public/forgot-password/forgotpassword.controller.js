@@ -1,5 +1,5 @@
 angular.module('myra')
-  .controller('forgotpasswordController', forgotpasswordController);
+  .controller('forgotpasswordController', forgotpasswordController)
 
 forgotpasswordController.$inject = ['$resource'];
 
