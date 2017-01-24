@@ -21,3 +21,11 @@ module.exports = (function(){
 
     return m;
 })();
+// db: {
+//     type: 'mysql',
+//     host: '85.10.205.273',
+//     port: 3307,
+//     user: 'myraboutique',
+//     password: 'myra@123',
+//     database: 'myra'
+// // }
