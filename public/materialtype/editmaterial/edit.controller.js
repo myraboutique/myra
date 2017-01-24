@@ -22,8 +22,10 @@ function editmaterialController($resource, $stateParams, $http) {
       $http.put('/api/addmaterial', vm.data)
         .then(
         function (response) {
+
           console.log("put successfull")
           window.location = '#/materialtype';
+
         },
         function (response) {
           console.log("put unsuccessfull")

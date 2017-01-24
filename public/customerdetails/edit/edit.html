@@ -38,7 +38,8 @@
         <div class="form-heading">Basic Information</div>
 
           <div class="form-box">
-            <label>Customer Name:</label>
+            <label><em id="mandatory" style="color:Red">*</em> Customer Name
+                                                </label>
             <input id="" ng-minlength="3" ng-maxlength="20" ng-required="true" ng-model="vm.data.customerName" name="customerName" type="text"
               placeholder="Customer Name" />
             <span ng-show="form.customerName.$error.required && (form.customerName.$dirty || vm.formSubmitted)">User name required</span>
@@ -47,7 +48,7 @@
 
           </div>
           <div class="form-box">
-            <label>Gender:</label>
+            <label><em id="mandatory" style="color:Red">*</em> Gender</label>
             <select ng-model="vm.data.gender" class="paragraph" required name="gender" >
 						  <option value="">Please Select</option>
 						  <option value="male">Male</option>
@@ -58,15 +59,17 @@
 
 
           <div class="form-box">
-            <label>Birth Date:</label>
+            <label><em id="mandatory" style="color:Red">*</em> Birth Date</label>
             <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
               <input class="inputdatipicker" id="" ng-model="vm.data.birthDate" name=""  type="text" placeholder="Select Date"/>
+                <span ng-show="form.birthDate.$error.required && (form.gender.$dirty || vm.formSubmitted)">Birthdate is required.</span>
+          
               <img class="date-icon-right" src="assets/images/date-icon.png" alt="">
             </datepicker>
           </div>
 
           <div class="form-box">
-            <label>Anniversary:</label>
+            <label>Anniversary</label>
             <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
               <input class="inputdatipicker" id="" ng-model="vm.data.anniversaryDate" name=""  type="text" placeholder="Select Date"
               />
@@ -81,7 +84,7 @@
         <div class="form-heading">Contact Information</div>
 
         <div class="form-box">
-          <label>Mobile Number:</label>
+          <label><em id="mandatory" style="color:Red">*</em> Mobile Number</label>
           <input id="" ng-model="vm.data.mobileNumber" ng-pattern="/^[0-9]{1,10}$/" name="mobilenumber" ng-minlength="10" ng-maxlength="11" required="required" type="text" placeholder="Mobile Number" />
           <span ng-show="form.mobilenumber.$error.required && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile number is required</span>
           <span ng-show="form.mobilenumber.$error.minlength && (form.mobilenumber.$dirty || vm.formSubmitted)">Number should not be less than 10</span>
@@ -90,15 +93,15 @@
         </div>
 
         <div class="form-box">
-          <label>Phone Number:</label>
+          <label>Phone Number</label>
           <input id="" ng-model="vm.data.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="11" ng-maxlength="12"  type="text" placeholder="Phone Number" />
-          <span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Not a valid number</span>
+          <span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number not a valid number</span>
           <span ng-show="form.phonenumber.$error.minlength && (form.phonenumber.$dirty || vm.formSubmitted)">Number should not be less than 8</span>
           <span ng-show="form.phonenumber.$error.maxlength && (form.phonenumber.$dirty || vm.formSubmitted)">Number should not be greater than 11</span>
         </div>
 
         <div class="form-box">
-          <label>Email Id:</label>
+          <label><em id="mandatory" style="color:Red">*</em> Email Id</label>
           <input id="" ng-model="vm.data.email" name="email" required="required" type="email" placeholder="Email Id" ng-minlength="10" ng-maxlength="50" />
           <span ng-show="form.email.$error.required && (form.email.$dirty || vm.formSubmitted)">Email address is required</span>
 				 	<span ng-show="form.email.$invalid && (form.email.$touched || vm.formSubmitted)">Enter valid email address</span>
@@ -108,7 +111,7 @@
 		   </div>
 
         <div class="form-box">
-          <label>Address:</label>
+          <label><em id="mandatory" style="color:Red">*</em> Address</label>
           <textarea ng-model="vm.data.address" required rows="4" cols="50" placeholder="Address" name="address" ng-minlength="30" ng-maxlength="250" ></textarea>
           <span ng-show="form.address.$error.required && (form.address.$dirty || vm.formSubmitted)">Address is required</span>
            <span ng-show="form.address.$error.minlength && (form.address.$dirty || vm.formSubmitted)">Address should not be less than 30</span>
@@ -117,7 +120,7 @@
         </div>
 
         <div class="form-box">
-          <label>Billing Address:</label>
+          <label><em id="mandatory" style="color:Red">*</em> Billing Address</label>
           <div class="customization-check-box">
             <input type="checkbox" ng-model="vm.data.other"  value="" class="checkbox">
             <strong class="billing-addres-checkbox">Other</strong>
@@ -127,7 +130,7 @@
         </div>
 
         <div class="form-box">
-          <label>Remarks:</label>
+          <label>Remarks</label>
           <textarea ng-model="vm.data.remarks" rows="4" cols="50" placeholder="Remarks Description"></textarea>
         </div>
 
@@ -150,7 +153,7 @@
 
   </div>
   <!-- Footer Section Start Here -->
-  <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+  <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
   <!-- Footer Section End Here -->
 </div>
 
