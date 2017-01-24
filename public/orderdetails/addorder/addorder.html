@@ -47,9 +47,10 @@
 
 				<div class="form-box">
 					<label>Name:</label>
-					<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer "
+					<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer | orderBy:'customerName' "
 						required name="customeruser">
 				 <option value="">-- Please Select --</option></select>
+				 
 					</select>
 					<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name must be required.</span>
 				</div>
@@ -60,7 +61,7 @@
 				</div>
 
 				<div class="form-box">
-					<label>Email Id:</label>
+					<label>Email Address:</label>
 					<input id="" name="" ng-disabled="vm.disable" required="required" type="text" ng-model="vm.email" placeholder="Email Id" />
 				</div>
 			</div>
@@ -71,7 +72,7 @@
 
 						<div class="form-box">
 							<label>Type:</label>
-							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type | filter:data.isActive='true'"
+							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type | filter:data.isActive='true'| orderBy:'title'"
 								required>
 								<option value="">-- Please Select --</option></select>
 							<span ng-show="orderform['clothtype'+$index].$invalid && (orderform['clothtype'+$index].$touched || vm.formSubmitted)">Cloth style must be required.</span>
@@ -79,8 +80,8 @@
 
 						<div class="form-box">
 							<label>Material Source:</label>
-							<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material | filter:data.isActive='true'" required
-								name="material{{$index}}">
+							<select font color="black" ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material | filter:data.isActive='true'| orderBy:'materialtype'" required
+								name="material{{$index}}"></font>
 				  			<option value="">-- Please Select --</option></select>
 							</select>
 							<span ng-show="orderform['material'+$index].$invalid && (orderform['material'+$index].$touched || vm.formSubmitted)">Cloth material must be required.</span>
@@ -108,6 +109,7 @@
 
 						<div class="form-box">
 							<label>Any Other Remark:</label>
+
 
 							<textarea rows="4" cols="50" ng-maxlength="200" ng-model="vm.order[$index].cloth" placeholder="Any Other Remark" name="clothdesc{{$index}}"></textarea>
 							<span ng-show="orderform['clothdesc'+$index].$error.maxlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remark description length must be less than 200.</span>

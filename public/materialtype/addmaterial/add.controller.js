@@ -30,14 +30,16 @@ function addController($resource) {
 
 
     addmaterial.$save(function (info) {
+
       if(!info.status){
-         console.log(info);
+        console.log(swal("Recored Saved Successfully."));
          window.location = "#/materialtype"
       }
       else {
             vm.flag = true;
             vm.status = info.status ;
           }
+
     })
 
   }

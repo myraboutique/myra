@@ -142,6 +142,7 @@ function addorderController($resource,$scope) {
       console.log(vm.order);
       vm.items.push({});
     }
+      
   }
 
   function final(orderform) {
@@ -174,8 +175,10 @@ function addorderController($resource,$scope) {
             rOrder();
           });
         } else {
+        swal("Recored Saved Successfully.");
           window.location = '#/order';
         }
+      
       }
       rOrder();
     }

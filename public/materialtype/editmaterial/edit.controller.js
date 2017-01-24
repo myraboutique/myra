@@ -27,7 +27,7 @@ function editmaterialController($resource, $stateParams, $http) {
             vm.flag = true ;
           }
           else {
-            console.log("put successfull")
+            console.log(swal("Recored Updated Successfully."))
             window.location = '#/materialtype';
           }
         },

@@ -78,11 +78,13 @@ function newCustomerController($resource) {
 
       customerdetails.remarks = vm.remarks;
 
-      customerdetails.$save(function (info) {
-        console.log(info);
 
-      })
+      customerdetails.$save(function(info){
+      console.log( swal("Recored Saved Successfully."));
       window.location = '#/customerdetails';
+       })
+
+      
     }
   }
 
