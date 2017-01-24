@@ -37,17 +37,17 @@
     <div class="form-section-box">
 
      <div class="form-box">
-      <label>Material Type</label>
+      <label><em id="mandatory" style="color:Red">*</em> Material Type</label>
       <input id="mtype" name="materialtype" type="text" ng-minlength="3" ng-maxlength="15" ng-model="vm.data.materialtype"  placeholder="Material Type" required/>
-      	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Material name must be required</span>
-        	<span ng-show="frm.materialtype.$error.minlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name length must be greater then 3</span>
-          	<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name must be less then 15</span>
-          
+
+      	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Material Type is required.</span>
+        	<span ng-show="frm.materialtype.$error.minlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name length must be greater than 3.</span>
+          	<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name must be less than 15.</span>
 
       </div>
 
      <div class="form-box">
-        <label>IsActive:</label>
+        <label><em id="mandatory" style="color:Red">*</em> IsActive</label>
        <input type="checkbox" ng-model="vm.data.active" class="billing-addres-checkbox clothcheck"/>
 
      </div>

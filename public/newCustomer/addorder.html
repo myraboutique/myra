@@ -96,7 +96,7 @@
 						</div>
 
 						<div class="form-box">
-							<label><em ng-if="vm.order[$index].checked" id="mandatory" style="color:Red">*</em> Customization</label>
+							<label><em id="mandatory" style="color:Red">*</em> Customization</label>
 							<div class="customization-check-box">
 								<input type="checkbox" ng-model="vm.order[$index].checked" ng-change="vm.empty($index)" name="vehicle" value="" class="checkbox"/>
 								<textarea ng-disabled="!vm.order[$index].checked" ng-minlength="10" ng-maxlength="100" ng-model="vm.order[$index].customization" class="customization-check-box-textarea"
