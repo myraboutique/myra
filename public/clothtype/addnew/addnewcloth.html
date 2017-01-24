@@ -36,15 +36,15 @@
       <div class="form-section-box">
 
 			 <div class="form-box">
-			  <label>Style:</label>
+			  <label><em id="mandatory" style="color:Red">*</em> Style</label>
 			  <input id="" name="style" required="required" type="text" placeholder="Style" ng-model="vm.title"/>
-					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style must be required</span>
+					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style is required.</span>
 		   </div>
 			 <div class="form-box">
-			  <label>Measurement:</label>
+			  <label><em id="mandatory" style="color:Red">*</em> Measurement</label>
         <input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
 				<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
-				<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement must be required</span>
+				<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
 			 </div>
 
 			 <div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
@@ -53,7 +53,7 @@
 			  </div>
 
 			 <div class="form-box">
-				  <label>IsActive:</label>
+				  <label><em id="mandatory" style="color:Red">*</em> IsActive</label>
 				 <input type="checkbox" class="billing-addres-checkbox clothcheck" ng-model="vm.isActive"/>
 
 			 </div>

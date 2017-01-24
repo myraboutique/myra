@@ -14,7 +14,7 @@ function forgotpasswordController($resource) {
         if(info.status){
           swal(info.status)
         } else {
-          swal('your reset password link has been send in your email');
+          
         window.location = '#/login';
         }
         
