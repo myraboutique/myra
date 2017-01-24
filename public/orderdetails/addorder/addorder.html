@@ -109,10 +109,8 @@
 						<div class="form-box">
 							<label>Any Other Remark:</label>
 
-							<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="300" ng-model="vm.order[$index].cloth" placeholder="Any Other Remark" required name="clothdesc{{$index}}"></textarea>
-							<span ng-show="orderform['clothdesc'+$index].$error.required && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remarks are required.</span>
-							<span ng-show="orderform['clothdesc'+$index].$error.minlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remark description length must be greater than 10.</span>
-						<span ng-show="orderform['clothdesc'+$index].$error.maxlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remark description length must be less than 300.</span>
+							<textarea rows="4" cols="50" ng-maxlength="200" ng-model="vm.order[$index].cloth" placeholder="Any Other Remark" name="clothdesc{{$index}}"></textarea>
+							<span ng-show="orderform['clothdesc'+$index].$error.maxlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remark description length must be less than 200.</span>
 
 						</div>
 
@@ -157,6 +155,7 @@
 							<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Order amount must be required.</span>
 							<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Order amount must be a number.</span>
 							<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Order amount length must be less than 10.</span>
+							<img class="inricon" src="assets/images/inr-icon.png" alt="">
 						</div>
 
 					</div>

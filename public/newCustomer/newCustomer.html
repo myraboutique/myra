@@ -127,7 +127,8 @@
 
         <div class="form-box">
           <label>Remarks:</label>
-          <textarea ng-model="vm.remarks" rows="4" cols="50" placeholder="Remarks Description"></textarea>
+          <textarea name="remarks" ng-model="vm.remarks" rows="4" cols="50" ng-maxlength="200" placeholder="Remarks Description"></textarea>
+          <span ng-show="form.remarks.$error.maxlength && (form.remarks.$dirty || vm.formSubmitted)">Remark description length must be less than 200.</span>
         </div>
 
       </div>
