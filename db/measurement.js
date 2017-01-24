@@ -15,6 +15,14 @@ module.exports = (function(){
      })
     },
     Create: function(req, res){
+      db.sync().then(function () {
+         models.findOne({ where: { title: req.body.title } }).then(function (user) {
+      if (user) {
+          return res.status(200).json({
+            status: 'This cloth style already exists.'
+          });
+          }
+      else{
       db.sync().then(function(){
         models.create({
           title:req.body.title,
@@ -24,6 +32,9 @@ module.exports = (function(){
           res.json(info);
         })
       })
+    }
+  })
+    })
     },
     Update: function(req,res){
       db.sync().then(function(){

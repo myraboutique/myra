@@ -39,7 +39,9 @@
 			  <label>Style:</label>
 			  <input id="" name="style" required="required" type="text" placeholder="Style" ng-model="vm.title"/>
 					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style must be required</span>
-		   </div>
+          <span ng-show="vm.flag">{{vm.status}}</span>
+
+       </div>
 			 <div class="form-box">
 			  <label>Measurement:</label>
         <input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
