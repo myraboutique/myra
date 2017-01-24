@@ -5,15 +5,13 @@
         <form   autocomplete="on" style="padding-top:20px;" name="myform" novalidate>
           <h1><strong></strong>Please Login</h1>
           <p class="paragraph">
-
-            <input id="username" focus="true" type="email" name="username"  ng-model="vm.username" required="required" type="text" placeholder="Email Address"/>
-
-            <span ng-show="myform.username.$error.required && (myform.username.$dirty || vm.formSubmitted)">Username must be required</span>
-            <span ng-show="myform.username.$invalid && (myform.username.$dirty || vm.formSubmitted)">Username is not valid</span>
+            <input id="username" type="email" name="username"  ng-model="vm.username" required="required" type="text" placeholder="Email Address"/>
+            <span ng-show="myform.username.$error.required && (myform.username.$dirty || vm.formSubmitted)">Username is required.</span>
+            <span ng-show="myform.username.$invalid && (myform.username.$dirty || vm.formSubmitted)">Username and/or Password do not match with our records.</span>
           </p>
           <p class="paragraph">
             <input id="password" name="password" ng-model="vm.password" required="required" type="password" placeholder="Password" />
-            <span ng-show="myform.password.$error.required && (myform.username.$dirty || vm.formSubmitted)">Password must be required</span>
+            <span ng-show="myform.password.$error.required && (myform.username.$dirty || vm.formSubmitted)">Password is required.</span>
           </p>
 
           <p class="login button float-left" style="text-align: center;float: left;">
