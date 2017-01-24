@@ -42,7 +42,7 @@
                                                 </label>
             <input id="" ng-minlength="3" ng-maxlength="20" ng-required="true" ng-model="vm.data.customerName" name="customerName" type="text"
               placeholder="Customer Name" />
-            <span ng-show="form.customerName.$error.required && (form.customerName.$dirty || vm.formSubmitted)">User name required</span>
+            <span ng-show="form.customerName.$error.required && (form.customerName.$dirty || vm.formSubmitted)">Customer Name required</span>
             <span ng-show="form.customerName.$error.minlength && (form.customerName.$dirty || vm.formSubmitted)">Length must be greater than 3</span>
             <span ng-show="form.customerName.$error.maxlength && (form.customerName.$dirty || vm.formSubmitted)">Length must be less than 50</span>
 
@@ -61,20 +61,19 @@
           <div class="form-box">
             <label><em id="mandatory" style="color:Red">*</em> Birth Date</label>
             <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-              <input class="inputdatipicker" id="" ng-model="vm.data.birthDate" name=""  type="text" placeholder="Select Date"/>
-                <span ng-show="form.birthDate.$error.required && (form.gender.$dirty || vm.formSubmitted)">Birthdate is required.</span>
-          
-              <img class="date-icon-right" src="assets/images/date-icon.png" alt="">
+              <input class="inputdatipicker" id="" ng-model="vm.data.birthDate" name="birthDate" ng-change="vm.birthdate(vm.data.birthDate)" type="text" placeholder="Select Date"/>
             </datepicker>
+             <span ng-show="form.birthDate.$error.required && (form.gender.$dirty || vm.formSubmitted)">Birthdate is required.</span>
+            <span ng-if="vm.date1">Please select Birth Date before today.</span>
           </div>
 
           <div class="form-box">
             <label>Anniversary</label>
             <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-              <input class="inputdatipicker" id="" ng-model="vm.data.anniversaryDate" name=""  type="text" placeholder="Select Date"
+              <input class="inputdatipicker" id="" ng-model="vm.data.anniversaryDate" name="" ng-change="vm.anniversarydate(vm.data.anniversaryDate)" type="text" placeholder="Select Date"
               />
-              <img class="date-icon-right" src="assets/images/date-icon.png" alt="">
             </datepicker>
+             <span ng-if="vm.date2">Please select Anniversary Date before today.</span>
           </div>
 
       </div>
@@ -95,9 +94,9 @@
         <div class="form-box">
           <label>Phone Number</label>
           <input id="" ng-model="vm.data.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="11" ng-maxlength="12"  type="text" placeholder="Phone Number" />
-          <span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number not a valid number</span>
-          <span ng-show="form.phonenumber.$error.minlength && (form.phonenumber.$dirty || vm.formSubmitted)">Number should not be less than 8</span>
-          <span ng-show="form.phonenumber.$error.maxlength && (form.phonenumber.$dirty || vm.formSubmitted)">Number should not be greater than 11</span>
+          <span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number not a valid number.</span>
+          <span ng-show="form.phonenumber.$error.minlength && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should not be less than 11.</span>
+          <span ng-show="form.phonenumber.$error.maxlength && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should not be greater than 11.</span>
         </div>
 
         <div class="form-box">

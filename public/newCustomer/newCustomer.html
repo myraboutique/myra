@@ -60,9 +60,10 @@
           <div class="form-box">
             <label><em id="mandatory" style="color:Red">*</em> Birth Date</label>
             <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-              <input class="inputdatipicker" id="" ng-model="vm.birthDate" name=""  type="text" ng-change="vm.birthdate(vm.birthDate)" placeholder="Select Date"/>
+              <input class="inputdatipicker" required id="" ng-model="vm.birthDate" name="birthdate"  type="text" ng-change="vm.birthdate(vm.birthDate)" placeholder="Select Date"/>
             </datepicker>
             <span ng-if="vm.date1">Please select Birth Date before today.</span>
+             <span ng-show="form.birthdate.$error.required && (form.birthdate.$dirty || vm.formSubmitted)">Birth Date is required.</span>
           </div>
 
           <div class="form-box">
@@ -90,7 +91,7 @@
         </div>
 
         <div class="form-box">
-          <label><em id="mandatory" style="color:Red">*</em> Phone Number</label>
+          <label> Phone Number</label>
           <input id="" ng-model="vm.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="11" ng-maxlength="12"  type="text" placeholder="Phone Number" />
           <span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number is not a valid number.</span>
           <span ng-show="form.phonenumber.$error.minlength && (form.phonenumber.$dirty || vm.formSubmitted)">Number should not be less than 11.</span>

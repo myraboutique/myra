@@ -2,7 +2,9 @@
 
 	<!-- Header Section Start Here -->
 	<div class="main-header">
-		<div class="logo"><a href="#/home"><img src="assets/images/logo.png" alt=""></a></div>
+		<div class="logo">
+			<a href="#/home"><img src="assets/images/logo.png" alt=""></a>
+		</div>
 		<span class="menu-toggle">
       <i></i>
       <i></i>
@@ -15,11 +17,11 @@
 				<li><a href="#/order">Order Form</a></li>
 				<li><a href="#/alert">Alerts</a></li>
 				<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
-				<ul>
-	        <li><a href='#/register'><span>Add User</span></a></li>
-	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
-					<li><a href='#/materialtype'><span>Material Type</span></a></li>
-	      </ul>
+					<ul>
+						<li><a href='#/register'><span>Add User</span></a></li>
+						<li><a href='#/clothtype'><span>Cloth Type</span></a></li>
+						<li><a href='#/materialtype'><span>Material Type</span></a></li>
+					</ul>
 				</li>
 				<li><a href="#/logout">Logout</a></li>
 			</ul>
@@ -35,8 +37,8 @@
 			<div class="right-add-new-button"><a href="#/newcustomer">Add New</a></div>
 
 			<p>
-   <div class="search-box-main"><input class="serchInput" type="text" ng-model="vm.search" placeholder="Search"></div>
-</p>
+				<div class="search-box-main"><input class="serchInput" type="text" ng-model="vm.search" placeholder="Search"></div>
+			</p>
 			<div class="details-table">
 
 				<table class="table-part" border="0" cellspacing="0" cellpadding="0">
@@ -60,26 +62,23 @@
 						<th>OrderSummary</th>
 					</tr>
 
-<!-- ng-repeat="newdata in vm.data" -->
-    <tr dir-paginate="newdata in vm.data|itemsPerPage:10 | orderBy:vm.predicate:vm.reverse | filter:vm.search" >
-        <td data-th="Name: " class="top-purpal-color-row2"><span><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.customerName}}</a></span></td>
-        <td data-th="Email Id: " class="top-purpal-color-row2">{{newdata.email}}</td>
-        <td data-th="Contact Number: " class="top-purpal-color-row2">{{newdata.mobileNumber}}</td>
-        <td data-th="Billing Address: " class="top-purpal-color-row2">{{newdata.billingAddress}}</td>
-				<td data-th="OrderSummary: " class="top-purpal-color-row2"><a ng-click="vm.summary(newdata)" class="customer-name-link">OrderSummary</a></td>
-    </tr>
-</table>
-		 </div>
+					<!-- ng-repeat="newdata in vm.data" -->
+					<tr dir-paginate="newdata in vm.data|itemsPerPage:10 | orderBy:vm.predicate:vm.reverse | filter:vm.search">
+						<td data-th="Name: " class="top-purpal-color-row2"><span><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.customerName}}</a></span></td>
+						<td data-th="Email Id: " class="top-purpal-color-row2">{{newdata.email}}</td>
+						<td data-th="Contact Number: " class="top-purpal-color-row2">{{newdata.mobileNumber}}</td>
+						<td data-th="Billing Address: " class="top-purpal-color-row2">{{newdata.billingAddress}}</td>
+						<td data-th="OrderSummary: " class="top-purpal-color-row2"><a ng-click="vm.summary(newdata)" class="customer-name-link">OrderSummary</a></td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<!-- Customer Details page Section End Here -->
-    <div class="paging">
-     <dir-pagination-controls
-                max-size="10"
-               direction-links="true"
-               boundary-links="true" >
-       </dir-pagination-controls>
-      </div>
-   </div>
+		<div class="paging">
+			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+			</dir-pagination-controls>
+		</div>
+	</div>
 	<!-- Footer Section Start Here -->
 	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
 	<!-- Footer Section End Here -->
