@@ -28,31 +28,62 @@
 	<!-- Header Section End Here -->
 
 	<div class="inner-heading-bar">Sumerry Details</div>
-
+	
 	<div class="main-contant-part">
 		<!-- Customer Details page Section Start Here -->
 		<div class="customer-detail-page-contant">
-			<div class="details-table">
-				<h3>{{vm.data.customerName}}</h3>
-				<ul ng-repeat="data in vm.order">
-					<li><h4>order{{$index+1}}</h4></li>
-					<li>Cloth Type:{{data.type}}</li>
-					<li>Material Source:{{data.material}}</li>
-					<li>Color:{{data.color}}</li>
-					<li>Cloth Description:{{data.cloth}}</li>
-					<li>Measurement</li>
-					<ul ng-repeat="d in vm.type[$index]">
-						<li>{{vm.measure[$parent.$index][$index]}}:{{d}}</li>
-					</ul><br/>
-					
-				</ul>
+			 <div class="details-table">
+			<a href="#/customerdetails"> <input class="add-next-button" type="submit" value="Back"></a>
+			<h2 ng-hide="vm.measure.length">No Record Found </h2>
+			 	<table ng-show="vm.measure.length" class="table-part" border="0" cellspacing="0" cellpadding="0">
+					<tr class="top-purpal-color-row">
+						<th>
+								<font>Order Number</font>&nbsp
+						</th>
+						<th>
+								<font>Cloth Type</font>&nbsp
+						</th>
+						<th>
+								<font>Material Source</font>&nbsp
+						</th>
+						<th>
+								<font>Color</font>&nbsp
+						</th>
+						<th>
+								<font>Cloth Description</font>&nbsp
+						</th>
+						<th>
+								<font>Measurement</font>&nbsp
+						</th>
+						<th>
+								<font>Amount</font>&nbsp
+						</th>
+					</tr>
+					<tr ng-repeat="data in vm.order">
+						<td class="top-purpal-color-row2">{{$index+1}}</a></td>
+						<td class="top-purpal-color-row2">{{data.type}}</td>
+						<td class="top-purpal-color-row2">{{data.material}}</td>
+						<td class="top-purpal-color-row2">{{data.color}}</td>
+						<td class="top-purpal-color-row2">{{data.cloth}}</td>
+						<td class="top-purpal-color-row2">
+						<span ng-repeat="d in vm.type[$index]">
+						{{vm.measure[$parent.$index][$index] }}:{{d}}
+					</span>
+						<td class="top-purpal-color-row2">
+					{{vm.order[$index].amount}}<td>
+
+					</td>
+					</tr>
+
+				</table>
 		 </div>
+	
 		</div>
 		<!-- Customer Details page Section End Here -->
    
    </div>
 	<!-- Footer Section Start Here -->
-	<div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
 	<!-- Footer Section End Here -->
 </div>
 <script type="text/javascript">
