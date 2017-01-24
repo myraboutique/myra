@@ -125,8 +125,8 @@
 					<div class="form-box">
 						<label> Any other remark</label>
 						<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="100" ng-model="vm.order.cloth" placeholder="Any other remark"
-							required name="clothdesc"></textarea>
-						<span ng-show="orderform.clothdesc.$invalid && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remarks are required.</span>
+							 name="clothdesc"></textarea>
+			
 						<span ng-show="orderform.clothdesc.$error.minlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remark description length must be greater than 10.</span>
 						<span ng-show="orderform.clothdesc.$error.maxlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remark description length must be less than 100.</span>
 					</div>

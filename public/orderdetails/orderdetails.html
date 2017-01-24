@@ -39,7 +39,7 @@
 
 	 <select class="outside2" ng-model="vm.customerStatus" placeholder="Search by Name" ng-options="data for data in vm.status"
 						required name="customeruser">
-				 <option value="">Search by Status</option></select>
+				 <option value="">Search by all statuses</option></select>
 					</select>
 
 		</div>
@@ -101,6 +101,16 @@
 		</div>
 		<!-- Customer Details page Section End Here -->
 	 </div>
+	 	<!-- Customer Details page Section End Here -->
+    <div class="paging">
+     <dir-pagination-controls
+                max-size="10"
+               direction-links="true"
+               boundary-links="true" >
+       </dir-pagination-controls>
+      </div>
+   </div>
+	<!-- Footer Section Start Here -->
 	 <!-- Footer Section Start Here -->
 	 <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
 	 <!-- Footer Section End Here -->

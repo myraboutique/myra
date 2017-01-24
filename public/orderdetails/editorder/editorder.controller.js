@@ -123,6 +123,7 @@ function editorderController($resource, $stateParams, $http,$scope) {
 
 
   function final(orderform) {
+    vm.formSubmitted = true;
     if(!vm.date2 && !vm.date3 && !vm.date1 &&  orderform.$valid){
       vm.order.measurement = JSON.stringify(vm.order.measurement);
      
