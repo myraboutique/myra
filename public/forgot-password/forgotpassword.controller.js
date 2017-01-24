@@ -1,5 +1,7 @@
 angular.module('myra')
+
 .controller('forgotpasswordController', forgotpasswordController);
+
 
 forgotpasswordController.$inject = ['$resource','$state'];
 

@@ -47,7 +47,9 @@ function cancel()
   function change(form){
    vm.formSubmitted= true;
     vm.token.password = vm.newpassword;
-   if(form.$valid && !vm.same && !vm.passsame){
+
+   if(form.$valid && !vm.same){
+      
 
        $http.put('/api/register',vm.token)
         .then(
