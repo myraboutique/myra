@@ -91,7 +91,7 @@
 					</tr>
 					<tr ng-repeat="data in vm.type | orderBy:vm.predicate:vm.reverse | filter:vm.customerStatus | filter:vm.search">
 						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link">{{data.customerName}}</a></td>
-						<td class="top-purpal-color-row2">{{data.orderdate | date :  "dd/MM/yyyy"}}</td>
+						<td class="top-purpal-color-row2">{{data.orderdate | date:"dd/MM/yyyy"}}</td>
 						<td class="top-purpal-color-row2">{{data.date}}</td>
 						<td class="top-purpal-color-row2">{{data.status}}</td>
 					</tr>
@@ -102,7 +102,7 @@
 		<!-- Customer Details page Section End Here -->
 	 </div>
 	 <!-- Footer Section Start Here -->
-	 <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+	 <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
 	 <!-- Footer Section End Here -->
 	</div>
 

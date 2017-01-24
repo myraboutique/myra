@@ -40,6 +40,8 @@ function customerdetailsController($scope, $resource, $state) {
 
   function summary(x) {
     vm.selectData = JSON.stringify(x);
+ 
+    
     $state.go("details", { 'referer': vm.selectData });
   }
 

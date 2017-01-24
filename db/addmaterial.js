@@ -19,21 +19,40 @@ module.exports = (function()
       });
     },//////end of find
     create: function(req, res)
+  {
+    db.sync().then(function () {
+      models.findOne({ where: { materialtype: req.body.materialtype } }).then(function (user) {
+    if (user) {
+      return res.status(200).json({
+        status: 'This material type already exists.'
+      });
+      }
+    else {
+    db.sync().then(function()
     {
-      db.sync().then(function()
-      {
-        models.create(
-          {
-          materialtype : req.body.materialtype,
-          active :  req.body.active,
-          }).then(function(user)
+      models.create(
         {
-          res.json(user);
-        })
+        materialtype : req.body.materialtype,
+        active :  req.body.active,
+        }).then(function(user)
+      {
+        res.json(user);
+      })
+    })}
+    })
       })
 
-    },
+  },
     Update: function(req,res){
+      db.sync().then(function () {
+        models.findOne({ where: { materialtype: req.body.materialtype } }).then(function (user) {
+      if (user) {
+        return res.status(200).json({
+          status: 'This material type already exists.'
+        });
+        }
+      else
+      {
       db.sync().then(function(){
         models.update({
           materialtype : req.body.materialtype,
@@ -45,8 +64,11 @@ module.exports = (function()
           res.json(info);
         })
       })
-    }
+    } //else over
+  })
+    })
 
+}
 };
   return m;
 
