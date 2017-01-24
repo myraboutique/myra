@@ -44,15 +44,7 @@ module.exports = (function()
 
   },
     Update: function(req,res){
-      db.sync().then(function () {
-        models.findOne({ where: { materialtype: req.body.materialtype } }).then(function (user) {
-      if (user) {
-        return res.status(200).json({
-          status: 'This material type already exists.'
-        });
-        }
-      else
-      {
+
       db.sync().then(function(){
         models.update({
           materialtype : req.body.materialtype,
@@ -64,9 +56,8 @@ module.exports = (function()
           res.json(info);
         })
       })
-    } //else over
-  })
-    })
+
+
 
 }
 };

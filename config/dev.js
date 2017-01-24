@@ -7,7 +7,7 @@ module.exports = (function(){
         },
         db: {
             type: 'mysql',
-            host: '85.10.205.173',
+            host: '85.10.205.273',
             port: 3307,
             user: 'myraboutique',
             password: 'myra@123',
@@ -22,27 +22,6 @@ module.exports = (function(){
 })();
 
 
-// module.exports = (function(){
-//     var m = {
-//         server: {
-//             host: 'localhost',
-//             port: 3000,
-//             ssl: false
-//         },
-//         db: {
-//             type: 'mysql',
-//             host: 'localhost',
-//             port: 3306,
-//             user: 'root',
-//             password: 'rupa',
-//             database: 'demo1'
-//         },
-//         logging: {
-//             level: "info"
-//         }
-//     };
 
-//     return m;
-// })();
 
 
