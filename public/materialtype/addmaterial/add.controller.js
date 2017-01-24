@@ -29,7 +29,8 @@ function addController($resource) {
 
 
     addmaterial.$save(function (info) {
-      console.log(info);
+      console.log(swal("Recored Saved Successfully."));
+         
        window.location = "#/materialtype"
     })
    

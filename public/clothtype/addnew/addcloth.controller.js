@@ -36,8 +36,11 @@ function newclothController($resource) {
     clothtype.measurement = newArr;
     console.log(clothtype.measurement);
     clothtype.isActive = vm.isActive;
+
     clothtype.$save(function(info){
+            swal("Recored Saved Successfully.");
       window.location = '#/clothtype';
+      
     });
     }
   }

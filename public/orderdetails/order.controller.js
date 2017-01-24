@@ -8,6 +8,7 @@ function orderController($resource, $state) {
 
     vm.token = JSON.parse(localStorage.getItem('token'));
     if(!vm.token){
+        
       window.location = '#/login';
     }
     var measurement = $resource('/api/orderdetails');
@@ -41,8 +42,5 @@ function orderController($resource, $state) {
         vm.selectData = JSON.stringify(info);
         $state.go("editorder", { 'referer': vm.selectData });
     }
-
-
-
-
 }
+
