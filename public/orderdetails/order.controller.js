@@ -5,6 +5,8 @@ orderController.$inject = ['$resource', '$state'];
 
 function orderController($resource, $state) {
     var vm = this;
+    vm.temp = [{'id':1,'name':"Keyword"},{'id':0,'name':"Status"}];
+
     vm.status = ["New", "In Progress", "Finish"];
 
     vm.token = JSON.parse(localStorage.getItem('token'));
