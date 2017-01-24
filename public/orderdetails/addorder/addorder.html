@@ -153,7 +153,7 @@
 						<div class="form-box">
 							<label><em id="mandatory" style="color:Red">*</em> Amount</label>
 							<input id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required" ng-model="vm.order[$index].amount"
-								type="text" placeholder="Amount" />
+								type="text" placeholder="Amount" /><img src="assets/images/inr-icon.png" alt="">
 							<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount is required.</span>
 							<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount must be a number.</span>
 							<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount length must be less than 10.</span>
