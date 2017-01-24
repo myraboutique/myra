@@ -12,6 +12,7 @@
     '720kb.datepicker',
     'angularUtils.directives.dirPagination',
     'colorpicker.module'
-    ]);
+    ])
+    
 
 })();

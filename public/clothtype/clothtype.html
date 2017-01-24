@@ -38,11 +38,13 @@
 					<tr class="top-purpal-color-row">
 						<th>Style</th>
 						<th>Measurement</th>
+						<th>Status</th>
 					</tr>
           <!-- ng-repeat="data in vm.type"  -->
 					<tr dir-paginate="data in vm.type|itemsPerPage:10">
 						<td class="top-purpal-color-row2"><a ng-click="vm.editpage(data)" class="customer-name-link">{{data.title}}</a></td>
 						<td class="top-purpal-color-row2">{{data.measurement}}</td>
+						<td class="top-purpal-color-row2">{{data.isActive}}</td>
 					</tr>
 
 				</table>
