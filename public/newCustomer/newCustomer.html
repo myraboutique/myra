@@ -63,15 +63,18 @@
               <input class="inputdatipicker" id="" ng-model="vm.birthDate" name=""  type="text" placeholder="Select Date"/>
             
              
+
             </datepicker>
+            <span ng-if="vm.date1">Please select Birth Date before today.</span>
           </div>
 
           <div class="form-box">
             <label>Anniversary</label>
             <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-              <input class="inputdatipicker" id="" ng-model="vm.anniversaryDate" name=""  type="text" placeholder="Select Date"/>
+              <input class="inputdatipicker" id="" ng-model="vm.anniversaryDate" name=""  ng-change="vm.anniversarydate(vm.anniversaryDate)" type="text" placeholder="Select Date"/>
              
             </datepicker>
+             <span ng-if="vm.date2">Please select Anniversary Date before today.</span>
           </div>
 
       </div>
@@ -98,7 +101,11 @@
         </div>
 
         <div class="form-box">
+<<<<<<< HEAD
           <label><em id="mandatory" style="color:Red">*</em> Email Id</label>
+=======
+          <label>Email Address:</label>
+>>>>>>> cf491b15d998057eae62e66ff41defa58b0ae585
           <input id="" ng-model="vm.email" name="email" required="required" type="text" placeholder="Email Address" ng-minlength="10" ng-maxlength="50" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/"/>
           <span ng-show="form.email.$error.required && (form.email.$dirty || vm.formSubmitted)">Email address is required.</span>
           <span ng-show="form.email.$error.pattern && (form.email.$dirty || vm.formSubmitted)">Enter valid email address.</span>
@@ -127,8 +134,16 @@
         </div>
 
         <div class="form-box">
+<<<<<<< HEAD
           <label>Remarks</label>
           <textarea ng-model="vm.remarks" rows="4" cols="50" placeholder="Remarks Description"></textarea>
+=======
+          <label>Remarks:</label>
+
+          <textarea name="remarks" ng-model="vm.remarks" rows="4" cols="50" ng-maxlength="200" placeholder="Remarks Description"></textarea>
+          <span ng-show="form.remarks.$error.maxlength && (form.remarks.$dirty || vm.formSubmitted)">Remark description length must be less than 200.</span>
+
+>>>>>>> cf491b15d998057eae62e66ff41defa58b0ae585
         </div>
 
       </div>
@@ -150,7 +165,7 @@
 
   </div>
   <!-- Footer Section Start Here -->
-  <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+  <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
   <!-- Footer Section End Here -->
 </div>
 

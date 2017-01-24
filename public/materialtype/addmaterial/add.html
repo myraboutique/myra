@@ -42,6 +42,8 @@
       	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Material is required.</span>
         	<span ng-show="frm.materialtype.$error.minlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name length must be greater then 3</span>
           	<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name must be less then 15</span>
+            <span ng-show="vm.flag">{{vm.status}}</span>
+
       </div>
 
      <div class="form-box">
@@ -66,7 +68,7 @@
 
  </div>
  <!-- Footer Section Start Here -->
- <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+ <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
  <!-- Footer Section End Here -->
 </div>
 

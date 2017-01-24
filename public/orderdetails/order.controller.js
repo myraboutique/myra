@@ -5,10 +5,12 @@ orderController.$inject = ['$resource', '$state'];
 
 function orderController($resource, $state) {
     var vm = this;
+    vm.status = ["New", "In Progress", "Finish"];
 
     vm.token = JSON.parse(localStorage.getItem('token'));
-    if(!vm.token){
-      window.location = '#/login';
+    if (!vm.token) {
+
+        window.location = '#/login';
     }
     var measurement = $resource('/api/orderdetails');
     var customer = $resource('/api/customerdetails/:id');
@@ -28,9 +30,9 @@ function orderController($resource, $state) {
     };
 
     vm.sendData = sendData;
-    measurement.query(function(info) {
-        info.forEach(function(e) {
-            customer.get({ id: e.customerid }, function(response) {
+    measurement.query(function (info) {
+        info.forEach(function (e) {
+            customer.get({ id: e.customerid }, function (response) {
                 vm.customername.push(response.customerName);
             });
         });
@@ -41,8 +43,9 @@ function orderController($resource, $state) {
         vm.selectData = JSON.stringify(info);
         $state.go("editorder", { 'referer': vm.selectData });
     }
-
-
-
-
 }
+
+
+
+
+

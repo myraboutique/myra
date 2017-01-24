@@ -1,15 +1,15 @@
 angular.module('myra')
   .controller('resetpasswordController', resetpasswordController);
 
-resetpasswordController.$inject = ['$resource','$http','$stateParams'];
+resetpasswordController.$inject = ['$resource','$http','$stateParams','$state'];
 
-function resetpasswordController($resource,$http,$stateParams) {
-  var vm = this;
+function resetpasswordController($resource,$http,$stateParams,$state) {
+   var vm = this;
    vm.token = JSON.parse(localStorage.getItem('token'));
    vm.order = JSON.parse($stateParams.referer);
    var ResetPassword = $resource('/api/login/:id');
    ResetPassword.query({id:vm.order.id},function(info){
-     vm.userData = info;
+   vm.userData = info;
    })
   if(!vm.token){
     window.location = '#/login';
@@ -18,7 +18,12 @@ function resetpasswordController($resource,$http,$stateParams) {
   vm.change = change;
   vm.reset = reset;
   vm.check = check;
+  vm.cancel = cancel;
 
+function cancel()
+{
+  $state.go("register")
+}
   function check(){
     if(vm.password && vm.newpassword){
     if(vm.password == vm.newpassword){
@@ -30,20 +35,22 @@ function resetpasswordController($resource,$http,$stateParams) {
   }
 
   function reset(){
-    
+
     if(vm.userData[0].password == vm.oldpassword){
       vm.same = false;
     } else {
       vm.same = true;
     }
-    
+
   }
-  
+
   function change(form){
    vm.formSubmitted= true;
     vm.token.password = vm.newpassword;
-   if(form.$valid && !vm.same && !vm.passsame){
+
+   if(form.$valid && !vm.same){
       
+
        $http.put('/api/register',vm.token)
         .then(
           function(response){
@@ -55,7 +62,7 @@ function resetpasswordController($resource,$http,$stateParams) {
           console.log(err);
         })
    }
- 
+
   }
 
 }
