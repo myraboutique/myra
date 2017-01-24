@@ -33,6 +33,18 @@
 		<!-- Customer Details page Section Start Here -->
 		<div class="customer-detail-page-contant">
      <div class="right-add-new-button"><a href="#/addorder">Add New</a></div>
+	
+		 <p>
+   <div class="search-box-main"><input class="serchInput" type="text" ng-model="vm.search" placeholder="Search">
+
+	 <select class="outside2" ng-model="vm.customerStatus" placeholder="Search by Name" ng-options="data for data in vm.status"
+						required name="customeruser">
+				 <option value="">Search by Status</option></select>
+					</select>
+
+		</div>
+		</p>
+		
 		 <div class="details-table">
 			 	<table class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
@@ -77,9 +89,9 @@
 						</th>
 						<th>Status</th>
 					</tr>
-					<tr ng-repeat="data in vm.type | orderBy:vm.predicate:vm.reverse">
+					<tr ng-repeat="data in vm.type | orderBy:vm.predicate:vm.reverse | filter:vm.customerStatus | filter:vm.search">
 						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link">{{data.customerName}}</a></td>
-						<td class="top-purpal-color-row2">{{data.orderdate | date :  "dd/MM/yyyy"}}</td>
+						<td class="top-purpal-color-row2">{{data.orderdate | date:"dd/MM/yyyy"}}</td>
 						<td class="top-purpal-color-row2">{{data.date}}</td>
 						<td class="top-purpal-color-row2">{{data.status}}</td>
 					</tr>
@@ -90,7 +102,7 @@
 		<!-- Customer Details page Section End Here -->
 	 </div>
 	 <!-- Footer Section Start Here -->
-	 <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+	 <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
 	 <!-- Footer Section End Here -->
 	</div>
 

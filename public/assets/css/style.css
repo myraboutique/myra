@@ -410,7 +410,50 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
   margin-bottom: 15px;
 }
 .outside{
-    width: 70%;
+  width: 70%;
+  float: left;
+  color: #8F8F8F;
+  font-size: 14px;
+  padding: 8px 12px 8px 8px;
+  background: #fff;
+  border: 1px solid rgb(178, 178, 178);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+  -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+  box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+.outside2{
+  margin-left: 11px;
+  width: 20%;
+  float: left;
+  color: #8F8F8F;
+  font-size: 14px;
+  padding: 8px 12px 8px 8px;
+  background: #fff;
+  border: 1px solid rgb(178, 178, 178);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+  -moz-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+  box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+.serchInput{
+  width: 20%;
   float: left;
   color: #8F8F8F;
   font-size: 14px;
@@ -454,6 +497,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
     float: left;
 }
 .measurement-li-box ul li strong img{position: absolute;top: 10px; right: 0px; z-index: 9; float: right;width:38px; height: 36px;}
+.inricon{position: absolute;top: 1px; right: 0px; z-index: 9; float: right;width:38px; height: 36px;}
 .form-section-box .measurement-input{width:100% !important; float: left;margin-bottom: 0px;margin-top: 10px;padding-right: 40px;padding-bottom: 7px;}
 .submit-button input{
     width:105px;
@@ -922,3 +966,4 @@ text-align: center;
 @media only screen and (min-width: 480px) and (max-width: 640px) {
  .minpageheight {min-height: auto;}
 }
+

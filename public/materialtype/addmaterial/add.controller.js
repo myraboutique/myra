@@ -8,6 +8,7 @@ function addController($resource) {
   var AddMaterial = $resource('/api/addmaterial')
 
   var vm = this;
+  vm.flag = false ;
   vm.materialsave = materialsave;
   vm.materialcancel = materialcancel;
 
@@ -29,11 +30,18 @@ function addController($resource) {
 
 
     addmaterial.$save(function (info) {
-      console.log(swal("Recored Saved Successfully."));
-         
-       window.location = "#/materialtype"
+
+      if(!info.status){
+        console.log(swal("Recored Saved Successfully."));
+         window.location = "#/materialtype"
+      }
+      else {
+            vm.flag = true;
+            vm.status = info.status ;
+          }
+
     })
-   
+
   }
   }
 

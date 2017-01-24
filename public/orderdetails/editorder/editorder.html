@@ -48,9 +48,9 @@
 					<!--<label>Status:</label>-->
 					<select class="outside" ng-model="vm.order.status" name="status" required>
 							<option value="">-- Please Select --</option>
-							<option value="new">new</option>
-							<option value="inprogress">inprogress</option>
-							<option value="finish">finish</option>
+							<option value="New">New</option>
+							<option value="In Progress">In Progress</option>
+							<option value="Finish">Finish</option>
 							</select>
 					<span ng-show="orderform.status.$invalid && (orderform.status.$touched || vm.formSubmitted)">Order status is required.</span>
 				</div>
@@ -124,11 +124,9 @@
 
 					<div class="form-box">
 						<label>Any other remark:</label>
-						<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="100" ng-model="vm.order.cloth" placeholder="Any other remark"
-							required name="clothdesc"></textarea>
-						<span ng-show="orderform.clothdesc.$invalid && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remarks are required</span>
-						<span ng-show="orderform.clothdesc.$error.minlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remark description length must be greater than 10</span>
-						<span ng-show="orderform.clothdesc.$error.maxlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remark description length must be less than 100</span>
+						<textarea rows="4" cols="50" ng-minlength="10" ng-maxlength="200" ng-model="vm.order.cloth" placeholder="Any other remark"
+							 name="clothdesc"></textarea>
+						<span ng-show="orderform.clothdesc.$error.maxlength && (orderform.clothdesc.$dirty || vm.formSubmitted)">Remark description length must be less than 200</span>
 					</div>
 
 					<div class="form-box">
@@ -217,7 +215,7 @@
 	</form>
 
 	<!-- Footer Section Start Here -->
-	<div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
 	<!-- Footer Section End Here -->
 </div>
 

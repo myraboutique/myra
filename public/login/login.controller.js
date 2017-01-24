@@ -1,9 +1,9 @@
 angular.module('myra')
   .controller('loginController', loginController);
 
-loginController.$inject = ['$resource'];
+loginController.$inject = ['$resource','$state'];
 
-function loginController($resource) {
+function loginController($resource,$state) {
 
   var vm = this;
   vm.data = data;
@@ -17,7 +17,8 @@ function loginController($resource) {
     login.$save(function(info){
       if(info.email){
         localStorage.setItem('token',JSON.stringify(info));
-        window.location = '#/home';
+       // window.location = '#/home';
+        $state.go('home');
       } else {
         swal(info.status);
       } 
