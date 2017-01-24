@@ -99,7 +99,7 @@
         </div>
 
         <div class="form-box">
-          <label>Email Id:</label>
+          <label>Email Address:</label>
           <input id="" ng-model="vm.email" name="email" required="required" type="text" placeholder="Email Address" ng-minlength="10" ng-maxlength="50" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/"/>
           <span ng-show="form.email.$error.required && (form.email.$dirty || vm.formSubmitted)">Email address is required.</span>
           <span ng-show="form.email.$error.pattern && (form.email.$dirty || vm.formSubmitted)">Enter valid email address.</span>
@@ -129,7 +129,10 @@
 
         <div class="form-box">
           <label>Remarks:</label>
-          <textarea ng-model="vm.remarks" rows="4" cols="50" placeholder="Remarks Description"></textarea>
+
+          <textarea name="remarks" ng-model="vm.remarks" rows="4" cols="50" ng-maxlength="200" placeholder="Remarks Description"></textarea>
+          <span ng-show="form.remarks.$error.maxlength && (form.remarks.$dirty || vm.formSubmitted)">Remark description length must be less than 200.</span>
+
         </div>
 
       </div>
@@ -151,7 +154,7 @@
 
   </div>
   <!-- Footer Section Start Here -->
-  <div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+  <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
   <!-- Footer Section End Here -->
 </div>
 

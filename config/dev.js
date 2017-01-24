@@ -8,11 +8,11 @@ module.exports = (function(){
         },
         db: {
             type: 'mysql',
-            host: 'localhost',
-            port: 3306,
-            user: 'root',
-            password: 'root',
-            database: 'demo1'
+            host: '85.10.205.273',
+            port: 3307,
+            user: 'myraboutique',
+            password: 'myra@123',
+            database: 'myra'
         },
         logging: {
             level: "info"
@@ -21,3 +21,4 @@ module.exports = (function(){
 
     return m;
 })();
+

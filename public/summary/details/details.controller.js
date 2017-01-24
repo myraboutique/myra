@@ -12,6 +12,8 @@ function detailsController($resource, $stateParams) {
     window.location = '#/login';
   }
   vm.data = JSON.parse($stateParams.referer);
+  
+  console.log(vm.flag);
   console.log(vm.data);
   vm.type = [];
   vm.measure = [];
@@ -35,6 +37,8 @@ function detailsController($resource, $stateParams) {
     });
     console.log(vm.type);
     console.log(vm.measure);
+    console.log("abcd"+vm.measure.length);
+    
   })
 
 }

@@ -33,7 +33,7 @@ function save(form){
      $http.put('/api/customerdetails', vm.data)
         .then(
             function(response){
-              console.log("put successfull")
+              console.log(swal("Recored Updated Successfully."))
               window.location = '#/customerdetails';
             },
             function(response){
