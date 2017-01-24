@@ -80,9 +80,9 @@ function newCustomerController($resource) {
 
 
       customerdetails.$save(function(info){
-       swal("Recored Saved Successfully.",function(info){
+       swal("Recored Saved Successfully.");
           window.location = '#/customerdetails';
-       });
+       
      
        })
 
