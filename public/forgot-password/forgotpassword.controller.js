@@ -25,7 +25,7 @@ function forgotpasswordController($resource,$state) {
           // swal(info.status)
           vm.flag = true ;
         } else {
-
+          swal("Reset password link has been sent to your registered email address.")
         window.location = '#/login';
         }
 

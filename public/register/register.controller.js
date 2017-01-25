@@ -16,6 +16,9 @@ function registerController($resource,$state) {
   vm.resetPassword = resetPassword;
   var Register = $resource('/api/register');
   
+  vm.filters = {
+    search: ''
+  };
 
   Register.query(function(info){
     vm.user = info;
