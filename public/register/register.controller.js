@@ -16,6 +16,9 @@ function registerController($resource,$state) {
   vm.resetPassword = resetPassword;
   var Register = $resource('/api/register');
   
+  vm.filters = {
+    search: ''
+  };
 
   Register.query(function(info){
     vm.user = info;
@@ -52,7 +55,7 @@ function registerController($resource,$state) {
       if(info.status){
         swal(info.status);
       } else {
-      swal("Recored Saved Successfully.");
+      swal("Record Saved Successfully.");
          window.location = '#/register';
       }
      

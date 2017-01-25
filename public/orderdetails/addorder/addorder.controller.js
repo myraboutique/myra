@@ -175,7 +175,7 @@ function addorderController($resource,$scope) {
             rOrder();
           });
         } else {
-        swal("Recored Saved Successfully.");
+        swal("Record Saved Successfully.");
           window.location = '#/order';
         }
       

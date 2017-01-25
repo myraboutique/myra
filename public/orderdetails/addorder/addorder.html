@@ -2,9 +2,7 @@
 
 	<!-- Header Section Start Here -->
 	<div class="main-header">
-		<div class="logo">
-			<a href="#/home"><img src="assets/images/logo.png" alt=""></a>
-		</div>
+			<div class="logo"><a href="#/home"><img src="assets/images/logo.png" alt=""></a></div>
 		<span class="menu-toggle">
       <i></i>
       <i></i>
@@ -18,10 +16,10 @@
 				<li><a href="#/alert">Alerts</a></li>
 				<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 					<ul>
-						<li><a href='#/register'><span>Add User</span></a></li>
-						<li><a href='#/clothtype'><span>Cloth Type</span></a></li>
-						<li><a href='#/materialtype'><span>Material Type</span></a></li>
-					</ul>
+	        <li><a href='#/register'><span>Add User</span></a></li>
+	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
+					<li><a href='#/materialtype'><span>Material Type</span></a></li>
+	      </ul>
 				</li>
 				<li><a href="#/logout">Logout</a></li>
 			</ul>
@@ -31,85 +29,82 @@
 
 	<div class="inner-heading-bar">Order Form</div>
 	<form name="orderform" novalidate>
-		<div class="main-contant-part">
+	<div class="main-contant-part">
 
-			<!-- Right Address Section Start Here -->
-			<div class="order-form-right-address-section">
-				<div class="form-address-heading-rt">Customer Billing Address </div>
-				<p>
-					{{vm.address}}
-				</p>
-			</div>
-			<!-- Right Address Section End Here -->
+		<!-- Right Address Section Start Here -->
+		<div class="order-form-right-address-section">
+			<div class="form-address-heading-rt">Customer Billing Address </div>
+			<p>
+				{{vm.address}}
+			</p>
+		</div>
+		<!-- Right Address Section End Here -->
 
-			<!-- Left Form Section Start Here -->
-			<div class="order-form-left-section">
-				<div class="form-section-box">
-					<div class="form-heading">Customer Details</div>
+		<!-- Left Form Section Start Here -->
+		<div class="order-form-left-section">
+			<div class="form-section-box">
+				<div class="form-heading">Customer Details</div>
 
-					<div class="form-box">
-						<label><em id="mandatory" style="color:Red">*</em>Customer Name</label>
-						<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer "
-							required name="customeruser">
+				<div class="form-box">
+					<label><em id="mandatory" style="color:Red">*</em> Name</label>
+					<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer "
+						required name="customeruser">
 				 <option value="">-- Please Select --</option></select>
 
-						</select>
-						<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
-					</div>
-
-					<div class="form-box">
-						<label><em id="mandatory" style="color:Red">*</em> Contact Number</label>
-						<input id="" name="" ng-disabled="vm.disable" required="required" ng-model="vm.contact" type="text" placeholder="Contact Number"
-						/>
-					</div>
-
-					<div class="form-box">
-						<label><em id="mandatory" style="color:Red">*</em> Email address</label>
-						<input id="" name="" ng-disabled="vm.disable" required="required" type="text" ng-model="vm.email" placeholder="Email Id"
-						/>
-					</div>
+					</select>
+					<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
 				</div>
+
+				<div class="form-box">
+					<label><em id="mandatory" style="color:Red">*</em> Contact Number</label>
+					<input id="" name="" ng-disabled="vm.disable" required="required" ng-model="vm.contact" type="text" placeholder="Contact Number" />
+				</div>
+
+				<div class="form-box">
+					<label><em id="mandatory" style="color:Red">*</em> Email Id</label>
+					<input id="" name="" ng-disabled="vm.disable" required="required" type="text" ng-model="vm.email" placeholder="Email Id" />
+				</div>
+			</div>
 
 				<div ng-repeat="item in vm.items">
 					<div class="form-section-box">
 						<div class="form-heading">Cloth Description</div>
 
 						<div class="form-box">
-							<label><em id="mandatory" style="color:Red">*</em> Cloth Type</label>
+							<label><em id="mandatory" style="color:Red">*</em> Type</label>
 							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type | filter:data.isActive='true'"
 								required>
 								<option value="">-- Please Select --</option></select>
-							<span ng-show="orderform['clothtype'+$index].$invalid && (orderform['clothtype'+$index].$touched || vm.formSubmitted)">Cloth type is required.</span>
+							<span ng-show="orderform['clothtype'+$index].$invalid && (orderform['clothtype'+$index].$touched || vm.formSubmitted)">Cloth Type is required.</span>
 						</div>
 
 						<div class="form-box">
 							<label><em id="mandatory" style="color:Red">*</em> Material Source</label>
-							<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material | filter:data.isActive='true'"
-								required name="material{{$index}}">
+							<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material | filter:data.isActive='true'" required
+								name="material{{$index}}">
 				  			<option value="">-- Please Select --</option></select>
 							</select>
-							<span ng-show="orderform['material'+$index].$invalid && (orderform['material'+$index].$touched || vm.formSubmitted)">Material source is required.</span>
+							<span ng-show="orderform['material'+$index].$invalid && (orderform['material'+$index].$touched || vm.formSubmitted)">Material Source is required.</span>
 						</div>
 
 						<div class="form-box">
 							<label><em id="mandatory" style="color:Red">*</em> Choose Color</label>
-							<input style="background-color:{{vm.order[$index].color}};" colorpicker id="" name="color{{$index}}" ng-model="vm.order[$index].color"
-								ng-minlength="3" ng-maxlength="15" required="required" type="text" placeholder="Choose Color" />
+							<input style="background-color:{{vm.order[$index].color}};" colorpicker id="" name="color{{$index}}" ng-model="vm.order[$index].color" ng-minlength="3" ng-maxlength="15" required="required" type="text" placeholder="Choose Color"  />
 							<span ng-show="orderform['color'+$index].$error.required && (orderform['color'+$index].$dirty || vm.formSubmitted)">Cloth color is required.</span>
-							<span ng-show="orderform['color'+$index].$error.minlength && (orderform['color'+$index].$dirty || vm.formSubmitted)">Color name length must be greater than 3 characters.</span>
-							<span ng-show="orderform['color'+$index].$error.maxlength && (orderform['color'+$index].$dirty || vm.formSubmitted)">Color name length must be less than 15 characters.</span>
+							<span ng-show="orderform['color'+$index].$error.minlength && (orderform['color'+$index].$dirty || vm.formSubmitted)">Cloth color length must be greater than 3.</span>
+						<span ng-show="orderform['color'+$index].$error.maxlength && (orderform['color'+$index].$dirty || vm.formSubmitted)">Cloth color length must be less than 15.</span>
 						</div>
 
 						<div class="form-box">
+
 							<label><em ng-if="vm.order[$index].checked" id="mandatory" style="color:Red">*</em> Customization</label>
 							<div class="customization-check-box">
-								<input type="checkbox" ng-model="vm.order[$index].checked" ng-change="vm.empty($index)" name="vehicle" value="" class="checkbox"
-								/>
-								<textarea ng-disabled="!vm.order[$index].checked" ng-minlength="10" ng-maxlength="100" ng-model="vm.order[$index].customization"
-									class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description" name="customization{{$index}}"></textarea>
-							</div>
-							<span ng-show="orderform['customization'+$index].$error.minlength && (orderform['customization'+$index].$dirty || vm.formSubmitted)">Customization length must be greater than 10 characters.</span>
-							<span ng-show="orderform['customization'+$index].$error.maxlength && (orderform['customization'+$index].$dirty || vm.formSubmitted)">Customization length must be less than 100 characters.</span>
+								<input type="checkbox" ng-model="vm.order[$index].checked" ng-change="vm.empty($index)" name="vehicle" value="" class="checkbox"/>
+								<textarea ng-disabled="!vm.order[$index].checked" ng-minlength="10" ng-maxlength="100" ng-model="vm.order[$index].customization" class="customization-check-box-textarea"
+									rows="4" cols="50" placeholder="Customization Description" name="customization{{$index}}"></textarea>
+										</div>
+										<span ng-show="orderform['customization'+$index].$error.minlength && (orderform['customization'+$index].$dirty || vm.formSubmitted)">Customization length must be greater than 10.</span>
+						<span ng-show="orderform['customization'+$index].$error.maxlength && (orderform['customization'+$index].$dirty || vm.formSubmitted)">Customization length must be less than 100.</span>
 
 						</div>
 
@@ -118,37 +113,36 @@
 
 
 							<textarea rows="4" cols="50" ng-maxlength="200" ng-model="vm.order[$index].cloth" placeholder="Any Other Remark" name="clothdesc{{$index}}"></textarea>
-							<span ng-show="orderform['clothdesc'+$index].$error.maxlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remark description length must be less than 200 characters.</span>
+							<span ng-show="orderform['clothdesc'+$index].$error.maxlength && (orderform['clothdesc'+$index].$dirty || vm.formSubmitted)">Remark description length must be less than 200.</span>
 
 						</div>
 
 						<div class="form-box">
 							<label><em id="mandatory" style="color:Red">*</em> Date of Order</label>
 							<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-								<input class="inputdatipicker " id="mydate" ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
-									ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)" type="text" placeholder="Date of Order"
-								/>
+								<input class="inputdatipicker " id="mydate"  ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
+										ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)" type="text" placeholder="Date of Order" />
 							</datepicker>
-							<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Date of Order is required.</span>
+							<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Order of Order is required.</span>
 							<!--<span ng-show="orderform['orderdate'+$index].$error.pattern && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
 						</div>
 
 						<div class="form-box">
 							<label><em id="mandatory" style="color:Red">*</em> Date of Delivery</label>
 							<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-								<!--New change 00 --index inject -->
-								<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)"
+							<!--New change 00 --index inject -->
+								<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" 	ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)"
 									id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
 							</datepicker>
-							<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Date of Delivery is required.</span>
+						<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Date of Delivery must be greater than Date of Order.</span>
 							<!--<span ng-show="orderform['deliverydate'+$index].$error.pattern && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
-							<span ng-if="vm.date1">Date of Delivery must be greater than Date of Order.</span>
+							<span ng-if="vm.date1">Please select deliverydate after order date.</span>
 						</div>
 
 						<div class="form-box">
 							<label><em id="mandatory" style="color:Red">*</em> Alert Date</label>
 							<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-								<input class="inputdatipicker" ng-model="vm.order[$index].alertday" ng-change="vm.alertchange(vm.order[$index].orderdate,vm.order[$index].deliverydate,vm.order[$index].alertday)"
+								<input class="inputdatipicker" ng-model="vm.order[$index].alertday"  ng-change="vm.alertchange(vm.order[$index].orderdate,vm.order[$index].deliverydate,vm.order[$index].alertday)"
 									id="" name="alertdate{{$index}}" required type="text" placeholder="Date of Alert" />
 							</datepicker>
 							<span ng-show="orderform['alertdate'+$index].$error.required && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">Alert Date is required.</span>
@@ -159,11 +153,12 @@
 
 						<div class="form-box">
 							<label><em id="mandatory" style="color:Red">*</em> Amount</label>
-							<input id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required" ng-model="vm.order[$index].amount"
-								type="text" placeholder="Amount" /><img style="float: right;margin-top: -50px;" src="assets/images/inr-icon.png" alt="">
+							<input class="addorder-amount-icon" id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required" ng-model="vm.order[$index].amount"
+								type="text" placeholder="Amount" />
+								<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
 							<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount is required.</span>
 							<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount must be a number.</span>
-							<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount length must be less than 10 numbers.</span>
+							<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount length must be less than 10.</span>
 						</div>
 
 					</div>
@@ -176,7 +171,7 @@
 									<strong><input ng-model="vm.order[$parent.$index].measurement[$index]" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="4" class="measurement-input" name="measurement{{$index}}" required="required" type="text" placeholder="Add Size" />
 									<span ng-show="orderform['measurement'+$index].$error.required && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">{{type}} is required.</span>
 							    <span ng-show="orderform['measurement'+$index].$error.pattern && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement must be a number.</span>
-									 <span ng-show="orderform['measurement'+$index].$error.maxlength && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement length must less than 5 numbers.</span>
+									 <span ng-show="orderform['measurement'+$index].$error.maxlength && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement length must less than 5.</span>
 								  <img src="assets/images/inc-icon.png" alt=""></strong>
 							</ul>
 						</div>
@@ -191,19 +186,19 @@
 							<input class="add-next-button" type="submit" value="Add Next" ng-click=" vm.add(orderform)" />
 						</div>
 						<div class="cancel-button">
-							<input type="submit" value="Cancel" ng-click="vm.cancel()" />
+							<input type="submit" value="Cancel"  ng-click="vm.cancel()" />
 						</div>
 					</div>
 				</div>
 
-			</div>
-			<!-- Left Form Section End Here -->
-
-
 		</div>
-		<!-- Footer Section Start Here -->
-		<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
-		<!-- Footer Section End Here -->
+		<!-- Left Form Section End Here -->
+
+
+	</div>
+	<!-- Footer Section Start Here -->
+	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
+	<!-- Footer Section End Here -->
 	</form>
 	<script type="text/javascript">
 

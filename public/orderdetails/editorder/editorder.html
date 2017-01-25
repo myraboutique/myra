@@ -43,7 +43,8 @@
 					{{vm.customer.billingAddress}}
 				</p><br>
 
-				<div class="form-address-heading-rt" style="margin-top: 111px;">Status <span></a></span></div>
+				<div class="form-address-heading-rt">Status <span></a></span></div>
+
 				<div class="form-box">
 					<!--<label>Status:</label>-->
 					<select class="outside" ng-model="vm.order.status" name="status" required>
@@ -52,7 +53,7 @@
 							<option value="In Progress">In Progress</option>
 							<option value="Finish">Finish</option>
 							</select>
-					<span ng-show="orderform.status.$invalid && (orderform.status.$touched || vm.formSubmitted)">Order status is required.</span>
+					<span style="margin-left:0px;" ng-show="orderform.status.$invalid && (orderform.status.$touched || vm.formSubmitted)">Order status is required.</span>
 				</div>
 			</div>
 			<!-- Right Address Section End Here -->
