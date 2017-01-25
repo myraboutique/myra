@@ -35,17 +35,17 @@ function newclothController($resource) {
     var clothtype = new Clothtype();
     clothtype.title = vm.title;
     clothtype.measurement = newArr;
-    console.log(clothtype.measurement);
     clothtype.isActive = vm.isActive;
+    clothtype.image = "";
 
     clothtype.$save(function(info){
       if(!info.status){
         swal("Recored Saved Successfully.");
-  window.location = '#/clothtype';
+        window.location = '#/clothtype';
       }
       else {
         vm.flag = true;
-       vm.status = info.status ;
+        vm.status = info.status ;
       }
     });
     }
