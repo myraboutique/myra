@@ -52,7 +52,7 @@
 
 			 <div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
 				 {{data}}
-        <button ng-click="vm.delete($index)">X</button>
+			 <button type="button" ng-click="vm.delete($index)">X</button>
 			  </div>
 
 			 <div class="form-box">
@@ -67,10 +67,10 @@
 
       <div class="add-new-btm-btn">
 			<div class="submit-button">
-				<input type="submit" value="Save" ng-click="vm.addClothtype(form)"/>
+				<input type="button" value="Save" ng-click="vm.addClothtype(form)"/>
 			</div>
 			<div class="cancel-button">
-				<input type="submit" value="Cancel" ui-sref="clothtype"/>
+				<input type="button" value="Cancel" ui-sref="clothtype"/>
 			</div>
 	   </div>
 

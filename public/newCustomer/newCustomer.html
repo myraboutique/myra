@@ -119,13 +119,17 @@
         </div>
 
         <div class="form-box">
-          <label> Billing Address</label>
+          <label><em ng-show="vm.other" id="mandatory" style="color:Red">*</em> Billing Address</label>
           <div class="customization-check-box">
             <input type="checkbox" ng-model="vm.other" name="vehicle" value="" class="checkbox">
             <strong class="billing-addres-checkbox">Other</strong>
-            <textarea ng-if="vm.other" ng-model="vm.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
-       </textarea>
+            <textarea required  ng-minlength="30" ng-maxlength="250" ng-if="vm.other" name="billaddress" ng-model="vm.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
+             </textarea>
           </div>
+          <!--New change00 -->
+          <span ng-if="vm.other" ng-show="form.billaddress.$error.required && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address is required.</span>
+           <span ng-if="vm.other" ng-show="form.billaddress.$error.minlength && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should not be less than 30.</span>
+          <span ng-if="vm.other" ng-show="form.billaddress.$error.maxlength && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should not be greater than 250.</span>
         </div>
 
         <div class="form-box">
