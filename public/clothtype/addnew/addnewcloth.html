@@ -1,99 +1,108 @@
-  <div class="container">
+<div class="container">
 
 	<!-- Header Section Start Here -->
-   <div class="main-header">
-   	<div class="logo"><a href="#/home"><img src="assets/images/logo.png" alt=""></a></div>
+	<div class="main-header">
+		<div class="logo">
+			<a href="#/home"><img src="assets/images/logo.png" alt=""></a>
+		</div>
 		<span class="menu-toggle">
       <i></i>
       <i></i>
       <i></i>
     </span>
 		<div class="navbar">
-     <ul>
-      <li><a href="#/home" >Home</a></li>
-			<li><a href="#/customerdetails">Customer Details</a></li>
-			<li><a href="#/order">Order Form</a></li>
-			<li><a href="#/alert" >Alerts</a></li>
-			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
-				<ul>
-	        <li><a href='#/register'><span>Add User</span></a></li>
-	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
-					<li><a href='#/materialtype'><span>Material Type</span></a></li>
-	      </ul>
-			</li>
-			<li><a href="#/logout">Logout</a></li>
-		 </ul>
+			<ul>
+				<li><a href="#/home">Home</a></li>
+				<li><a href="#/customerdetails">Customer Details</a></li>
+				<li><a href="#/order">Order Form</a></li>
+				<li><a href="#/alert">Alerts</a></li>
+				<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
+					<ul>
+						<li><a href='#/register'><span>Add User</span></a></li>
+						<li><a href='#/clothtype'><span>Cloth Type</span></a></li>
+						<li><a href='#/materialtype'><span>Material Type</span></a></li>
+					</ul>
+				</li>
+				<li><a href="#/logout">Logout</a></li>
+			</ul>
 		</div>
-	 </div>
-	 <!-- Header Section End Here -->
+	</div>
+	<!-- Header Section End Here -->
 
-	 <div class="inner-heading-bar">Add New Style</div>
+	<div class="inner-heading-bar">Add New Style</div>
 
-	 <div class="main-contant-part minpageheight">
+	<div class="main-contant-part minpageheight">
 		<!-- Left Form Section Start Here -->
 		<form name="form" novalidate>
-    <div class="order-form-left-section add-new-form">
-      <div class="form-section-box">
+			<div class="order-form-left-section add-new-form">
+				<div class="form-section-box">
 
-			 <div class="form-box">
-			  <label><em id="mandatory" style="color:Red">*</em>Style</label>
-			  <input id="" name="style" required="required" type="text" placeholder="Style" ng-model="vm.title"/>
-					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style is required.</span>
-          <span ng-show="vm.flag">This style already exists.</span>
+					<div class="form-box">
+						<label><em id="mandatory" style="color:Red">*</em>Style</label>
+<input id="" name="style" required="required" type="text" placeholder="Style" ng-model="vm.title" />
+<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style is required.</span>
+<span ng-show="vm.flag">This style already exists.</span>
 
-       </div>
+</div>
 
-			 <div class="form-box">
-			  <label><em id="mandatory" style="color:Red">*</em>Measurement</label>
-        <input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
-				<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
-				<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
-			 </div>
+<div class="form-box">
+<label><em id="mandatory" style="color:Red">*</em>Measurement</label>
+<input id="" name="measu" type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput" />
+<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
+<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
+</div>
 
-			 <div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
-				 {{data}}
-			 <button type="button" ng-click="vm.delete($index)">X</button>
-			  </div>
+<div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
+	{{data}}
+	<button type="button" ng-click="vm.delete($index)">X</button>
+</div>
 
-			 <div class="form-box">
-				  <label>IsActive</label>
-				 <input type="checkbox" class="billing-addres-checkbox clothcheck" ng-model="vm.isActive"/>
-			 </div>
-			</div>
+<div class="form-box">
+	<label>IsActive</label>
+	<input type="checkbox" class="billing-addres-checkbox clothcheck" ng-model="vm.isActive" />
+</div>
+</div>
 
-      <div class="add-new-btm-btn">
-			<div class="submit-button">
-				<input type="button" value="Save" ng-click="vm.addClothtype(form)"/>
-			</div>
-			<div class="cancel-button">
-				<input type="button" value="Cancel" ui-sref="clothtype"/>
-			</div>
-	   </div>
+<div class="form-box">
+	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*" image="image2" resize-max-height="300" resize-max-width="250" resize-quality="0.7"	/>
+	<img ng-show="image2" ng-src="{{image2.resized.dataURL}}" />
+	<button type="submit" ng-click="single(image2.resized.dataURL)">Add</button>
+</div>
 
 
-		</div>
-		</form>
-	 </div>
-		<!-- Left Form Section End Here -->
-
-    <!-- Footer Section Start Here -->
-    <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
-    <!-- Footer Section End Here -->
-	 </div>
-
+<div class="add-new-btm-btn">
+	<div class="submit-button">
+		<input type="button" value="Save" ng-click="vm.addClothtype(form)" />
 	</div>
+	<div class="cancel-button">
+		<input type="button" value="Cancel" ui-sref="clothtype" />
+	</div>
+</div>
 
-	 <script type="text/javascript">
-         $(document).ready(function(e) {
-          $(".menu-toggle").click(function(){
-	        $(".navbar").slideToggle()
 
-	        })
-	        $(".navbar ul li").click(function(){
-		      $(this).find("ul").slideToggle()
-		      $(this).toggleClass("active");
+</div>
+</form>
+</div>
+<!-- Left Form Section End Here -->
 
-		   })
+<!-- Footer Section Start Here -->
+<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
+<!-- Footer Section End Here -->
+</div>
 
-});
+</div>
+
+<script type="text/javascript">
+		$(document).ready(function (e) {
+		$(".menu-toggle").click(function () {
+			$(".navbar").slideToggle()
+
+		})
+		$(".navbar ul li").click(function () {
+			$(this).find("ul").slideToggle()
+			$(this).toggleClass("active");
+
+		})
+
+		});
 </script>

@@ -11,7 +11,8 @@
     'ui.bootstrap',
     '720kb.datepicker',
     'angularUtils.directives.dirPagination',
-    'colorpicker.module'
+    'colorpicker.module',
+    'imageupload'
     ])
     
 

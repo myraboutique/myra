@@ -13,7 +13,7 @@ var measurement = db.define('measurement', {
     title: Sequelize.STRING,
     measurement: Sequelize.STRING,
     isActive: Sequelize.BOOLEAN,
-    image: Sequelize.STRING
+    image: Sequelize.LONGTEXT
 }, {
         timestamps: false
     });

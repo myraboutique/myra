@@ -15,9 +15,9 @@ module.exports = (function(){
       })
     },
     create: function(req, res){
-      console.log(req.body.date);
-      console.log(req.body.orderdate);
-      console.log(req.body.alertday)
+      // console.log(req.body.date);
+      // console.log(req.body.orderdate);
+      // console.log(req.body.alertday);
       db.sync().then(function()
       {
         models.create(
@@ -44,7 +44,7 @@ module.exports = (function(){
      
     },
     Update : function(req,res){
-      console.log(req.body);
+      // console.log(req.body);
       db.sync().then(function(){
         models.update(
           {

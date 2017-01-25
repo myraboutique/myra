@@ -1,12 +1,17 @@
 angular.module('myra')
   .controller('newclothController', newclothController);
 
-newclothController.$inject = ['$resource'];
+newclothController.$inject = ['$resource','$scope'];
 
-function newclothController($resource) {
+function newclothController($resource,$scope) {
   var vm = this;
-   vm.token = JSON.parse(localStorage.getItem('token'));
-  if(!vm.token){
+
+  $scope.single = function (image) {
+    vm.src = image;
+  };
+
+  vm.token = JSON.parse(localStorage.getItem('token'));
+  if (!vm.token) {
     window.location = '#/login';
   }
   vm.measurement = measuremet;
@@ -17,37 +22,37 @@ function newclothController($resource) {
   var Clothtype = $resource('/api/measurement');
   vm.delete = Delete;
 
-  function Delete(number){
-    vm.selectMeasurement.splice(number,1);
+  function Delete(number) {
+    vm.selectMeasurement.splice(number, 1);
   }
 
-  function measuremet(data){
-    if(data){
-    vm.selectMeasurement.push(data);
-    vm.measu = "";
-  }
+  function measuremet(data) {
+    if (data) {
+      vm.selectMeasurement.push(data);
+      vm.measu = "";
+    }
   }
 
-  function addClothtype(form){
+  function addClothtype(form) {
     vm.formSubmitted = true;
-    if(form.$valid && vm.selectMeasurement.length > 0){
-    var newArr =  vm.selectMeasurement.join(",");
-    var clothtype = new Clothtype();
-    clothtype.title = vm.title;
-    clothtype.measurement = newArr;
-    clothtype.isActive = vm.isActive;
-    clothtype.image = "";
+    if (form.$valid && vm.selectMeasurement.length > 0) {
+      var newArr = vm.selectMeasurement.join(",");
+      var clothtype = new Clothtype();
+      clothtype.title = vm.title;
+      clothtype.measurement = newArr;
+      clothtype.isActive = vm.isActive;
+      clothtype.image = vm.src;
 
-    clothtype.$save(function(info){
-      if(!info.status){
-        swal("Recored Saved Successfully.");
-        window.location = '#/clothtype';
-      }
-      else {
-        vm.flag = true;
-        vm.status = info.status ;
-      }
-    });
+      clothtype.$save(function (info) {
+        if (!info.status) {
+          swal("Recored Saved Successfully.");
+          window.location = '#/clothtype';
+        }
+        else {
+          vm.flag = true;
+          vm.status = info.status;
+        }
+      });
     }
   }
 }

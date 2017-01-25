@@ -139,7 +139,7 @@ function addorderController($resource,$scope) {
     if (!vm.date2 && !vm.date3 && !vm.date1 && orderform.$valid) {
       vm.formSubmitted = false;
       vm.order.push({ orderdate: orderdate });
-      console.log(vm.order);
+      // console.log(vm.order);
       vm.items.push({});
     }
       
