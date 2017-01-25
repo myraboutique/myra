@@ -21,7 +21,7 @@ function loginController($resource,$state) {
        // window.location = '#/home';
         $state.go('home');
       } else {
-        swal(info.status);
+        vm.validationmsg = "Username and/or Password does not match!"
       } 
     });
   }
