@@ -40,8 +40,9 @@
 				<div class="search-box-main"><input class="serchInput" type="text" ng-model="vm.search" placeholder="Search"></div>
 			</p>
 			<div class="details-table">
+				<p ng-hide="vm.temp.length">No record found.</p>
 
-				<table class="table-part" border="0" cellspacing="0" cellpadding="0">
+				<table ng-show="vm.temp.length" class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
 						<th>
 							<a href="" ng-click="vm.order('customerName')">
@@ -63,16 +64,17 @@
 					</tr>
 
 					<!-- ng-repeat="newdata in vm.data" -->
-					<tr dir-paginate="newdata in vm.data|itemsPerPage:10 | orderBy:vm.predicate:vm.reverse | filter:vm.search">
-						<td data-th="Name: " class="top-purpal-color-row2"><span><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.customerName}}</a></span></td>
-						<td data-th="Email Id: " class="top-purpal-color-row2">{{newdata.email}}</td>
-						<td data-th="Contact Number: " class="top-purpal-color-row2">{{newdata.mobileNumber}}</td>
-						<td data-th="Billing Address: " class="top-purpal-color-row2">{{newdata.billingAddress}}</td>
-						<td data-th="OrderSummary: " class="top-purpal-color-row2"><a ng-click="vm.summary(newdata)" class="customer-name-link">OrderSummary</a></td>
+					<tr dir-paginate="data in vm.temp=(vm.data | filter:vm.search) | itemsPerPage:10 | orderBy:vm.predicate:vm.reverse ">
+						<td data-th="Name: " class="top-purpal-color-row2"><span><a ng-click="vm.editpage(data)" class="customer-name-link">{{data.customerName}}</a></span></td>
+						<td data-th="Email Id: " class="top-purpal-color-row2">{{data.email}}</td>
+						<td data-th="Contact Number: " class="top-purpal-color-row2">{{data.mobileNumber}}</td>
+						<td data-th="Billing Address: " class="top-purpal-color-row2">{{data.billingAddress}}</td>
+						<td data-th="OrderSummary: " class="top-purpal-color-row2"><a ng-click="vm.summary(data)" class="customer-name-link">OrderSummary</a></td>
 					</tr>
 				</table>
 			</div>
 		</div>
+
 		<!-- Customer Details page Section End Here -->
 		<div class="paging">
 			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
@@ -84,16 +86,16 @@
 	<!-- Footer Section End Here -->
 </div>
 <script type="text/javascript">
-         $(document).ready(function(e) {
-          $(".menu-toggle").click(function(){
-	        $(".navbar").slideToggle()
+	$(document).ready(function (e) {
+		$(".menu-toggle").click(function () {
+			$(".navbar").slideToggle()
 
-	        })
-	        $(".navbar ul li").click(function(){
-		      $(this).find("ul").slideToggle()
-		      $(this).toggleClass("active");
+		})
+		$(".navbar ul li").click(function () {
+			$(this).find("ul").slideToggle()
+			$(this).toggleClass("active");
 
-		   })
+		})
 
-});
+	});
 </script>
