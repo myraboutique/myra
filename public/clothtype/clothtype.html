@@ -47,7 +47,8 @@
           }">
 						<td class="top-purpal-color-row2"><span><a ng-click="vm.editpage(data)" class="customer-name-link">{{data.title}}</a></span></td>
 						<td class="top-purpal-color-row2">{{data.measurement}}</td>
-						<td class="top-purpal-color-row2">{{data.isActive}}</td>
+						<td ng-if="data.isActive" class="top-purpal-color-row2">Active</td>
+						<td ng-if="data.isActive == false" class="top-purpal-color-row2">InActive</td>
 					</tr>
 
 				</table>

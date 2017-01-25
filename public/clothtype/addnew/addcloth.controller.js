@@ -13,6 +13,7 @@ function newclothController($resource) {
   vm.selectMeasurement = [];
   vm.addClothtype = addClothtype;
   vm.isActive = true;
+  vm.flag = false;
   var Clothtype = $resource('/api/measurement');
   vm.delete = Delete;
 
@@ -38,9 +39,14 @@ function newclothController($resource) {
     clothtype.isActive = vm.isActive;
 
     clothtype.$save(function(info){
-            swal("Recored Saved Successfully.");
-      window.location = '#/clothtype';
-      
+      if(!info.status){
+        swal("Record Saved Successfully.");
+  window.location = '#/clothtype';
+      }
+      else {
+        vm.flag = true;
+       vm.status = info.status ;
+      }
     });
     }
   }

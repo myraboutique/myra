@@ -123,13 +123,14 @@ function editorderController($resource, $stateParams, $http,$scope) {
 
 
   function final(orderform) {
+    vm.formSubmitted = true;
     if(!vm.date2 && !vm.date3 && !vm.date1 &&  orderform.$valid){
       vm.order.measurement = JSON.stringify(vm.order.measurement);
      
        $http.put('/api/orderdetails',  vm.order)
       .then(
       function (response) {
-        swal("Recored Updated Successfully.");
+        swal("Record Updated Successfully.");
         window.location = '#/order';
       },
       function (err) {

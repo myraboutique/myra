@@ -52,7 +52,7 @@ function registerController($resource,$state) {
       if(info.status){
         swal(info.status);
       } else {
-      swal("Recored Saved Successfully.");
+      swal("Record Saved Successfully.");
          window.location = '#/register';
       }
      

@@ -35,11 +35,11 @@
       <div class="form-section-box form-section-box-2">
 
 			 <div class="form-box">
-			  <label><em id="mandatory" style="color:Red">*</em> User Name</label>
+			  <label><em id="mandatory" style="color:Red">*</em> Full Name</label>
 			  <input id=""  name="username" ng-minlength="3" ng-maxlength="20" required type="text" ng-model="vm.name" placeholder="User Name"/>
-				<span ng-show="userform.username.$error.required && (userform.username.$dirty || vm.formSubmitted)">Username is required.</span>
-			  <span ng-show="userform.username.$error.minlength && (userform.username.$dirty || vm.formSubmitted)">Username length must be greater than 3.</span>
-				<span ng-show="userform.username.$error.maxlength && (userform.username.$dirty || vm.formSubmitted)">Username length must be less than 20.</span>						
+				<span ng-show="userform.username.$error.required && (userform.username.$dirty || vm.formSubmitted)">Full Name is required.</span>
+			  <span ng-show="userform.username.$error.minlength && (userform.username.$dirty || vm.formSubmitted)">Full Name length must be greater than 3.</span>
+				<span ng-show="userform.username.$error.maxlength && (userform.username.$dirty || vm.formSubmitted)">Full Name length must be less than 20.</span>						
 		   </div>
 
 			 <div class="form-box">

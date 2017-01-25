@@ -47,7 +47,8 @@
       }">
         <td data-th="Material Type: " class="top-purpal-color-row2"><span><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.materialtype}}</a></span></td>
         <!--<td data-th="Action: " class="top-purpal-color-row2">{{newdata.active}}</td>-->
-        <td data-th="Material Type: " class="top-purpal-color-row2">{{newdata.active}}</td>
+        	<td data-th="Material Type: "  ng-if="newdata.active" class="top-purpal-color-row2">Active</td>
+						<td data-th="Material Type: "  ng-if="newdata.active == false" class="top-purpal-color-row2">InActive</td>
       </tr>
 </table>
    </div>
