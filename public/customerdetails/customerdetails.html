@@ -32,16 +32,16 @@
 	<div class="main-contant-part">
 		<!-- Customer Details page Section Start Here -->
 		<div class="customer-detail-page-contant">
-			<div class="right-add-new-button"><a href="#/newcustomer">Add New</a></div>
+			<div class="right-add-new-button addnew-btn-custumer-detail"><a href="#/newcustomer">Add New</a></div>
 
 			<p>
-   <div class="search-box-main"><input class="serchInput" type="text" ng-model="vm.search" placeholder="Search"></div>
+   <div class="search-box-main"><input class="serchInput" type="text" ng-model="vm.search" placeholder="Search here..."></div>
 </p>
 			<div class="details-table">
 
 				<table class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
-						<th>
+						<th class="customer-detail-th-width-1">
 							<a href="" ng-click="vm.order('customerName')">
 								<font>Customer Name</font>&nbsp
 								<span ng-show="vm.predicate == 'customerName'">
@@ -55,13 +55,16 @@
 							</a>
 						</th>
 						<th> Email Address</th>
-						<th>Contact Number</th>
+						<th class="customer-detail-th-width-1">Contact Number</th>
 						<th>Billing Address</th>
 						<th>OrderSummary</th>
 					</tr>
 
 <!-- ng-repeat="newdata in vm.data" -->
-    <tr dir-paginate="newdata in vm.data|itemsPerPage:10 | orderBy:vm.predicate:vm.reverse | filter:vm.search" >
+    <tr dir-paginate="newdata in vm.data|itemsPerPage:10 | orderBy:vm.predicate:vm.reverse | filter:vm.search" ng-class="{
+        'some':$index%2 == 0,
+        'table-tr-alternate-color':$index%2 != 0
+    }">
         <td data-th="Name: " class="top-purpal-color-row2"><span><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.customerName}}</a></span></td>
         <td data-th="Email Id: " class="top-purpal-color-row2">{{newdata.email}}</td>
         <td data-th="Contact Number: " class="top-purpal-color-row2">{{newdata.mobileNumber}}</td>

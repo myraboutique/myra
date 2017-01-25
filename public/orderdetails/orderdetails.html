@@ -32,25 +32,26 @@
 	 <div class="main-contant-part minpageheight">
 		<!-- Customer Details page Section Start Here -->
 		<div class="customer-detail-page-contant">
-     <div class="right-add-new-button"><a href="#/addorder">Add New</a></div>
-	
-		 <p>
-   <div class="search-box-main"><input class="serchInput" type="text" ng-model="vm.search" placeholder="Search">
 
-	 <select class="outside2" ng-model="vm.customerStatus" placeholder="Search by Name" ng-options="data for data in vm.status"
+
+		 <p>
+   <div class="search-box-main">
+     <input class="serchInput serchInput-mobile" type="text" ng-model="vm.search" placeholder="Search">
+
+	   <select class="outside2" ng-model="vm.customerStatus" placeholder="Search by Name" ng-options="data for data in vm.status"
 						required name="customeruser">
 				 <option value="">Search by Status</option></select>
-					</select>
+     <div class="right-add-new-button"><a href="#/addorder">Add New</a></div>
 
 		</div>
 		</p>
-		
+
 		 <div class="details-table">
 			 	<table class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
 						<th>
 								<a href="" ng-click="vm.order('customerName')">
-								<font color="white">Customer Name</font>&nbsp
+								<font>Customer Name</font>&nbsp
 								<span ng-show="vm.predicate == 'customerName'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -63,7 +64,7 @@
 						</th>
 						<th>
 								<a href="" ng-click="vm.order('orderdate')">
-								<font color="white">Order Date</font>&nbsp
+								<font>Order Date</font>&nbsp
 								<span ng-show="vm.predicate == 'orderdate'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -76,7 +77,7 @@
 						</th>
 						<th>
 								<a href="" ng-click="vm.order('date')">
-								<font color="white">Delivery Date</font>&nbsp
+								<font>Delivery Date</font>&nbsp
 								<span ng-show="vm.predicate == 'date'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -89,11 +90,14 @@
 						</th>
 						<th>Status</th>
 					</tr>
-					<tr ng-repeat="data in vm.type | orderBy:vm.predicate:vm.reverse | filter:vm.customerStatus | filter:vm.search">
-						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link">{{data.customerName}}</a></td>
-						<td class="top-purpal-color-row2">{{data.orderdate | date:"dd/MM/yyyy"}}</td>
-						<td class="top-purpal-color-row2">{{data.date}}</td>
-						<td class="top-purpal-color-row2">{{data.status}}</td>
+					<tr ng-repeat="data in vm.type | orderBy:vm.predicate:vm.reverse | filter:vm.customerStatus | filter:vm.search" ng-class="{
+              'some':$index%2 == 0,
+              'table-tr-alternate-color':$index%2 != 0
+          }">
+						<td data-th="Customer Name: " class="top-purpal-color-row2"><span><a ng-click="vm.sendData(data)" class="customer-name-link">{{data.customerName}}</a></span></td>
+						<td data-th="Order Date  : " class="top-purpal-color-row2">{{data.orderdate | date:"dd/MM/yyyy"}}</td>
+						<td data-th="Delivery Date  : " class="top-purpal-color-row2">{{data.date}}</td>
+						<td data-th="Status: " class="top-purpal-color-row2">{{data.status}}</td>
 					</tr>
 
 				</table>
