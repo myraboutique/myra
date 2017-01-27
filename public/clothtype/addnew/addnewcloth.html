@@ -12,13 +12,13 @@
      <ul>
       <li><a href="#/home" >Home</a></li>
 			<li><a href="#/customerdetails">Customer Details</a></li>
-			<li><a href="#/order">Order Form</a></li>
+			<li><a href="#/order">Create order</a></li>
 			<li><a href="#/alert" >Alerts</a></li>
 			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 				<ul>
-	        <li><a href='#/register'><span>Add User</span></a></li>
-	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
-					<li><a href='#/materialtype'><span>Material Type</span></a></li>
+	        <li><a href='#/register'><span>Manage Users</span></a></li>
+	        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+					<li><a href='#/materialtype'><span>Manage Material</span></a></li>
 	      </ul>
 			</li>
 			<li><a href="#/logout">Logout</a></li>
@@ -36,7 +36,7 @@
       <div class="form-section-box">
 
 			 <div class="form-box">
-			  <label><em id="mandatory" style="color:Red">*</em>Style</label>
+			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Style</label>
 			  <input id="" name="style" required="required" type="text" placeholder="Style" ng-model="vm.title"/>
 					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style is required.</span>
           <span ng-show="vm.flag">This style already exists.</span>
@@ -44,7 +44,7 @@
        </div>
 
 			 <div class="form-box">
-			  <label><em id="mandatory" style="color:Red">*</em>Measurement</label>
+			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Measurement</label>
         <input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
 				<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
 				<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>

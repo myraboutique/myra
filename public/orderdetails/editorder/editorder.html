@@ -14,13 +14,13 @@
 			<ul>
 				<li><a href="#/home">Home</a></li>
 				<li><a href="#/customerdetails">Customer Details</a></li>
-				<li><a href="#/order" class="active">Order Form</a></li>
+				<li><a href="#/order" class="active">Create Order</a></li>
 				<li><a href="#/alert">Alerts</a></li>
 				<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 					<ul>
-						<li><a href='#/register'><span>Add User</span></a></li>
-						<li><a href='#/clothtype'><span>Cloth Type</span></a></li>
-						<li><a href='#/materialtype'><span>Material Type</span></a></li>
+						<li><a href='#/register'><span>Manage Users</span></a></li>
+						<li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+						<li><a href='#/materialtype'><span>Manage Material</span></a></li>
 					</ul>
 				</li>
 				<li><a href="#/logout">Logout</a></li>
@@ -29,7 +29,7 @@
 	</div>
 	<!-- Header Section End Here -->
 
-	<div class="inner-heading-bar">Order Form</div>
+	<div class="inner-heading-bar">Order Details</div>
 	<form name="orderform" novalidate>
 		<div class="main-contant-part">
 
@@ -64,19 +64,19 @@
 					<div class="form-heading">Customer Details</div>
 
 					<div class="form-box">
-						<label><em id="mandatory" style="color:Red">*</em> Name</label>
+						<label><em id="mandatory" style="color:Red">*</em>&nbsp;Name</label>
 						<input id="" name="" ng-disabled="vm.customer.customerName" ng-model="vm.order.customerName" type="text" placeholder="Contact Number"
 						/>
 					</div>
 
 					<div class="form-box">
-						<label><em id="mandatory" style="color:Red">*</em> Contact Number</label>
+						<label><em id="mandatory" style="color:Red">*</em>&nbsp;Contact Number</label>
 						<input id="" name="" ng-disabled="vm.customer.mobileNumber" required="required" ng-model="vm.customer.mobileNumber" type="text"
 							placeholder="Contact Number" />
 					</div>
 
 					<div class="form-box">
-						<label><em id="mandatory" style="color:Red">*</em> Email address</label>
+						<label><em id="mandatory" style="color:Red">*</em>&nbsp; Email address</label>
 						<input id="" name="" ng-disabled="vm.customer.email" required="required" type="text" ng-model="vm.customer.email" placeholder="Email address"
 						/>
 					</div>
@@ -86,7 +86,7 @@
 					<div class="form-heading">Cloth Description</div>
 
 					<div class="form-box">
-						<label><em id="mandatory" style="color:Red">*</em> Cloth Type</label>
+						<label><em id="mandatory" style="color:Red">*</em>&nbsp; Cloth Type</label>
 						<select ng-model="vm.order.type" required name="clothtype" ng-change="vm.typechnage()">
 								<option value="{{vm.order.type}}">{{vm.order.type}}</option>
 					</select>
@@ -95,7 +95,7 @@
 
 
 					<div class="form-box">
-						<label><em id="mandatory" style="color:Red">*</em> Material Source</label>
+						<label><em id="mandatory" style="color:Red">*</em>&nbsp; Material Source</label>
 						<select ng-model="vm.order.material" ng-options="data.materialtype as data.materialtype for data in vm.material" required
 							name="material">
 					</select>
@@ -104,7 +104,7 @@
 					</div>
 
 					<div class="form-box">
-						<label><em id="mandatory" style="color:Red">*</em> Choose Color</label>
+						<label><em id="mandatory" style="color:Red">*</em>&nbsp; Choose Color</label>
 						<input style="background-color:{{vm.order.color}};" colorpicker id="" name="color" ng-model="vm.order.color" ng-minlength="3"
 							ng-maxlength="15" required="required" type="text" placeholder="Choose Color" />
 						<span ng-show="orderform.color.$error.required && (orderform.color.$dirty || vm.formSubmitted)">Cloth color is required.</span>
@@ -113,7 +113,7 @@
 					</div>
 
 					<div class="form-box" ng-if="vm.order.customization">
-						<label><em id="mandatory" style="color:Red">*</em> Customization</label>
+						<label><em id="mandatory" style="color:Red">*</em>&nbsp; Customization</label>
 						<div class="customization-check-box">
 							<textarea ng-minlength="10" ng-maxlength="100" ng-model="vm.order.customization" class="customization-check-box-textarea"
 								rows="4" cols="50" placeholder="Customization Description" name="customization"></textarea>
@@ -133,7 +133,7 @@
 					</div>
 
 					<div class="form-box">
-						<label><em id="mandatory" style="color:Red">*</em> Date of Order</label>
+						<label><em id="mandatory" style="color:Red">*</em>&nbsp; Date of Order</label>
 						<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
 							<input class="inputdatipicker " id="mydate" ng-model="vm.order.orderdate" name="orderdate" required="required" ng-change="vm.change(vm.order.orderdate,vm.order.date)"
 								type="text" placeholder="Date of Order" />
@@ -143,7 +143,7 @@
 					</div>
 
 					<div class="form-box">
-						<label><em id="mandatory" style="color:Red">*</em> Date of Delivery</label>
+						<label><em id="mandatory" style="color:Red">*</em>&nbsp; Date of Delivery</label>
 						<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
 							<input class="inputdatipicker" ng-model="vm.order.date" ng-change="vm.change(vm.order.orderdate,vm.order.date)" id="" name="deliverydate"
 								required="required" type="text" placeholder="Date of Delivery" />
@@ -154,7 +154,7 @@
 					</div>
 
 					<div class="form-box">
-						<label><em id="mandatory" style="color:Red">*</em> Alert Date</label>
+						<label><em id="mandatory" style="color:Red">*</em>&nbsp; Alert Date</label>
 						<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
 							<input class="inputdatipicker" ng-model="vm.order.alertday" ng-change="vm.alertchange(vm.order.orderdate,vm.order.date,vm.order.alertday)"
 								id="" name="alertdate" required type="text" placeholder="Date of Alert" />
@@ -166,7 +166,7 @@
 					</div>
 
 					<div class="form-box">
-						<label><em id="mandatory" style="color:Red">*</em> Amount</label>
+						<label><em id="mandatory" style="color:Red">*</em> &nbsp;Amount</label>
 						<input id="" name="amount" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required" ng-model="vm.order.amount"
 							type="text" placeholder="Amount" />
 						<span ng-show="orderform.amount.$error.required && (orderform.amount.$dirty || vm.formSubmitted)">Order amount is required.</span>

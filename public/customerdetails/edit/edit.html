@@ -12,13 +12,13 @@
       <ul>
         <li><a href="#/home">Home</a></li>
         <li><a href="#/customerdetails" class="active">Customer Details</a></li>
-        <li><a href="#/order">Order Form</a></li>
+        <li><a href="#/order">Create Order</a></li>
         <li><a href="#/alert">Alerts</a></li>
         <li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
          <ul>
-	        <li><a href='#/register'><span>Add User</span></a></li>
-	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
-					<li><a href='#/materialtype'><span>Material Type</span></a></li>
+	        <li><a href='#/register'><span>Manage Users</span></a></li>
+	        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+					<li><a href='#/materialtype'><span>Manage Material</span></a></li>
 	      </ul>
         </li>
         <li><a href="#/logout">Logout</a></li>
@@ -38,7 +38,7 @@
         <div class="form-heading">Basic Information</div>
 
           <div class="form-box">
-            <label><em id="mandatory" style="color:Red">*</em> Customer Name
+            <label><em id="mandatory" style="color:Red">*</em>&nbsp;Customer Name
                                                 </label>
             <input id="" ng-minlength="3" ng-maxlength="20" ng-required="true" ng-model="vm.data.customerName" name="customerName" type="text"
               placeholder="Customer Name" />
@@ -48,7 +48,7 @@
 
           </div>
           <div class="form-box">
-            <label><em id="mandatory" style="color:Red">*</em> Gender</label>
+            <label><em id="mandatory" style="color:Red">*</em>&nbsp;Gender</label>
             <select ng-model="vm.data.gender" class="paragraph" required name="gender" >
 						  <option value="">Please Select</option>
 						  <option value="male">Male</option>
@@ -59,7 +59,7 @@
 
 
           <div class="form-box">
-            <label><em id="mandatory" style="color:Red">*</em> Birth Date</label>
+            <label><em id="mandatory" style="color:Red">*</em>&nbsp;Birth Date</label>
             <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
               <input class="inputdatipicker" id="" ng-model="vm.data.birthDate" name="birthDate" ng-change="vm.birthdate(vm.data.birthDate)" type="text" placeholder="Select Date"/>
             </datepicker>
@@ -83,7 +83,7 @@
         <div class="form-heading">Contact Information</div>
 
         <div class="form-box">
-          <label><em id="mandatory" style="color:Red">*</em> Mobile Number</label>
+          <label><em id="mandatory" style="color:Red">*</em>&nbsp;Mobile Number</label>
           <input id="" ng-model="vm.data.mobileNumber" ng-pattern="/^[0-9]{1,10}$/" name="mobilenumber" ng-minlength="10" ng-maxlength="11" required="required" type="text" placeholder="Mobile Number" />
           <span ng-show="form.mobilenumber.$error.required && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile number is required.</span>
           <span ng-show="form.mobilenumber.$error.minlength && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile number should not be less than 10 numbers.</span>
@@ -100,7 +100,7 @@
         </div>
 
         <div class="form-box">
-          <label><em id="mandatory" style="color:Red">*</em> Email Address</label>
+          <label><em id="mandatory" style="color:Red">*</em>&nbsp;Email Address</label>
           <input id="" ng-model="vm.data.email" name="email" required="required" type="email" placeholder="Email Id" ng-minlength="10" ng-maxlength="50" />
           <span ng-show="form.email.$error.required && (form.email.$dirty || vm.formSubmitted)">Email address is required.</span>
 				 	<span ng-show="form.email.$invalid && (form.email.$touched || vm.formSubmitted)">Invalid email address.Please try again.</span>
@@ -110,7 +110,7 @@
 		   </div>
 
         <div class="form-box">
-          <label><em id="mandatory" style="color:Red">*</em> Address</label>
+          <label><em id="mandatory" style="color:Red">*</em>&nbsp;Address</label>
           <textarea ng-model="vm.data.address" required rows="4" cols="50" placeholder="Address" name="address" ng-minlength="30" ng-maxlength="250" ></textarea>
           <span ng-show="form.address.$error.required && (form.address.$dirty || vm.formSubmitted)">Address is required</span>
            <span ng-show="form.address.$error.minlength && (form.address.$dirty || vm.formSubmitted)">Address should not be less than 30 characters.</span>
@@ -119,7 +119,7 @@
         </div>
 
         <div class="form-box">
-          <label><em id="mandatory" style="color:Red">*</em> Billing Address</label>
+          <label><em id="mandatory" style="color:Red">*</em>&nbsp;Billing Address</label>
           <div class="customization-check-box">
             <input type="checkbox" ng-model="vm.data.other"  value="" class="checkbox">
             <strong class="billing-addres-checkbox">Other</strong>
