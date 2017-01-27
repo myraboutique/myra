@@ -108,9 +108,8 @@
 
         <div class="form-box">
 
-          <label><em id="mandatory" style="color:Red">*</em>Email Address:</label>
-          <input id="" ng-model="vm.email" name="email" required="required" type="text" placeholder="Email Address" ng-minlength="10" ng-maxlength="50" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/"/>
-          <span ng-show="form.email.$error.required && (form.email.$dirty || vm.formSubmitted)">Email address is required.</span>
+          <label>Email Address:</label>
+          <input id="" ng-model="vm.email" name="email"  type="text" placeholder="Email Address" ng-minlength="10" ng-maxlength="50" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/"/>
 
           <span ng-show="form.email.$error.pattern && (form.email.$dirty || vm.formSubmitted)">Enter valid email address.</span>
             <span ng-show="form.email.$error.minlength && (form.email.$dirty || vm.formSubmitted)">Email must be less than 10.</span>
@@ -190,4 +189,3 @@
 
 });
 </script>
->>>>>>> 101bdaa9ffc18f1983cfbbcd6e13f33a862e66b0

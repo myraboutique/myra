@@ -32,7 +32,8 @@ function addController($resource) {
     addmaterial.$save(function (info) {
 
       if(!info.status){
-        console.log(swal("Record Saved Successfully."));
+
+        console.log(swal("Record saved successfully."));
          window.location = "#/materialtype"
       }
       else {

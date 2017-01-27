@@ -45,7 +45,8 @@
                       'some':$index%2 == 0,
                       'table-tr-alternate-color':$index%2 != 0
                   }">
-                    <td data-th="Customer Name: " class="top-purpal-color-row2">{{data.customerName}}</td>
+
+										<td data-th="Customer Name: " class="top-purpal-color-row2"><b>{{data.customerName}}</b></td>
                     <td data-th="Anniversary Date: " class="top-purpal-color-row2"><input type="checkbox"  name="Anniversary Date" value="" class="checkbox" ng-model="data.anniversaryAlert"></td>
                     <td data-th="Date of Birth: " class="top-purpal-color-row2"><input type="checkbox" name="Date of Birth" value="" class="checkbox" ng-model="data.birthdayAlert"></td>
 										<td data-th="Action: " class="top-purpal-color-row2 alerts-table-mobile"><button class="reset-button" ng-click="vm.update(data)">Update</button></td>

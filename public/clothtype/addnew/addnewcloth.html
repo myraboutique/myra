@@ -38,6 +38,7 @@
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em>Style</label>
 			  <input id="" focus="true" name="style" required="required" type="text" placeholder="Style" ng-model="vm.title"/>
+
 					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style is required.</span>
           <span ng-show="vm.flag">This style already exists.</span>
 
@@ -47,6 +48,7 @@
 			  <label><em id="mandatory" style="color:Red">*</em>Measurement</label>
         <input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
 				<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
+				<span ng-show="vm.flagformeasure">This measurement already added.</span>
 				<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
 			 </div>
 
