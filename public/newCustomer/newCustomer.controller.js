@@ -22,7 +22,7 @@ function newCustomerController($resource) {
 
   function cancel() {
     window.location = '#/customerdetails';
-  } 
+  }
 
   vm.date1 = false;
   vm.date2 = false;
@@ -34,10 +34,10 @@ function newCustomerController($resource) {
     myDate.setHours(0,0,0,0,0);
     if (myDate < Date1) {
       vm.date1 = true;
-      
+
     } else {
       vm.date1 = false;
-     
+
     }
   }
 
@@ -48,10 +48,10 @@ function newCustomerController($resource) {
     myDate.setHours(0,0,0,0,0);
     if (myDate < Date1) {
       vm.date2 = true;
-      
+
     } else {
       vm.date2 = false;
-     
+
     }
   }
 
@@ -80,11 +80,13 @@ function newCustomerController($resource) {
 
 
       customerdetails.$save(function(info){
-      console.log( swal("Recored Saved Successfully."));
-      window.location = '#/customerdetails';
+       swal("Record Saved Successfully.");
+          window.location = '#/customerdetails';
+
+
        })
 
-      
+
     }
   }
 

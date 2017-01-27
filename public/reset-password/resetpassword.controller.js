@@ -57,6 +57,8 @@ function cancel()
             vm.token.password = vm.newpassword;
             localStorage.setItem('token',JSON.stringify(vm.token));
             window.location = '#/register';
+            console.log(swal("Password Updated Successfully."))
+        window.location = '#/alert';
         },
         function(err){
           console.log(err);

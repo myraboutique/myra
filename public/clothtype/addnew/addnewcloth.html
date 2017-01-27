@@ -17,7 +17,7 @@
 			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 				<ul>
 	        <li><a href='#/register'><span>Add User</span></a></li>
-	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
+	        <li><a href='#/clothtype'><span>Design</span></a></li>
 					<li><a href='#/materialtype'><span>Material Type</span></a></li>
 	      </ul>
 			</li>
@@ -36,38 +36,37 @@
       <div class="form-section-box">
 
 			 <div class="form-box">
-			  <label>Style:</label>
-			  <input id="" name="style" required="required" type="text" placeholder="Style" ng-model="vm.title"/>
-					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style must be required</span>
-		   </div>
+			  <label><em id="mandatory" style="color:Red">*</em>Style</label>
+			  <input id="" focus="true" name="style" required="required" type="text" placeholder="Style" ng-model="vm.title"/>
+					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style is required.</span>
+          <span ng-show="vm.flag">This style already exists.</span>
+
+       </div>
+
 			 <div class="form-box">
-			  <label>Measurement:</label>
+			  <label><em id="mandatory" style="color:Red">*</em>Measurement</label>
         <input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
 				<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
-				<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement must be required</span>
+				<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
 			 </div>
 
 			 <div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
 				 {{data}}
-        <button ng-click="vm.delete($index)">X</button>
+			 <button type="button" ng-click="vm.delete($index)">X</button>
 			  </div>
 
 			 <div class="form-box">
-				  <label>IsActive:</label>
+				  <label>IsActive</label>
 				 <input type="checkbox" class="billing-addres-checkbox clothcheck" ng-model="vm.isActive"/>
-
 			 </div>
-
-
-
 			</div>
 
       <div class="add-new-btm-btn">
 			<div class="submit-button">
-				<input type="submit" value="Save" ng-click="vm.addClothtype(form)"/>
+				<input type="button" value="Save" ng-click="vm.addClothtype(form)"/>
 			</div>
 			<div class="cancel-button">
-				<input type="submit" value="Cancel" ui-sref="clothtype"/>
+				<input type="button" value="Cancel" ui-sref="clothtype"/>
 			</div>
 	   </div>
 

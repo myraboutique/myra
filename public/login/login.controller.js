@@ -10,6 +10,7 @@ function loginController($resource,$state) {
   var Login = $resource('/api/login');
 
   function data(myform){
+    vm.formSubmitted = true;
     if(myform.$valid){
     var login = new Login()
     login.email = vm.username;
@@ -20,7 +21,7 @@ function loginController($resource,$state) {
        // window.location = '#/home';
         $state.go('home');
       } else {
-        swal(info.status);
+        vm.validationmsg = "Username and/or Password does not match!"
       } 
     });
   }
