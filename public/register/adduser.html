@@ -19,6 +19,7 @@
 	        <li><a href='#/register'><span>Manage Users</span></a></li>
 	        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
 					<li><a href='#/materialtype'><span>Manage Material</span></a></li>
+
 	      </ul>
 			</li>
 			<li><a href="#/logout">Logout</a></li>
@@ -35,8 +36,9 @@
       <div class="form-section-box form-section-box-2">
 
 			 <div class="form-box">
+
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Full Name</label>
-			  <input id=""  name="username" ng-minlength="3" ng-maxlength="20" required type="text" ng-model="vm.name" placeholder="User Name"/>
+			  <input id=""  focus="true" name="username" ng-minlength="3" ng-maxlength="20" required type="text" ng-model="vm.name" placeholder="User Name"/>
 				<span ng-show="userform.username.$error.required && (userform.username.$dirty || vm.formSubmitted)">Full Name is required.</span>
 			  <span ng-show="userform.username.$error.minlength && (userform.username.$dirty || vm.formSubmitted)">Full Name length must be greater than 3.</span>
 				<span ng-show="userform.username.$error.maxlength && (userform.username.$dirty || vm.formSubmitted)">Full Name length must be less than 20.</span>						
@@ -53,9 +55,9 @@
 		   </div>
 
 			 <div class="form-box">
-			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Email Address</label>
-			  <input id="username" focus="true" name="emailAddress" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/" ng-model="vm.email"  ng-minlength="10" ng-maxlength="50" required="required" type="email" placeholder="Email Address"/>
-       	<span ng-show="userform.emailAddress.$error.required && (userform.emailAddress.$dirty || vm.formSubmitted)">Email Address is required.</span>	
+
+			  <label> Email Address</label>
+			  <input id="username" name="emailAddress" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/" ng-model="vm.email"  ng-minlength="10" ng-maxlength="50"  type="email" placeholder="Email Address"/>
 				 <span ng-show="form.emailAddress.$error.pattern && (form.emailAddress.$dirty || vm.formSubmitted)">Enter valid Email Address.</span>
 				<span ng-show="userform.emailAddress.$error.minlength && (userform.emailAddress.$dirty || vm.formSubmitted)">Email Address length must be greater than 10.</span>
 				<span ng-show="userform.emailAddress.$error.maxlength && (userform.emailAddress.$dirty || vm.formSubmitted)">Email Address length must be less than 50.</span>						
