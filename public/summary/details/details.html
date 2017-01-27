@@ -34,7 +34,7 @@
 		<div class="customer-detail-page-contant">
 			 <div class="details-table">
 			<a href="#/customerdetails"> <input class="add-next-button" type="submit" value="Back"></a>
-			<h2 ng-hide="vm.measure.length" class="no-record-found-text">No Record Found </h2>
+			<h2 ng-hide="vm.measure.length" class="no-record-found-text">No record found </h2>
 			 	<table ng-show="vm.measure.length" class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
 						<th>
@@ -43,9 +43,7 @@
 						<th>
 								<font>Cloth Type</font>&nbsp
 						</th>
-						<th>
-								<font>Material Source</font>&nbsp
-						</th>
+						
 						<th>
 								<font>Color</font>&nbsp
 						</th>
@@ -58,11 +56,17 @@
 						<th>
 								<font>Amount</font>&nbsp
 						</th>
+						<th>
+								<font>Status</font>&nbsp
+						</th>
 					</tr>
-					<tr ng-repeat="data in vm.order">
+					<tr ng-repeat="data in vm.order" ng-class="{
+                      'some':$index%2 == 0,
+                      'table-tr-alternate-color':$index%2 != 0
+                  }">
 						<td class="top-purpal-color-row2">{{$index+1}}</a></td>
 						<td class="top-purpal-color-row2">{{data.type}}</td>
-						<td class="top-purpal-color-row2">{{data.material}}</td>
+				
 						<td class="top-purpal-color-row2">{{data.color}}</td>
 						<td class="top-purpal-color-row2">{{data.cloth}}</td>
 						<td class="top-purpal-color-row2">
@@ -70,9 +74,10 @@
 						{{vm.measure[$parent.$index][$index] }}:{{d}}
 					</span>
 						<td class="top-purpal-color-row2">
-					{{vm.order[$index].amount}}<td>
+					{{vm.order[$index].amount}}
 
 					</td>
+					<td class="top-purpal-color-row2">{{data.status}}</td>
 					</tr>
 
 				</table>

@@ -41,7 +41,7 @@
 </p>
 
 			<div class="details-table">
-				<h2 class="no-record-found-text" ng-hide="vm.temp.length">No Record Found</h2>
+				<h2 class="no-record-found-text" ng-hide="vm.temp.length">No record found</h2>
 
 				<table ng-show="vm.temp.length" class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
@@ -66,7 +66,10 @@
 
 
 					<!-- ng-repeat="newdata in vm.data" -->
-					<tr dir-paginate="data in vm.temp=(vm.data | filter:vm.search) | itemsPerPage:10 | orderBy:vm.predicate:vm.reverse ">
+					<tr dir-paginate="data in vm.temp=(vm.data | filter:vm.search) | itemsPerPage:10 | orderBy:vm.predicate:vm.reverse" ng-class="{
+                      'some':$index%2 == 0,
+                      'table-tr-alternate-color':$index%2 != 0
+                  }">
 						<td data-th="Name: " class="top-purpal-color-row2"><span><a ng-click="vm.editpage(data)" class="customer-name-link">{{data.customerName}}</a></span></td>
 						<td data-th="Email Id: " class="top-purpal-color-row2">{{data.email}}</td>
 						<td data-th="Contact Number: " class="top-purpal-color-row2">{{data.mobileNumber}}</td>

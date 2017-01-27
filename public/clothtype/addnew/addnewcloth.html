@@ -47,6 +47,7 @@
 			  <label><em id="mandatory" style="color:Red">*</em>Measurement</label>
         <input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
 				<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
+				<span ng-show="vm.flagformeasure">This measurement already added.</span>
 				<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
 			 </div>
 

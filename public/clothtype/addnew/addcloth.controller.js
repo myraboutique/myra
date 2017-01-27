@@ -22,9 +22,21 @@ function newclothController($resource) {
   }
 
   function measuremet(data){
+     vm.flagformeasure =0 ;
     if(data){
+      console.log(vm.selectMeasurement.length);
+      for(var i=0;i<vm.selectMeasurement.length+1;i++){
+        if(vm.selectMeasurement[i]==data){
+         vm.flagformeasure++;
+        }
+      }
+      if(vm.flagformeasure==0){
     vm.selectMeasurement.push(data);
     vm.measu = "";
+      }
+   else{
+     console.log("Already Exists");
+   }
   }
   }
 
@@ -40,7 +52,7 @@ function newclothController($resource) {
 
     clothtype.$save(function(info){
       if(!info.status){
-        swal("Record Saved Successfully.");
+        swal("Record saved successfully.");
   window.location = '#/clothtype';
       }
       else {

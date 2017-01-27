@@ -59,7 +59,18 @@ function newCustomerController($resource) {
     vm.formSubmitted = true;
     if (form.$valid && !vm.date1 && !vm.date2) {
       var customerdetails = new CustomerDetails();
-      customerdetails.customerName = vm.customerName;
+
+       var i, c, txt = "";
+       var x =  vm.customerName;
+        for (i = 0; i < x.length; i++) {
+            c = x[i];
+            if (i ==0) {
+                c = c.toUpperCase();
+            }
+            txt += c;
+       }
+   console.log(txt);
+      customerdetails.customerName = txt;
       customerdetails.gender = vm.gender;
       customerdetails.other = vm.other;
       if (!vm.other) {
@@ -80,7 +91,7 @@ function newCustomerController($resource) {
 
 
       customerdetails.$save(function(info){
-       swal("Record Saved Successfully.");
+       swal("Record saved successfully.");
           window.location = '#/customerdetails';
 
 

@@ -25,7 +25,7 @@ function alertController($resource,$http) {
     $http.put('/api/customerdetails', info)
       .then(
       function (response) {
-        console.log(swal("Record Updated Successfully."))
+        console.log(swal("Record updated successfully."))
         window.location = '#/alert';
       },
       function (response) {

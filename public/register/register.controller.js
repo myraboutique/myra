@@ -44,7 +44,19 @@ function registerController($resource,$state) {
     vm.formSubmitted = true;
     if(!vm.check && userform.$valid){
     var register = new Register()
-    register.name = vm.name;
+    
+       var i, c, txt = "";
+       var x = vm.name;
+        for (i = 0; i < x.length; i++) {
+            c = x[i];
+            if (i ==0) {
+                c = c.toUpperCase();
+            }
+            txt += c;
+       }
+   console.log(txt);
+
+    register.name = txt;
     register.email = vm.email;
     register.type = vm.type;
     register.password = vm.password;
@@ -55,7 +67,7 @@ function registerController($resource,$state) {
       if(info.status){
         swal(info.status);
       } else {
-      swal("Record Saved Successfully.");
+      swal("Record saved successfully.");
          window.location = '#/register';
       }
      
