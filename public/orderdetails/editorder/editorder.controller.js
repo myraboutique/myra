@@ -130,7 +130,7 @@ function editorderController($resource, $stateParams, $http,$scope) {
        $http.put('/api/orderdetails',  vm.order)
       .then(
       function (response) {
-        swal("Record Updated Successfully.");
+        swal("Record updated successfully.");
         window.location = '#/order';
       },
       function (err) {

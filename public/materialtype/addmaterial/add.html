@@ -12,13 +12,14 @@
      <ul>
       <li><a href="#/home" >Home</a></li>
 			<li><a href="#/customerdetails">Customer Details</a></li>
-			<li><a href="#/order">Order Form</a></li>
+			<li><a href="#/order">Create Order</a></li>
 			<li><a href="#/alert" >Alerts</a></li>
 			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 				<ul>
-	        <li><a href='#/register'><span>Add User</span></a></li>
-	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
-					<li><a href='#/materialtype'><span>Material Type</span></a></li>
+	        <li><a href='#/register'><span>Manage Users</span></a></li>
+	        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+					<li><a href='#/materialtype'><span>Manage Material</span></a></li>
+
 	      </ul>
 			</li>
 			<li><a href="#/logout">Logout</a></li>
@@ -37,8 +38,9 @@
     <div class="form-section-box">
 
      <div class="form-box">
-      <label><em id="mandatory" style="color:Red">*</em> Material Type</label>
-      <input id="mtype" name="materialtype" type="text" ng-minlength="3" ng-maxlength="20" ng-model="vm.materialtype"  placeholder="Material Type" required/>
+
+      <label><em id="mandatory" style="color:Red">*</em>&nbsp;Material Type</label>
+      <input id="mtype" focus="true" name="materialtype" type="text" ng-minlength="3" ng-maxlength="20" ng-model="vm.materialtype"  placeholder="Material Type" required/>
       	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Material Type is required.</span>
         	<span ng-show="frm.materialtype.$error.minlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material Type length must be greater then 3 characters.</span>
           	<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material Type must be less then 20 characters.</span>
@@ -47,7 +49,7 @@
       </div>
 
      <div class="form-box">
-        <label><em id="mandatory" style="color:Red">*</em> IsActive</label>
+        <label>IsActive</label>
        <input type="checkbox" ng-model="vm.active" class="billing-addres-checkbox clothcheck"/>
 
      </div>

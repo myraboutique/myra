@@ -6,9 +6,9 @@ newclothController.$inject = ['$resource','$scope'];
 function newclothController($resource,$scope) {
   var vm = this;
 
-  $scope.single = function (image) {
-    vm.src = image;
-  };
+  // $scope.single = function (image) {
+  //   vm.src = image;
+  // };
 
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
@@ -26,11 +26,23 @@ function newclothController($resource,$scope) {
     vm.selectMeasurement.splice(number, 1);
   }
 
-  function measuremet(data) {
-    if (data) {
-      vm.selectMeasurement.push(data);
-      vm.measu = "";
-    }
+  function measuremet(data){
+     vm.flagformeasure =0 ;
+    if(data){
+      console.log(vm.selectMeasurement.length);
+      for(var i=0;i<vm.selectMeasurement.length+1;i++){
+        if(vm.selectMeasurement[i]==data){
+         vm.flagformeasure++;
+        }
+      }
+      if(vm.flagformeasure==0){
+    vm.selectMeasurement.push(data);
+    vm.measu = "";
+      }
+   else{
+     console.log("Already Exists");
+   }
+  }
   }
 
   function addClothtype(form) {
@@ -41,7 +53,7 @@ function newclothController($resource,$scope) {
       clothtype.title = vm.title;
       clothtype.measurement = newArr;
       clothtype.isActive = vm.isActive;
-      clothtype.image = vm.src;
+      // clothtype.image = vm.src;
 
       clothtype.$save(function (info) {
         if (!info.status) {

@@ -12,8 +12,8 @@ module.exports = (function () {
         },
         title: Sequelize.STRING,
         measurement: Sequelize.STRING,
-        isActive: Sequelize.BOOLEAN,
-        image: Sequelize.BLOB
+        isActive: Sequelize.BOOLEAN
+        // image: Sequelize.BLOB
     }, {
             timestamps: false
         });

@@ -12,13 +12,13 @@
      <ul>
       <li><a href="#/home" >Home</a></li>
 			<li><a href="#/customerdetails">Customer Details</a></li>
-			<li><a href="#/order">Order Form</a></li>
+			<li><a href="#/order">Create order</a></li>
 			<li><a href="#/alert">Alerts</a></li>
 			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 				<ul>
-	        <li><a href='#/register'><span>Add User</span></a></li>
-	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
-					<li><a href='#/materialtype'><span>Material Type</span></a></li>
+	        <li><a href='#/register'><span>Manage Users</span></a></li>
+	        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+					<li><a href='#/materialtype'><span>Manage Material</span></a></li>
 	      </ul>
 			</li>
 			<li><a href="#/logout">Logout</a></li>
@@ -38,7 +38,7 @@
 					<tr class="top-purpal-color-row">
 						<th>Style</th>
 						<th>Measurement</th>
-						<th>Images</th>
+						<!--<th>Images</th>-->
 						<th>Status</th>
 					</tr>
           <!-- ng-repeat="data in vm.type"  -->
@@ -48,7 +48,7 @@
           }">
 						<td class="top-purpal-color-row2"><span><a ng-click="vm.editpage(data)" class="customer-name-link">{{data.title}}</a></span></td>
 						<td class="top-purpal-color-row2">{{data.measurement}}</td>
-						<td class="top-purpal-color-row2"><img ng-src="{{data.image}}" /></td>
+						<!--<td class="top-purpal-color-row2"><img ng-src="{{data.image}}" /></td>-->
 						<td ng-if="data.isActive" class="top-purpal-color-row2">Active</td>
 						<td ng-if="data.isActive == false" class="top-purpal-color-row2">InActive</td>
 					</tr>

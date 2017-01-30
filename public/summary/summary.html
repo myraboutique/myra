@@ -12,13 +12,13 @@
 			<ul>
 				<li><a href="#/home">Home</a></li>
 				<li><a href="#/customerdetails" >Customer Details</a></li>
-				<li><a href="#/order">Order Form</a></li>
+				<li><a href="#/order">Create Order</a></li>
 				<li><a href="#/alert">Alerts</a></li>
 				<li><a href="" class="active">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 					<ul>
-					 <li><a href='#/register'><span>Add User</span></a></li>
-	        <li><a href='#/clothtype'><span>Cloth Type</span></a></li>
-					<li><a href='#/materialtype'><span>Material Type</span></a></li>
+					 <li><a href='#/register'><span>Manage Users</span></a></li>
+	        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+					<li><a href='#/materialtype'><span>Manage Material</span></a></li>
 					<li><a href='#/summary'><span>Summary</span></a></li>
 					</ul>
 				</li>
@@ -58,7 +58,10 @@
 					</tr>
 
 <!-- ng-repeat="newdata in vm.data" -->
-    <tr dir-paginate="newdata in vm.data|itemsPerPage:10 | orderBy:vm.predicate:vm.reverse | filter:vm.search" >
+    <tr dir-paginate="newdata in vm.data|itemsPerPage:10 | orderBy:vm.predicate:vm.reverse | filter:vm.search" ng-class="{
+                      'some':$index%2 == 0,
+                      'table-tr-alternate-color':$index%2 != 0
+                  }">
         <td data-th="Customer Name: " class="top-purpal-color-row2"><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.customerName}}</a></td>
         <td data-th="Customer Email Id: " class="top-purpal-color-row2">{{newdata.email}}</td>
         <td data-th="Contact Number: " class="top-purpal-color-row2">{{newdata.mobileNumber}}</td>
