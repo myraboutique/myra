@@ -7,7 +7,7 @@ function orderController($resource, $state) {
     var vm = this;
     vm.myDropDown = "";
     vm.temp = ["Keyword","Status"];
-    vm.status = ["New", "In Progress", "Finish"];
+    vm.status = ["New", "In Progress","Stiching", "Finish"];
 
     vm.token = JSON.parse(localStorage.getItem('token'));
     if (!vm.token) {
