@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Link to Login
+Type=Link
+URL=http://localhost:3001/#/login
+Icon=text-html

@@ -1,10 +1,10 @@
-module.exports = (function(){
+module.exports = (function () {
     var login = require('./login');
     var orderdetails = require('./orderdetails');
     var customerdetails = require('./customerdetails');
     var measurement = require('./measurement');
-      var addmaterial = require('./addmaterial');
-      var alert = require('./alertCron');
+    var addmaterial = require('./addmaterial');
+    var alert = require('./alertCron');
     var m = [
         login,
         orderdetails,
@@ -12,6 +12,5 @@ module.exports = (function(){
         measurement,
         addmaterial
     ];
-
     return m;
 })();
