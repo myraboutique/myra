@@ -64,11 +64,11 @@
 </div>
 </div>
 
-<!--<div class="form-box">
-	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*" image="image2" resize-max-height="300" resize-max-width="250" resize-quality="0.7"	/>
-	<img ng-show="image2" ng-src="{{image2.resized.dataURL}}" />
-	<button type="submit" ng-click="single(image2.resized.dataURL)">Add</button>
-</div>-->
+<div class="form-box">
+	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*" multiple image="image2" resize-max-height="200" resize-max-width="200" resize-quality="0.7"	/>
+	<img nng-repeat="img in images2" ng-src="{{img.resized.dataURL}}" />
+	<button type="submit" ng-click="single(image2)">Add</button>
+</div>
 
 
 <div class="add-new-btm-btn">

@@ -5,10 +5,14 @@ newclothController.$inject = ['$resource','$scope'];
 
 function newclothController($resource,$scope) {
   var vm = this;
+  vm.src = [];
 
-  // $scope.single = function (image) {
-  //   vm.src = image;
-  // };
+  $scope.single = function (image) {
+    image.forEach(function (e) {
+      vm.src.push(e.resized.dataURL);
+    });
+    console.log(vm.src);
+  };
 
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
@@ -49,11 +53,13 @@ function newclothController($resource,$scope) {
     vm.formSubmitted = true;
     if (form.$valid && vm.selectMeasurement.length > 0) {
       var newArr = vm.selectMeasurement.join(",");
+      var newArr2 = vm.src.join("###");
       var clothtype = new Clothtype();
       clothtype.title = vm.title;
       clothtype.measurement = newArr;
       clothtype.isActive = vm.isActive;
-      // clothtype.image = vm.src;
+      clothtype.image = newArr2;
+      console.log(newArr2);
 
       clothtype.$save(function (info) {
         if (!info.status) {

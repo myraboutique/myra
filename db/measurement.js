@@ -27,8 +27,8 @@ module.exports = (function(){
         models.create({
           title:req.body.title,
           measurement :req.body.measurement,
-          isActive : req.body.isActive
-          // image: req.body.image
+          isActive : req.body.isActive,
+          image: req.body.image
         }).then(function(info){
           res.json(info);
         })
@@ -43,7 +43,7 @@ module.exports = (function(){
           title:req.body.title,
           measurement :req.body.measurement,
           isActive : req.body.isActive,
-          // image: req.body.image
+          image: req.body.image
         },{
           where:{id:req.body.id}
         }).then(function(info){

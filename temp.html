@@ -1,0 +1,278 @@
+<div class="container">
+	<div class="main-header">
+		<div class="logo">
+			<a href="#/home"><img src="assets/images/logo.png" alt=""></a>
+		</div>
+		<span class="menu-toggle">
+     	 <i></i>
+    	 <i></i>
+      	 <i></i>
+    	</span>
+		<div class="navbar">
+			<ul>
+				<li><a href="#/home">Home</a></li>
+				<li><a href="#/customerdetails">Customer Details</a></li>
+				<li><a href="#/order" class="active">Create Order</a></li>
+				<li><a href="#/alert">Alerts</a></li>
+				<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
+					<ul>
+						<li><a href='#/register'><span>Manage Users</span></a></li>
+						<li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+						<li><a href='#/materialtype'><span>Manage Material</span></a></li>
+					</ul>
+				</li>
+				<li><a href="#/logout">Logout</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+	<div class="main-contant-part">
+		<div class="form-box">
+			<div class="form-heading">Order Details</div>
+
+			<label>Order by</label>
+			<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer " required name="customeruser">
+				 <option value="">-- Please Select --</option></select>
+			</select>
+
+			&nbsp;&nbsp;
+			<label>Contact Number : </label>{{vm.contact}}
+			
+			&nbsp;&nbsp;
+			<label>Address : </label>{{vm.address}} 
+			
+			<br><br>
+			<div ng-repeat="item in vm.items">
+				<label style="float: left;">Date of Order</label>
+				<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+					<input  id="mydate" ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
+						ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)" type="text" placeholder="Date of Order" />
+				</datepicker>
+				<!--<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Order of Order is required.</span>-->
+				<!--<span ng-show="orderform['orderdate'+$index].$error.pattern && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
+			</div>
+
+
+		<table class="table" border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<th>Design</th>
+				<!--<th>Measurement</th>-->
+				<th>Delivery Date</th>
+				<th>Stiching Date</th>
+				<th>Alert Date</th>
+				<th>Amount</th>
+				<th>Status</th>
+				<th>Action</th>
+			</tr>
+			<tr ng-repeat="data in vm.order">
+				<th>kurta</th>
+				<!--<th>view</th>-->
+				<th>
+					<div class="form-box">
+						<!--<label><em id="mandatory" style="color:Red">*</em>&nbsp;Date of Delivery</label>-->
+						<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+							<!--New change 00 --index inject -->
+							<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)"
+								id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
+						</datepicker>
+						<!--<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Date of Delivery must be greater than Date of Order.</span>-->
+						<!--<span ng-show="orderform['deliverydate'+$index].$error.pattern && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
+						<!--<span ng-if="vm.date1">Please select deliverydate after order date.</span>-->
+					</div>
+				</th>
+				<th>
+					<div class="form-box">
+						<!--<label><em id="mandatory" style="color:Red">*</em>&nbsp;Date of Delivery</label>-->
+						<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+							<!--New change 00 --index inject -->
+							<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)"
+								id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
+						</datepicker>
+						<!--<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Date of Delivery must be greater than Date of Order.</span>-->
+						<!--<span ng-show="orderform['deliverydate'+$index].$error.pattern && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
+						<!--<span ng-if="vm.date1">Please select deliverydate after order date.</span>-->
+					</div>
+				</th>
+				<th>
+					<div class="form-box">
+						<!--<label><em id="mandatory" style="color:Red">*</em>&nbsp;Alert Date</label>-->
+						<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+							<input class="inputdatipicker" ng-model="vm.order[$index].alertday" ng-change="vm.alertchange(vm.order[$index].orderdate,vm.order[$index].deliverydate,vm.order[$index].alertday)"
+								id="" name="alertdate{{$index}}" required type="text" placeholder="Date of Alert" />
+						</datepicker>
+						<!--<span ng-show="orderform['alertdate'+$index].$error.required && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">Alert Date is required.</span>-->
+						<!--<span ng-show="orderform['alertdate'+$index].$error.pattern && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
+						<!--<span ng-if="vm.date2">Alert Date must be greater than Date of Order.</span>-->
+						<!--<span ng-if="vm.date3">Alert Date must be equal to or less than Date of Delivery.</span>-->
+					</div>
+				</th>
+				<th>
+					<div class="form-box">
+						<!--<label><em id="mandatory" style="color:Red">*</em>&nbsp;Amount</label>-->
+						<input class="addorder-amount-icon" id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required"
+							ng-model="vm.order[$index].amount" type="text" placeholder="Amount" />
+						<!--<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">-->
+						<!--<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount is required.</span>-->
+						<!--<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount must be a number.</span>-->
+						<!--<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount length must be less than 10.</span>-->
+					</div>
+				</th>
+				<th>
+					<select class="outside" ng-model="vm.order.status" name="status" required>
+							<option value="">-- Please Select --</option>
+							<option selected="selected" value="New">New</option>
+							<option value="In Progress">Stiching</option>
+							<option value="Stiching">Finish</option>
+							<option value="Finish">Cancel</option>
+					</select>
+
+				</th>
+				<th width="20%">
+					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
+					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
+					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
+				</th>
+			</tr>
+		</table>
+
+	<div class="add-next-btn-box">
+		<div class="submit-button">
+			<input type="submit" value="Submit" ng-click="vm.final(orderform)" />
+		</div>
+	</div>
+
+</div>
+
+
+
+<!-- Footer Section Start Here -->
+<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
+<!-- Footer Section End Here -->
+
+<script type="text/javascript">
+
+	// 	var myDate = new Date();
+	// var month = myDate.getMonth() + 1;
+	// var prettyDate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
+	// $("#mydate").val(prettyDate);
+
+	$(document).ready(function (e) {
+		$(".menu-toggle").click(function () {
+			$(".navbar").slideToggle()
+
+		})
+		$(".navbar ul li").click(function () {
+			$(this).find("ul").slideToggle()
+			$(this).toggleClass("active");
+
+		})
+
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<tr ng-repeat="data in vm.order">
+				<th>kurta</th>
+				<!--<th>view</th>-->
+				<th>
+					<div class="form-box">
+						<!--<label><em id="mandatory" style="color:Red">*</em>&nbsp;Date of Delivery</label>-->
+						<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+							<!--New change 00 --index inject -->
+							<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)"
+								id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
+						</datepicker>
+						<!--<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Date of Delivery must be greater than Date of Order.</span>-->
+						<!--<span ng-show="orderform['deliverydate'+$index].$error.pattern && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
+						<!--<span ng-if="vm.date1">Please select deliverydate after order date.</span>-->
+					</div>
+				</th>
+				<th>
+					<div class="form-box">
+						<!--<label><em id="mandatory" style="color:Red">*</em>&nbsp;Date of Delivery</label>-->
+						<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+							<!--New change 00 --index inject -->
+							<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)"
+								id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
+						</datepicker>
+						<!--<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Date of Delivery must be greater than Date of Order.</span>-->
+						<!--<span ng-show="orderform['deliverydate'+$index].$error.pattern && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
+						<!--<span ng-if="vm.date1">Please select deliverydate after order date.</span>-->
+					</div>
+				</th>
+				<th>
+					<div class="form-box">
+						<!--<label><em id="mandatory" style="color:Red">*</em>&nbsp;Alert Date</label>-->
+						<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+							<input class="inputdatipicker" ng-model="vm.order[$index].alertday" ng-change="vm.alertchange(vm.order[$index].orderdate,vm.order[$index].deliverydate,vm.order[$index].alertday)"
+								id="" name="alertdate{{$index}}" required type="text" placeholder="Date of Alert" />
+						</datepicker>
+						<!--<span ng-show="orderform['alertdate'+$index].$error.required && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">Alert Date is required.</span>-->
+						<!--<span ng-show="orderform['alertdate'+$index].$error.pattern && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
+						<!--<span ng-if="vm.date2">Alert Date must be greater than Date of Order.</span>-->
+						<!--<span ng-if="vm.date3">Alert Date must be equal to or less than Date of Delivery.</span>-->
+					</div>
+							ng-model="vm.order[$index].amount" type="text" placeholder="Amount" />
+						<!--<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">-->
+						<!--<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount is required.</span>-->
+						<!--<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount must be a number.</span>-->
+						<!--<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount length must be less than 10.</span>-->
+					</div>
+				</th>
+				<th>
+					<select class="outside" ng-model="vm.order.status" name="status" required>
+							<option value="">-- Please Select --</option>
+							<option selected="selected" value="New">New</option>
+							<option value="In Progress">Stiching</option>
+							<option value="Stiching">Finish</option>
+							<option value="Finish">Cancel</option>
+					</select>
+
+				</th>
+				<th width="20%">
+					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
+					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
+					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
+				</th>
+			</tr>			ng-model="vm.order[$index].amount" type="text" placeholder="Amount" />
+						<!--<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">-->
+						<!--<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount is required.</span>-->
+						<!--<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount must be a number.</span>-->
+						<!--<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount length must be less than 10.</span>-->
+					</div>
+				</th>
+				<th>
+					<select class="outside" ng-model="vm.order.status" name="status" required>
+							<option value="">-- Please Select --</option>
+							<option selected="selected" value="New">New</option>
+							<option value="In Progress">Stiching</option>
+							<option value="Stiching">Finish</option>
+							<option value="Finish">Cancel</option>
+					</select>
+
+				</th>
+				<th width="20%">
+					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
+					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
+					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
+				</th>
+			</tr>

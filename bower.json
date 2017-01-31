@@ -33,6 +33,7 @@
     "angularjs-datepicker": "^2.1.7",
     "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
     "angular-color-picker": "angularjs-color-picker#^2.7.2",
-    "angular-bootstrap-colorpicker": "^3.0.25"
+    "angular-bootstrap-colorpicker": "^3.0.25",
+    "angularjs-imageupload-directive": "*"
   }
 }

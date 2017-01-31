@@ -16,6 +16,10 @@ function addorderController($resource,$scope) {
   var customerdetails = $resource('/api/customerdetails');
   var Addmaterial = $resource('/api/addmaterial');
   var Orderdetails = $resource('/api/orderdetails');
+  var Summary = $resource('/api/summary/:id');
+
+  
+
   vm.order = [];
   vm.clothtype = [];
   vm.date1 = false;
@@ -52,6 +56,10 @@ function addorderController($resource,$scope) {
   Addmaterial.query(function (info) {
     vm.material = info;  
   });
+  Orderdetails.query(function(info) {
+    vm.temp = info;
+  })
+
 
   vm.change = change;
   vm.alertchange = alertchange;
@@ -66,7 +74,12 @@ function addorderController($resource,$scope) {
     vm.seleCust = info;
     vm.contact = info.mobileNumber;
     vm.email = info.email;
-    vm.address = info.address
+    vm.address = info.address;
+    
+    Summary.query({ id: info.id }, function (info) {
+    vm.order2 = info;
+    console.log(vm.order2);
+  });
   }
   //new change 00 --index inject
  function change(orderdate, deliverydate, index, valid) {
