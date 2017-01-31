@@ -71,6 +71,7 @@ function addorderController($resource,$scope) {
   //new change 00 --index inject
  function change(orderdate, deliverydate, index, valid) {
     
+
     var b = orderdate.split('/');
     var a = deliverydate.split('/');
     var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
@@ -78,8 +79,10 @@ function addorderController($resource,$scope) {
     orderDate.setHours(0, 0, 0, 0, 0);
     deliveryDate.setHours(0, 0, 0, 0, 0);
     //new change 00
-    var alertday = a[0] - 2 + '/' + a[1] + '/' + a[2];
-    vm.order[index].alertday = '';
+   var alertday = a[0] - 2 + '/' + a[1] + '/' + a[2];
+        
+     vm.order[index].alertday = '';
+ 
     if (deliveryDate < orderDate) {
       vm.date1 = true;
       // alertchange();

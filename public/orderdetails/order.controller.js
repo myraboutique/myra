@@ -7,7 +7,7 @@ function orderController($resource, $state) {
     var vm = this;
     vm.myDropDown = "";
     vm.temp = ["Keyword","Status"];
-    vm.status = ["New", "In Progress","Stiching", "Finish"];
+    vm.status = ["New","Stiching", "Cancel"];
 
     vm.token = JSON.parse(localStorage.getItem('token'));
     if (!vm.token) {
@@ -16,8 +16,9 @@ function orderController($resource, $state) {
     }
     var measurement = $resource('/api/orderdetails');
     var customer = $resource('/api/customerdetails/:id');
+    vm.customerid = [];
     vm.customername = [];
-    vm.order = order;
+     vm.order = order;
 
 
     vm.filters = {
@@ -30,16 +31,16 @@ function orderController($resource, $state) {
         vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;
         vm.predicate = predicate;
     };
-
+   
     vm.sendData = sendData;
     measurement.query(function (info) {
         info.forEach(function (e) {
             customer.get({ id: e.customerid }, function (response) {
-                vm.customername.push(response.customerName);
+                vm.customerid.push(response.customerid);
             });
         });
-        vm.type = info;
-    });
+        vm.type = info.reverse();
+   });
 
     function sendData(info) {
         vm.selectData = JSON.stringify(info);
