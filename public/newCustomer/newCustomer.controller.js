@@ -86,8 +86,34 @@ function newCustomerController($resource) {
       customerdetails.address = vm.address;
       customerdetails.anniversaryAlert = true;
       customerdetails.birthdayAlert = true;
-
       customerdetails.remarks = vm.remarks;
+      
+      customerdetails.measureSH = vm.measureSH;
+      customerdetails.measureBUST=vm.measureBUST;
+      customerdetails.measureWAIST=vm.measureWAIST;
+      customerdetails.measureLWAIST=vm.measureLWAIST;
+      customerdetails.measureHIPS=vm.measureHIPS;
+      customerdetails.measureSLEEVES=vm.measureSLEEVES;
+      customerdetails.measureSHORT=vm.measureSHORT;
+      customerdetails.measuretype=vm.measuretype;
+      customerdetails.measureLENGTH=vm.measureLENGTH;
+      customerdetails.measureFULL=vm.measureFULL;
+      customerdetails.measureFULLL=vm.measureFULLL;
+      customerdetails.measureKNEE=vm.measureKNEE;
+      customerdetails.measureARMHOLE=vm.measureARMHOLE;
+       customerdetails.measureCROSS=vm.measureUTHIGH;
+      customerdetails.measureLTHIGH=vm.measureLTHIGH;
+      customerdetails.measureCALF=vm.measureCALF;
+      customerdetails.measureFNECK=vm.measureFNECK;
+      customerdetails.measureBNECK=vm.measureBNECK;
+      customerdetails.measureMORI=vm.measureMORI;
+      customerdetails.measureCROSS=vm.measureCROSS;
+     
+      
+
+
+
+    
 
 
       customerdetails.$save(function(info){
