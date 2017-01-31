@@ -166,5 +166,11 @@
       controller: 'alertController',
       controllerAs: 'vm'
     })
+    .state('addProduct', {
+      url: '/addProduct',
+      templateUrl: 'addProduct/addProduct.html',
+      controller: 'addProductController',
+      controllerAs: 'vm'
+     })
   }
 })();
