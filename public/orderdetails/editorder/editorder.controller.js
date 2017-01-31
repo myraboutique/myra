@@ -10,12 +10,12 @@ function editorderController($resource, $stateParams, $http,$scope) {
   if (!vm.token) {
     window.location = '#/login';
   }
-  var measurement = $resource('/api/measurement');
+  // var measurement = $resource('/api/measurement');
   var customer = $resource('/api/customerdetails/:id');
   var Addmaterial = $resource('/api/addmaterial');
 
   vm.order = JSON.parse($stateParams.referer);
-  vm.order.measurement = JSON.parse(vm.order.measurement);
+  // vm.order.measurement = JSON.parse(vm.order.measurement);
    vm.date1 = false;
   vm.date2 = false;
   vm.date3 = false;
@@ -37,14 +37,14 @@ function editorderController($resource, $stateParams, $http,$scope) {
   });
 
 
-  measurement.query(function (info) {
-    info.forEach(function (e) {
-      if (e.title == vm.order.type) {
-        var temp = e.measurement.split(',');
-        vm.tyepemeasurement = temp;
-      }
-    })
-  });
+  // measurement.query(function (info) {
+  //   info.forEach(function (e) {
+  //     if (e.title == vm.order.type) {
+  //       var temp = e.measurement.split(',');
+  //       vm.tyepemeasurement = temp;
+  //     }
+  //   })
+  // });
 
   function typechnage(){
     vm.order.type = vm.order.type;
@@ -125,7 +125,7 @@ function editorderController($resource, $stateParams, $http,$scope) {
   function final(orderform) {
     vm.formSubmitted = true;
     if(!vm.date2 && !vm.date3 && !vm.date1 &&  orderform.$valid){
-      vm.order.measurement = JSON.stringify(vm.order.measurement);
+      // vm.order.measurement = JSON.stringify(vm.order.measurement);
      
        $http.put('/api/orderdetails',  vm.order)
       .then(
