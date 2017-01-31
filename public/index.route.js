@@ -53,6 +53,12 @@
       controller: 'addorderController',
       controllerAs: 'vm'
     })
+    .state('addordernew', {
+      url: '/addordernew',
+      templateUrl: 'orderdetails/addordernew/addordernew.html',
+      controller: 'addordernewController',
+      controllerAs: 'vm'
+    })
     .state('editorder', {
       url: '/editorder',
       templateUrl: 'orderdetails/editorder/editorder.html',

@@ -1,0 +1,166 @@
+<div class="container">
+
+	<!-- Header Section Start Here -->
+	<div class="main-header">
+			<div class="logo"><a href="#/home"><img src="assets/images/logo.png" alt=""></a></div>
+		<span class="menu-toggle">
+      <i></i>
+      <i></i>
+      <i></i>
+    </span>
+		<div class="navbar">
+			<ul>
+				<li><a href="#/home">Home</a></li>
+				<li><a href="#/customerdetails">Customer Details</a></li>
+				<li><a href="#/order" class="active">Create Order</a></li>
+				<li><a href="#/alert">Alerts</a></li>
+				<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
+					<ul>
+	        <li><a href='#/register'><span>Manage Users</span></a></li>
+	        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+					<li><a href='#/materialtype'><span>Manage Material</span></a></li>
+	      </ul>
+				</li>
+				<li><a href="#/logout">Logout</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- Header Section End Here -->
+
+	<div class="inner-heading-bar">Order Details</div>
+	<form name="orderform" novalidate>
+	<div class="main-contant-part">
+		<div class="form-section-box">
+	
+	
+		<!-- Right Address Section Start Here -->
+		<!--<div class="order-form-right-address-section">
+			<div class="form-address-heading-rt">Customer Billing Address </div>
+			<p>
+				{{vm.address}}
+			</p>
+		</div>-->
+		<!-- Right Address Section End Here -->
+
+		<!-- Left Form Section Start Here -->
+		<!--<div class="order-form-left-section">-->
+
+
+
+
+			<div class="form-section-box">
+				<!--<div class="form-heading">Customer Details</div>-->
+
+				<div class="form-box">
+					<label>Name</label>
+					<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer "
+						required name="customeruser">
+				 <option value="">-- Please Select --</option></select>
+
+					</select>
+					<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
+				</div>
+
+				<div class="form-box"><label>Contact Number : </label>{{vm.contact}}</div>
+
+				<div class="form-box"><label>Address : </label>{{vm.address}}</div>
+
+				<!--<div class="form-box">
+					<label>Contact Number</label>
+					<input id="" name="" ng-disabled="vm.disable" required="required" ng-model="vm.contact" type="text" placeholder="Contact Number" />
+				</div>-->
+
+				<!--<div class="form-box">
+					<label> Email Address</label>
+					<input id="" name="" ng-disabled="vm.disable" required="required" type="text" ng-model="vm.email" placeholder="Email Address" />
+				</div>-->
+				<div ng-repeat="item in vm.items">
+				<div class="form-box">
+					<label>Date of Order</label>
+					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+						<input class="inputdatipicker " id="mydate"  ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
+								ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)" type="text" placeholder="Date of Order" />
+					</datepicker>
+					<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Order of Order is required.</span>
+					<!--<span ng-show="orderform['orderdate'+$index].$error.pattern && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
+				</div>
+				</div>
+			</div>
+
+				<div ng-repeat="item in vm.items">
+					<div class="form-section-box">
+						<div class="form-heading"></div>
+
+						<div style="margin-left: 0%;" class="add-next-btn-box">
+							<div class="submit-button">
+								<a href="#/addorder"><input type="submit" value="Add New"/>
+							</div>
+						</div>
+
+			<div class="form-box">
+			<table class="table" border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<th>Design</th>
+				<th>Delivery Date</th>
+				<th>Stiching Date</th>
+				<th>Alert Date</th>
+				<th>Amount</th>
+				<th>Status</th>
+				<th>Action</th>
+			</tr>
+			<tr ng-repeat="data in vm.order2">
+				<th>{{data.type}}</th>
+				<th>{{data.date}}</th>
+				<th>{{data.date}}</th>
+				<th>{{data.alertday}}</th>
+				<th>{{data.amount}}</th>
+				<th>{{data.status}}</th>
+				
+
+				
+
+				<th width="13%">
+					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
+					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
+					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
+				</th>
+			</tr>
+		</table>
+	</div>
+
+						
+
+					</div>
+
+				</div>
+
+		</div>
+		<!-- Left Form Section End Here -->
+
+
+	</div>
+	<!-- Footer Section Start Here -->
+	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
+	<!-- Footer Section End Here -->
+	</form>
+	<script type="text/javascript">
+
+		// 	var myDate = new Date();
+    // var month = myDate.getMonth() + 1;
+    // var prettyDate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
+    // $("#mydate").val(prettyDate);
+
+         $(document).ready(function(e) {
+          $(".menu-toggle").click(function(){
+	        $(".navbar").slideToggle()
+
+	        })
+	        $(".navbar ul li").click(function(){
+		      $(this).find("ul").slideToggle()
+		      $(this).toggleClass("active");
+
+		   })
+
+});
+</script>
+

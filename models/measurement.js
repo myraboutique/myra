@@ -13,7 +13,7 @@ module.exports = (function () {
         title: Sequelize.STRING,
         measurement: Sequelize.STRING,
         isActive: Sequelize.BOOLEAN,
-        image: Sequelize.LONGTEXT
+        image: Sequelize.BLOB
     }, {
             timestamps: false
         });
