@@ -78,11 +78,10 @@
 				<div class="form-box">
 					<label>Date of Order</label>
 					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-						<input class="inputdatipicker " id="mydate"  ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
-								ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)" type="text" placeholder="Date of Order" />
-					</datepicker>
-					<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Order of Order is required.</span>
-					<!--<span ng-show="orderform['orderdate'+$index].$error.pattern && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
+								<input class="inputdatipicker " id="mydate"  ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
+										ng-change="vm.change(vm.order[$index].orderdate,$index) "  type="text" placeholder="Date of Order" />
+							</datepicker>
+							<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Order Date of Order is required.</span>
 				</div>
 				</div>
 			</div>
@@ -93,7 +92,7 @@
 
 						<div style="margin-left: 0%;" class="add-next-btn-box">
 							<div class="submit-button">
-								<input type="submit" value="Submit" ng-click="vm.final(orderform)" />
+								<input type="button" value="Add Product" ng-click="" />
 							</div>
 						</div>
 
@@ -111,38 +110,44 @@
 			<tr>
 				<th>
 					<div class="form-box">
-							<label><em id="mandatory" style="color:Red">*</em>&nbsp;Type</label>
+							
 							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type | filter:data.isActive='true'"
 								required>
 								<option value="">-- Please Select --</option></select>
-							<span ng-show="orderform['clothtype'+$index].$invalid && (orderform['clothtype'+$index].$touched || vm.formSubmitted)">Cloth Type is required.</span>
+							
 					</div>
 				</th>
 				<th>
 					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
 							<!--New change 00 --index inject -->
-								<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" 	ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)"
+								<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" 	ng-change="vm.change(vm.order[$index].orderdate,$index)"
 									id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
 							</datepicker>
+						
 				</th>
 				<th>
-					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-							<!--New change 00 --index inject -->
-								<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" 	ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)"
-									id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
+						<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+								<input class="inputdatipicker "   ng-model="vm.order[$index].stitchingdate" name="stitchingdate{{$index}}" required="required"
+										ng-change="vm.stitchingchange(vm.order[$index].stitchingdate,$index)" type="text" placeholder="Date of Stitching" />
 							</datepicker>
+							
+							
 				</th>
 				<th>
 					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
 								<input class="inputdatipicker" ng-model="vm.order[$index].alertday"  ng-change="vm.alertchange(vm.order[$index].orderdate,vm.order[$index].deliverydate,vm.order[$index].alertday)"
 									id="" name="alertdate{{$index}}" required type="text" placeholder="Date of Alert" />
 							</datepicker>
+							
 				</th>
 				<th><input class="addorder-amount-icon" id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required" ng-model="vm.order[$index].amount"
-								type="text" placeholder="Amount" /></th>
+								type="text" placeholder="Amount" />
+								
+						
+								</th>
+								
 				<th>
 					<select class="outside" ng-model="data.status" name="status" required>
-							<option value="">-- Please Select --</option>
 							<option selected="selected" value="New">New</option>
 							<option value="In Progress">Stiching</option>
 							<option value="Stiching">Finish</option>
@@ -152,15 +157,36 @@
 				<th width="13%">
 					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
 					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
-					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
+					<a ng-click="vm.delete"><img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt=""></a>
 				</th>
 			</tr>
 		</table>
-	</div>
-
-						
-
+		
+	</div>	
 					</div>
+					<div style="color: red">
+						<span ng-show="orderform['clothtype'+$index].$invalid && (orderform['clothtype'+$index].$touched || vm.formSubmitted)">Design is required.<br></span>
+						
+						<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Delivery date must be greater than Date of Order.<br></span>
+						
+						<span ng-if="vm.date1">Delivery date should be greater than Order date.<br></span>
+						<span ng-if="vm.date4">Delivery date should be greater than Stitching date.<br></span>
+						<span ng-show="orderform['stitchingdate'+$index].$error.required && (orderform['stitchingdate'+$index].$dirty || vm.formSubmitted)">Stitching Date of Order is required.<br></span>
+						<span ng-if="vm.tempalert">Stiching date should be  greater tnan Order date.<br></span>
+
+						<span ng-show="orderform['alertdate'+$index].$error.required && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">Alert Date is required.<br></span>
+						<span ng-if="vm.date2">Alert Date should be greater than Order date.<br></span>
+						<span ng-if="vm.date3">Alert Date should be greater than Delivery date.<br></span>
+
+						<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount is required.<br></span>
+						<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount can only contain numeric values.<br></span>
+						<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount should not be greater than 10 digits.<br></span>
+					</div>
+					<div style="margin-left: 0%;" class="add-next-btn-box">
+							<div class="submit-button">
+								<input type="submit" value="Submit" ng-click="vm.final(orderform)" />
+							</div>
+						</div>
 
 				</div>
 

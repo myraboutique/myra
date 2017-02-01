@@ -20,7 +20,10 @@ function addorderController($resource,$scope) {
   vm.clothtype = [];
   vm.date1 = false;
   vm.date2 = false;
+ //vm.date4 = false;
   vm.date3 = false;
+ vm.tempalert = false;
+ vm.date4 = false;
    vm.cancel = cancel;
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
@@ -52,15 +55,13 @@ function addorderController($resource,$scope) {
   Addmaterial.query(function (info) {
     vm.material = info;  
   });
-  Orderdetails.query(function(info) {
-    vm.temp = info;
-  })
-
 
   vm.change = change;
   vm.alertchange = alertchange;
+  vm.stitchingchange =stitchingchange;
   vm.empty = empty;
-
+  vm.forstitchingdate=forstitchingdate;
+ // vm.changeforstich =changeforstich;
   function empty(index){
       vm.order[index].customization = "";
   }
@@ -70,35 +71,109 @@ function addorderController($resource,$scope) {
     vm.seleCust = info;
     vm.contact = info.mobileNumber;
     vm.email = info.email;
-    vm.address = info.address;
+    vm.address = info.address
+  }
+
+  function forstitchingdate(index){
+    if(vm.order[index].stitchingdate>vm.order[index].deliverydate){
+            console.log("Oyye");
+            vm.date4 = true;
+          }
+          else{
+             vm.date4 = false;
+          }
   }
   //new change 00 --index inject
- function change(orderdate, deliverydate, index, valid) {
-    
+ function change(orderdate,  index) {
+
+    if(vm.order[index].stitchingdate){
+        console.log("There is ");
+        stitchingchange(vm.order[index].stitchingdate, index);
+        if(vm.order[index].deliverydate){
+          forstitchingdate(index);
+        }
+    }
+   
+    if(vm.order[index].deliverydate){
     var b = orderdate.split('/');
-    var a = deliverydate.split('/');
+    var a =vm.order[index].deliverydate.split('/');
+    console.log(a);
     var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
     var orderDate = new Date(b[2], b[1] - 1, b[0]);
     orderDate.setHours(0, 0, 0, 0, 0);
     deliveryDate.setHours(0, 0, 0, 0, 0);
     //new change 00
-    var alertday = a[0] - 2 + '/' + a[1] + '/' + a[2];
+   // var alertday = a[0] - 2 + '/' + a[1] + '/' + a[2];
+   var alertDay =  new Date(a[2], a[1], a[0] -1);
+   alertDay.setHours(0, 0, 0, 0, 0);
+    var alertday = alertDay.getUTCDate()+'/'+alertDay.getUTCMonth()+'/'+alertDay.getUTCFullYear();
     vm.order[index].alertday = '';
+    console.log(vm.order[index].alertday);
     if (deliveryDate < orderDate) {
       vm.date1 = true;
-      // alertchange();
         vm.order[index].alertday = alertday;
       alertchange(orderDate, deliveryDate, vm.order[index].alertday);
     } else {
       vm.date1 = false;
       vm.order[index].alertday = alertday;
-      // alertchange();
       alertchange(orderDate, deliveryDate, vm.order[index].alertday);
     }
+    }
+    
   }
 
+//  function changeforstich(orderdate, stitchingdate, index) {
+  
+//       console.log(orderdate);
+//       console.log(stitchingdate);
+//     var b = orderdate.split('/');
+//     var a = stitchingdate.split('/');
+//     var stitchingDate = new Date(a[2], a[1] - 1, a[0]);
+//     var orderDate = new Date(b[2], b[1] - 1, b[0]);
+//     orderDate.setHours(0, 0, 0, 0, 0);
+//     stitchingDate.setHours(0, 0, 0, 0, 0);
+//     //new change 00
+
+//     if (stitchingDate < orderDate) {
+//       vm.date4 = true;
+     
+//     } else {
+//       vm.date4 = false;
+//     }
+//   }
+
+  //new change 00 --index inject
+ function stitchingchange(stitchingdate,index) {
+
+   if(vm.order[index].orderdate){
+        console.log(orderdate);
+        console.log(stitchingdate);
+        console.log(index);
+        var orderdate = vm.order[index].orderdate;
+        var b = orderdate.split('/');
+        var a = stitchingdate.split('/');
+        var stitchingDate = new Date(a[2], a[1] - 1, a[0]);
+        var orderDate = new Date(b[2], b[1] - 1, b[0]);
+        orderDate.setHours(0, 0, 0, 0, 0);
+        stitchingDate.setHours(0, 0, 0, 0, 0);
+      
+        if (stitchingDate < orderDate) {
+          vm.tempalert = true;
+        } else {
+          vm.tempalert = false;
+        }
+        console.log(vm.tempalert);
+      }
+      if(vm.order[index].deliverydate){
+        forstitchingdate(index);
+      }
+  }
 
   function alertchange(orderdate, deliverydate, alertdate) {
+    console.log(orderdate);
+    console.log(deliverydate);
+    console.log(alertdate);
+    
     var type = typeof orderdate;
     if (type == 'string') {
       var b = orderdate.split('/');
@@ -143,7 +218,7 @@ function addorderController($resource,$scope) {
     if (!vm.date2 && !vm.date3 && !vm.date1 && orderform.$valid) {
       vm.formSubmitted = false;
       vm.order.push({ orderdate: orderdate });
-      // console.log(vm.order);
+      console.log(vm.order);
       vm.items.push({});
     }
       
@@ -160,7 +235,7 @@ function addorderController($resource,$scope) {
           orderdetails.customerName = vm.seleCust.customerName;
           orderdetails.customeremail = vm.seleCust.email;
           orderdetails.type = vm.order[i].type.title
-          // orderdetails.material = vm.order[i].materialtype.materialtype;
+          orderdetails.material = vm.order[i].materialtype.materialtype;
           orderdetails.color = vm.order[i].color;
           if (vm.order[i].checked) {
             orderdetails.customization = vm.order[i].customization;
@@ -169,6 +244,8 @@ function addorderController($resource,$scope) {
           }
           orderdetails.cloth = vm.order[i].cloth
           orderdetails.orderdate = vm.order[i].orderdate
+          orderdetails.stitchingdate = vm.order[i].stitchingdate
+          console.log();
           orderdetails.date = vm.order[i].deliverydate
           orderdetails.alertday = vm.order[i].alertday
           orderdetails.amount = vm.order[i].amount

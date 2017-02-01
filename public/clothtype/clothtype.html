@@ -31,14 +31,14 @@
 
 	 <div class="main-contant-part minpageheight">
 		<!-- Customer Details page Section Start Here -->
-		<div ng-show="!vm.temp" class="customer-detail-page-contant">
+		<div class="customer-detail-page-contant">
      <div class="right-add-new-button"><a href="#/addclothtype">Add New</a></div>
 		 <div class="details-table">
 			 	<table class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
 						<th>Style</th>
 						<th>Measurement</th>
-						<th>Images</th>
+						<!--<th>Images</th>-->
 						<th>Status</th>
 					</tr>
           <!-- ng-repeat="data in vm.type"  -->
@@ -48,7 +48,7 @@
           }">
 						<td class="top-purpal-color-row2"><span><a ng-click="vm.editpage(data)" class="customer-name-link">{{data.title}}</a></span></td>
 						<td class="top-purpal-color-row2">{{data.measurement}}</td>
-						<td class="top-purpal-color-row2"><a ng-click="vm.temp = !vm.temp">Images</a></td>
+						<!--<td class="top-purpal-color-row2"><a ng-click="vm.temp($index)">Back</a></td>-->
 						<td ng-if="data.isActive" class="top-purpal-color-row2">Active</td>
 						<td ng-if="data.isActive == false" class="top-purpal-color-row2">InActive</td>
 					</tr>
@@ -57,10 +57,12 @@
 		 </div>
 		</div>
 
-		<div class="customer-detail-page-contant" ng-show="vm.temp">
-			<div class="right-add-new-button"><a ng-click="vm.temp = !vm.temp">Back</a></div>
-			<div style="position: relative;margin-top: 50px;margin-left: 100px;"><img style="margin: 10px;" class="image" ng-repeat="img in vm.image" ng-src="{{img}}" width="400" height="200" /></div>
-		</div>
+		<!--<div class="customer-detail-page-contant">
+			<div class="right-add-new-button"><a>Back</a></div>
+			<div  ng-repeat="data in vm.type" style="position: relative;margin-top: 50px;margin-left: 100px;" >
+				{{data.title}}<img style="margin: 10px;"  class="image" ng-repeat="i in vm.images[$index]" ng-src="{{i}}" width="10" height="10" />		
+			</div>
+		</div>-->
 		<!-- Customer Details page Section End Here -->
     <div class="paging">
      <dir-pagination-controls
