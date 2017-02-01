@@ -92,6 +92,39 @@ display: inline;
 .main-header{width:100%; display: inline-block; background: #fff;}
 .logo{float: left; margin: 13px 0 0 30px;}
 
+.customer-detailsmain-box {
+  width: 25%;
+  float: left;
+  margin-right: 2%;
+}
+.customer-detailsmain-box1 {
+  width: 30%;
+  float: left;
+  margin-right: 2%;
+  
+}
+.customer-detailsmain-box1 label {
+  width: 41% !important;
+}
+
+.customer-detailsmain-box1 strong {
+font-weight: normal;
+    padding-top: 10px;
+    display: inline-block;
+}
+.customer-detailsmain-box2 {
+  width: 40%;
+  float: left;
+}
+.customer-detailsmain-box2 strong {
+font-weight: normal;
+    padding-top: 10px;
+    display: inline-block;
+}
+.dateon-input {
+  width : 70% !important;
+}
+
 .navbar{float: right;min-height: auto !important;margin-bottom: 0px !important;border: 0px !important;}
 .navbar ul{float: left; margin: 0px; padding: 0px;}
 .navbar ul li{ position:relative; list-style: none;float: left;}
