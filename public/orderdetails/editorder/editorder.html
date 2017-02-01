@@ -14,7 +14,7 @@
 			<ul>
 				<li><a href="#/home">Home</a></li>
 				<li><a href="#/customerdetails">Customer Details</a></li>
-				<li><a href="#/order" class="active">Create Order</a></li>
+				<li><a href="#/order" class="active">Orders</a></li>
 				<li><a href="#/alert">Alerts</a></li>
 				<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 					<ul>
@@ -49,9 +49,8 @@
 					<select class="outside" ng-model="vm.order.status" name="status" required>
 							<option value="">-- Please Select --</option>
 							<option value="New">New</option>
-							<option value="In Progress">In Progress</option>
-							<option value="Stiching">Stiching</option>
-							<option value="Finish">Finish</option>
+						    <option value="Stiching">Stiching</option>
+							<option value="Cancel">Cancel</option>
 							</select>
 					<span style="margin-left:0px;" ng-show="orderform.status.$invalid && (orderform.status.$touched || vm.formSubmitted)">Order status is required.</span>
 				</div>

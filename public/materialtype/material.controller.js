@@ -10,9 +10,9 @@ function materialtypeController($resource,$state) {
    vm.editpage = editpage;
    vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
- 
+   
     window.location = '#/login';
- 
+    
   }
 
    function editpage(x)
@@ -24,9 +24,10 @@ function materialtypeController($resource,$state) {
  
   var addmaterial = $resource('/api/addmaterial')
   addmaterial.query(function(info){
-    console.log() ;
+    console.log(info);
+     
       vm.materialdata = info ;
-           
+        
    })
 
 }

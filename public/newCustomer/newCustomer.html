@@ -11,8 +11,10 @@
     <div class="navbar">
       <ul>
         <li><a href="#/home">Home</a></li>
-        <li><a href="#/customerdetails" class="active">Customer Details</a></li>
-        <li><a href="#/order">Create Order</a></li>
+
+        <li><a href="#/customerdetails" class="active">Customers</a></li>
+        <li><a href="#/order">Orders</a></li>
+
         <li><a href="#/alert">Alerts</a></li>
         <li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
           <ul>
@@ -102,7 +104,7 @@
           <label> Phone Number</label>
           <input id="" ng-model="vm.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="10" ng-maxlength="12"  type="text" placeholder="Phone Number" />
 
-          <span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be exactly 10 digits.</span>
+          <span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be digits.</span>
           <span ng-show="form.phonenumber.$error.minlength && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be exactly 10 digits..</span>
           <span ng-show="form.phonenumber.$error.maxlength && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be exactly 10 digits.</span>
 
@@ -153,7 +155,113 @@
           <span ng-show="form.remarks.$error.maxlength && (form.remarks.$dirty || vm.formSubmitted)">Remark description length must be less than 200.</span>
 
         </div>
-
+        <div class="form-section-box">
+<div class="form-heading">Measurement</div>
+<div class="measurement-li-box" >
+  <ul class="ng-scope">
+                <li><i>SH:</i>
+                <strong><input class="measurement-input" name="measureSH" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.measureSH" >
+                <span ng-show="form.measureSH.$error.pattern">Cloth measurement must be a number.</span>
+                <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                   
+                   <li><i>BUST:</i>
+                <strong><input class="measurement-input" name="measureBUST" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.measureBUST" >
+                <span ng-show="form.measureBUST.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                   
+                   <li><i>WAIST:</i>
+                <strong><input class="measurement-input" name="measureWAIST" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureWAIST" >
+                <span ng-show="form.measureWAIST.$error.pattern">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                  
+                   <li><i>L.WAIST:</i>
+                <strong><input class="measurement-input" name="measureLWAIST" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureLWAIST" >
+                <span ng-show="form.measureLWAIST.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                   
+                   <li><i>HIPS:</i>
+                <strong><input class="measurement-input" name="measureHIPS" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureHIPS" >
+                <span ng-show="form.measureHIPS.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>   
+                 
+                 <li><i>SLEEVES:</i>
+                <strong><input class="measurement-input" name="measureSLEEVES" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.measureSLEEVES" >
+                <span ng-show="form.measureSLEEVES.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                  
+                   <li><i>SHORT:</i>
+                <strong><input class="measurement-input" name="measureSHORT" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureSHORT" >
+                <span ng-show="form.measureSHORT.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                  
+                  <li><i>3/4:</i>
+                <strong><input class="measurement-input" name="measuretype" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measuretype" >
+                <span ng-show="form.measuretype.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                  
+                  <li><i>LENGTH:</i>
+                <strong><input class="measurement-input" name="measureLENGTH" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureLENGTH" >
+                <span ng-show="form.measureLENGTH.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                  
+                  <li><i>FULL</i>
+                <strong><input class="measurement-input" name="measureFULL" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureFULL" >
+                <span ng-show="form.measureFULL.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                  
+                  <li> <i>FULL LEN:</i>
+                <strong><input class="measurement-input" name="measureFULLL" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureFULLL" >
+                <span ng-show="form.measureFULLL.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                 
+                  <li> <i>KNEE LEN:</i>
+                <strong><input class="measurement-input" name="measureKNEE" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureKNEE" >
+                <span ng-show="form.measureKNEE.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                   
+                   <li> <i>ARMHOLE:</i>
+                <strong><input class="measurement-input" name="measureARMHOLE" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.measureARMHOLE" >
+                <span ng-show="form.measureARMHOLE.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                  
+                   <li>  <i>U.THIGH:</i>
+                <strong><input class="measurement-input" name="measureUTHIGH" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureUTHIGH" >
+                <span ng-show="form.measureUTHIGH.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                  
+                  <li> <i>L.THIGH:</i>
+                <strong><input class="measurement-input" name="measureLTHIGH" type="text" ng-pattern="/^[0-9]{1,10}$/"ng-model="vm.measureLTHIGH" >
+                <span ng-show="form.measureLTHIGH.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                  
+                  <li><i>CALF:</i>
+                <strong><input class="measurement-input" name="measureCALF" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureCALF" >
+                <span ng-show="form.measureCALF.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                   
+                    <li><i>F-NECK:</i>
+                <strong><input class="measurement-input" name="measureFNECK" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureFNECK" >
+                <span ng-show="form.measureFNECK.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                   
+                   <li><i>B-NECK:</i>
+                <strong><input class="measurement-input" name="measureBNECK" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureBNECK" >
+                <span ng-show="form.measureBNECK.$error.pattern">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                 
+                  <li><i>MORI:</i>
+                <strong><input class="measurement-input" name="measureMORI" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureMORI" >
+                <span ng-show="form.measureMORI.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                   
+                   <li><i>CROSS B:</i>
+                <strong><input class="measurement-input" name="measureCROSS" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureCROSS" >
+                <span ng-show="form.measureCROSS.$error.pattern ">Cloth measurement must be a number.</span>
+								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
+                  
+  </ul>
+        </div>
+         </div>
       </div>
 
       <div class="add-new-btm-btn">

@@ -482,6 +482,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
 .form-section-box .birthdate{width:18% !important; float: left; margin-right: 12px;}
 .form-box{width:100%; display: inline-block;position: relative;}
 
+
+
 .customization-check-box{width: 70%; float: left;}
 .customization-check-box strong{font-style: normal;font-weight: 300; padding-left: 6px;}
 .form-section-box .form-box .customization-check-box .checkbox{
@@ -1020,4 +1022,66 @@ border-radius: 3px;
 
 @media only screen and (min-width: 480px) and (max-width: 640px) {
  .minpageheight {min-height: auto;}
+}
+.input-hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+input[type=radio]:checked + label>img {
+  border: 1px solid #ff36b6;
+  box-shadow: 0 0 7px 7px #ff36b6;
+}
+
+/* Stuff after this is only to make things more pretty */
+input[type=radio] + label>img {
+  border: 1px solid #444;
+  width: 150px;
+  height: 150px;
+  transition: 500ms all;
+  margin-right: 20px;
+}
+
+/*input[type=radio]:checked + label>img {
+  transform: 
+    rotateZ(-10deg) 
+    rotateX(10deg);
+}*/
+
+/*
+ | //lea.verou.me/css3patterns
+ | Because white bgs are boring.
+*/
+html {
+  background-color: #fff;
+  background-size: 100% 1.2em;
+  background-image: 
+    linear-gradient(
+      90deg, 
+      transparent 79px, 
+      #abced4 79px, 
+      #abced4 81px, 
+      transparent 81px
+    ),
+    linear-gradient(
+      #eee .1em, 
+      transparent .1em
+    );
+
+}
+.table-box{
+  width: 100%;
+display: inline-block;
+}
+.color-box{
+  height: 150px;
+  width: 150px;
+  
+  border: 1px solid #000;
+  float: left;
+margin-right: 20px;
+}
+input[type="radio"]:checked + label > span {
+    border: 1px solid #ff36b6;
+    box-shadow: 0 0 7px 7px #ff36b6;
 }
