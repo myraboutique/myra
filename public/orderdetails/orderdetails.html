@@ -13,8 +13,10 @@
 		<div class="navbar">
 			<ul>
 				<li><a href="#/home">Home</a></li>
-				<li><a href="#/customerdetails">Customer Details</a></li>
-				<li><a href="#/order" class="active">Create Order</a></li>
+
+				<li><a href="#/customerdetails">Customers</a></li>
+				<li><a href="#/order" class="active">Orders</a></li>
+
 				<li><a href="#/alert">Alerts</a></li>
 				<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 					<ul>
@@ -29,7 +31,7 @@
 	</div>
 	<!-- Header Section End Here -->
 
-	<div class="inner-heading-bar">Order Details</div>
+	<div class="inner-heading-bar">My Orders</div>
 
 	<div class="main-contant-part minpageheight">
 		<!-- Customer Details page Section Start Here -->
@@ -44,8 +46,7 @@
 	   <select class="outside2" ng-model="vm.customerStatus" placeholder="Search by Name" ng-options="data for data in vm.status"
 						required name="customeruser">
 				 <option value="">Search by Status</option></select>
-     <div class="right-add-new-button"><a href="#/addordernew">Add New</a></div>
-
+     <div class="right-add-new-button"><a href="#/addorder">Add Order</a></div>
 		</div>
 		</p>
 
@@ -56,9 +57,9 @@
 				<table ng-show="vm.temp.length" class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
 						<th>
-							<a href="" ng-click="vm.order('customerName')">
-								<font color="#337ab7">Customer Name</font>&nbsp
-								<span ng-show="vm.predicate == 'customerName'">
+							<a href="" ng-click="vm.order('customerid')">
+								<font color="#337ab7">Order Id</font>&nbsp
+								<span ng-show="vm.predicate == 'customerid'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="Zika Report">
                 </span>
@@ -68,9 +69,24 @@
 								</span>
 							</a>
 						</th>
+						
+						
+						<th>
+							<!--<a href="" ng-click="vm.order('customerName')">-->
+								<font color="#337ab7">Customer Name</font>&nbsp
+								<span ng-show="vm.predicate == 'customerName'">
+                <span ng-show="!vm.reverse">
+                    <img src="assets/images/up-arrow-1.png" alt="Zika Report">
+                </span>
+								<span ng-show="vm.reverse">
+                   <img src="assets/images/down-arrow-1.png" alt="Zika Report">
+                </span>
+								</span>
+						<!--	</a>-->
+						</th>
 						<th>
 								<a href="" ng-click="vm.order('orderdate')">
-								<font>Order Date</font>&nbsp
+								<font>Stiching Date</font>&nbsp
 								<span ng-show="vm.predicate == 'orderdate'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -97,11 +113,12 @@
 						<b><th>Status</th></b>
 					</tr>
 
-					<tr dir-paginate="data in vm.temp=(vm.type | filter:vm.customerStatus | filter:vm.search) |itemsPerPage:10 | orderBy:vm.predicate:vm.reverse"ng-class="{
+					<tr dir-paginate="data in vm.temp=(vm.type | filter:vm.customerStatus | filter:vm.search) |itemsPerPage:20 | orderBy:vm.predicate"ng-class="{
                       'some':$index%2 == 0,
                       'table-tr-alternate-color':$index%2 != 0
                   }">
-						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link"><b>{{data.customerName}}</b></a></td>
+						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link"><b>{{data.id}}</b></a></td>
+						<td class="top-purpal-color-row2">{{data.customerName}}</td>
 						<td class="top-purpal-color-row2">{{data.orderdate | date:"dd/MM/yyyy"}}</td>
 						<td class="top-purpal-color-row2">{{data.date}}</td>
 						<td class="top-purpal-color-row2">{{data.status}}</td>
@@ -112,7 +129,7 @@
 		</div>
 		<!-- Customer Details page Section End Here -->
 		<div class="paging">
-			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+			<dir-pagination-controls max-size="20" direction-links="true" boundary-links="true">
 			</dir-pagination-controls>
 		</div>
 	</div>

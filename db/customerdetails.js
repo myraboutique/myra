@@ -15,6 +15,7 @@ module.exports = (function () {
       });
     },//////end of find
     create: function (req, res) {
+      console.log(req.body);
       db.sync().then(function () {
         models.create(
           {
@@ -31,6 +32,29 @@ module.exports = (function () {
             address: req.body.address,
             billingAddress: req.body.billingAddress,
             remarks: req.body.remarks,
+
+            measureSH: req.body.measureSH,
+            measureBUST: req.body.measureBUST,
+             measureWAIST: req.body.measureWAIST,
+             measureLWAIST: req.body.measureLWAIST,
+              measureHIPS: req.body.measureHIPS,
+               measureSLEEVES: req.body.measureSLEEVES,
+               measureSHORT: req.body.measureSHORT,
+               measuretype: req.body.measuretype,
+                measureLENGTH: req.body.measureLENGTH, 
+               measureFULL: req.body.measureFULL,
+               measureFULLL: req.body.measureFULLL,
+               measureKNEE: req.body.measureKNEE,
+               measureARMHOLE: req.body.measureARMHOLE,
+                measureUTHIGH: req.body.measureUTHIGH,
+                measureLTHIGH: req.body.measureLTHIGH,
+               measureCALF: req.body.measureCALF,
+              measureFNECK: req.body.measureFNECK,
+               measureBNECK: req.body.measureBNECK,
+              measureMORI: req.body.measureMORI,
+              measureCROSS: req.body.measureCROSS
+             
+
 
           }).then(function (user) {
             res.json(user);
