@@ -235,7 +235,7 @@ function addorderController($resource,$scope) {
           orderdetails.customerName = vm.seleCust.customerName;
           orderdetails.customeremail = vm.seleCust.email;
           orderdetails.type = vm.order[i].type.title
-          orderdetails.material = vm.order[i].materialtype.materialtype;
+       //   orderdetails.material = vm.order[i].materialtype.materialtype;
           orderdetails.color = vm.order[i].color;
           if (vm.order[i].checked) {
             orderdetails.customization = vm.order[i].customization;

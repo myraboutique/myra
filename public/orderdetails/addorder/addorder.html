@@ -52,21 +52,20 @@
 
 			<div class="form-section-box">
 				<!--<div class="form-heading">Customer Details</div>-->
-
-				<div class="form-box">
-					<label>Name</label>
+			<div class="form-box">
+				<div class=" customer-detailsmain-box">
+					<label>Order by</label>
 					<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer "
 						required name="customeruser">
-				 <option value="">-- Please Select --</option></select>
+				 	<option value="">-- Please Select --</option></select>
 
-					</select>
 					<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
 				</div>
 
-				<div class="form-box"><label>Contact Number : </label>{{vm.contact}}</div>
+				<div class=" customer-detailsmain-box1"><label>Contact Number : </label><strong>{{vm.contact}}</strong></div>
 
-				<div class="form-box"><label>Address : </label>{{vm.address}}</div>
-
+				<div class=" customer-detailsmain-box2"><label>Address : </label><strong>{{vm.address}}</strong></div>
+			</div>
 				<!--<div class="form-box">
 					<label>Contact Number</label>
 					<input id="" name="" ng-disabled="vm.disable" required="required" ng-model="vm.contact" type="text" placeholder="Contact Number" />
@@ -77,16 +76,26 @@
 					<input id="" name="" ng-disabled="vm.disable" required="required" type="text" ng-model="vm.email" placeholder="Email Address" />
 				</div>-->
 				<div ng-repeat="item in vm.items">
-				<div class="form-box">
+				<div class=" customer-detailsmain-box">
 					<label>Date of Order</label>
-					<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+					<datepicker class="datepickerbx dateon-input" date-format="dd/MM/yyyy">
 								<input class="inputdatipicker " id="mydate"  ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
 										ng-change="vm.change(vm.order[$index].orderdate,$index) "  type="text" placeholder="Date of Order" />
 							</datepicker>
 							<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Order Date of Order is required.</span>
+
+				</div>
+				<div class=" customer-detailsmain-box">
+					<label>Status</label>
+					<select ng-model="vm.name" ng-change="" ng-options=" "
+						 name="customeruser">
+				 	<option value="">-- Please Select --</option></select>
+
 				</div>
 				</div>
-			</div>
+
+
+				</div>
 
 				<div ng-repeat="item in vm.items">
 					<div class="form-section-box">

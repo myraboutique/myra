@@ -126,7 +126,7 @@
         <div class="form-box">
           <label><em id="mandatory" style="color:Red">*</em>&nbsp;Address</label>
           <textarea ng-model="vm.address" required rows="4" cols="50" placeholder="Address" name="address" ng-minlength="2" ng-maxlength="250" ></textarea>
-          <span ng-show="form.address.$error.required && (form.address.$dirty || vm.formSubmitted)">An Address is required for delivery.</span>
+          <span ng-show="form.address.$error.required && (form.address.$dirty || vm.formSubmitted)">Address is required for delivery.</span>
 
            <span ng-show="form.address.$error.minlength && (form.address.$dirty || vm.formSubmitted)">Address should not be less than 02 characters.</span>
           <span ng-show="form.address.$error.maxlength && (form.address.$dirty || vm.formSubmitted)">Address should not be greater than 250 characters.</span>

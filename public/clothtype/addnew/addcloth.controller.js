@@ -1,14 +1,13 @@
 angular.module('myra')
   .controller('newclothController', newclothController);
 
-newclothController.$inject = ['$resource','$scope'];
+newclothController.$inject = ['$resource', '$scope'];
 
-function newclothController($resource,$scope) {
+function newclothController($resource, $scope) {
   var vm = this;
   vm.src = [];
   
   $scope.single = function (image) {
-    // $scope.maddy = image;
     image.forEach(function (e) {
       vm.src.push(e.resized.dataURL);
     });
@@ -16,12 +15,13 @@ function newclothController($resource,$scope) {
   };
   
 
-  // console.log($scope.maddy);
+
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
     window.location = '#/login';
   }
   vm.measurement = measuremet;
+  vm.single = single;
   vm.selectMeasurement = [];
   vm.addClothtype = addClothtype;
   vm.isActive = true;
@@ -33,24 +33,32 @@ function newclothController($resource,$scope) {
     vm.selectMeasurement.splice(number, 1);
   }
 
-  function measuremet(data){
-     vm.flagformeasure =0 ;
-    if(data){
+  function measuremet(data) {
+    vm.flagformeasure = 0;
+    if (data) {
       console.log(vm.selectMeasurement.length);
-      for(var i=0;i<vm.selectMeasurement.length+1;i++){
-        if(vm.selectMeasurement[i]==data){
-         vm.flagformeasure++;
+      for (var i = 0; i < vm.selectMeasurement.length + 1; i++) {
+        if (vm.selectMeasurement[i] == data) {
+          vm.flagformeasure++;
         }
       }
-      if(vm.flagformeasure==0){
-    vm.selectMeasurement.push(data);
-    vm.measu = "";
+      if (vm.flagformeasure == 0) {
+        vm.selectMeasurement.push(data);
+        vm.measu = "";
       }
-   else{
-     console.log("Already Exists");
-   }
+      else {
+        console.log("Already Exists");
+      }
+    }
   }
-  }
+
+    function single(data) {
+      vm.data = data;
+      // console.log(vm.data);
+      vm.src.push(data);
+      // vm.measu = "";
+      console.log(vm.src);
+    }
 
   function addClothtype(form) {
     vm.formSubmitted = true;
