@@ -1,21 +1,26 @@
- 
- 
- angular.module('myra')
+angular.module('myra')
   .controller('addProductController', addProductController);
- function addProductController() {
+
+addProductController.$inject = ['$resource','$state'];
+
+function addProductController($resource,$state) {
   var vm = this;
+  
+  var measurement = $resource('/api/measurement');
+  measurement.query(function(info){
+    vm.product = info;
 
-  // vm.token = JSON.parse(localStorage.getItem('token'));
-  // if (!vm.token) {
-  //   window.location = '#/login';
-  // }
-  // vm.disable = true;
-  // vm.datepattern = "/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/i";
-  // var measurement = $resource('/api/measurement');
-  // var customerdetails = $resource('/api/customerdetails');
-  // var Addmaterial = $resource('/api/addmaterial');
-  // var Orderdetails = $resource('/api/orderdetails');
-  // vm.addProduct = [];
+  });
 
-  // vm.final = final;
- }
+var addmaterial = $resource('/api/addmaterial')
+  addmaterial.query(function(info){
+      console.log(info)
+      vm.product1 = info ;
+        
+   });
+
+//    vm.pass=function(){
+//        alert('sdfgdsfg');
+//    }
+    }
+
