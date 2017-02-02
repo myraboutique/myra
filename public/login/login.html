@@ -5,11 +5,11 @@
         <form   autocomplete="on" style="padding-top:20px;" name="myform" novalidate>
           <h1><strong></strong>Please Login</h1>
           <p class="paragraph">
-            <input id="username" focus = 'true' ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/" type="email" name="username"  ng-model="vm.username" required="required" type="text" placeholder="Email Address"/>
+            <input id="username" focus = 'true' name="username"  ng-model="vm.username" required="required" type="text" placeholder="Username"/>
 
            
 
-            <span style="color:red" ng-show="myform.username.$error.required && (myform.username.$dirty || vm.formSubmitted)">Email Address is required.</span><br/>
+            <span style="color:red" ng-show="myform.username.$error.required && (myform.username.$dirty || vm.formSubmitted)">username is required.</span><br/>
             <span style="color:red" ng-show="myform.username.$error.pattern && (myform.username.$dirty || vm.formSubmitted)">Invalid email address.Please try again.</span><br/>
 
           </p>
