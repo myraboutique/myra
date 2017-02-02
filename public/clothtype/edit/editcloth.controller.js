@@ -5,6 +5,7 @@ editclothController.$inject = ['$resource', '$stateParams', '$http'];
 
 function editclothController($resource, $stateParams, $http) {
   var vm = this;
+    vm.measurementstype = [] ;
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
     window.location = '#/login';
@@ -44,5 +45,12 @@ function editclothController($resource, $stateParams, $http) {
         });
     }
   }
-
+var managemeasurements = $resource('/api/managemeasurements')
+  managemeasurements.query(function(info){
+    console.log(info);
+     
+      vm.measurementstype = info ;
+      console.log(vm.measurementstype);
+        
+   });
 }

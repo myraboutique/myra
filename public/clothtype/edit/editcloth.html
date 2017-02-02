@@ -44,7 +44,10 @@
 		   </div>
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em> Measurement</label>
-        <input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
+        <!--<input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>-->
+				<select ng-model="vm.measu"  class="clothmeasurementinput" >
+							<option ng-if="x.isActive" ng-repeat="x in vm.measurementstype"> {{x.name}}</option>
+				</select>
 				<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
 				<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required</span>
 			 </div>
