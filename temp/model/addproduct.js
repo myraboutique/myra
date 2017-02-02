@@ -3,21 +3,18 @@ module.exports = (function () {
     var db = require('../core/db');
     var Sequelize = require('sequelize');
 
-    var measurement = db.define('measurement', {
+    var addproduct = db.define('addproduct', {
         id: {
             type: Sequelize.INTEGER,
             unique: true,
             autoIncrement: true,
             primaryKey: true,
-        },
-        title: Sequelize.STRING,
-        measurement: Sequelize.STRING,
-        isActive: Sequelize.BOOLEAN,
-        image: Sequelize.BLOB
+        },       
+        measurement: Sequelize.STRING    
     }, {
             timestamps: false
         });
 
-    return measurement;
+    return addproduct;
 
 })();

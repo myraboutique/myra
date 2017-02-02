@@ -6,8 +6,10 @@ module.exports = (function () {
     var measurement = require('./measurement');
     var addmaterial = require('./addmaterial');
     var managemeasurements = require('./managemeasurements');
+    // var addproduct = require('./addproduct');
     var m = {
         login: login,
+        // addproduct:addproduct,
         orderdetails: orderdetails,
         customerdetails: customerdetails,
         measurement: measurement,

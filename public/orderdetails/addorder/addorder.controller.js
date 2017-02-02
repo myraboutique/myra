@@ -202,7 +202,15 @@ function addorderController($resource,$scope) {
   }
 
     var pos = 0;
+  function typeSelect(selecttype) {
+    vm.type.forEach(function (e) {
+      if (e.id == selecttype.id) {
+        vm.clothtype[pos] = selecttype.measurement.split(',');
+      }
+    });
+    pos++;
 
+  }
  
 
   function add(orderform,inform) {

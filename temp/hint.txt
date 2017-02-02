@@ -1,0 +1,6 @@
+//     var query = "select " + vm.measurements[0] + " from customerdetails where customerid = " + 1;
+//    sequelize.query(query, { type: sequelize.QueryTypes.SELECT})
+//   .then(function(rdata) {
+//     // We don't need spread here, since only the results will be returned for select queries
+//    vm.mesurementvalues = rdata;
+//   })
