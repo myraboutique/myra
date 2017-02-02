@@ -38,7 +38,7 @@
                     <div class="form-section-box">
                         <label style="text-align:left; ">Design</label>
                         <select style="width: 53%!important;" rows="4" cols="50" ng-maxlength="200" ng-model="vm.selectedDesign" ng-change="vm.typeSelect(vm.selectedDesign)" required>
-                        <option ng-repeat="data in vm.type">{{data.title}}</option>
+                        <option ng-selected="style1" value="{{data.title}}" ng-repeat="data in vm.type">{{data.title}}</option>
                         </select>
                         <!--<span ng-show="vm.addProduct.clothdesc.$error.maxlength">Color Code is required.</span>-->
                     </div>
@@ -83,10 +83,16 @@
             
 
             <div class="form-heading">Measurement Details</div>
-            <div class="form-box form-box-measurement-add" ng-repeat="data in vm.measurements">
-				 {{data}}
-			<button type="button" ng-click="vm.delete($index)">X</button>
-			</div>
+            <div class="form-box" ng-repeat="data in vm.measure">
+                 <label>{{data}}</label>
+			
+            
+            <span ng-show="'{{data}} == measureWAIST'">{{vm.measureWAIST}}</span>
+            <!--<span>{{vm.measureBUST}}</span>
+            <span>{{vm.measureSH}}</span>
+            <span>{{vm.measureLWAIST}}</span>-->
+            </div>
+            
 
             <!--submit button-->
             <div class="submit-button">
