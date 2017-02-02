@@ -6,13 +6,16 @@ module.exports = (function () {
     var addmaterial = require('./addmaterial');
     var alert = require('./alertCron');
     var managemeasurements = require('./managemeasurements');
+    var addsubdesign = require('./addsubdesign');
+    
     var m = [
         login,
         orderdetails,
         customerdetails,
         measurement,
         addmaterial,
-        managemeasurements
+        managemeasurements,
+        addsubdesign
     ];
     return m;
 })();

@@ -5,13 +5,15 @@ module.exports = (function () {
     var measurement = require('./measurement');
     var addmaterial = require('./addmaterial');
     var managemeasurements = require('./managemeasurements');
+    var addsubdesign = require('./addsubdesign');
     var m = {
         login: login,
         orderdetails: orderdetails,
         customerdetails: customerdetails,
         measurement: measurement,
         addmaterial: addmaterial,
-        managemeasurements:managemeasurements
+        managemeasurements: managemeasurements,
+        addsubdesign: addsubdesign
     };
 
     return m;

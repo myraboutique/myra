@@ -49,10 +49,6 @@
 					<select   class="clothmeasurementinput" ng-model="vm.designs" required="required" name="design"  >
 						<option  ng-repeat="x in vm.design"> {{x.title}}</option>
 					</select>
-					
-					<span ng-show="form.design.$error.required && (form.style.$dirty || vm.formSubmitted)">Design is required.</span>
-          <span ng-show="vm.flag">This Design already exists.</span>
-
        </div>
 
 			 <div class="form-box">
@@ -61,7 +57,7 @@
 					  	<input ng-model="vm.subdesi" type="text" class="clothmeasurementinput" >
 							
 						</input>
-						<strong class="clothaddbutton"><a href="" ng-click="vm.subdesign(vm.subdesi)">Add</a></strong>
+						<strong class="clothaddbutton"><a href="" ng-click="vm.subdesign(vm.subdesi,image2)">Add</a></strong>
 				<span ng-show="vm.flagformeasure">This Sub Design already added.</span>
 		
 			 <span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
@@ -71,7 +67,12 @@
 				 {{data}}
 			 <button type="button" ng-click="vm.delete($index)">X</button>
 			  </div>
-
+<div class="form-box">
+		<label>Image</label>
+	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*" multiple image="image2" resize-max-height="200" resize-max-width="200" resize-quality="0.7"	/>
+	<img ng-repeat="img in images2" ng-src="{{img.resized.dataURL}}" />
+	<!--<button type="button" ng-click="single(image2)">Add</button>-->
+</div>
 
 			<!--<div class="form-box">
 					<label>Add Photos</label>
