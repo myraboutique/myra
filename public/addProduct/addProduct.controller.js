@@ -5,22 +5,31 @@ addProductController.$inject = ['$resource','$state'];
 
 function addProductController($resource,$state) {
   var vm = this;
-  
+  vm.image = [];
+  vm.images = [];
+  // vm.measurements = [];
+// console.log(vm.measurements);
   var measurement = $resource('/api/measurement');
-  measurement.query(function(info){
-    vm.product = info;
-
+  measurement.query(function (info) {
+    vm.type = info;
+    vm.selected =  vm.type[0].title;
+    info.forEach(function (e){
+      vm.image = e.image.split('###');
+      vm.images.push(vm.image);
+      // vm.measurements.push = e.measurement.split(',');
+    });
   });
 
-var addmaterial = $resource('/api/addmaterial')
-  addmaterial.query(function(info){
-      console.log(info)
-      vm.product1 = info ;
-        
-   });
+  vm.typeSelect = typeSelect;
+  function typeSelect(info) {
+    
+  };  
 
-//    vm.pass=function(){
-//        alert('sdfgdsfg');
-//    }
-    }
+  var addmaterial = $resource('/api/addmaterial')
+  addmaterial.query(function(info){
+      vm.material = info;
+      // console.log(vm.material);   
+  });
+}
+     
 
