@@ -5,12 +5,14 @@ module.exports = (function () {
     var measurement = require('./measurement');
     var addmaterial = require('./addmaterial');
     var alert = require('./alertCron');
+    var managemeasurements = require('./managemeasurements');
     var m = [
         login,
         orderdetails,
         customerdetails,
         measurement,
-        addmaterial
+        addmaterial,
+        managemeasurements
     ];
     return m;
 })();
