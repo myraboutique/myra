@@ -10,13 +10,13 @@ module.exports = (function(){
     },
     UPDATE : function(req,res,next){
       db.orderdetails.Update(req,res);
-    },
-    DELETE : function(req,res,next){
-      db.orderdetails.Delete(req,res);
-    },
-    summary: function(req,res,next){
-      db.orderdetails.Summary(req,res);
     }
+    // DELETE : function(req,res,next){
+    //   db.orderdetails.Delete(req,res);
+    // },
+    // summary: function(req,res,next){
+    //   db.orderdetails.Summary(req,res);
+    // }
   };
   return m;
 })();

@@ -10,20 +10,24 @@ var OrderDetails = db.define('orderdetails', {
         autoIncrement: true,
         primaryKey: true,
     },
-    customerid : Sequelize.INTEGER,
-    customerName :Sequelize.STRING,
-    customeremail : Sequelize.STRING, 
+    // customerid : Sequelize.INTEGER,
+    // customerName :Sequelize.STRING,
+    // customeremail : Sequelize.STRING, 
+    orderdetailid:Sequelize.STRING,
+    orderid:Sequelize.STRING,
     type: Sequelize.STRING,
     material: Sequelize.STRING,
     color: Sequelize.STRING,
     customization : Sequelize.STRING,
     cloth: Sequelize.STRING,
-    date: Sequelize.STRING,
-    orderdate: Sequelize.STRING,
+    deliverydate: Sequelize.STRING,
+  //  orderdate: Sequelize.STRING,
     alertday: Sequelize.STRING,
     amount: Sequelize.BIGINT,
     measurement: Sequelize.STRING,
+    stitchingdate:Sequelize.STRING,
     status: Sequelize.STRING
+    
 }, {
         timestamps: false
     });
