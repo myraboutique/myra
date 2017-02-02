@@ -54,11 +54,11 @@
 
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Measurement</label>
-   <select ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput" required="" name="measurement">
-					
+   <!--<select ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput" required="" name="measurement">
+					<option value=""></option>
 							<option value="SH">SH</option>
 							<option value="BUST">BUST</option>
-              <option value="WAIST">WAIST</option>
+              				<option value="WAIST">WAIST</option>
 							<option value="LWAIST">LWAIST</option>
 							<option value="HIPS">HIPS</option>
 							<option value="SLEEVES">SLEEVES</option>
@@ -75,7 +75,10 @@
 							<option value="MORI">MORI</option>
 							<option value="CROSS">CROSS</option>
 
-					  </select>
+					  </select>-->
+					  	<select ng-model="vm.measu"  class="clothmeasurementinput" >
+							<option ng-if="x.isActive" ng-repeat="x in vm.measurementstype"> {{x.name}}</option>
+						</select>
 						<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
 				<span ng-show="vm.flagformeasure">This measurement already added.</span>
 		
@@ -87,6 +90,14 @@
 			 <button type="button" ng-click="vm.delete($index)">X</button>
 			  </div>
 
+
+			<!--<div class="form-box">
+					<label>Add Photos</label>
+					<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*" image="image2" resize-max-height="200" resize-max-width="200" resize-quality="0.7"	/>
+					<strong class="clothaddbutton"><a href="" ng-click="vm.single(image2.resized.dataURL)">Add</a></strong>
+					<img style="width: 150; margin-left: 160px;" ng-repeat="i in vm.src" ng-src="{{i}}" />
+					<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
+			</div>-->
 			 <div class="form-box">
 				  <label>Is Active</label>
 				 <input type="checkbox" class="billing-addres-checkbox clothcheck" ng-model="vm.isActive"/>
