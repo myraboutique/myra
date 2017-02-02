@@ -1,9 +1,9 @@
 angular.module('myra')
   .controller('editorderController', editorderController);
 
-editorderController.$inject = ['$resource', '$stateParams', '$http','$scope'];
+editorderController.$inject = ['$resource', '$stateParams', '$http','$scope','$filter'];
 
-function editorderController($resource, $stateParams, $http,$scope) {
+function editorderController($resource, $stateParams, $http,$scope,$filter) {
   var vm = this;
 
   vm.token = JSON.parse(localStorage.getItem('token'));
@@ -63,6 +63,7 @@ function editorderController($resource, $stateParams, $http,$scope) {
 */
 
   function change(orderdate, deliverydate, valid) {
+    console.log("deliverydate : :::===",deliverydate);
   
     if(orderdate && deliverydate){
     var b = orderdate.split('/');
@@ -71,9 +72,18 @@ function editorderController($resource, $stateParams, $http,$scope) {
     var orderDate = new Date(b[2], b[1] - 1, b[0]);
     orderDate.setHours(0, 0, 0, 0, 0);
     deliveryDate.setHours(0, 0, 0, 0, 0);
+   
+   
     //new change 00
-    var alertday = a[0] - 2 + '/' + a[1] + '/' + a[2];
-  
+  //  var alertday = a[0] - 2 + '/' + a[1] + '/' + a[2];
+  //new change in alertday
+    var alertday = new Date(deliverydate);
+   alertday.setDate(alertday.getDate() - 2);
+    alertday=$filter('date')(alertday, "dd/MM/yyyy");
+   console.log(alertday);
+    
+
+
     if (deliveryDate < orderDate) {
       vm.date1 = true;
       // alertchange();

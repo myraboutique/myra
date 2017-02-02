@@ -6,6 +6,15 @@ newclothController.$inject = ['$resource', '$scope'];
 function newclothController($resource, $scope) {
   var vm = this;
   vm.src = [];
+  
+  $scope.single = function (image) {
+    image.forEach(function (e) {
+      vm.src.push(e.resized.dataURL);
+    });
+    console.log(vm.src);
+  };
+  
+
 
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {

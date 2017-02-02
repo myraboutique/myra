@@ -11,8 +11,10 @@
 		<div class="navbar">
      <ul>
       <li><a href="#/home" >Home</a></li>
-			<li><a href="#/customerdetails">Customer Details</a></li>
-			<li><a href="#/order">Create Order</a></li>
+
+			<li><a href="#/customerdetails">Customers</a></li>
+			<li><a href="#/order">Orders</a></li>
+
 			<li><a href="#/alert" >Alerts</a></li>
 			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
 				<ul>
@@ -28,7 +30,7 @@
  </div>
  <!-- Header Section End Here -->
 
- <div class="inner-heading-bar">Add New MaterialType</div>
+ <div class="inner-heading-bar">Add New Material Type</div>
 
  <div class="main-contant-part minpageheight">
   <!-- Left Form Section Start Here -->
@@ -41,15 +43,15 @@
 
       <label><em id="mandatory" style="color:Red">*</em>&nbsp;Material Type</label>
       <input id="mtype" focus="true" name="materialtype" type="text" ng-minlength="3" ng-maxlength="20" ng-model="vm.materialtype"  placeholder="Material Type" required/>
-      	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Material Type is required.</span>
-        	<span ng-show="frm.materialtype.$error.minlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material Type length must be greater then 3 characters.</span>
-          	<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material Type must be less then 20 characters.</span>
+      	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Material is required.</span>
+        	<span ng-show="frm.materialtype.$error.minlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material type should not be less than 2 characters.</span>
+          	<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material type should not be less than 20 characters.</span>
             <span ng-show="vm.flag">This material type already exists.</span>
 
       </div>
 
      <div class="form-box">
-        <label>IsActive</label>
+        <label>Is Active</label>
        <input type="checkbox" ng-model="vm.active" class="billing-addres-checkbox clothcheck"/>
 
      </div>
