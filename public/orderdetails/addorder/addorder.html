@@ -107,7 +107,7 @@
 							</div>
 						</div>
 
-			<div class="form-box">
+			<div class="form-box" ng-repeat="d in vm.addtable">
 			<table class="table" border="1" cellspacing="0" cellpadding="0">
 			<tr>
 				<th>Design</th>
@@ -166,9 +166,9 @@
 					</select>
 				</th>
 				<th width="13%">
-					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
-					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
-					<a ng-click="vm.delete"><img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt=""></a>
+					<img class="action-img" src="assets/images/pair.png"  ng-click="" alt="">
+					<img class="action-img" src="assets/images/add.png" ng-click="vm.newAdd()" alt="">
+					<img class="action-img" src="assets/images/close.png"  alt="">
 				</th>
 			</tr>
 		</table>

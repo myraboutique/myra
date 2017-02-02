@@ -3,6 +3,8 @@ angular.module('myra')
 
 addorderController.$inject = ['$resource','$scope'];
 
+
+
 function addorderController($resource,$scope) {
   var vm = this;
 
@@ -35,6 +37,8 @@ function addorderController($resource,$scope) {
   ]
   vm.typeSelect = typeSelect;
   vm.items = [{}];
+  vm.addtable = [{}];                  //vm.addtable = [{}]; 
+            
   vm.add = add;
   vm.final = final;
  
@@ -60,6 +64,7 @@ function addorderController($resource,$scope) {
   vm.alertchange = alertchange;
   vm.stitchingchange =stitchingchange;
   vm.empty = empty;
+  vm.newAdd = newAdd;
   vm.forstitchingdate=forstitchingdate;
  // vm.changeforstich =changeforstich;
   function empty(index){
@@ -223,6 +228,25 @@ function addorderController($resource,$scope) {
     }
       
   }
+
+function newAdd()
+{
+    vm.addtable.push({});
+  }
+
+
+
+
+/*
+function newAdd()
+{
+    vm.addtable.push({});
+  }
+*/
+
+
+
+
 
   function final(orderform) {
     vm.formSubmitted = true;

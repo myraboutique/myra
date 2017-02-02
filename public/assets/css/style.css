@@ -334,6 +334,16 @@ transform: translate(-50%, -50%);
 .forget-password a:hover{ font-size: 15px; color: #eb2ba5; text-decoration: none; border-bottom:1px solid #eb2ba5;}
 .submit-btn-for-pass{display:block; margin-top: 12px !important;padding-bottom: 30px !important;}
 
+/* class added by vishesh */
+
+.action-img{
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 25px;
+  height: 25px;
+  }
+
+
 
 .inner-heading-bar{width:100%; background: #ff36b6; line-height: 60px; font-size: 25px; color: #fff; padding: 0 0 0 30px; box-sizing: border-box;}
 .main-contant-part{width:100%; float: left; background: #fff; padding: 30px; box-sizing: border-box;}
