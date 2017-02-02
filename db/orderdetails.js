@@ -82,18 +82,18 @@ module.exports = (function () {
           res.json(info);
         })
       })
-    }
-    // Delete: function (req, res) {
-    //   db.sync().then(function () {
-    //     models.destroy({
-    //       where: {
-    //         id: req.body
-    //       }
-    //     }).then(function (info) {
-    //       res.json(info);
-    //     })
-    //   })
-    // },
+    },
+    Delete: function (req, res) {
+      db.sync().then(function () {
+        models.destroy({
+          where: {
+            id: req.params.id
+          }
+        }).then(function (info) {
+          res.json(info);
+        })
+      })
+    },
     // Summary: function (req, res) {
     //   db.sync().then(function () {
     //     models.findAll({

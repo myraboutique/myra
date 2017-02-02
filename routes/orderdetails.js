@@ -10,8 +10,8 @@ module.exports = (function () {
     .put(api.UPDATE)
   //   .delete(api.DELETE)
 
-  // m.route('/api/summary/:id')
-  //   .get(api.summary)
+  m.route('/api/orderdetails/:id')
+    .delete(api.DELETE)
 
   return m;
 })();

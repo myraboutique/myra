@@ -1,5 +1,6 @@
 module.exports = (function () {
     var login = require('./login');
+    var order = require('./order');
     var orderdetails = require('./orderdetails');
     var customerdetails = require('./customerdetails');
     var measurement = require('./measurement');
@@ -7,6 +8,7 @@ module.exports = (function () {
     var alert = require('./alertCron');
     var m = [
         login,
+        order,
         orderdetails,
         customerdetails,
         measurement,
