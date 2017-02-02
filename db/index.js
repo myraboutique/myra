@@ -6,6 +6,7 @@ module.exports = (function(){
     var customerdetails = require('./customerdetails');
     var measurement = require('./measurement');
     var addmaterial = require('./addmaterial') ;
+    var managemeasurements = require('./managemeasurements');
 
     var m = {
         order:order,
@@ -13,7 +14,8 @@ module.exports = (function(){
         login : login,
         customerdetails: customerdetails,
         measurement : measurement,
-        addmaterial : addmaterial
+        addmaterial : addmaterial,
+        managemeasurements : managemeasurements
     };
 
     return m;
