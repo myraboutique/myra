@@ -1060,7 +1060,10 @@ border-radius: 3px;
   position: absolute;
   left: -9999px;
 }
-
+.manual-img{
+   border: 1px solid #ff36b6;
+  box-shadow: 0 0 7px 7px #ff36b6;
+}
 input[type=radio]:checked + label>img {
   border: 1px solid #ff36b6;
   box-shadow: 0 0 7px 7px #ff36b6;
@@ -1105,6 +1108,12 @@ html {
 .table-box{
   width: 100%;
 display: inline-block;
+}
+.table-box1{
+  width: 14%;
+  float: left;
+  margin:20px 20px 20px 0px;
+  clear:both;
 }
 .color-box{
   height: 150px;
