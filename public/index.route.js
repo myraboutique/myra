@@ -117,7 +117,7 @@
       controller: 'clothtypeController',
       controllerAs: 'vm'
     })
-     .state('password', {
+   .state('password', {
       url: '/password/:data',
       templateUrl: 'password/password.html',
       controller: 'passwordController',
