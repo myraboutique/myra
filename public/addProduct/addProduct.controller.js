@@ -10,6 +10,7 @@ function addProductController($resource,$state,$http) {
   vm.submit = submit;
   
   var measurement = $resource('/api/measurement');
+  var addsubdesigns = $resource('/api/addsubdesigns');
   var addmaterial = $resource('/api/addmaterial');
   var customerdetails = $resource('/api/customerdetails');
   var orderdetails = $resource('/api/orderdetails');
@@ -18,6 +19,12 @@ function addProductController($resource,$state,$http) {
   measurement.query(function (info) {
     vm.type = info;
   });
+
+  addsubdesigns.query(function (info) {
+    vm.type2 = info;
+  });
+
+  
 
   addmaterial.query(function(info){
       vm.material = info; 
@@ -53,9 +60,18 @@ function addProductController($resource,$state,$http) {
     vm.type.forEach(function (e){
       if(e.title == info) {
         vm.measurements.push(e.measurement);
-        vm.images = e.image;
+        // vm.images = e.image;
         vm.ee = e.id;
       }
+    });
+
+    vm.type2.forEach(function (e){
+      console.log(e);
+      // if(e.title == info) {
+      //   vm.measurements.push(e.measurement);
+      //   vm.images = e.image;
+      //   vm.ee = e.id;
+      // }
     });
 
     vm.measure1 = vm.measurements[0].split(',');
@@ -98,20 +114,37 @@ function addProductController($resource,$state,$http) {
       info.measureBNECK = vm.measureBNECK;
       info.measureMORI = vm.measureMORI;
       info.measureCROSS = vm.measureCROSS;
-      // console.log(info);
+      console.log(info);
 
       $http.put('/api/orderdetails', info)
-      .then(
-      function (response) {
+      .then(function (response) {
 
         console.log(swal("Record updated successfully."))
 
-        // window.location = '#/alert';
+        // window.location = '#/home';
       },
       function (response) {
         console.log("put unsuccessfull")
       }
       );
+
+      function update(form) {
+   if (form.$valid) {
+     // vm.data.subdesign = vm.selectMeasurement.join(',');
+     console.log(vm.data);
+
+     $http.put('/api/addsubdesign', vm.data)
+       .then(
+       function (response) {
+         console.log("put successfull")
+         console.log(vm.data);
+         window.location = '#/subdesign';
+       },
+       function (response) {
+         console.log("put unsuccessfull")
+       });
+   }
+ }
 
       // }
     

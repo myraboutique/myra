@@ -55,7 +55,7 @@
 
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Measurement</label>
-   <select ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput" ng-required="vm.selectMeasurement.length == 0" name="measurement">
+   <!--<select ng-model="vm.measu"  class="clothmeasurementinput"  >-->
 					
    <!--<select ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput" required="" name="measurement">
 					<option value=""></option>
@@ -79,7 +79,7 @@
 							<option value="CROSS">CROSS</option>
 
 					  </select>-->
-					  	<select ng-model="vm.measu"  class="clothmeasurementinput" >
+					  	<select ng-model="vm.measu" name="measurement" ng-required="vm.selectMeasurement.length == 0" placeholder="Measurement" class="clothmeasurementinput" >
 							<option ng-if="x.isActive" ng-repeat="x in vm.measurementstype"> {{x.name}}</option>
 						</select>
 						<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
