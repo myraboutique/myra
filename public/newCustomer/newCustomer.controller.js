@@ -70,7 +70,7 @@ function newCustomerController($resource) {
             }
             txt += c;
        }
-   console.log(txt);
+   
       customerdetails.customerName = txt;
       customerdetails.gender = vm.gender;
       customerdetails.other = vm.other;
@@ -88,7 +88,7 @@ function newCustomerController($resource) {
       customerdetails.anniversaryAlert = true;
       customerdetails.birthdayAlert = true;
       customerdetails.remarks = vm.remarks;
-      
+      if(vm.data){
       customerdetails.measureSH = vm.data[0];
       customerdetails.measureBUST=vm.data[1];
       customerdetails.measureWAIST=vm.data[2];
@@ -108,14 +108,12 @@ function newCustomerController($resource) {
       customerdetails.measureFNECK=vm.data[16];
       customerdetails.measureBNECK=vm.data[17];
       customerdetails.measureMORI=vm.data[18];
-
+      }
 
       customerdetails.$save(function(info){
 
        swal("Record saved successfully.");
           window.location = '#/customerdetails';
-
-
        })
 
 

@@ -33,7 +33,7 @@ function addorderController($resource,$scope) {
       orderdate: orderdate
     }
   ]
-  vm.typeSelect = typeSelect;
+ 
   vm.items = [{}];
   vm.add = add;
   vm.final = final;
