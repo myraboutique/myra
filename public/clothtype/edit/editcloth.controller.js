@@ -10,7 +10,8 @@ function editclothController($resource, $stateParams, $http) {
   if (!vm.token) {
     window.location = '#/login';
   }
-  vm.data = JSON.parse($stateParams.referer);
+  vm.data1=localStorage.getItem('editcloth');
+  vm.data = JSON.parse(vm.data1);
   vm.measurement = measuremet;
   vm.update = update;
   vm.delete = Delete;

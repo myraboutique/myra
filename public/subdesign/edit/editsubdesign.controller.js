@@ -13,7 +13,9 @@ function editsubdesignController($resource, $stateParams, $http,$scope) {
    
   
 
-  vm.data = JSON.parse($stateParams.referer);
+  //vm.data = JSON.parse($stateParams.referer);
+  vm.data1=localStorage.getItem('subdesign');
+  vm.data = JSON.parse(vm.data1);
   vm.subdesign = subdesign;
   vm.update = update;
   vm.delete = Delete;
