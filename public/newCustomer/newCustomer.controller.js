@@ -6,6 +6,7 @@ newCustomerController.$inject = ['$resource'];
 function newCustomerController($resource) {
 
   var vm = this;
+  vm.measurementstype = [] ;
   vm.token = JSON.parse(localStorage.getItem('token'));
   vm.birthdate = birthdate;
   vm.anniversarydate = anniversarydate;
@@ -87,34 +88,27 @@ function newCustomerController($resource) {
       customerdetails.anniversaryAlert = true;
       customerdetails.birthdayAlert = true;
       customerdetails.remarks = vm.remarks;
-      
-      customerdetails.measureSH = vm.measureSH;
-      customerdetails.measureBUST=vm.measureBUST;
-      customerdetails.measureWAIST=vm.measureWAIST;
-      customerdetails.measureLWAIST=vm.measureLWAIST;
-      customerdetails.measureHIPS=vm.measureHIPS;
-      customerdetails.measureSLEEVES=vm.measureSLEEVES;
-      customerdetails.measureSHORT=vm.measureSHORT;
-      customerdetails.measuretype=vm.measuretype;
-      customerdetails.measureLENGTH=vm.measureLENGTH;
-      customerdetails.measureFULL=vm.measureFULL;
-      customerdetails.measureFULLL=vm.measureFULLL;
-      customerdetails.measureKNEE=vm.measureKNEE;
-      customerdetails.measureARMHOLE=vm.measureARMHOLE;
-       customerdetails.measureCROSS=vm.measureUTHIGH;
-      customerdetails.measureLTHIGH=vm.measureLTHIGH;
-      customerdetails.measureCALF=vm.measureCALF;
-      customerdetails.measureFNECK=vm.measureFNECK;
-      customerdetails.measureBNECK=vm.measureBNECK;
-      customerdetails.measureMORI=vm.measureMORI;
-      customerdetails.measureCROSS=vm.measureCROSS;
-     
-      
-
-
-
-    
-
+      if(vm.data){
+      customerdetails.measureSH = vm.data[0];
+      customerdetails.measureBUST=vm.data[1];
+      customerdetails.measureWAIST=vm.data[2];
+      customerdetails.measureLWAIST=vm.data[3];
+      customerdetails.measureHIPS=vm.data[4];
+      customerdetails.measureSLEEVES=vm.data[5];
+      customerdetails.measureSHORT=vm.data[6];
+      customerdetails.measuretype=vm.data[7];
+      customerdetails.measureLENGTH=vm.data[8];
+      customerdetails.measureFULL=vm.data[9];
+      customerdetails.measureFULLL=vm.data[10];
+      customerdetails.measureKNEE=vm.data[11];
+      customerdetails.measureARMHOLE=vm.data[12];
+       customerdetails.measureCROSS=vm.data[13];
+      customerdetails.measureLTHIGH=vm.data[14];
+      customerdetails.measureCALF=vm.data[15];
+      customerdetails.measureFNECK=vm.data[16];
+      customerdetails.measureBNECK=vm.data[17];
+      customerdetails.measureMORI=vm.data[18];
+      }
 
       customerdetails.$save(function(info){
 
@@ -127,5 +121,12 @@ function newCustomerController($resource) {
 
     }
   }
-
+  var managemeasurements = $resource('/api/managemeasurements')
+  managemeasurements.query(function(info){
+    console.log(info);
+     
+      vm.measurementstype = info ;
+      console.log(vm.measurementstype);
+        
+   });
 }

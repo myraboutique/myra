@@ -1,7 +1,7 @@
 /// <reference path="../typings/tsd.d.ts" />
 
 module.exports = (function(){
-  var models = require('../models').measurement;
+  var models = require('../models').addsubdesign;
   var db = require('../core/db');
   var sequelize = require('sequelize');
 
@@ -16,17 +16,18 @@ module.exports = (function(){
     },
     Create: function(req, res){
       db.sync().then(function () {
-         models.findOne({ where: { title: req.body.title } }).then(function (user) {
+         models.findOne({ where: { design: req.body.design } }).then(function (user) {
       if (user) {
           return res.status(200).json({
-            status: 'This cloth style already exists.'
+            status: 'This Design  already exists.'
           });
           }
       else{
       db.sync().then(function(){
         models.create({
-          title:req.body.title,
-          measurement :req.body.measurement,
+          design:req.body.design,
+          subdesign :req.body.subdesign,
+          subdesignimage : req.body.subdesignimage,
           isActive : req.body.isActive
           // image: req.body.image
         }).then(function(info){
@@ -40,8 +41,9 @@ module.exports = (function(){
     Update: function(req,res){
       db.sync().then(function(){
         models.update({
-          title:req.body.title,
-          measurement :req.body.measurement,
+          design:req.body.design,
+          subdesign :req.body.subdesign,
+          subdesignimage : req.body.subdesignimage,
           isActive : req.body.isActive
           // image: req.body.image
         },{

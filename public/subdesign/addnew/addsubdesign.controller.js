@@ -1,12 +1,12 @@
 angular.module('myra')
-  .controller('newclothController', newclothController);
+  .controller('newsubdesignController', newsubdesignController);
 
-newclothController.$inject = ['$resource', '$scope'];
+newsubdesignController.$inject = ['$resource', '$scope'];
 
-function newclothController($resource, $scope) {
+function newsubdesignController($resource, $scope) {
   var vm = this;
-  vm.measurementstype = [] ;
-  // vm.src = [];
+
+  vm.src = [];
   
   // $scope.single = function (image) {
   //   image.forEach(function (e) {
@@ -21,20 +21,20 @@ function newclothController($resource, $scope) {
   if (!vm.token) {
     window.location = '#/login';
   }
-  vm.measurement = measuremet;
+  vm.subdesign = subdesign;
   // vm.single = single;
   vm.selectMeasurement = [];
   vm.addClothtype = addClothtype;
   vm.isActive = true;
   vm.flag = false;
-  var Clothtype = $resource('/api/measurement');
+  var AddSubDesign = $resource('/api/Addsubdesign');
   vm.delete = Delete;
 
   function Delete(number) {
     vm.selectMeasurement.splice(number, 1);
   }
 
-  function measuremet(data) {
+  function subdesign(data,image) {
     vm.flagformeasure = 0;
     if (data) {
       console.log(vm.selectMeasurement.length);
@@ -45,11 +45,17 @@ function newclothController($resource, $scope) {
       }
       if (vm.flagformeasure == 0) {
         vm.selectMeasurement.push(data);
-        vm.measu = "";
+        vm.subdesi = "";
       }
       else {
         console.log("Already Exists");
       }
+    }
+    if(image){
+      image.forEach(function (e) {
+      vm.src.push(e.resized.dataURL);
+    });
+    console.log(vm.src);
     }
   }
 
@@ -64,19 +70,22 @@ function newclothController($resource, $scope) {
   function addClothtype(form) {
     vm.formSubmitted = true;
     if (form.$valid && vm.selectMeasurement.length > 0) {
-      var newArr = vm.selectMeasurement.join(",");
-      // var newArr2 = vm.src.join("###");
-      var clothtype = new Clothtype();
-      clothtype.title = vm.title;
-      clothtype.measurement = newArr;
-      clothtype.isActive = vm.isActive;
-      // clothtype.image = newArr2;
-      //console.log(newArr2);
 
-      clothtype.$save(function (info) {
+
+
+      var newArr = vm.selectMeasurement.join(",");
+      var newArr2 = vm.src.join("###");
+      var addsubdesign = new AddSubDesign();
+      addsubdesign.design = vm.designs;
+      addsubdesign.subdesign = newArr;
+      addsubdesign.subdesinimage = newArr2;
+      addsubdesign.isActive = vm.isActive;
+      console.log(newArr2);
+
+      addsubdesign.$save(function (info) {
         if (!info.status) {
           swal("Recored Saved Successfully.");
-          window.location = '#/clothtype';
+          window.location = '#/subdesign';
         }
         else {
           vm.flag = true;
@@ -87,12 +96,8 @@ function newclothController($resource, $scope) {
     }
   }
 
-  var managemeasurements = $resource('/api/managemeasurements')
+  var managemeasurements = $resource('/api/measurement')
   managemeasurements.query(function(info){
-    console.log(info);
-     
-      vm.measurementstype = info ;
-      console.log(vm.measurementstype);
-        
+      vm.design = info ;
    });
 }

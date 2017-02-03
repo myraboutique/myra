@@ -117,6 +117,27 @@
       controller: 'clothtypeController',
       controllerAs: 'vm'
     })
+    .state('subdesign', {
+      url: '/subdesign',
+      templateUrl: 'subdesign/subdesign.html',
+      controller: 'subdesignController',
+      controllerAs: 'vm'
+    })
+    .state('addsubdesign', {
+      url: '/addsubdesign',
+      templateUrl: 'subdesign/addnew/addsubdesign.html',
+      controller: 'newsubdesignController',
+      controllerAs: 'vm'
+    })
+    .state('editsubdesign', {
+      url: '/editsubdesign',
+      templateUrl: 'subdesign/edit/editsubdesign.html',
+      controller: 'editsubdesignController',
+      controllerAs: 'vm',
+       params: {
+      'referer': null
+            }
+    })
    .state('password', {
       url: '/password/:data',
       templateUrl: 'password/password.html',

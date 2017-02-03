@@ -46,44 +46,19 @@
 			 <div class="form-box">
 
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Design</label>
-			  <input id="" focus="true" name="style" required="required" type="text" placeholder="Design" ng-model="vm.title"/>
-
-					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style is required.</span>
-          <span ng-show="vm.flag">This style already exists.</span>
-
+					<select   class="clothmeasurementinput" ng-model="vm.designs" required="required" name="design"  >
+						<option  ng-repeat="x in vm.design"> {{x.title}}</option>
+					</select>
        </div>
 
 			 <div class="form-box">
-			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Measurement</label>
-   <select ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput" ng-required="vm.selectMeasurement.length == 0" name="measurement">
-					
-   <!--<select ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput" required="" name="measurement">
-					<option value=""></option>
-							<option value="SH">SH</option>
-							<option value="BUST">BUST</option>
-              				<option value="WAIST">WAIST</option>
-							<option value="LWAIST">LWAIST</option>
-							<option value="HIPS">HIPS</option>
-							<option value="SLEEVES">SLEEVES</option>
-							<option value="SHORT">SHORT</option>
-							<option value="3/4">3/4</option>
-							<option value="FULL">FULL</option>
-							<option value="FULLL">FULLL</option>
-							<option value="KNEE">KNEE</option>
-							<option value="ARMHOLE">ARMHOLE</option>
-							<option value="UTHIGH">UTHIGH</option>
-							<option value="LTHIGH">LTHIGH</option>
-							<option value="FNECK">FNECK</option>
-							<option value="BNECK">BNECK</option>
-							<option value="MORI">MORI</option>
-							<option value="CROSS">CROSS</option>
+			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Sub Design</label>
 
-					  </select>-->
-					  	<select ng-model="vm.measu"  class="clothmeasurementinput" >
-							<option ng-if="x.isActive" ng-repeat="x in vm.measurementstype"> {{x.name}}</option>
-						</select>
-						<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
-				<span ng-show="vm.flagformeasure">This measurement already added.</span>
+					  	<input ng-model="vm.subdesi" type="text" class="clothmeasurementinput" >
+							
+						</input>
+						<strong class="clothaddbutton"><a href="" ng-click="vm.subdesign(vm.subdesi,image2)">Add</a></strong>
+				<span ng-show="vm.flagformeasure">This Sub Design already added.</span>
 		
 			 <span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
 			 </div>
@@ -92,7 +67,12 @@
 				 {{data}}
 			 <button type="button" ng-click="vm.delete($index)">X</button>
 			  </div>
-
+<div class="form-box">
+		<label>Image</label>
+	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*" multiple image="image2" resize-max-height="200" resize-max-width="200" resize-quality="0.7"	/>
+	<img ng-repeat="img in images2" ng-src="{{img.resized.dataURL}}" />
+	<!--<button type="button" ng-click="single(image2)">Add</button>-->
+</div>
 
 			<!--<div class="form-box">
 					<label>Add Photos</label>
@@ -102,7 +82,7 @@
 					<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
 			</div>-->
 			 <div class="form-box">
-				  <label>Is Active</label>
+				 		  <label><em id="mandatory" style="color:Red">*</em> IsActive</label>
 				 <input type="checkbox" class="billing-addres-checkbox clothcheck" ng-model="vm.isActive"/>
 			 </div>
 			</div>
@@ -112,7 +92,7 @@
 				<input type="button" value="Save" ng-click="vm.addClothtype(form)"/>
 			</div>
 			<div class="cancel-button">
-				<input type="button" value="Cancel" ui-sref="clothtype"/>
+				<input type="button" value="Cancel" ui-sref="subdesign"/>
 			</div>
 	   </div>
 
