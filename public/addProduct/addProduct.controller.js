@@ -1,9 +1,9 @@
 angular.module('myra')
   .controller('addProductController', addProductController);
 
-addProductController.$inject = ['$resource','$state'];
+addProductController.$inject = ['$resource','$state','$http'];
 
-function addProductController($resource,$state) {
+function addProductController($resource,$state,$http) {
   var vm = this;
 
   vm.designSelect = designSelect;
@@ -12,6 +12,8 @@ function addProductController($resource,$state) {
   var measurement = $resource('/api/measurement');
   var addmaterial = $resource('/api/addmaterial');
   var customerdetails = $resource('/api/customerdetails');
+  var orderdetails = $resource('/api/orderdetails');
+  
 
   measurement.query(function (info) {
     vm.type = info;
@@ -73,7 +75,8 @@ function addProductController($resource,$state) {
       // } else {
       //   vm.data.billingAddress = vm.data.address;
       // }
-      console.log(info);
+      // var orderdetails = new Orderdetails();
+      // console.log(info);
       info.measureWAIST = vm.measureWAIST;
       info.measureWAIST = vm.measureWAIST;
       info.measureBUST = vm.measureBUST;
@@ -95,17 +98,21 @@ function addProductController($resource,$state) {
       info.measureBNECK = vm.measureBNECK;
       info.measureMORI = vm.measureMORI;
       info.measureCROSS = vm.measureCROSS;
-      console.log(info);
-      $http.post('/api/orderdetails', info)
-          .then(
-              function(response){
-                console.log(swal("Record updated successfully."))
-                // window.location = '#/customerdetails';
-              },
-              function(response){
-                  console.log("put unsuccessfull")
-              }
-          );
+      // console.log(info);
+
+      $http.put('/api/orderdetails', info)
+      .then(
+      function (response) {
+
+        console.log(swal("Record updated successfully."))
+
+        // window.location = '#/alert';
+      },
+      function (response) {
+        console.log("put unsuccessfull")
+      }
+      );
+
       // }
     
   };

@@ -1,5 +1,6 @@
 module.exports = (function () {
     var login = require('./login');
+    var order = require('./order');   
     var orderdetails = require('./orderdetails');
     var customerdetails = require('./customerdetails');
     var measurement = require('./measurement');
@@ -9,10 +10,12 @@ module.exports = (function () {
     var addsubdesign = require('./addsubdesign');
     var m = {
         login: login,
+        order:order,
         orderdetails: orderdetails,
         customerdetails: customerdetails,
         measurement: measurement,
         addmaterial: addmaterial,
+        addsubdesign: addsubdesign,
         // addproduct: addproduct,        
         managemeasurements:managemeasurements
     };

@@ -1,17 +1,18 @@
 module.exports = (function () {
   var express = require('express');
-  var api = require('../api').orderdetails;
+  var api = require('../api').order;
 
   var m = express.Router();
 
-  m.route('/api/orderdetails')
+  m.route('/api/order')
     .post(api.POST)
     .get(api.GET)
-    .put(api.UPDATE)
+    //.put(api.UPDATE)
   //   .delete(api.DELETE)
 
-  m.route('/api/orderdetails/:id')
+  m.route('/api/order/:id')
     .delete(api.DELETE)
+    .put(api.UPDATE)
 
   return m;
 })();
