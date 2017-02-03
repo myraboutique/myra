@@ -30,14 +30,28 @@
 	 </div>
 	 <!-- Header Section End Here -->
 
-	 <div class="inner-heading-bar">Edit Sub Design</div>
+	 <div class="inner-heading-bar">Edit Style</div>
 
 	 <div class="main-contant-part minpageheight">
 		<!-- Left Form Section Start Here -->
 		<form name="form" novalidate>
     <div class="order-form-left-section add-new-form">
       <div class="form-section-box">
-	 <div class="form-box">
+	
+
+			 <div class="form-box">
+			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Style</label>
+
+					  	<input ng-model="vm.subdesi" type="text" class="clothmeasurementinput" >
+							
+						</input>
+						<!--<strong class="clothaddbutton"><a href="" ng-click="vm.subdesign(vm.subdesi,image2)">Add</a></strong>
+				<span ng-show="vm.flagformeasure">This Style already added.</span>-->
+		
+			 <!--<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>-->
+			 </div>
+
+ <div class="form-box">
 
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Design</label>
 					<select   class="clothmeasurementinput" ng-model="vm.data.design" required="required" name="design"  >
@@ -45,22 +59,10 @@
 					</select>
        </div>
 
-			 <div class="form-box">
-			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Sub Design</label>
-
-					  	<input ng-model="vm.subdesi" type="text" class="clothmeasurementinput" >
-							
-						</input>
-						<strong class="clothaddbutton"><a href="" ng-click="vm.subdesign(vm.subdesi,image2)">Add</a></strong>
-				<span ng-show="vm.flagformeasure">This Sub Design already added.</span>
-		
-			 <span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
-			 </div>
-
-			 <div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
+			 <!--<div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
 				 {{data}}
 			 <button type="button" ng-click="vm.delete($index)">X</button>
-				</div>
+				</div>-->
 			 <!--<div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em> Design</label>
 			  <input id="" name="style" required="required" type="text" placeholder="Design" ng-model="vm.data.design"/>

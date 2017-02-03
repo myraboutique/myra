@@ -5,11 +5,10 @@ newsubdesignController.$inject = ['$resource', '$scope'];
 
 function newsubdesignController($resource, $scope) {
   var vm = this;
-  vm.src ;
   
   $scope.single = function (image) {
       vm.src=image;
-    console.log(vm.src);
+    console.log('src data'+vm.src);
   };
   
 
@@ -47,11 +46,7 @@ function newsubdesignController($resource, $scope) {
       else {
         console.log("Already Exists");
       }
-    }
-    if(image){
-      vm.src = image;
-    console.log(image);
-    }
+    }    
   }
 
     // function single(data) {
@@ -74,7 +69,7 @@ function newsubdesignController($resource, $scope) {
       addsubdesign.design = vm.designs;
       // addsubdesign.subdesign = newArr;
       addsubdesign.subdesign = vm.subdesigns;
-      addsubdesign.subdesinimage = vm.src;
+      addsubdesign.subdesignimage = vm.src;
       addsubdesign.isActive = vm.isActive;
 
       addsubdesign.$save(function (info) {

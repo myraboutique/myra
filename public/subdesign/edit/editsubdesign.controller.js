@@ -18,12 +18,12 @@ function editsubdesignController($resource, $stateParams, $http) {
   vm.selectMeasurement = vm.data.subdesign.split(',');
   console.log(vm.selectMeasurement);
 
-  function subdesign(data,image) {
-    if (data) {
-      vm.selectMeasurement.push(data);
-      vm.subdesi = "";
-    }
-  }
+  // function subdesign(data,image) {
+  //   if (data) {
+  //     vm.selectMeasurement.push(data);
+  //     vm.subdesi = "";
+  //   }
+  // }
 
   function Delete(number) {
     vm.selectMeasurement.splice(number, 1);

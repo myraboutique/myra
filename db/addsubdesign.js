@@ -15,13 +15,13 @@ module.exports = (function(){
      })
     },
     Create: function(req, res){
-      db.sync().then(function () {
-         models.findOne({ where: { design: req.body.design } }).then(function (user) {
-      if (user) {
-          return res.status(200).json({
-          });
-          }
-      else{
+      // db.sync().then(function () {
+      //    models.findOne({ where: { design: req.body.design } }).then(function (user) {
+      // if (user) {
+      //     return res.status(200).json({
+      //     });
+      //     }
+      // else{
       db.sync().then(function(){
         models.create({
           design:req.body.design,
@@ -33,9 +33,9 @@ module.exports = (function(){
           res.json(info);
         })
       })
-    }
-  })
-    })
+  //   }
+  // })
+  //  })
     },
     Update: function(req,res){
       db.sync().then(function(){
