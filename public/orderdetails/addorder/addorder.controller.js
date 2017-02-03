@@ -27,6 +27,7 @@ function addorderController($resource, $scope) {
   vm.tempalert = false;
   vm.date4 = false;
   vm.cancel = cancel;
+  vm.addpro=addpro;
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
   var orderdate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
@@ -237,21 +238,21 @@ function addorderController($resource, $scope) {
 //  }
 
   function newAdd() {
-      // vm.addtable.push({});
-    swal({
-      title: "",
-      text: "Are you sure you want to duplicate product ?",
-      showCancelButton: true,
-      confirmButtonColor: "#e527a0",
-      confirmButtonText: "Yes"
-    },
-      function (confirm) {
+       vm.addtable.push({});
+    // swal({
+    //   title: "",
+    //   text: "Are you sure you want to duplicate product ?",
+    //   showCancelButton: true,
+    //   confirmButtonColor: "#e527a0",
+    //   confirmButtonText: "Yes"
+    // },
+    //   function (confirm) {
      
-         vm.addtable.push({});
+    //      vm.addtable.push({});
              
-      // window.location = "#/addorder"
-       //  swal("Deleted!", "Your imaginary file has been deleted.", "success");
-      });
+    //   // window.location = "#/addorder"
+    //    //  swal("Deleted!", "Your imaginary file has been deleted.", "success");
+    //   });
   }
 
  function deleteProduct() {
@@ -268,13 +269,16 @@ function addorderController($resource, $scope) {
     }
   */
 
-
+function addpro(){
+  window.location = '#/addProduct';
+}
 
 
 
   function final(orderform) {
+    console.log('order data'+orderform);
     vm.formSubmitted = true;
-    if (!vm.date2 && !vm.date3 && !vm.date1 && orderform.$valid) {
+    if (!vm.date2 && !vm.date3 && !vm.date1) {
       var orderdetails = new Orderdetails();
       var i = 0;
       var rOrder = function () {
@@ -282,22 +286,21 @@ function addorderController($resource, $scope) {
           orderdetails.customerid = vm.seleCust.id;
           orderdetails.customerName = vm.seleCust.customerName;
           orderdetails.customeremail = vm.seleCust.email;
-          orderdetails.type = vm.order[i].type.title
+         // orderdetails.type = vm.order[i].type.title
           //   orderdetails.material = vm.order[i].materialtype.materialtype;
-          orderdetails.color = vm.order[i].color;
-          if (vm.order[i].checked) {
-            orderdetails.customization = vm.order[i].customization;
-          } else {
-            orderdetails.customization = "";
-          }
-          orderdetails.cloth = vm.order[i].cloth
-          orderdetails.orderdate = vm.order[i].orderdate
-          orderdetails.stitchingdate = vm.order[i].stitchingdate
-          console.log();
-          orderdetails.date = vm.order[i].deliverydate
-          orderdetails.alertday = vm.order[i].alertday
-          orderdetails.amount = vm.order[i].amount
-          orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
+          //orderdetails.color = vm.order[i].color;
+          // if (vm.order[i].checked) {
+          //   orderdetails.customization = vm.order[i].customization;
+          // } else {
+          //   orderdetails.customization = "";
+          // }
+         // orderdetails.cloth = vm.order[i].cloth;
+          orderdetails.orderdate = vm.order[i].orderdate;
+          orderdetails.stitchingdate = vm.order[i].stitchingdate;
+          orderdetails.date = vm.order[i].deliverydate;
+          orderdetails.alertday = vm.order[i].alertday;
+          orderdetails.amount = vm.order[i].amount;
+         // orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
           orderdetails.status = 'New';
           orderdetails.$save(function (info) {
             i++;
