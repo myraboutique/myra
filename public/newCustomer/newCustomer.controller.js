@@ -102,7 +102,7 @@ function newCustomerController($resource) {
       customerdetails.measureFULLL=vm.data[10];
       customerdetails.measureKNEE=vm.data[11];
       customerdetails.measureARMHOLE=vm.data[12];
-       customerdetails.measureCROSS=vm.data[13];
+      customerdetails.measureCROSS=vm.data[13];
       customerdetails.measureLTHIGH=vm.data[14];
       customerdetails.measureCALF=vm.data[15];
       customerdetails.measureFNECK=vm.data[16];

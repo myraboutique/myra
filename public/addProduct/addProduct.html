@@ -20,7 +20,8 @@
                     <ul>
                         <li><a href='#/register'><span>Manage Users</span></a></li>
                         <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
-                        <li><a href='#/materialtype'><span>Manage Material</span></a></li>
+                        <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
                     </ul>
                 </li>
                 <li><a href="#/logout">Logout</a></li>
@@ -35,73 +36,84 @@
             <div class="main-contant-part">
                 <div class="form-heading"><h3>Design Details</h3></div>
 
-                    <div class="form-section-box">
+                    <div ng-if="vm.type.length > 0" ng-init="vm.addProduct.selectedDesign = vm.type[0].title;vm.designSelect(vm.addProduct.selectedDesign)" class="form-section-box">
                         <label style="text-align:left; ">Design</label>
-                        <select style="width: 53%!important;" rows="4" cols="50" ng-maxlength="200" ng-model="vm.selectedDesign" ng-change="vm.typeSelect(vm.selectedDesign)" required>
-                        <option ng-selected="style1" value="{{data.title}}" ng-repeat="data in vm.type">{{data.title}}</option>
+                        <select style="width: 53%!important;" rows="4" cols="50" name="design" ng-model="vm.addProduct.selectedDesign" ng-change="vm.designSelect(vm.addProduct.selectedDesign)" required>
+                        <option value="{{data.title}}" ng-repeat="data in vm.type | filter:data.isActive='true'">{{data.title}}</option>
                         </select>
-                        <!--<span ng-show="vm.addProduct.clothdesc.$error.maxlength">Color Code is required.</span>-->
+                        <span ng-show="form.design.$error.required && (form.design.$dirty || vm.formSubmitted)">Design is required.</span>
                     </div>
 
-                    <div style="    margin-left: 30%;">
-				        <img style="margin: 10px;"  class="image" ng-repeat="i in vm.images[0]" ng-src="{{i}}" width="100" height="100" />		
+                    <div style="margin-left: 30%;">
+				        <img style="margin: 10px;"  class="image" ng-repeat="img in vm.images1" ng-src="{{img}}" width="100" height="100" />		
 			        </div>
 
                     <div class="form-section-box">
                         <label style="text-align:left; ">Material Type</label>
-                        <select style="width: 53%!important;" rows="4" cols="50" ng-maxlength="200" ng-model="vm.data2" ng-change="vm.typeSelect2(vm.data)" ng-options="data as data.materialtype
-                        for data in vm.material | filter:data.isActive='true'" required>
-                        <!--<option value="">-- Please Select --</option>-->
+                        <select style="width: 53%!important;" rows="4" cols="50" name="material" ng-model="vm.addProduct.material" ng-change="vm.materialSelect2(vm.addProduct.material)" required>
+                        <option value="{{data.materialtype}}" ng-repeat="data in vm.material | filter:data.isActive='true'">{{data.materialtype}}</option>
                         </select>
-                        <!--<span ng-show="vm.addProduct.clothdesc.$error.maxlength">Color Code is required.</span>-->
+                        <span ng-show="vm.addProduct.material.$error.required && (form.material.$dirty || vm.formSubmitted)">Material Type is required.</span>
                     </div>
 
                     <div class="form-section-box">
                         <label style="text-align:left; ">Color Code</label>
-                        <input style="width: 53%!important;" colorpicker rows="4" cols="50" ng-maxlength="200" ng-model="vm.addProduct.cloth" name="clothdesc"></input>
-                        <span ng-show="vm.addProduct.clothdesc.$error.maxlength">Color Code is required.</span>
+                        <input style="width: 53%!important;" colorpicker rows="4" cols="50" ng-model="vm.addProduct.color" name="color"></input>
+                        <span ng-show="vm.addProduct.color.$error.required && (form.color.$dirty || vm.formSubmitted)">Color Code is required.</span>
                     </div>
 
                     <div class="form-section-box">
                         <div class="form-box">
                             <label style="text-align:left;"><em ng-if="vm.addProduct.checked" id="mandatory" style="color:Red">*</em>&nbsp;Customization</label>
                             <div class="customization-check-box">
-                                <input type="checkbox" ng-model="vm.addProduct.checked" ng-change="vm.empty()" name="vehicle" value="" class="checkbox" />
-                                <textarea style="width: 75%!important; clear:both;" ng-disabled="!vm.addProduct.checked" ng-minlength="10" ng-maxlength="100" ng-model="vm.addProduct.customization" class="customization-check-box-textarea"
-                                rows="4" cols="50" placeholder="Customization Description" name="customization"></textarea>
+                                <input type="checkbox" ng-model="vm.addProduct.checked" ng-change="vm.empty()" name="checked" value="" class="checkbox" />
+                                <textarea style="width: 75%!important; clear:both;" ng-disabled="!vm.addProduct.checked" ng-minlength="10" ng-maxlength="100" 
+                                    ng-model="vm.addProduct.customization" class="customization-check-box-textarea"
+                                    rows="4" cols="50" placeholder="Customization Description" name="customization"></textarea>
                                 <span ng-show="form.customization.$error.minlength">Customization length must be greater than 10.</span>
                                 <span ng-show="form.customization.$error.maxlength">Customization length must be less than 100.</span>
                             </div>
 
                             <div class="form-box">
                                 <label style="text-align:left; ">Any Other Remarks</label>
-                                <textarea style="width: 53%!important;" rows="4" cols="50" ng-maxlength="200" ng-model="vm.remarks" placeholder="Any Other Remark" name="clothdesc"></textarea>
-                                <span ng-show="vm.addProduct.clothdesc.$error.maxlength">Remarks description length must be less than 200.</span>
+                                <textarea style="width: 53%!important;" rows="4" cols="50" ng-maxlength="200" ng-model="vm.addProduct.remarks" placeholder="Any Other Remark" name="remarks"></textarea>
+                                <span ng-show="vm.addProduct.remarks.$error.required && (form.material.$dirty || vm.formSubmitted)">Remarks description length must be less than 200.</span>
                             </div>
                         </div>
                     </div>
             
 
             <div class="form-heading">Measurement Details</div>
-            <div class="form-box" ng-repeat="data in vm.measure">
-                 <label>{{data}}</label>
-			
+            <div class="measure" ng-show="vm.measure.indexOf('BUST') > 0"><label>BUST</label><input type="text" ng-model="vm.measureBUST"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('SH') > 0"><label>SH</label><input type="text" ng-model="vm.measureSH"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('WAIST') > 0"><label>WAIST</label><input type="text" ng-model="vm.measureWAIST"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('LWAIST') > 0"><label>LWAIST</label><input type="text" ng-model="vm.measureLWAIST"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('HIPS') > 0"><label>HIPS</label><input type="text" ng-model="vm.measureHIPS"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('SLEEVES') > 0"><label>SLEEVES</label><input type="text" ng-model="vm.measureSLEEVES"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('SHORT') > 0"><label>SHORT</label><input type="text" ng-model="vm.measureSHORT"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('LENGTH') > 0"><label>LENGTH</label><input type="text" ng-model="vm.measureLENGTH"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('FULL') > 0"><label>FULL</label><input type="text" ng-model="vm.measureFULL"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('FULLL') > 0"><label>FULLL</label><input type="text" ng-model="vm.measureFULLL"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('KNEE') > 0"><label>KNEE</label><input type="text" ng-model="vm.measureKNEE"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('ARMHOLE') > 0"><label>ARMHOLE</label><input type="text" ng-model="vm.measureARMHOLE"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('CROSS') > 0"><label>CROSS</label><input type="text" ng-model="vm.measureCROSS"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('LTHIGH') > 0"><label>LTHIGH</label><input type="text" ng-model="vm.measureLTHIGH"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('CALF') > 0"><label>CALF</label><input type="text" ng-model="vm.measureCALF"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('FNECK') > 0"><label>FNECK</label><input type="text" ng-model="vm.measureFNECK"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('BNECK') > 0"><label>BNECK</label><input type="text" ng-model="vm.measureBNECK"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('MORI') > 0"><label>MORI</label><input type="text" ng-model="vm.measureMORI"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('UTHIGH') > 0"><label>UTHIGH</label><input type="text" ng-model="vm.measureUTHIGH"/></div>
             
-            <span ng-show="'{{data}} == measureWAIST'">{{vm.measureWAIST}}</span>
-            <!--<span>{{vm.measureBUST}}</span>
-            <span>{{vm.measureSH}}</span>
-            <span>{{vm.measureLWAIST}}</span>-->
-            </div>
             
-
             <!--submit button-->
             <div class="submit-button">
-            <input class="add-next-button" type="submit" value="submit" ng-click=" vm.add(addProduct)" />
+            <input class="add-next-button" type="submit" value="submit" ng-click=" vm.submit(vm.addProduct)" />
             </div>
             <!--submit button End here-->
         </div>
         </form>
-    </div>
+    
 <!-- Footer Section Start Here -->
 <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
 <!-- Footer Section End Here -->
+</div>

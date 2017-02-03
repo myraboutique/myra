@@ -2,11 +2,14 @@ module.exports = (function () {
     var login = require('./login');
     var order = require('./order');
     var orderdetails = require('./orderdetails');
+    var order = require('./order');   
     var customerdetails = require('./customerdetails');
     var measurement = require('./measurement');
     var addmaterial = require('./addmaterial');
     var alert = require('./alertCron');
+    var addsubdesign = require('./addsubdesign');
     var managemeasurements = require('./managemeasurements');
+    //  var addproduct = require('./addproduct');
     var m = [
         login,
         order,
@@ -14,7 +17,9 @@ module.exports = (function () {
         customerdetails,
         measurement,
         addmaterial,
-        managemeasurements
+        managemeasurements,
+        addsubdesign
+        // addproduct
     ];
     return m;
 })();

@@ -13,10 +13,10 @@ function loginController($resource,$state) {
     vm.formSubmitted = true;
     if(myform.$valid){
     var login = new Login()
-    login.email = vm.username;
+    login.username = vm.username;
     login.password = vm.password;
     login.$save(function(info){
-      if(info.email){
+      if(info.username){
         localStorage.setItem('token',JSON.stringify(info));
        // window.location = '#/home';
         $state.go('home');

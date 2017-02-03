@@ -1,0 +1,97 @@
+  <div class="container">
+
+	<!-- Header Section Start Here -->
+   <div class="main-header">
+    	<div class="logo"><a href="#/home"><img src="assets/images/logo.png" alt=""></a></div>
+		<span class="menu-toggle">
+      <i></i>
+      <i></i>
+      <i></i>
+    </span>
+		<div class="navbar">
+     <ul>
+      <li><a href="#/home" >Home</a></li>
+
+			<li><a href="#/customerdetails">Customers</a></li>
+			<li><a href="#/order">Orders</a></li>
+
+			<li><a href="#/alert">Alerts</a></li>
+			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
+				<ul>
+	        <li><a href='#/register'><span>Manage Users</span></a></li>
+	        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+			 <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+					<li><a href='#/materialtype'><span>Manage Material</span></a></li>
+	      </ul>
+			</li>
+			<li><a href="#/logout">Logout</a></li>
+		 </ul>
+		</div>
+	 </div>
+	 <!-- Header Section End Here -->
+
+	 <div class="inner-heading-bar">Manage Designs</div>
+
+	 <div class="main-contant-part minpageheight">
+		<!-- Customer Details page Section Start Here -->
+		<div class="customer-detail-page-contant">
+     <div class="right-add-new-button"><a href="#/addsubdesign">Add New</a></div>
+		 <div class="details-table">
+			 	<table class="table-part" border="0" cellspacing="0" cellpadding="0">
+					 
+					<tr class="top-purpal-color-row">
+						<th>Style</th>						
+						<th>Design</th>
+						<!--<th>Images</th>-->
+						<th>Status</th>
+					</tr>
+          <!-- ng-repeat="data in vm.type"  -->
+					<tr dir-paginate="data in vm.type|itemsPerPage:10" ng-class="{
+              'some':$index%2 == 0,
+              'table-tr-alternate-color':$index%2 != 0
+          }">
+						<td class="top-purpal-color-row2"><span><a ng-click="vm.editpage(data)" class="customer-name-link">{{data.subdesign}}</a></span></td>
+						<td class="top-purpal-color-row2">{{data.design}}</td>
+						<!--<td class="top-purpal-color-row2"><a ng-click="vm.temp($index)">Back</a></td>-->
+						<td ng-if="data.isActive" class="top-purpal-color-row2">Active</td>
+						<td ng-if="data.isActive == false" class="top-purpal-color-row2">In Active</td>
+					</tr>
+
+				</table>
+		 </div>
+		</div>
+
+		<!--<div class="customer-detail-page-contant">
+			<div class="right-add-new-button"><a>Back</a></div>
+			<div  ng-repeat="data in vm.type" style="position: relative;margin-top: 50px;margin-left: 100px;" >
+				{{data.title}}<img style="margin: 10px;"  class="image" ng-repeat="i in vm.images[$index]" ng-src="{{i}}" width="10" height="10" />		
+			</div>
+		</div>-->
+		<!-- Customer Details page Section End Here -->
+    <div class="paging">
+     <dir-pagination-controls
+                max-size="10"
+               direction-links="true"
+               boundary-links="true" >
+       </dir-pagination-controls>
+      </div>
+	 </div>
+	 <!-- Footer Section Start Here -->
+	 <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
+	 <!-- Footer Section End Here -->
+	</div>
+
+	 <script type="text/javascript">
+         $(document).ready(function(e) {
+          $(".menu-toggle").click(function(){
+	        $(".navbar").slideToggle()
+
+	        })
+	        $(".navbar ul li").click(function(){
+		      $(this).find("ul").slideToggle()
+		      $(this).toggleClass("active");
+
+		   })
+
+});
+</script>
