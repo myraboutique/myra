@@ -67,12 +67,13 @@ function addProductController($resource,$state,$http) {
         vm.ee = e.id;
       }
     });
-    console.log(vm.type2);
+    // console.log(vm.type2);
+
     vm.type2.forEach(function (e){
-    // console.log(e);
+    console.log(e);
       
-      if(e.title == info) {
-        vm.images = e.image;
+      if(e.design == info) {
+        vm.images = info;
         // console.log(vm.images);
       }
     });
