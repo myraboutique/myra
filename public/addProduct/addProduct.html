@@ -35,17 +35,18 @@
         <form name="form" novalidate>
             <div class="main-contant-part">
                 <div class="form-heading"><h3>Design Details</h3></div>
-
-                    <div ng-if="vm.type.length > 0" ng-init="vm.addProduct.selectedDesign = vm.type[0].title;vm.designSelect(vm.addProduct.selectedDesign)" class="form-section-box">
+<!--ng-if="vm.type.length > 0" ng-init="vm.addProduct.selectedDesign = vm.type[0].title;vm.designSelect(vm.addProduct.selectedDesign)"-->
+                    <div class="form-section-box">
                         <label style="text-align:left; ">Design</label>
                         <select style="width: 53%!important;" rows="4" cols="50" name="design" ng-model="vm.addProduct.selectedDesign" ng-change="vm.designSelect(vm.addProduct.selectedDesign)" required>
+                        <option value="" ng-selected="true">Select Design</option>
                         <option value="{{data.title}}" ng-repeat="data in vm.type | filter:data.isActive='true'">{{data.title}}</option>
                         </select>
                         <span ng-show="form.design.$error.required && (form.design.$dirty || vm.formSubmitted)">Design is required.</span>
                     </div>
 
-                    <div style="margin-left: 30%;">{{vm.images}}
-				        <img style="margin: 10px;"  class="image" ng-repeat="img in vm.images" ng-src="{{img}}" width="100" height="100" />		
+                    <div style="margin-left: 30%;">
+				        <img style="margin: 10px;"  class="image" ng-repeat="img in vm.images1 track by $index" src="{{img}}" width="100" height="100" />		
 			        </div>
 
                     <div class="form-section-box">
@@ -107,10 +108,9 @@
             
             <!--submit button-->
             <div class="submit-button">
-            <input class="add-next-button" type="submit" value="submit" ng-click=" vm.submit(vm.addProduct)" />
+            <input class="add-next-button" type="submit" value="submit" ng-click="vm.submit(vm.addProduct)" />
             </div>
             <!--submit button End here-->
-        </div>
         </form>
     
 <!-- Footer Section Start Here -->

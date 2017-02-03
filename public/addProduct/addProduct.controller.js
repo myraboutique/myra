@@ -55,32 +55,27 @@ function addProductController($resource,$state,$http) {
     vm.measureMORI = info[0].measureMORI;
     vm.measureCROSS = info[0].measureCROSS;
   });
-
+  
   function designSelect(info) {
     vm.measurements = [];
     vm.measure = [];
+    vm.images1 = [];
     
     vm.type.forEach(function (e){
       if(e.title == info) {
         vm.measurements.push(e.measurement);
-        // vm.images = e.image;
         vm.ee = e.id;
       }
     });
-    // console.log(vm.type2);
 
     vm.type2.forEach(function (e){
-    console.log(e);
-      
-      if(e.design == info) {
-        vm.images = info;
-        // console.log(vm.images);
+      if(e.design.trim() == info) {
+        vm.images1.push(e.subdesignimage);
+        console.log("Hello");
       }
     });
-
+    console.log(info);
     vm.measure1 = vm.measurements[0].split(',');
-    // vm.images1 = vm.images.split('###');
-    // console.log(vm.images1);
     vm.measure.push("");
     vm.measure1.forEach(function(element) {
       vm.measure.push(element.trim());
@@ -88,15 +83,6 @@ function addProductController($resource,$state,$http) {
   };  
 
   function submit(info) {
-    // vm.formSubmitted = true;
-    // if(form.$valid){
-      // if(vm.data.other){
-      //   vm.data.billingAddress = vm.data.billingAddress;
-      // } else {
-      //   vm.data.billingAddress = vm.data.address;
-      // }
-      // var orderdetails = new Orderdetails();
-      // console.log(info);
       info.measureWAIST = vm.measureWAIST;
       info.measureWAIST = vm.measureWAIST;
       info.measureBUST = vm.measureBUST;
@@ -118,41 +104,20 @@ function addProductController($resource,$state,$http) {
       info.measureBNECK = vm.measureBNECK;
       info.measureMORI = vm.measureMORI;
       info.measureCROSS = vm.measureCROSS;
-      // console.log(info);
+      
 
-      $http.put('/api/orderdetails', info)
-      .then(function (response) {
 
-        console.log(swal("Record updated successfully."))
-
-        // window.location = '#/home';
-      },
-      function (response) {
-        console.log("put unsuccessfull")
-      }
-      );
-
-      function update(form) {
-   if (form.$valid) {
-     // vm.data.subdesign = vm.selectMeasurement.join(',');
-    //  console.log(vm.data);
-
-     $http.put('/api/addsubdesign', vm.data)
+     $http.put('/api/addsubdesign', info)
        .then(
        function (response) {
-        //  console.log("put successfull")
-        //  console.log(vm.data);
          window.location = '#/subdesign';
        },
        function (response) {
-        //  console.log("put unsuccessfull")
-       });
-   }
- }
 
-      // }
+       });
+
     
-  };
+  }
 }
      
 

@@ -28,7 +28,7 @@ var OrderDetails = db.define('orderdetails', {
     stitchingdate:Sequelize.STRING,
     status: Sequelize.STRING,
             measureWAIST: Sequelize.INTEGER,
-            measureWAIST: Sequelize.INTEGER,
+            // measureWAIST: Sequelize.INTEGER,
             measureBUST: Sequelize.INTEGER,
             measureSH: Sequelize.INTEGER,
             measureLWAIST: Sequelize.INTEGER,
