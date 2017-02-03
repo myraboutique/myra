@@ -35,6 +35,14 @@ function clothtypeController($resource,$state,$scope) {
    function editpage(x)
    {
      vm.selectData = JSON.stringify(x);
+     if(localStorage.getItem('editcloth')){
+       localStorage.removeItem('editcloth');
+       localStorage.setItem('editcloth',vm.selectData);
+     }
+     else{
+            localStorage.setItem('editcloth',vm.selectData);       
+     }
+     //localStorage.setItem('editcloth',vm.selectData);
      $state.go("editclothtype",{ 'referer': vm.selectData});
    }
 }

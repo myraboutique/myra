@@ -1,5 +1,6 @@
 module.exports = (function () {
     var login = require('./login');
+    var order = require('./order');
     var orderdetails = require('./orderdetails');
     var order = require('./order');   
     var customerdetails = require('./customerdetails');

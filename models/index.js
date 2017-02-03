@@ -3,6 +3,7 @@ module.exports = (function () {
     var login = require('./login');
     var order = require('./order');
     var orderdetails = require('./orderdetails');
+    var order = require('./order');
     var customerdetails = require('./customerdetails');
     var measurement = require('./measurement');
     var addsubdesign = require('./addsubdesign');

@@ -70,7 +70,7 @@ function newCustomerController($resource) {
             }
             txt += c;
        }
-   console.log(txt);
+   
       customerdetails.customerName = txt;
       customerdetails.gender = vm.gender;
       customerdetails.other = vm.other;
@@ -114,8 +114,6 @@ function newCustomerController($resource) {
 
        swal("Record saved successfully.");
           window.location = '#/customerdetails';
-
-
        })
 
 

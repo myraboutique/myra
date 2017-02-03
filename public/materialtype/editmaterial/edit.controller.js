@@ -10,7 +10,9 @@ function editmaterialController($resource, $stateParams, $http) {
   if (!vm.token) {
     window.location = '#/login';
   }
-  vm.data = JSON.parse($stateParams.referer);
+ // vm.data = JSON.parse($stateParams.referer);
+ vm.data1=localStorage.getItem('editmaterial');
+  vm.data = JSON.parse(vm.data1);
   vm.update = update;
 
   function materialcancel(){

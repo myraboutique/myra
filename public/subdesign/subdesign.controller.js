@@ -35,6 +35,13 @@ function subdesignController($resource,$state,$scope) {
    function editpage(x)
    {
      vm.selectData = JSON.stringify(x);
+       if(localStorage.getItem('subdesign')){
+       localStorage.removeItem('subdesign');
+       localStorage.setItem('subdesign',vm.selectData);
+     }
+     else{
+            localStorage.setItem('subdesign',vm.selectData);       
+     }
      $state.go("editsubdesign",{ 'referer': vm.selectData});
    }
 }

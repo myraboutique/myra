@@ -40,6 +40,7 @@ function addordernewController($resource,$scope) {
   vm.items = [{}];
   vm.add = add;
   vm.final = final;
+  vm.deleteOrder = deleteOrder;
  
   // vm.cancelbtn = cancelbtn;
   function cancel(){
@@ -60,7 +61,7 @@ function addordernewController($resource,$scope) {
   });
   Orderdetails.query(function(info) {
     vm.temp = info;
-  })
+  });
 
 
   vm.change = change;
@@ -157,6 +158,14 @@ function addordernewController($resource,$scope) {
       vm.items.push({});
     }
       
+  }
+
+  function deleteOrder(data){
+    // console.log(data);
+    Orderdetails.delete({ id: data }, function(info) {
+      // vm.temp = info;
+      console.log(info);
+    });
   }
 
   function final(orderform) {
