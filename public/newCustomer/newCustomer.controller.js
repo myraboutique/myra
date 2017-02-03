@@ -121,10 +121,6 @@ function newCustomerController($resource) {
   }
   var managemeasurements = $resource('/api/managemeasurements')
   managemeasurements.query(function(info){
-    console.log(info);
-     
       vm.measurementstype = info ;
-      console.log(vm.measurementstype);
-        
    });
 }

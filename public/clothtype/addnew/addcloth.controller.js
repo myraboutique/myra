@@ -37,7 +37,6 @@ function newclothController($resource, $scope) {
   function measuremet(data) {
     vm.flagformeasure = 0;
     if (data) {
-      console.log(vm.selectMeasurement.length);
       for (var i = 0; i < vm.selectMeasurement.length + 1; i++) {
         if (vm.selectMeasurement[i] == data) {
           vm.flagformeasure++;
@@ -89,10 +88,8 @@ function newclothController($resource, $scope) {
 
   var managemeasurements = $resource('/api/managemeasurements')
   managemeasurements.query(function(info){
-    console.log(info);
      
       vm.measurementstype = info ;
-      console.log(vm.measurementstype);
         
    });
 }

@@ -29,7 +29,6 @@ function editorderController($resource, $stateParams, $http,$scope,$filter) {
 
   customer.get({ id: vm.order.customerid }, function (info) {
     vm.customer = info;
-    console.log(vm.customer);
   });
 
   Addmaterial.query(function (info) {
@@ -63,7 +62,6 @@ function editorderController($resource, $stateParams, $http,$scope,$filter) {
 */
 
   function change(orderdate, deliverydate, valid) {
-    console.log("deliverydate : :::===",deliverydate);
   
     if(orderdate && deliverydate){
     var b = orderdate.split('/');
@@ -80,7 +78,6 @@ function editorderController($resource, $stateParams, $http,$scope,$filter) {
     var alertday = new Date(deliverydate);
    alertday.setDate(alertday.getDate() - 2);
     alertday=$filter('date')(alertday, "dd/MM/yyyy");
-   console.log(alertday);
     
 
 

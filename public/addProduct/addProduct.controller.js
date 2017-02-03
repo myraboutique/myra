@@ -71,10 +71,8 @@ function addProductController($resource,$state,$http) {
     vm.type2.forEach(function (e){
       if(e.design.trim() == info) {
         vm.images1.push(e.subdesignimage);
-        console.log("Hello");
       }
     });
-    console.log(info);
     vm.measure1 = vm.measurements[0].split(',');
     vm.measure.push("");
     vm.measure1.forEach(function(element) {

@@ -80,7 +80,6 @@ function addordernewController($resource,$scope) {
     vm.address = info.address;
     Summary.query({ id: info.id }, function (info) {
       vm.order2 = info;
-      console.log(vm.order2);
     });
   }
   //new change 00 --index inject
@@ -154,17 +153,13 @@ function addordernewController($resource,$scope) {
     if (!vm.date2 && !vm.date3 && !vm.date1 && orderform.$valid) {
       vm.formSubmitted = false;
       vm.order.push({ orderdate: orderdate });
-      // console.log(vm.order);
       vm.items.push({});
     }
       
   }
 
   function deleteOrder(data){
-    // console.log(data);
     Orderdetails.delete({ id: data }, function(info) {
-      // vm.temp = info;
-      console.log(info);
     });
   }
 

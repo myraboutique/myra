@@ -8,7 +8,6 @@ function newsubdesignController($resource, $scope) {
   
   $scope.single = function (image) {
       vm.src=image;
-    console.log('src data'+vm.src);
   };
   
 
@@ -33,7 +32,6 @@ function newsubdesignController($resource, $scope) {
   function subdesign(data,image) {
     vm.flagformeasure = 0;
     if (data) {
-      console.log(vm.selectMeasurement.length);
       for (var i = 0; i < vm.selectMeasurement.length + 1; i++) {
         if (vm.selectMeasurement[i] == data) {
           vm.flagformeasure++;

@@ -31,7 +31,6 @@ module.exports = (function () {
 
     },
     Update: function (req, res) {
-      // console.log(req.body);
       db.sync().then(function () {
         models.update(
           {

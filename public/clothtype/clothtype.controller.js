@@ -11,9 +11,7 @@ function clothtypeController($resource,$state,$scope) {
   vm.editpage = editpage;
 
   vm.temp = function(data) {
-    console.log(data);
     $scope.index = data;
-    console.log($scope.index);
   }
   
   vm.token = JSON.parse(localStorage.getItem('token'));
@@ -24,12 +22,10 @@ function clothtypeController($resource,$state,$scope) {
   var measurement = $resource('/api/measurement');
   measurement.query(function(info){
     vm.type = info;
-    console.log(vm.type);
     info.forEach(function (e){
       vm.image = e.image.split('###');
       vm.images.push(vm.image);
     });
-    console.log(vm.images);
   });
 
    function editpage(x)

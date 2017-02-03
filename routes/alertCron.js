@@ -9,7 +9,6 @@ module.exports = (function () {
   var job = new CronJob({
     cronTime: '00 3 14 * * *',
     onTick: function () {
-      console.log("inside cron job");
       db.sync().then(function () {
         models.findAll().then(function (info) {
           info.forEach(function (e) {
@@ -70,10 +69,8 @@ module.exports = (function () {
             var a = x.split('/');
             var date = new Date(a[2], a[1] - 1, a[0]);
             date.setHours(0, 0, 0, 0, 0);
-            console.log(date);
             var Today = new Date();
             Today.setHours(0, 0, 0, 0, 0);
-            console.log(Today);
             if (date.getTime() == Today.getTime()) {
                var transpoter = nodemailer.createTransport({
                 service: 'Gmail',

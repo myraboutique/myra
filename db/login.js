@@ -34,7 +34,6 @@ module.exports = (function () {
             });
           } else {
             db.sync().then(function () {
-              // console.log(req.body);
               models.create({
                 name: req.body.name,
                 email: req.body.email,
