@@ -6,6 +6,7 @@ module.exports = (function () {
     var addmaterial = require('./addmaterial');
     // var addproduct = require('./addproduct');
     var managemeasurements = require('./managemeasurements');
+    var addsubdesign = require('./addsubdesign');
     var m = {
         login: login,
         orderdetails: orderdetails,

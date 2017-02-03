@@ -5,12 +5,12 @@ module.exports = (function () {
   var db = require('../core/db');
   var sequelize = require('sequelize');
   var nodemailer = require('nodemailer');
- var crypto = require('crypto');
+  var crypto = require('crypto');
 
   var m = {
     login: function (req, res, next) {
       db.sync().then(function () {
-        models.findOne({ where: { email: req.body.email } }).then(function (user) {
+        models.findOne({ where: { username: req.body.username } }).then(function (user) {
           if (!user) {
             return res.status(200).json({
               status: 'User not Found!'
@@ -27,10 +27,10 @@ module.exports = (function () {
     },
     register: function (req, res) {
       db.sync().then(function () {
-        models.findOne({ where: { email: req.body.email } }).then(function (user) {
+        models.findOne({ where: {username : req.body.username } }).then(function (user) {
           if (user) {
             return res.status(200).json({
-              status: 'Email address already exists'
+              status: 'username already exists'
             });
           } else {
             db.sync().then(function () {
@@ -42,7 +42,8 @@ module.exports = (function () {
                 password: req.body.password,
                 number: req.body.mobilenumber,
                 address: req.body.address,
-                isActive: req.body.isActive
+                isActive: req.body.isActive,
+                username: req.body.username
               }).then(function (user) {
                 res.json(user);
               })
@@ -90,7 +91,7 @@ module.exports = (function () {
     forgot: function (req, res) {
 
       db.sync().then(function () {
-        models.findOne({ where: { email: req.body.email } }).then(function (user) {
+        models.findOne({ where: { username: req.body.username } }).then(function (user) {
           if (!user) {
             return res.status(200).json({
               status: 'User not Found!'
@@ -106,7 +107,7 @@ module.exports = (function () {
 
             var mainOptions = {
               from: 'Ankur Patel <ankurpatel1302@gmail.com>',
-              to: req.body.email,
+              to: req.body.username,
               subject: 'Password Reset',
               text: 'You are receiving this because have requested the reset of the password for your account.\n\n' +
               'Please click on the following link, or paste this into your browser to complete the process:\n\n' +

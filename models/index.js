@@ -14,7 +14,8 @@ module.exports = (function () {
         customerdetails: customerdetails,
         measurement: measurement,
         addmaterial: addmaterial,
-        managemeasurements:managemeasurements
+        managemeasurements:managemeasurements,
+        addsubdesign : addsubdesign
     };
     return m;
 })();

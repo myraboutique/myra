@@ -1,9 +1,9 @@
 angular.module('myra')
-  .controller('editclothController', editclothController);
+  .controller('editsubdesignController', editsubdesignController);
 
-editclothController.$inject = ['$resource', '$stateParams', '$http'];
+editsubdesignController.$inject = ['$resource', '$stateParams', '$http'];
 
-function editclothController($resource, $stateParams, $http) {
+function editsubdesignController($resource, $stateParams, $http) {
   var vm = this;
     vm.measurementstype = [] ;
   vm.token = JSON.parse(localStorage.getItem('token'));
@@ -11,17 +11,17 @@ function editclothController($resource, $stateParams, $http) {
     window.location = '#/login';
   }
   vm.data = JSON.parse($stateParams.referer);
-  vm.measurement = measuremet;
+  vm.subdesign = subdesign;
   vm.update = update;
   vm.delete = Delete;
   vm.selectMeasurement = [];
-  vm.selectMeasurement = vm.data.measurement.split(',');
+  vm.selectMeasurement = vm.data.subdesign.split(',');
   console.log(vm.selectMeasurement);
 
-  function measuremet(data) {
+  function subdesign(data,image) {
     if (data) {
       vm.selectMeasurement.push(data);
-      vm.measu = "";
+      vm.subdesi = "";
     }
   }
 
@@ -31,10 +31,10 @@ function editclothController($resource, $stateParams, $http) {
 
   function update(form) {
     if (form.$valid) {
-      vm.data.measurement = vm.selectMeasurement.join(',');
+      vm.data.subdesign = vm.selectMeasurement.join(',');
       console.log(vm.data);
 
-      $http.put('/api/measurement', vm.data)
+      $http.put('/api/addsubdesign', vm.data)
         .then(
         function (response) {
           console.log("put successfull")
@@ -45,8 +45,8 @@ function editclothController($resource, $stateParams, $http) {
         });
     }
   }
-var managemeasurements = $resource('/api/managemeasurements')
-  managemeasurements.query(function(info){
+var measurement = $resource('/api/measurement')
+  measurement.query(function(info){
     console.log(info);
      
       vm.measurementstype = info ;
