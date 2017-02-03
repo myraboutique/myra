@@ -6,11 +6,12 @@ addProductController.$inject = ['$resource','$state','$http'];
 function addProductController($resource,$state,$http) {
   var vm = this;
 
+
   vm.designSelect = designSelect;
   vm.submit = submit;
   
   var measurement = $resource('/api/measurement');
-  var addsubdesigns = $resource('/api/addsubdesigns');
+  var addsubdesigns = $resource('/api/addsubdesign');
   var addmaterial = $resource('/api/addmaterial');
   var customerdetails = $resource('/api/customerdetails');
   var orderdetails = $resource('/api/orderdetails');
@@ -18,10 +19,12 @@ function addProductController($resource,$state,$http) {
 
   measurement.query(function (info) {
     vm.type = info;
+
   });
 
   addsubdesigns.query(function (info) {
     vm.type2 = info;
+    // console.log(vm.type2);  
   });
 
   
@@ -64,19 +67,19 @@ function addProductController($resource,$state,$http) {
         vm.ee = e.id;
       }
     });
-
+    console.log(vm.type2);
     vm.type2.forEach(function (e){
-      console.log(e);
-      // if(e.title == info) {
-      //   vm.measurements.push(e.measurement);
-      //   vm.images = e.image;
-      //   vm.ee = e.id;
-      // }
+    // console.log(e);
+      
+      if(e.title == info) {
+        vm.images = e.image;
+        // console.log(vm.images);
+      }
     });
 
     vm.measure1 = vm.measurements[0].split(',');
-    vm.images1 = vm.images.split('###');
-    console.log(vm.images1);
+    // vm.images1 = vm.images.split('###');
+    // console.log(vm.images1);
     vm.measure.push("");
     vm.measure1.forEach(function(element) {
       vm.measure.push(element.trim());
@@ -114,7 +117,7 @@ function addProductController($resource,$state,$http) {
       info.measureBNECK = vm.measureBNECK;
       info.measureMORI = vm.measureMORI;
       info.measureCROSS = vm.measureCROSS;
-      console.log(info);
+      // console.log(info);
 
       $http.put('/api/orderdetails', info)
       .then(function (response) {
@@ -131,17 +134,17 @@ function addProductController($resource,$state,$http) {
       function update(form) {
    if (form.$valid) {
      // vm.data.subdesign = vm.selectMeasurement.join(',');
-     console.log(vm.data);
+    //  console.log(vm.data);
 
      $http.put('/api/addsubdesign', vm.data)
        .then(
        function (response) {
-         console.log("put successfull")
-         console.log(vm.data);
+        //  console.log("put successfull")
+        //  console.log(vm.data);
          window.location = '#/subdesign';
        },
        function (response) {
-         console.log("put unsuccessfull")
+        //  console.log("put unsuccessfull")
        });
    }
  }
