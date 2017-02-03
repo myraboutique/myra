@@ -81,7 +81,7 @@
 					<label>Date of Order</label>
 					<datepicker class="datepickerbx dateon-input" date-format="dd/MM/yyyy">
 						<input class="inputdatipicker " id="mydate"  ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
-								ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)" type="text" placeholder="Date of Order" />
+								ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)" type="text" placeholder="Order Date" />
 					</datepicker>
 					<!--<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Order of Order is required.</span>-->
 					<!--<span ng-show="orderform['orderdate'+$index].$error.pattern && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
@@ -92,10 +92,9 @@
 				<div class=" customer-detailsmain-box">
 					<label>Status</label>
 
-					<select ng-model="data.status" ng-change="" ng-options=" "
-						 name="customeruser">
-				 	<option value="">-- Please Select --</option>
-					 <option selected="selected" value="New">New</option>
+					<select ng-model="data.status"
+						 name="customeruser">				 	
+					 <option ng-selected="true" value="New">New</option>
 							<option value="In Progress">Stiching</option>
 							
 							<option value="Finish">Cancel</option>
@@ -113,7 +112,7 @@
 
 						<div style="margin-left: 0%;" class="add-next-btn-box">
 							<div class="submit-button">
-								<input type="button" value="Add Product" ng-click="" />
+								<input type="button" value="Add Product" ng-click="vm.addpro()" />
 							</div>
 						</div>
 
@@ -130,12 +129,12 @@
 			</tr>
 			<tr ng-repeat="d in vm.addtable">
 				<th>
-					<div class="form-box">
-						
-							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type | filter:data.isActive='true'"
+					<div class="form-box">						
+						<a class="customer-name-link" style="color: #3096db !important;" href="#/addProduct">Kurtas</a>
+							<!--<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type | filter:data.isActive='true'"
 								required>
 								<option value="">-- Please Select --</option></select>
-							
+							-->
 					</div>
 				</th>
 				<th>
@@ -169,7 +168,7 @@
 								
 				<th>
 					<select class="outside" ng-model="data.status" name="status" required>
-							<option selected="selected" value="New">New</option>
+							<option ng-selected="true" value="New">New</option>
 							<option value="In Progress">Stiching</option>
 							
 							<option value="Finish">Cancel</option>
