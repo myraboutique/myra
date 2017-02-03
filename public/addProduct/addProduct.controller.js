@@ -66,13 +66,14 @@ function addProductController($resource,$state) {
   };  
 
   function submit(info) {
-    vm.formSubmitted = true;
-    if(form.$valid){
+    // vm.formSubmitted = true;
+    // if(form.$valid){
       // if(vm.data.other){
       //   vm.data.billingAddress = vm.data.billingAddress;
       // } else {
       //   vm.data.billingAddress = vm.data.address;
       // }
+      console.log(info);
       info.measureWAIST = vm.measureWAIST;
       info.measureWAIST = vm.measureWAIST;
       info.measureBUST = vm.measureBUST;
@@ -105,7 +106,7 @@ function addProductController($resource,$state) {
                   console.log("put unsuccessfull")
               }
           );
-      }
+      // }
     
   };
 }
