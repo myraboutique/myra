@@ -34,7 +34,7 @@
 	<!-- Header Section End Here -->
 
 
-	 <div class="inner-heading-bar">Add New Design</div>
+	 <div class="inner-heading-bar">Add New Style</div>
 
 	<div class="main-contant-part minpageheight">
 		<!-- Left Form Section Start Here -->
@@ -42,6 +42,19 @@
 
     <div class="order-form-left-section add-new-form">
       <div class="form-section-box">
+
+
+			 <div class="form-box">
+			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Style</label>
+
+					  	<input ng-model="vm.subdesigns" type="text" class="clothmeasurementinput" >
+							
+						</input>
+						<!--<strong class="clothaddbutton"><a href="" ng-click="vm.subdesign(vm.subdesi,image2)">Add</a></strong>
+				<span ng-show="vm.flagformeasure">This Sub Design already added.</span>-->
+		
+			 <!--<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>-->
+			 </div>
 
 			 <div class="form-box">
 
@@ -51,27 +64,15 @@
 					</select>
        </div>
 
-			 <div class="form-box">
-			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Sub Design</label>
-
-					  	<input ng-model="vm.subdesi" type="text" class="clothmeasurementinput" >
-							
-						</input>
-						<strong class="clothaddbutton"><a href="" ng-click="vm.subdesign(vm.subdesi,image2)">Add</a></strong>
-				<span ng-show="vm.flagformeasure">This Sub Design already added.</span>
-		
-			 <span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
-			 </div>
-
-			 <div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
+			 <!--<div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
 				 {{data}}
 			 <button type="button" ng-click="vm.delete($index)">X</button>
-			  </div>
+			  </div>-->
 <div class="form-box">
-		<label>Image</label>
-	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*" multiple image="image2" resize-max-height="200" resize-max-width="200" resize-quality="0.7"	/>
-	<img ng-repeat="img in images2" ng-src="{{img.resized.dataURL}}" />
-	<!--<button type="button" ng-click="single(image2)">Add</button>-->
+		<label><em id="mandatory" style="color:Red">*</em> Image</label>
+	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*"  image="image2"  resize-max-height="200" resize-max-width="200" resize-quality="0.7"	/>
+	<img  ng-src="{{imgage2.resized.dataURL}}" />
+	<button type="button" ng-click="single(image2.resized.dataURL)">Preview</button>
 </div>
 
 			<!--<div class="form-box">
@@ -82,7 +83,7 @@
 					<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
 			</div>-->
 			 <div class="form-box">
-				 		  <label><em id="mandatory" style="color:Red">*</em> IsActive</label>
+				 		  <label><em id="mandatory" style="color:Red">*</em> Is Active</label>
 				 <input type="checkbox" class="billing-addres-checkbox clothcheck" ng-model="vm.isActive"/>
 			 </div>
 			</div>

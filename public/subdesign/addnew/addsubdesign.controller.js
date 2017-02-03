@@ -5,15 +5,12 @@ newsubdesignController.$inject = ['$resource', '$scope'];
 
 function newsubdesignController($resource, $scope) {
   var vm = this;
-
-  vm.src = [];
+  vm.src ;
   
-  // $scope.single = function (image) {
-  //   image.forEach(function (e) {
-  //     vm.src.push(e.resized.dataURL);
-  //   });
-  //   console.log(vm.src);
-  // };
+  $scope.single = function (image) {
+      vm.src=image;
+    console.log(vm.src);
+  };
   
 
 
@@ -52,10 +49,8 @@ function newsubdesignController($resource, $scope) {
       }
     }
     if(image){
-      image.forEach(function (e) {
-      vm.src.push(e.resized.dataURL);
-    });
-    console.log(vm.src);
+      vm.src = image;
+    console.log(image);
     }
   }
 
@@ -69,28 +64,28 @@ function newsubdesignController($resource, $scope) {
 
   function addClothtype(form) {
     vm.formSubmitted = true;
-    if (form.$valid && vm.selectMeasurement.length > 0) {
+    if (form.$valid) {
 
 
 
-      var newArr = vm.selectMeasurement.join(",");
-      var newArr2 = vm.src.join("###");
+      // var newArr = vm.selectMeasurement.join(",");
+    
       var addsubdesign = new AddSubDesign();
       addsubdesign.design = vm.designs;
-      addsubdesign.subdesign = newArr;
-      addsubdesign.subdesinimage = newArr2;
+      // addsubdesign.subdesign = newArr;
+      addsubdesign.subdesign = vm.subdesigns;
+      addsubdesign.subdesinimage = vm.src;
       addsubdesign.isActive = vm.isActive;
-      console.log(newArr2);
 
       addsubdesign.$save(function (info) {
-        if (!info.status) {
+        // if (!info.status) {
           swal("Recored Saved Successfully.");
           window.location = '#/subdesign';
-        }
-        else {
-          vm.flag = true;
-          vm.status = info.status;
-        }
+        // }
+        // else {
+        //   vm.flag = true;
+        //   vm.status = info.status;
+        // }
       });
 
     }

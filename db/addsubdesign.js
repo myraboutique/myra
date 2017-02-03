@@ -19,7 +19,6 @@ module.exports = (function(){
          models.findOne({ where: { design: req.body.design } }).then(function (user) {
       if (user) {
           return res.status(200).json({
-            status: 'This Design  already exists.'
           });
           }
       else{
