@@ -40,8 +40,8 @@
 
               <div class="form-box">
 
-			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;User Name</label>
-			  <input id=""  focus="true" name="username" ng-minlength="3" ng-maxlength="20" required type="text" ng-model="vm.username" placeholder="User Name"/>
+			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Username</label>
+			  <input id=""  focus="true" name="username" ng-minlength="3" ng-maxlength="20" required type="text" ng-model="vm.username" placeholder="Username"/>
 				<span ng-show="userform.username.$error.required && (userform.username.$dirty || vm.formSubmitted)">Username is required.</span>
 			  <span ng-show="userform.username.$error.minlength && (userform.username.$dirty || vm.formSubmitted)">Username should be greater than 3 characters.</span>
 				<span ng-show="userform.username.$error.maxlength && (userform.username.$dirty || vm.formSubmitted)">Username should not be less than 20 characters.</span>						
@@ -110,7 +110,7 @@
 
         <div class="register-btm-btn-box">
 					<div class="submit-button">
-            <input type="button" value="Submit" class="register-submit-btn" ng-click=" vm.submit(userform)"/>
+            <input type="button" value="Save" class="register-submit-btn" ng-click=" vm.submit(userform)"/>
  					</div>
 					<div class="cancel-button">
             <input type="submit" value="Cancel" class="register-cancel-btn" ui-sref="register"/>
