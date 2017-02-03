@@ -55,7 +55,7 @@
 
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Measurement</label>
-   <select ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput" required="" name="measurement">
+   <select ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput" ng-required="vm.selectMeasurement.length == 0" name="measurement">
 					
 							<option value="SH">SH</option>
 							<option value="BUST">BUST</option>
