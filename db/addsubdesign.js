@@ -27,7 +27,8 @@ module.exports = (function(){
         models.create({
           design:req.body.design,
           subdesign :req.body.subdesign,
-          subdesignimage : req.body.subdesignimage
+          subdesignimage : req.body.subdesignimage,
+          isActive : req.body.isActive
           // image: req.body.image
         }).then(function(info){
           res.json(info);
@@ -42,7 +43,8 @@ module.exports = (function(){
         models.update({
           design:req.body.design,
           subdesign :req.body.subdesign,
-          subdesignimage : req.body.subdesignimage
+          subdesignimage : req.body.subdesignimage,
+          isActive : req.body.isActive
           // image: req.body.image
         },{
           where:{id:req.body.id}

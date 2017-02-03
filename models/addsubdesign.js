@@ -12,7 +12,8 @@ module.exports = (function () {
         },
         design: Sequelize.STRING,
         subdesign: Sequelize.STRING,
-        subdesignimage: Sequelize.STRING
+        subdesignimage: Sequelize.STRING,
+        isActive: Sequelize.BOOLEAN
         // image: Sequelize.BLOB
     }, {
             timestamps: false

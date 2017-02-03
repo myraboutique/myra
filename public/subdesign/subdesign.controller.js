@@ -21,7 +21,7 @@ function subdesignController($resource,$state,$scope) {
     window.location = '#/login';
   }
 
-  var measurement = $resource('/api/measurement');
+  var measurement = $resource('/api/addsubdesign');
   measurement.query(function(info){
     vm.type = info;
     console.log(vm.type);

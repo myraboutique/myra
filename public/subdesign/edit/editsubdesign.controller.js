@@ -11,17 +11,17 @@ function editsubdesignController($resource, $stateParams, $http) {
     window.location = '#/login';
   }
   vm.data = JSON.parse($stateParams.referer);
-  vm.measurement = measuremet;
+  vm.subdesign = subdesign;
   vm.update = update;
   vm.delete = Delete;
   vm.selectMeasurement = [];
-  vm.selectMeasurement = vm.data.measurement.split(',');
+  vm.selectMeasurement = vm.data.subdesign.split(',');
   console.log(vm.selectMeasurement);
 
-  function measuremet(data) {
+  function subdesign(data,image) {
     if (data) {
       vm.selectMeasurement.push(data);
-      vm.measu = "";
+      vm.subdesi = "";
     }
   }
 
@@ -31,22 +31,22 @@ function editsubdesignController($resource, $stateParams, $http) {
 
   function update(form) {
     if (form.$valid) {
-      vm.data.measurement = vm.selectMeasurement.join(',');
+      vm.data.subdesign = vm.selectMeasurement.join(',');
       console.log(vm.data);
 
-      $http.put('/api/measurement', vm.data)
+      $http.put('/api/addsubdesign', vm.data)
         .then(
         function (response) {
           console.log("put successfull")
-          window.location = '#/clothtype';
+          window.location = '#/subdesign';
         },
         function (response) {
           console.log("put unsuccessfull")
         });
     }
   }
-var managemeasurements = $resource('/api/managemeasurements')
-  managemeasurements.query(function(info){
+var measurement = $resource('/api/measurement')
+  measurement.query(function(info){
     console.log(info);
      
       vm.measurementstype = info ;

@@ -79,6 +79,7 @@ function newsubdesignController($resource, $scope) {
       addsubdesign.design = vm.designs;
       addsubdesign.subdesign = newArr;
       addsubdesign.subdesinimage = newArr2;
+      addsubdesign.isActive = vm.isActive;
       console.log(newArr2);
 
       addsubdesign.$save(function (info) {

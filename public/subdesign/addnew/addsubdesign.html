@@ -82,7 +82,7 @@
 					<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
 			</div>-->
 			 <div class="form-box">
-				  <label>Is Active</label>
+				 		  <label><em id="mandatory" style="color:Red">*</em> IsActive</label>
 				 <input type="checkbox" class="billing-addres-checkbox clothcheck" ng-model="vm.isActive"/>
 			 </div>
 			</div>
@@ -92,7 +92,7 @@
 				<input type="button" value="Save" ng-click="vm.addClothtype(form)"/>
 			</div>
 			<div class="cancel-button">
-				<input type="button" value="Cancel" ui-sref="clothtype"/>
+				<input type="button" value="Cancel" ui-sref="subdesign"/>
 			</div>
 	   </div>
 

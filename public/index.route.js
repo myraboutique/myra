@@ -131,7 +131,7 @@
     })
     .state('editsubdesign', {
       url: '/editsubdesign',
-      templateUrl: 'clothtype/edit/editsubdesign.html',
+      templateUrl: 'subdesign/edit/editsubdesign.html',
       controller: 'editsubdesignController',
       controllerAs: 'vm',
        params: {
