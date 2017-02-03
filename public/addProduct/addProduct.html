@@ -35,7 +35,7 @@
             <div class="main-contant-part">
                 <div class="form-heading"><h3>Design Details</h3></div>
 
-                    <div class="form-section-box">
+                    <div ng-if="vm.type.length > 0" ng-init="vm.addProduct.selectedDesign = vm.type[0].title;vm.designSelect(vm.addProduct.selectedDesign)" class="form-section-box">
                         <label style="text-align:left; ">Design</label>
                         <select style="width: 53%!important;" rows="4" cols="50" name="design" ng-model="vm.addProduct.selectedDesign" ng-change="vm.designSelect(vm.addProduct.selectedDesign)" required>
                         <option value="{{data.title}}" ng-repeat="data in vm.type | filter:data.isActive='true'">{{data.title}}</option>
@@ -83,25 +83,25 @@
             
 
             <div class="form-heading">Measurement Details</div>
-            <div class="measure" ng-show="vm.measure.indexOf('BUST') > 0"><label>BUST</label><input type="text" value="{{vm.measureBUST}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('SH') > 0"><label>SH</label><input type="text" value="{{vm.measureSH}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('WAIST') > 0"><label>WAIST</label><input type="text" value="{{vm.measureWAIST}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('LWAIST') > 0"><label>LWAIST</label><input type="text" value="{{vm.measureLWAIST}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('HIPS') > 0"><label>HIPS</label><input type="text" value="{{vm.measureHIPS}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('SLEEVES') > 0"><label>SLEEVES</label><input type="text" value="{{vm.measureSLEEVES}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('SHORT') > 0"><label>SHORT</label><input type="text" value="{{vm.measureSHORT}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('LENGTH') > 0"><label>LENGTH</label><input type="text" value="{{vm.measureLENGTH}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('FULL') > 0"><label>FULL</label><input type="text" value="{{vm.measureFULL}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('FULLL') > 0"><label>FULLL</label><input type="text" value="{{vm.measureFULLL}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('KNEE') > 0"><label>KNEE</label><input type="text" value="{{vm.measureKNEE}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('ARMHOLE') > 0"><label>ARMHOLE</label><input type="text" value="{{vm.measureARMHOLE}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('CROSS') > 0"><label>CROSS</label><input type="text" value="{{vm.measureCROSS}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('LTHIGH') > 0"><label>LTHIGH</label><input type="text" value="{{vm.measureLTHIGH}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('CALF') > 0"><label>CALF</label><input type="text" value="{{vm.measureCALF}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('FNECK') > 0"><label>FNECK</label><input type="text" value="{{vm.measureFNECK}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('BNECK') > 0"><label>BNECK</label><input type="text" value="{{vm.measureBNECK}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('MORI') > 0"><label>MORI</label><input type="text" value="{{vm.measureMORI}}"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('UTHIGH') > 0"><label>UTHIGH</label><input type="text" value="{{vm.measureUTHIGH}}"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('BUST') > 0"><label>BUST</label><input type="text" ng-model="vm.measureBUST"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('SH') > 0"><label>SH</label><input type="text" ng-model="vm.measureSH"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('WAIST') > 0"><label>WAIST</label><input type="text" ng-model="vm.measureWAIST"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('LWAIST') > 0"><label>LWAIST</label><input type="text" ng-model="vm.measureLWAIST"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('HIPS') > 0"><label>HIPS</label><input type="text" ng-model="vm.measureHIPS"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('SLEEVES') > 0"><label>SLEEVES</label><input type="text" ng-model="vm.measureSLEEVES"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('SHORT') > 0"><label>SHORT</label><input type="text" ng-model="vm.measureSHORT"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('LENGTH') > 0"><label>LENGTH</label><input type="text" ng-model="vm.measureLENGTH"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('FULL') > 0"><label>FULL</label><input type="text" ng-model="vm.measureFULL"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('FULLL') > 0"><label>FULLL</label><input type="text" ng-model="vm.measureFULLL"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('KNEE') > 0"><label>KNEE</label><input type="text" ng-model="vm.measureKNEE"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('ARMHOLE') > 0"><label>ARMHOLE</label><input type="text" ng-model="vm.measureARMHOLE"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('CROSS') > 0"><label>CROSS</label><input type="text" ng-model="vm.measureCROSS"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('LTHIGH') > 0"><label>LTHIGH</label><input type="text" ng-model="vm.measureLTHIGH"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('CALF') > 0"><label>CALF</label><input type="text" ng-model="vm.measureCALF"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('FNECK') > 0"><label>FNECK</label><input type="text" ng-model="vm.measureFNECK"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('BNECK') > 0"><label>BNECK</label><input type="text" ng-model="vm.measureBNECK"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('MORI') > 0"><label>MORI</label><input type="text" ng-model="vm.measureMORI"/></div>
+            <div class="measure" ng-show="vm.measure.indexOf('UTHIGH') > 0"><label>UTHIGH</label><input type="text" ng-model="vm.measureUTHIGH"/></div>
             
             
             <!--submit button-->
@@ -111,7 +111,8 @@
             <!--submit button End here-->
         </div>
         </form>
-    </div>
+    
 <!-- Footer Section Start Here -->
 <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
 <!-- Footer Section End Here -->
+</div>

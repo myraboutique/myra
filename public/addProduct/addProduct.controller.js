@@ -66,7 +66,47 @@ function addProductController($resource,$state) {
   };  
 
   function submit(info) {
-    console.log(info);
+    vm.formSubmitted = true;
+    if(form.$valid){
+      // if(vm.data.other){
+      //   vm.data.billingAddress = vm.data.billingAddress;
+      // } else {
+      //   vm.data.billingAddress = vm.data.address;
+      // }
+      info.measureWAIST = vm.measureWAIST;
+      info.measureWAIST = vm.measureWAIST;
+      info.measureBUST = vm.measureBUST;
+      info.measureSH = vm.measureSH;
+      info.measureLWAIST = vm.measureLWAIST;
+      info.measureHIPS = vm.measureHIPS;
+      info.measureSLEEVES = vm.measureSLEEVES;
+      info.measureSHORT = vm.measureSHORT;
+      info.measuretype = vm.measuretype;
+      info.measureLENGTH = vm.measureLENGTH;
+      info.measureFULL = vm.measureFULL;
+      info.measureFULLL = vm.measureFULLL;
+      info.measureKNEE = vm.measureKNEE;
+      info.measureARMHOLE = vm.measureARMHOLE;
+      info.measureUTHIGH = vm.measureUTHIGH;
+      info.measureLTHIGH = vm.measureLTHIGH;
+      info.measureCALF = vm.measureCALF;
+      info.measureFNECK = vm.measureFNECK;
+      info.measureBNECK = vm.measureBNECK;
+      info.measureMORI = vm.measureMORI;
+      info.measureCROSS = vm.measureCROSS;
+      console.log(info);
+      $http.post('/api/orderdetails', info)
+          .then(
+              function(response){
+                console.log(swal("Record updated successfully."))
+                // window.location = '#/customerdetails';
+              },
+              function(response){
+                  console.log("put unsuccessfull")
+              }
+          );
+      }
+    
   };
 }
      
