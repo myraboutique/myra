@@ -6,6 +6,9 @@ addProductController.$inject = ['$resource','$state','$http'];
 function addProductController($resource,$state,$http) {
   var vm = this;
 
+  vm.selectimage = function(index) {
+    vm.index = index;
+  }
 
   vm.designSelect = designSelect;
   vm.submit = submit;
@@ -60,6 +63,7 @@ function addProductController($resource,$state,$http) {
     vm.measurements = [];
     vm.measure = [];
     vm.images1 = [];
+    vm.images1title = [];
     
     vm.type.forEach(function (e){
       if(e.title == info) {
@@ -69,8 +73,9 @@ function addProductController($resource,$state,$http) {
     });
 
     vm.type2.forEach(function (e){
-      if(e.design.trim() == info) {
+      if(e.design == info) {
         vm.images1.push(e.subdesignimage);
+        vm.images1title.push(e.subdesign);
       }
     });
     vm.measure1 = vm.measurements[0].split(',');
@@ -105,7 +110,7 @@ function addProductController($resource,$state,$http) {
       
 
 
-     $http.put('/api/addsubdesign', info)
+     $http.put('/api/orderdetails', info)
        .then(
        function (response) {
          window.location = '#/subdesign';

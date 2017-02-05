@@ -129,6 +129,12 @@
       controller: 'newsubdesignController',
       controllerAs: 'vm'
     })
+    .state('settings', {
+      url: '/settings',
+      templateUrl: 'settings/settings.html',
+      controller: 'settingsController',
+      controllerAs: 'vm'
+    })
     .state('editsubdesign', {
       url: '/editsubdesign',
       templateUrl: 'subdesign/edit/editsubdesign.html',

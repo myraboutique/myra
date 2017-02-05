@@ -94,8 +94,8 @@
 </div>
 
 <div class="form-box">
-	<table class="table" border="1" cellspacing="0" cellpadding="0">
-		<tr>
+	<table class="table table-part" border="1" cellspacing="0" cellpadding="0">
+		<tr class="top-purpal-color-row">
 			<th>Design</th>
 			<th>Delivery Date</th>
 			<th>Stiching Date</th>
@@ -138,13 +138,13 @@
 
 </td>
 <td><input class="addorder-amount-icon" id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required"
-		ng-model="vm.order[$index].amount" type="text" placeholder="Amount" />
+		ng-model="vm.order[$index].amount" type="text" placeholder="Amount" style="width: 100% !important;"/>
 
 
 </td>
 
 <td>
-	<select class="outside" ng-model="data.status" name="status" required>
+	<select class="outside" ng-model="data.status" name="status" required style="width: 100%;">
 							<option ng-selected="true" value="New">New</option>
 							<option value="In Progress">Stiching</option>
 							
