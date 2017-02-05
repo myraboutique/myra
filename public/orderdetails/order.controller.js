@@ -44,7 +44,8 @@ function orderController($resource, $state) {
 
     function sendData(info) {
         vm.selectData = JSON.stringify(info);
-        $state.go("editorder", { 'referer': vm.selectData });
+        $state.go("addProduct", { 'referer': vm.selectData });
+        localStorage.setItem('editproduct',vm.selectData);
     }
 }
 

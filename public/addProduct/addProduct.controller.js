@@ -6,6 +6,9 @@ addProductController.$inject = ['$resource','$state','$http'];
 function addProductController($resource,$state,$http) {
   var vm = this;
 
+  vm.data1=localStorage.getItem('editproduct');
+  vm.data = JSON.parse(vm.data1);
+
   vm.selectimage = function(index) {
     vm.index = index;
   }
@@ -107,7 +110,7 @@ function addProductController($resource,$state,$http) {
       info.measureBNECK = vm.measureBNECK;
       info.measureMORI = vm.measureMORI;
       info.measureCROSS = vm.measureCROSS;
-      
+      info.id = vm.data.id;
 
 
      $http.put('/api/orderdetails', info)
