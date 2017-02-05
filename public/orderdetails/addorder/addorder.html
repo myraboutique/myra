@@ -88,14 +88,9 @@
 				</div>
 				<div class=" customer-detailsmain-box">
 					<label>Status</label>
-					<select ng-model="data.status" ng-change="" ng-options=" "
+					<select ng-model="vm.name" ng-change="" ng-options=" "
 						 name="customeruser">
-				 	<option value="">-- Please Select --</option>
-					 <option selected="selected" value="New">New</option>
-							<option value="In Progress">Stiching</option>
-							
-							<option value="Finish">Cancel</option>
-					 </select>
+				 	<option value="">-- Please Select --</option></select>
 
 				</div>
 				</div>
@@ -113,7 +108,7 @@
 							</div>
 						</div>
 
-			<div class="form-box" >
+			<div class="form-box" ng-repeat="d in vm.addtable">
 			<table class="table" border="1" cellspacing="0" cellpadding="0">
 			<tr>
 				<th>Design</th>
@@ -124,10 +119,10 @@
 				<th>Status</th>
 				<th>Action</th>
 			</tr>
-			<tr ng-repeat="d in vm.addtable">
+			<tr>
 				<th>
 					<div class="form-box">
-						
+							
 							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type | filter:data.isActive='true'"
 								required>
 								<option value="">-- Please Select --</option></select>
@@ -167,14 +162,14 @@
 					<select class="outside" ng-model="data.status" name="status" required>
 							<option selected="selected" value="New">New</option>
 							<option value="In Progress">Stiching</option>
-							
+							<option value="Stiching">Finish</option>
 							<option value="Finish">Cancel</option>
 					</select>
 				</th>
 				<th width="13%">
 					<img class="action-img" src="assets/images/pair.png"  ng-click="" alt="">
 					<img class="action-img" src="assets/images/add.png" ng-click="vm.newAdd()" alt="">
-					<img class="action-img" src="assets/images/close.png" ng-click="vm.deleteProduct()" alt="">
+					<img class="action-img" src="assets/images/close.png"  ng-click="" alt="">
 				</th>
 			</tr>
 		</table>

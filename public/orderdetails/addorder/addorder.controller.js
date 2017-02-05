@@ -227,6 +227,7 @@ function addorderController($resource, $scope) {
       vm.order.push({ orderdate: orderdate });
       console.log(vm.order);
       vm.items.push({});
+      
     }
 
   }
@@ -237,25 +238,26 @@ function addorderController($resource, $scope) {
 //  }
 
   function newAdd() {
-      // vm.addtable.push({});
-    swal({
-      title: "",
-      text: "Are you sure you want to duplicate product ?",
-      showCancelButton: true,
-      confirmButtonColor: "#e527a0",
-      confirmButtonText: "Yes"
-    },
-      function (confirm) {
-     
-         vm.addtable.push({});
-             
-      // window.location = "#/addorder"
-       //  swal("Deleted!", "Your imaginary file has been deleted.", "success");
-      });
+       vm.addtable.push({});
+    //swal({
+      //title: "",
+      //text: "Are you sure you want to duplicate product ?",
+      //showCancelButton: true,
+      //confirmButtonColor: "#e527a0",
+      //confirmButtonText: "Yes"
+    //},
+    //function (confirm) {
+      //if (confirm){
+        //  vm.addtable.push({});
+       // console.log(vm.addtable);
+        // window.location = "#/addorder"
+      //}
+    //})
   }
 
  function deleteProduct() {
-   
+     
+      vm.addtable.drop({});
  }
 
 

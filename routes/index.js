@@ -7,6 +7,7 @@ module.exports = (function () {
     var alert = require('./alertCron');
     var managemeasurements = require('./managemeasurements');
     var addsubdesign = require('./addsubdesign');
+    var addstatuses = require('./addstatuses');
     
     var m = [
         login,
@@ -15,7 +16,9 @@ module.exports = (function () {
         measurement,
         addmaterial,
         managemeasurements,
-        addsubdesign
+        addsubdesign,
+        addstatuses
+
     ];
     return m;
 })();

@@ -7,6 +7,7 @@ module.exports = (function () {
     var addmaterial = require('./addmaterial');
     var managemeasurements = require('./managemeasurements');
     var addsubdesign = require('./addsubdesign');
+    var addstatuses = require('./addstatuses');
     
     var m = {
         login: login,
@@ -15,7 +16,8 @@ module.exports = (function () {
         measurement: measurement,
         addmaterial: addmaterial,
         managemeasurements:managemeasurements,
-        addsubdesign : addsubdesign
+        addsubdesign : addsubdesign,
+        addstatuses : addstatuses
     };
     return m;
 })();
