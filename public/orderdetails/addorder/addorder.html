@@ -36,58 +36,58 @@
 	<form name="orderform" novalidate>
 		<div class="main-contant-part">
 			<div class="form-section-box">
-			<div class="form-section-box">
-				<!--<div class="form-heading">Customer Details</div>-->
-				<div class="form-box">
-					<div class=" customer-detailsmain-box">
-						<label>Order by</label>
-						<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer "
-							required name="customeruser">
+				<div class="form-section-box">
+					<!--<div class="form-heading">Customer Details</div>-->
+					<div class="form-box">
+						<div class=" customer-detailsmain-box">
+							<label>Order by</label>
+							<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer "
+								required name="customeruser">
 				 	<option value="">-- Please Select --</option></select>
 
-						<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
+							<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
+						</div>
+
+						<div class=" customer-detailsmain-box1"><label>Contact Number : </label><strong>{{vm.contact}}</strong></div>
+
+						<div class=" customer-detailsmain-box2"><label>Address : </label><strong>{{vm.address}}</strong></div>
 					</div>
 
-					<div class=" customer-detailsmain-box1"><label>Contact Number : </label><strong>{{vm.contact}}</strong></div>
-
-					<div class=" customer-detailsmain-box2"><label>Address : </label><strong>{{vm.address}}</strong></div>
-				</div>
-
-				<div ng-repeat="item in vm.items">
-					<div class=" customer-detailsmain-box">
-						<label>Order Date</label>
-						<datepicker class="datepickerbx dateon-input" date-format="dd/MM/yyyy">
-							<input class="inputdatipicker " id="mydate" ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
-								ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)" type="text" placeholder="Order Date"
-							/>
-						</datepicker>
-						<!--<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Order of Order is required.</span>-->
-						<!--<span ng-show="orderform['orderdate'+$index].$error.pattern && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
+					<div ng-repeat="item in vm.items">
+						<div class=" customer-detailsmain-box">
+							<label>Order Date</label>
+							<datepicker class="datepickerbx dateon-input" date-format="dd/MM/yyyy">
+								<input class="inputdatipicker " id="mydate" ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
+									ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)" type="text" placeholder="Order Date"
+								/>
+							</datepicker>
+							<!--<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Order of Order is required.</span>-->
+							<!--<span ng-show="orderform['orderdate'+$index].$error.pattern && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
 
 
-					</div>
+						</div>
 
-					<div class=" customer-detailsmain-box">
-						<label>Status</label>
+						<div class=" customer-detailsmain-box">
+							<label>Status</label>
 
-						<select ng-model="data.status" name="customeruser">				 	
+							<select ng-model="data.status" name="customeruser">				 	
 					 <option ng-selected="true" value="New">New</option>
 							<option value="In Progress">Stiching</option>
 							
 							<option value="Finish">Cancel</option>
 					 </select>
 
+						</div>
 					</div>
+
+
 				</div>
 
+				<div ng-repeat="item in vm.items">
+					<div class="form-section-box">
+						<div class="form-heading"></div>
 
-			</div>
-
-			<div ng-repeat="item in vm.items">
-				<div class="form-section-box">
-					<div class="form-heading"></div>
-
-					<div style="margin-left: 0%;" class="add-next-btn-box">
+						<div style="margin-left: 0%;" class="add-next-btn-box">
 <div class="submit-button">
 	<input type="button" value="Add Product" ng-click="vm.addpro()" />
 </div>
@@ -107,49 +107,48 @@
 		<tr ng-repeat="d in vm.addtable">
 			<td>
 				<div class="form-box">
-					<a class="customer-name-link" style="color: #3096db !important;" href="#/addProduct">Kurtas</a>
-<!--<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type | filter:data.isActive='true'"
-								required>
-								<option value="">-- Please Select --</option></select>
-							-->
+					<!--<a class="customer-name-link" style="color: #3096db !important;" href="#/addProduct">Kurtas</a>-->
+					<select style="width: 100%; margin-bottom: 0px;" ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data
+as data.title for data in vm.type | filter:data.isActive='true'" required>
+<option value="">-- Please Select --</option>
+</select>
 </div>
 </td>
 <td>
-	<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-		<!--New change 00 --index inject -->
-		<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.order[$index].orderdate,$index)"
-			id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
-	</datepicker>
+	<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
+<!--New change 00 --index inject -->
+<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.order[$index].orderdate,$index)"
+id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
+</datepicker>
 
 </td>
 <td>
-	<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-		<input class="inputdatipicker " ng-model="vm.order[$index].stitchingdate" name="stitchingdate{{$index}}" required="required"
-			ng-change="vm.stitchingchange(vm.order[$index].stitchingdate,$index)" type="text" placeholder="Date of Stitching" />
-	</datepicker>
+	<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
+<input style="margin-bottom: 0px;" class="inputdatipicker " ng-model="vm.order[$index].stitchingdate" name="stitchingdate{{$index}}" required="required" ng-change="vm.stitchingchange(vm.order[$index].stitchingdate,$index)"
+type="text" placeholder="Date of Stitching" />
+</datepicker>
 
 
 </td>
 <td>
-	<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-		<input class="inputdatipicker" ng-model="vm.order[$index].alertday" ng-change="vm.alertchange(vm.order[$index].orderdate,vm.order[$index].deliverydate,vm.order[$index].alertday)"
-			id="" name="alertdate{{$index}}" required type="text" placeholder="Date of Alert" />
-	</datepicker>
+	<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
+<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.order[$index].alertday" ng-change="vm.alertchange(vm.order[$index].orderdate,vm.order[$index].deliverydate,vm.order[$index].alertday)"
+id="" name="alertdate{{$index}}" required type="text" placeholder="Date of Alert" />
+</datepicker>
 
 </td>
-<td><input class="addorder-amount-icon" id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required"
-		ng-model="vm.order[$index].amount" type="text" placeholder="Amount" style="width: 100% !important;"/>
-
-
+<td>
+	<input style="width: 100% !important; margin-bottom: 0px;" class="addorder-amount-icon" id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required"
+ng-model="vm.order[$index].amount" type="text" placeholder="Amount" style="width: 100% !important;"/>
 </td>
 
 <td>
-	<select class="outside" ng-model="data.status" name="status" required style="width: 100%;">
-							<option ng-selected="true" value="New">New</option>
-							<option value="In Progress">Stiching</option>
-							
-							<option value="Finish">Cancel</option>
-					</select>
+	<select style="width: 100%; margin-bottom: 0px;" class="outside" ng-model="data.status" name="status" required style="width: 100%;">
+<option ng-selected="true" value="New">New</option>
+<option value="In Progress">Stiching</option>
+
+<option value="Finish">Cancel</option>
+</select>
 </td>
 <!--<th width="13%">
 	<img class="action-img" src="assets/images/pair.png" ng-click="" alt="">
@@ -157,6 +156,15 @@
 	<img class="action-img" src="assets/images/close.png" ng-click="vm.deleteProduct()" alt="">
 </td>-->
 </tr>
+<!--<tr ng-repeat="data in vm.order2">
+	<th>{{data.type}}</th>
+	<th>{{data.date}}</th>
+	<th>{{data.date}}</th>
+	<th>{{data.alertday}}</th>
+	<th>{{data.amount}}</th>
+	<th>{{data.status}}</th>
+</tr>-->
+
 </table>
 
 </div>
