@@ -11,7 +11,7 @@ var addstatuses = db.define('addstatuses', {
       primaryKey: true,
   },
   status: Sequelize.STRING,
-  active : Sequelize.BOOLEAN,
+  isActive : Sequelize.BOOLEAN,
 
 }, {
         timestamps: false

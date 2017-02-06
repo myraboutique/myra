@@ -19,7 +19,7 @@ function editstatusController($resource, $stateParams, $http) {
 
   function update(frm) {
     if (frm.$valid) {
-      $http.put('/api/addstatus', vm.data)
+      $http.put('/api/addstatuses', vm.data)
         .then(
         function (response) {
 

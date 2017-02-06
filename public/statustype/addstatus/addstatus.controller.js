@@ -5,7 +5,7 @@ addstatusController.$inject = ['$resource'];
 
 function addstatusController($resource) {
 
-  var Addstatus = $resource('/api/addstatus')
+  var Addstatus = $resource('/api/addstatuses')
 
   var vm = this;
   vm.flag = false ;
@@ -16,7 +16,7 @@ function addstatusController($resource) {
   if (!vm.token) {
     window.location = '#/login';
   }
-  vm.active = true;
+  vm.isActive = true;
   function statuscancel() {
     window.location = "#/statustype"
   }
@@ -25,20 +25,20 @@ function addstatusController($resource) {
       if(frm.$valid){
     console.log("inside save function")
     var addstatus = new Addstatus();
-    addstatus.active = vm.active;
-    addstatus.statustype = vm.statustype;
+    addstatus.isActive = vm.isActive;
+    addstatus.status = vm.status;
 
 
     addstatus.$save(function (info) {
-
-      if(!info.status){
+    console.log(info.status);
+      if(info.status != 'already00++--'){
 
         console.log(swal("Record saved successfully."));
          window.location = "#/statustype"
       }
       else {
             vm.flag = true;
-            vm.status = info.status ;
+            // vm.status = info.status ;
           }
 
     })

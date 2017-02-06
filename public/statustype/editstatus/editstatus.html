@@ -41,7 +41,7 @@
 
      <div class="form-box">
       <label><em id="mandatory" style="color:Red">*</em> Status</label>
-      <input id="stype" name="statustype" type="text" ng-minlength="3" ng-maxlength="20" ng-model="vm.data.statustype"  placeholder="Status" required/>
+      <input id="stype" name="statustype" type="text" ng-minlength="3" ng-maxlength="20" ng-model="vm.data.status"  placeholder="Status" required/>
 
       	<span ng-show="frm.statustype.$error.required && (frm.statustype.$dirty || vm.formSubmitted)">Status is required.</span>
         	<span ng-show="frm.statustype.$error.minlength && (frm.statustype.$dirty || vm.formSubmitted)">Status length must be greater than 3 characters.</span>
@@ -51,7 +51,7 @@
 
      <div class="form-box">
         <label><em id="mandatory" style="color:Red">*</em> Is Active</label>
-       <input type="checkbox" ng-model="vm.data.active" class="billing-addres-checkbox clothcheck"/>
+       <input type="checkbox" ng-model="vm.data.isActive" class="billing-addres-checkbox clothcheck"/>
 
      </div>
     </div>
@@ -83,7 +83,7 @@
 	        })
 	        $(".navbar ul li").click(function(){
 		      $(this).find("ul").slideToggle()
-		      $(this).toggleClass("active");
+		      $(this).toggleClass("isActive");
 
 		   })
 

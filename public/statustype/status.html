@@ -48,10 +48,10 @@
           'some':$index%2 == 0,
           'table-tr-alternate-color':$index%2 != 0
       }">
-        <td data-th="Status: " class="top-purpal-color-row2"><span><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.statustype}}</a></span></td>
+        <td data-th="Status: " class="top-purpal-color-row2"><span><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.status}}</a></span></td>
         <!--<td data-th="Action: " class="top-purpal-color-row2">{{newdata.active}}</td>-->
-        	<td data-th="Status: "  ng-if="newdata.active" class="top-purpal-color-row2">Active</td>
-						<td data-th="Status: "  ng-if="newdata.active == false" class="top-purpal-color-row2">Inactive</td>
+        	<td data-th="Status: "  ng-if="newdata.isActive" class="top-purpal-color-row2">Active</td>
+						<td data-th="Status: "  ng-if="newdata.isActive == false" class="top-purpal-color-row2">Inactive</td>
       </tr>
 </table>
    </div>
@@ -78,7 +78,7 @@
 	        })
 	        $(".navbar ul li").click(function(){
 		      $(this).find("ul").slideToggle()
-		      $(this).toggleClass("active");
+		      $(this).toggleClass("isActive");
 
 		   })
 
