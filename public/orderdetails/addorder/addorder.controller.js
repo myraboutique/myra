@@ -14,7 +14,11 @@ function addorderController($resource) {
   var measurement = $resource('/api/measurement');
   var customerdetails = $resource('/api/customerdetails');
   var Addmaterial = $resource('/api/addmaterial');
-  var Orderdetails = $resource('/api/orderdetails');
+  var Orderdetails = $resource('/api/orderdetails');  
+  var addsubdesigns = $resource('/api/addsubdesign');
+  var addstatus = $resource('/api/addstatuses');
+  
+
   vm.order = [];
   vm.clothtype = [];
    vm.cancel = cancel;
@@ -37,6 +41,8 @@ function addorderController($resource) {
 
   vm.selectCustomer = selectCustomer;
   vm.data = [];
+  vm.subdesign = [];
+  vm.subdesignimage  = [];
 
   measurement.query(function (info) {
     vm.type = info;
@@ -47,6 +53,10 @@ function addorderController($resource) {
   });
   Addmaterial.query(function (info) {
     vm.material = info;
+  });
+  addstatus.query(function(info){
+    console.log(info);
+      vm.statusdata = info ;
   });
 
   vm.change = change;
@@ -100,6 +110,20 @@ function addorderController($resource) {
 
   var pos = 0;
   function typeSelect(selecttype) {
+    // console.log(selecttype);
+    addsubdesigns.query(function (info) {
+    // console.log(info);
+      // vm.type2 = info;
+      info.forEach(function (e){
+        if(e.design.trim() == selecttype.title) {
+          vm.subdesignimage.push(e.subdesignimage);
+          vm.subdesign.push(e.subdesign);
+        }
+      });
+    console.log(vm.subdesignimage);
+    console.log(vm.subdesign);
+      
+    });
     vm.type.forEach(function (e) {
       if (e.id == selecttype.id) {
         vm.clothtype[pos] = selecttype.measurement.split(',');
@@ -129,7 +153,7 @@ function addorderController($resource) {
           orderdetails.customerid = vm.seleCust.id;
           orderdetails.customerName = vm.seleCust.customerName;
           orderdetails.customeremail = vm.seleCust.email;
-          orderdetails.type = vm.order[i].type.title
+          orderdetails.type = vm.order[i].type.title;
           orderdetails.material = vm.order[i].materialtype.materialtype;
           orderdetails.color = vm.order[i].color;
           if (vm.order[i].checked) {
@@ -137,14 +161,20 @@ function addorderController($resource) {
           } else {
             orderdetails.customization = "";
           }
-          orderdetails.cloth = vm.order[i].cloth
-          orderdetails.orderdate = vm.order[i].orderdate
-          orderdetails.date = vm.order[i].deliverydate
-          orderdetails.alertday = vm.order[i].alertday
-          orderdetails.amount = vm.order[i].amount
+          orderdetails.cloth = vm.order[i].cloth;
+          // orderdetails.orderdate = vm.order[i].orderdate;
+          // orderdetails.date = vm.order[i].deliverydate;
+          // orderdetails.alertday = vm.order[i].alertday;
+          orderdetails.subdesign = vm.order[i].type2;
+          orderdetails.status = vm.order[i].materialtype2.status;
+            console.log(vm.order[i].type2);
+            console.log(vm.order[i].materialtype2.status);
+          
+          orderdetails.amount = vm.order[i].amount;
           orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
-          orderdetails.status = 'new';
+          // orderdetails.status = 'new';
           orderdetails.$save(function (info) {
+            console.log(info);
             i++;
             rOrder();
           });
