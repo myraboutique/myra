@@ -64,7 +64,7 @@ function newsubdesignController($resource, $scope) {
       // var newArr = vm.selectMeasurement.join(",");
     
       var addsubdesign = new AddSubDesign();
-      addsubdesign.design = vm.designs;
+      addsubdesign.design = vm.designs.trim();
       // addsubdesign.subdesign = newArr;
       addsubdesign.subdesign = vm.subdesigns;
       addsubdesign.subdesignimage = vm.src;
