@@ -13,7 +13,8 @@ function addProductController($resource,$state,$http) {
   var addmaterial = $resource('/api/addmaterial');
   var customerdetails = $resource('/api/customerdetails');
   var orderdetails = $resource('/api/orderdetails');
-  
+   vm.addtable = [{}];
+   vm.addcol=[{}];
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
   var orderdate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
@@ -89,6 +90,28 @@ function selectCustomer(info) {
       vm.measure.push(element.trim());
     }, this);
   };  
+
+//for adding columns
+
+
+   vm.add=add;
+   function add(){
+     vm.addtable.push([{}]);
+   }
+
+   vm.addc=addc;
+   function addc(){
+     vm.addcol.push([{}]);
+   }
+
+
+//for adding columns
+
+
+
+
+
+
 
   function submit(info) {
     // vm.formSubmitted = true;

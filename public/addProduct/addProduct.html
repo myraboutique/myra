@@ -54,7 +54,7 @@
 				<div class=" customer-detailsmain-box1">
 					<label>Date of Order</label>
 					<datepicker class="datepickerbx dateon-input" date-format="dd/MM/yyyy">
-						<input class="inputdatipicker " id="mydate"  ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
+						<input class="inputdatipicker" id="mydate"  ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
 								ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)" type="text" placeholder="Order Date" />
 					</datepicker>
 					<!--<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Order of Order is required.</span>-->
@@ -75,13 +75,44 @@
 				</div>
 
                <!--Add Product table Start Here-->
-                 <div class="addproducttable-main-box">
-
-                   <table style="width:40%">
+                 <div class="addproducttable-main-box" ng-repeat="fullbox in vm.addtable">
+<!--for adding headers -->
+<table>
 
                       <tr>
-                        <td class="addproducttable-A"><b>Design</b></td>
-                        <td class="addproducttable-B">
+                        <td class="addproducttable-A"><b>Design</b></td>                        
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Sub Design</b></td>                       
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Material Type</b></td>                       
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Color Code</b></td>                       
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Customization</b></td>                        
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Remarks</b></td>                        
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Add Photo</b></td>                       
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Measurement</b></td>                       
+                      </tr>
+                      <tr>
+                           <td class="addproducttable-A"><b>Add Pair</b></td>
+                      </tr>
+</table>
+<!--for adding headers -->
+
+                   <table ng-repeat="dt in vm.addcol">
+
+                      <tr>                        
+                        <td class="addproducttable-A">
                           <select>
                           <option value="volvo">Select</option>
                           <option value="saab">Kurta</option>
@@ -90,15 +121,13 @@
                          </select>
                         </td>
                       </tr>
-                      <tr>
-                        <td class="addproducttable-A"><b>Sub Design</b></td>
-                        <td class="addproducttable-B">
+                      <tr>          
+                        <td class="addproducttable-A">
                           <a href="#">Choose Sub Design</a>
                         </td>
                       </tr>
-                      <tr>
-                        <td class="addproducttable-A"><b>Material Type</b></td>
-                        <td class="addproducttable-B">
+                      <tr>                  
+                        <td class="addproducttable-A">
                           <select>
                           <option value="volvo">Select</option>
                           <option value="saab">Kurta</option>
@@ -107,33 +136,28 @@
                          </select>
                         </td>
                       </tr>
-                      <tr>
-                        <td class="addproducttable-A"><b>Color Code</b></td>
-                        <td class="addproducttable-B">
+                      <tr>                    
+                        <td class="addproducttable-A" >
                           <input type="text" name="usrname">
                         </td>
                       </tr>
                       <tr>
-                        <td class="addproducttable-A"><b>Customization</b></td>
-                        <td class="addproducttable-B">
+                        <td class="addproducttable-A">
                           <a href="#">Add Details</a>
                         </td>
                       </tr>
                       <tr>
-                        <td class="addproducttable-A"><b>Remarks</b></td>
-                        <td class="addproducttable-B">
+                        <td class="addproducttable-A">
                           <a href="#">Add Comments</a>
                         </td>
                       </tr>
                       <tr>
-                        <td class="addproducttable-A"><b>Add Photo</b></td>
-                        <td class="addproducttable-B">
+                        <td class="addproducttable-A">
                           <input type="submit" value="Browse">
                         </td>
                       </tr>
                       <tr>
-                        <td class="addproducttable-A"><b>Measurement</b></td>
-                        <td class="addproducttable-B">
+                        <td class="addproducttable-A">
                           <table>
                            <tr>
                              <td>SH</td>
@@ -158,20 +182,13 @@
                           </table>
                         </td>
                       </tr>
-                      <tr>
-                        <td class="addproducttable-A"><b>Add Pair</b></td>
-                        <td class="addproducttable-B">
-                          <div class="addproducttable-Add-BTN add-pair-box"> <input type="submit" value="Add"></div>
+                      <tr>                   
+                        <td class="addproducttable-A">
+                          <div class="addproducttable-Add-BTN add-pair-box"> <input type="button" ng-click="vm.add()" value="Add Pair"></div>
                         </td>
                       </tr>
-
-
                     </table>
-
-                    <div class="addproducttable-Add-BTN"> <input type="submit" value="Add"></div>
-
-
-
+                    <div class="addproducttable-Add-BTN"> <input type="button" value="Add" ng-click="vm.addc()"></div>
 
                  </div>
                <!--Add Product table End Here-->

@@ -104,10 +104,10 @@ display: inline;
   width: 100%; display: inline-block;
 }
 .addproducttable-main-box table{
-  width:100%; float: left;border-bottom: 1px solid #ccc;border-left: 1px solid #ccc;
+  float: left;border-bottom: 1px solid #ccc;border-left: 1px solid #ccc;
 }
 .addproducttable-A{
-  width: 50%; float: left;border: 1px solid #ccc;  padding:13px 12px 12px 12px; box-sizing: border-box;border-right: 0px;border-bottom: 0px;border-left: 0px;
+  border: 1px solid #ccc;  padding:13px 12px 12px 12px; box-sizing: border-box;border-right: 0px;border-bottom: 0px;border-left: 0px;
 }
 .addproducttable-A b{font-size: 15px;}
 .addproducttable-B{
