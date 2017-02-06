@@ -8,7 +8,6 @@ function newsubdesignController($resource, $scope) {
   
   $scope.single = function (image) {
       vm.src=image;
-    console.log('src data'+vm.src);
   };
   
 
@@ -23,7 +22,7 @@ function newsubdesignController($resource, $scope) {
   vm.addClothtype = addClothtype;
   vm.isActive = true;
   vm.flag = false;
-  var AddSubDesign = $resource('/api/Addsubdesign');
+  var AddSubDesign = $resource('/api/addsubdesign');
   vm.delete = Delete;
 
   function Delete(number) {
@@ -33,7 +32,6 @@ function newsubdesignController($resource, $scope) {
   function subdesign(data,image) {
     vm.flagformeasure = 0;
     if (data) {
-      console.log(vm.selectMeasurement.length);
       for (var i = 0; i < vm.selectMeasurement.length + 1; i++) {
         if (vm.selectMeasurement[i] == data) {
           vm.flagformeasure++;
@@ -66,7 +64,7 @@ function newsubdesignController($resource, $scope) {
       // var newArr = vm.selectMeasurement.join(",");
     
       var addsubdesign = new AddSubDesign();
-      addsubdesign.design = vm.designs;
+      addsubdesign.design = vm.designs.trim();
       // addsubdesign.subdesign = newArr;
       addsubdesign.subdesign = vm.subdesigns;
       addsubdesign.subdesignimage = vm.src;

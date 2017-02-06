@@ -15,7 +15,6 @@ module.exports = (function () {
       });
     },//////end of find
     create: function (req, res) {
-      console.log(req.body);
       db.sync().then(function () {
         models.create(
           {

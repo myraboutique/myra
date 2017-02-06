@@ -7,8 +7,9 @@ module.exports = (function () {
     var m = express.Router();
 
     m.route('/api/managemeasurements')
-        .get(api.GET);
-
+ .post(api.POST)
+        .get(api.GET)
+        .put(api.UPDATE)
 
     return m;
 })();

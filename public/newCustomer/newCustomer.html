@@ -16,15 +16,14 @@
         <li><a href="#/order">Orders</a></li>
 
         <li><a href="#/alert">Alerts</a></li>
-        <li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
-          <ul>
-	        <li><a href='#/register'><span>Manage Users</span></a></li>
-	        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
-          <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
-					<li><a href='#/materialtype'><span>Manage Materials</span></a></li>
-
-	      </ul>
-        </li>
+        <li><a href="#/register">Settings</a>
+                    <!--<ul>
+                        <li><a href='#/register'><span>Manage Users</span></a></li>
+                        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+                        <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+                    </ul>-->
+                </li>
         <li><a href="#/logout">Logout</a></li>
       </ul>
     </div>
@@ -92,7 +91,7 @@
 
         <div class="form-box">
           <label><em id="mandatory" style="color:Red">*</em>&nbsp;Mobile Number</label>
-          <input id="" ng-model="vm.mobileNumber" ng-pattern="/^[0-9]{1,10}$/" name="mobilenumber" ng-minlength="10" ng-maxlength="11" required="required" type="text" placeholder="Mobile Number" />
+          <input id="" ng-model="vm.mobileNumber" ng-pattern="/^[0-9]{1,10}$/" name="mobilenumber"  required="required" type="number" placeholder="Mobile Number" />
           <span ng-show="form.mobilenumber.$error.required && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number is required.</span>
 
           <span ng-show="form.mobilenumber.$error.minlength && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number should be exactly 10 digits.</span>
@@ -103,7 +102,7 @@
 
         <div class="form-box">
           <label> Phone Number</label>
-          <input id="" ng-model="vm.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="10" ng-maxlength="12"  type="text" placeholder="Phone Number" />
+          <input id="" ng-model="vm.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="10" ng-maxlength="12"  type="number" placeholder="Phone Number" />
 
           <span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be digits.</span>
           <span ng-show="form.phonenumber.$error.minlength && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be exactly 10 digits..</span>
@@ -164,8 +163,8 @@
                 <li ng-if="x.isActive" ng-repeat="x in vm.measurementstype">
                  <i>{{x.name}}</i>
                 <strong>
-                  <input class="measurement-input" name="{{x.name}}" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.data[$index]" / >
-                  <span ng-show="form.{{x.name}}.$error.pattern">Cloth measurement must be a number.</span>
+                  <input class="measurement-input" name="{{'aa'+x.name}}" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.data[$index]" / >
+                  <span ng-show="form.{{'aa'+x.name}}.$error.pattern">Cloth measurement must be a number.</span>
                   <img src="assets/images/inc-icon.png" alt="">
                 </strong>
                 </li>

@@ -11,32 +11,49 @@
       <i></i>
     </span>
 		<div class="navbar">
-     <ul>
-      <li><a href="#/home" >Home</a></li>
+			<ul>
+				<li><a href="#/home">Home</a></li>
 
-			<li><a href="#/customerdetails">Customers</a></li>
-			<li><a href="#/order">Orders</a></li>
 
-			<li><a href="#/alert" >Alerts</a></li>
-			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
-				<ul>
-	        <li><a href='#/register'><span>Manage Users</span></a></li>
-	        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
-			<li><a href='#/subdesign'><span>Manage Styles</span></a></li>
-					<li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+				<li><a href="#/customerdetails" class="active">Customers </a></li>
+				<li><a href="#/order">Orders</a></li>
 
-	      </ul>
-			</li>
-			<li><a href="#/logout">Logout</a></li>
-		 </ul>
+				<li><a href="#/alert">Alerts</a></li>
+				<li><a href="#/register" class="active">Settings</a>
+					<!--<ul>
+                        <li><a href='#/register'><span>Manage Users</span></a></li>
+                        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+                        <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+                    </ul>-->
+				</li>
+				<li><a href="#/logout">Logout</a></li>
+			</ul>
 		</div>
 	</div>
 	<!-- Header Section End Here -->
 
+	<div class="inner-heading-bar">Manage Customers </div>
 
-	 <div class="inner-heading-bar">Add New Design</div>
-
-	<div class="main-contant-part minpageheight">
+	<div class="main-contant-part">
+		<!-- Customer Details page Section Start Here -->
+		<div class="row">
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="managecustomer-left-menu-inner-page">
+					<h4 class="admin-setting-heding">Settings</h4>
+					<ul>
+						<li><a href='#/register'><span>Manage Users</span></a></li>
+						<li><a href='#/statustype'><span>Manage Status</span></a></li>
+						<li><a href='#/measurements'><span>Manage Measurement</span></a></li>
+						<li><a href='#/clothtype' class="active"><span>Manage Designs</span></a></li>
+						<li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+						<li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+					</ul>
+				</div>
+			</div>
+	<div class="col-md-9 col-sm-9 col-xs-12">
+    <h4 class="admin-setting-heding">Add Designs</h4>
+			
 		<!-- Left Form Section Start Here -->
 		<form name="form" novalidate>
 
@@ -54,8 +71,33 @@
        </div>
 
 			 <div class="form-box">
-			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Measurement</label>   			
-					  	<select ng-model="vm.measu"  class="clothmeasurementinput" >
+
+			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Measurement</label>
+   <!--<select ng-model="vm.measu"  class="clothmeasurementinput"  >-->
+					
+   <!--<select ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput" required="" name="measurement">
+					<option value=""></option>
+							<option value="SH">SH</option>
+							<option value="BUST">BUST</option>
+              				<option value="WAIST">WAIST</option>
+							<option value="LWAIST">LWAIST</option>
+							<option value="HIPS">HIPS</option>
+							<option value="SLEEVES">SLEEVES</option>
+							<option value="SHORT">SHORT</option>
+							<option value="3/4">3/4</option>
+							<option value="FULL">FULL</option>
+							<option value="FULLL">FULLL</option>
+							<option value="KNEE">KNEE</option>
+							<option value="ARMHOLE">ARMHOLE</option>
+							<option value="UTHIGH">UTHIGH</option>
+							<option value="LTHIGH">LTHIGH</option>
+							<option value="FNECK">FNECK</option>
+							<option value="BNECK">BNECK</option>
+							<option value="MORI">MORI</option>
+							<option value="CROSS">CROSS</option>
+
+					  </select>-->
+					  	<select ng-model="vm.measu" name="measurement" ng-required="vm.selectMeasurement.length == 0" placeholder="Measurement" class="clothmeasurementinput" >
 							<option ng-if="x.isActive" ng-repeat="x in vm.measurementstype"> {{x.name}}</option>
 						</select>
 						<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
@@ -95,18 +137,23 @@
 
 </div>
 </form>
-</div>
-<!-- Left Form Section End Here -->
 
-<!-- Footer Section Start Here -->
-<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
-<!-- Footer Section End Here -->
-</div>
+			
+			</div>
+		</div>
 
+		<!-- Customer Details page Section End Here -->
+		<div class="paging">
+			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+			</dir-pagination-controls>
+		</div>
+	</div>
+	<!-- Footer Section Start Here -->
+	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
+	<!-- Footer Section End Here -->
 </div>
-
 <script type="text/javascript">
-		$(document).ready(function (e) {
+	$(document).ready(function (e) {
 		$(".menu-toggle").click(function () {
 			$(".navbar").slideToggle()
 
@@ -117,5 +164,5 @@
 
 		})
 
-		});
+	});
 </script>

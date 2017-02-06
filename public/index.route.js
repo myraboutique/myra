@@ -129,6 +129,12 @@
       controller: 'newsubdesignController',
       controllerAs: 'vm'
     })
+    .state('settings', {
+      url: '/settings',
+      templateUrl: 'settings/settings.html',
+      controller: 'settingsController',
+      controllerAs: 'vm'
+    })
     .state('editsubdesign', {
       url: '/editsubdesign',
       templateUrl: 'subdesign/edit/editsubdesign.html',
@@ -138,6 +144,8 @@
       'referer': null
             }
     })
+   
+
    .state('password', {
       url: '/password/:data',
       templateUrl: 'password/password.html',
@@ -180,8 +188,28 @@
       'referer': null
             }
     })
-   
-    .state('home', {
+    .state('statustype', {
+      url: '/statustype',
+      templateUrl: 'statustype/status.html',
+      controller: 'statusController',
+      controllerAs: 'vm'
+    })
+    .state('addstatustype', {
+      url: '/addstatustype',
+      templateUrl: 'statustype/addstatus/addstatus.html',
+      controller: 'addstatusController',
+      controllerAs: 'vm'
+    })
+    .state('editstatustype', {
+      url: '/editstatustype',
+      templateUrl: 'statustype/editstatus/editstatus.html',
+      controller: 'editstatusController',
+      controllerAs: 'vm',
+       params: {
+      'referer': null
+            }
+    })
+   .state('home', {
       url: '/home',
       templateUrl: 'home/home.html',
       controller: 'homeController',
@@ -205,5 +233,26 @@
       controller: 'addProductController',
       controllerAs: 'vm'
      })
+      .state('measurements', {
+      url: '/measurements',
+      templateUrl: 'measurements/measurements.html',
+      controller: 'measurementsController',
+      controllerAs: 'vm'
+    })
+    .state('addmeasurements', {
+      url: '/addmeasurements',
+      templateUrl: 'measurements/addnew/addmeasurements.html',
+      controller: 'addmeasurementsController',
+      controllerAs: 'vm'
+    })
+    .state('editmeasurements', {
+      url: '/editmeasurements',
+      templateUrl: 'measurements/edit/editmeasurements.html',
+      controller: 'editmeasurementsController',
+      controllerAs: 'vm',
+       params: {
+      'referer': null
+            }
+    })
   }
 })();

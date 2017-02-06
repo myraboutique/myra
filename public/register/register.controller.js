@@ -37,7 +37,6 @@ function registerController($resource,$state) {
   }
 
   function resetPassword(data){
-    console.log(data);
      vm.selectData = JSON.stringify(data);
         $state.go("reset-password", { 'referer': vm.selectData });
   }
@@ -56,7 +55,6 @@ function registerController($resource,$state) {
             }
             txt += c;
        }
-   console.log(txt);
 
     register.name = txt;
     register.email = vm.email;
@@ -68,8 +66,6 @@ function registerController($resource,$state) {
     register.isActive = true;
     
     register.$save(function(info){
-      console.log(info.status);
-      console.log(info);
       if(info.status){
         swal(info.status);
       } else {

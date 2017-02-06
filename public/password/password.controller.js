@@ -17,7 +17,6 @@ function passwordController($resource,$http,$stateParams) {
   function change(){
     var password = vm.password;
     vm.data.push(password);
-    console.log(vm.data);
       $http.put('/api/forgot',vm.data)
         .then(
           function(response){

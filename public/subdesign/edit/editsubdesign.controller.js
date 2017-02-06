@@ -20,9 +20,7 @@ function editsubdesignController($resource, $stateParams, $http,$scope) {
   vm.update = update;
   vm.delete = Delete;
   vm.selectMeasurement = vm.data.subdesign;
-  console.log(vm.data);
   vm.subdesignimage = vm.data.subdesignimage;
-  console.log(vm.selectMeasurement);
 
   function subdesign(data,image) {
     if (data) {
@@ -40,21 +38,18 @@ function editsubdesignController($resource, $stateParams, $http,$scope) {
       vm.src=image;
       // vm.subdesignimage = vm.data.subdesignimage;
        vm.data.subdesignimage = vm.src;
-      
-    //console.log('src data'+vm.src);
+
   };
 
 
   function update(form) {
     if (form.$valid) {
       // vm.data.subdesign = vm.selectMeasurement.join(',');
-      console.log(vm.data);
 
       $http.put('/api/addsubdesign', vm.data)
         .then(
         function (response) {
           console.log("put successfull")
-          console.log(vm.data);
           window.location = '#/subdesign';
         },
         function (response) {
@@ -64,10 +59,6 @@ function editsubdesignController($resource, $stateParams, $http,$scope) {
   }
 var measurement = $resource('/api/measurement')
   measurement.query(function(info){
-    console.log(info);
-     
       vm.measurementstype = info ;
-      console.log(vm.measurementstype);
-        
    });
 }

@@ -18,14 +18,14 @@
 				<li><a href="#/order" class="active">Orders</a></li>
 
 				<li><a href="#/alert">Alerts</a></li>
-				<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
-					<ul>
-						<li><a href='#/register'><span>Manage Users</span></a></li>
-						<li><a href='#/clothtype'><span>Manage Designs</span></a></li>
-						<li><a href='#/subdesign'><span>Manage Styles</span></a></li>
-						<li><a href='#/materialtype'><span>Manage Materials</span></a></li>
-					</ul>
-				</li>
+				<li><a href="#/register">Settings</a>
+                    <!--<ul>
+                        <li><a href='#/register'><span>Manage Users</span></a></li>
+                        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+                        <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+                    </ul>-->
+                </li>
 				<li><a href="#/logout">Logout</a></li>
 			</ul>
 		</div>
@@ -86,7 +86,7 @@
 								</span>
 						<!--	</a>-->
 						</th>
-						<th>
+						<!--<th>
 								<a href="" ng-click="vm.order('orderdate')">
 								<font>Stiching Date</font>&nbsp
 								<span ng-show="vm.predicate == 'orderdate'">
@@ -98,7 +98,7 @@
                 </span>
 								</span>
 							</a>
-						</th>
+						</th>-->
 						<th>
 								<a href="" ng-click="vm.order('date')">
 								<font>Delivery Date</font>&nbsp
@@ -121,8 +121,8 @@
                   }">
 						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link"><b>{{data.id}}</b></a></td>
 						<td class="top-purpal-color-row2">{{data.customerName}}</td>
-						<td class="top-purpal-color-row2">{{data.orderdate | date:"dd/MM/yyyy"}}</td>
-						<td class="top-purpal-color-row2">{{data.date}}</td>
+						<!--<td class="top-purpal-color-row2">{{data.stitchingdate | date:"dd/MM/yyyy"}}</td>-->
+						<td class="top-purpal-color-row2">{{data.deliverydate}}</td>
 						<td class="top-purpal-color-row2">{{data.status}}</td>
 					</tr>
 

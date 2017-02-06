@@ -2,7 +2,6 @@ module.exports = (function () {
     var login = require('./login');
     var order = require('./order');
     var orderdetails = require('./orderdetails');
-    var order = require('./order');   
     var customerdetails = require('./customerdetails');
     var measurement = require('./measurement');
     var addmaterial = require('./addmaterial');
@@ -10,6 +9,8 @@ module.exports = (function () {
     var addsubdesign = require('./addsubdesign');
     var managemeasurements = require('./managemeasurements');
     //  var addproduct = require('./addproduct');
+    var addstatuses = require('./addstatuses');
+    
     var m = [
         login,
         order,
@@ -18,8 +19,9 @@ module.exports = (function () {
         measurement,
         addmaterial,
         managemeasurements,
-        addsubdesign
-        // addproduct
+        addsubdesign,
+        addstatuses
+
     ];
     return m;
 })();

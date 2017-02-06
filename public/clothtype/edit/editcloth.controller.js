@@ -17,7 +17,6 @@ function editclothController($resource, $stateParams, $http) {
   vm.delete = Delete;
   vm.selectMeasurement = [];
   vm.selectMeasurement = vm.data.measurement.split(',');
-  console.log(vm.selectMeasurement);
 
   function measuremet(data) {
     if (data) {
@@ -33,7 +32,6 @@ function editclothController($resource, $stateParams, $http) {
   function update(form) {
     if (form.$valid) {
       vm.data.measurement = vm.selectMeasurement.join(',');
-      console.log(vm.data);
 
       $http.put('/api/measurement', vm.data)
         .then(
@@ -48,10 +46,6 @@ function editclothController($resource, $stateParams, $http) {
   }
 var managemeasurements = $resource('/api/managemeasurements')
   managemeasurements.query(function(info){
-    console.log(info);
-     
       vm.measurementstype = info ;
-      console.log(vm.measurementstype);
-        
    });
 }
