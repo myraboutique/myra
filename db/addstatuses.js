@@ -24,7 +24,7 @@ module.exports = (function()
       models.findOne({ where: { status: req.body.status } }).then(function (user) {
     if (user) {
       return res.status(200).json({
-        status: 'This status already exists.'
+        status: 'already00++--'
       });
       }
     else {
@@ -33,7 +33,7 @@ module.exports = (function()
       models.create(
         {
          status : req.body.status,
-        active :  req.body.active,
+        isActive :  req.body.isActive,
         }).then(function(user)
       {
         res.json(user);
@@ -48,7 +48,7 @@ module.exports = (function()
       db.sync().then(function(){
         models.update({
           status : req.body.status,
-          active :  req.body.active,
+          isActive :  req.body.isActive,
         },
         {
           where:{id:req.body.id}
