@@ -1,39 +1,59 @@
 <div class="container">
 
-<!-- Header Section Start Here -->
- <div class="main-header">
-	<div class="logo"><a href="#/home"><img src="assets/images/logo.png" alt=""></a></div>
-  <span class="menu-toggle">
+	<!-- Header Section Start Here -->
+	<div class="main-header">
+		<div class="logo">
+			<a href="#/home"><img src="assets/images/logo.png" alt=""></a>
+		</div>
+		<span class="menu-toggle">
       <i></i>
       <i></i>
       <i></i>
     </span>
 		<div class="navbar">
-     <ul>
-      <li><a href="#/home" >Home</a></li>
+			<ul>
+				<li><a href="#/home">Home</a></li>
 
-			<li><a href="#/customerdetails">Customers</a></li>
-			<li><a href="#/order">Orders</a></li>
 
-			<li><a href="#/alert" >Alerts</a></li>
-			<li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
-				<ul>
-	        <li><a href='#/register'><span>Manage Users</span></a></li>
-	        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
-          <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
-					<li><a href='#/materialtype'><span>Manage Material</span></a></li>
-	      </ul>
-			</li>
-			<li><a href="#/logout">Logout</a></li>
-		 </ul>
+				<li><a href="#/customerdetails">Customers </a></li>
+				<li><a href="#/order">Orders</a></li>
+
+				<li><a href="#/alert">Alerts</a></li>
+				<li><a href="#/register" class="active">Settings</a>
+					<!--<ul>
+                        <li><a href='#/register'><span>Manage Users</span></a></li>
+                        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+                        <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+                    </ul>-->
+				</li>
+				<li><a href="#/logout">Logout</a></li>
+			</ul>
 		</div>
- </div>
- <!-- Header Section End Here -->
+	</div>
+	<!-- Header Section End Here -->
 
- <div class="inner-heading-bar">Manage Measurements</div>
+	<div class="inner-heading-bar">Manage Customers </div>
 
- <div class="main-contant-part">
-  <!-- Customer Details page Section Start Here -->
+	<div class="main-contant-part">
+		<!-- Customer Details page Section Start Here -->
+		<div class="row">
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="managecustomer-left-menu-inner-page">
+					<h4 class="admin-setting-heding">Settings</h4>
+					<ul>
+						<li><a href='#/register'><span>Manage Users</span></a></li>
+						<li><a href='#/statustype'><span>Manage Status</span></a></li>
+						<li><a href='#/measurements' class="active"><span>Manage Measurement</span></a></li>
+						<li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+						<li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+						<li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+					</ul>
+				</div>
+			</div>
+	<div class="col-md-9 col-sm-9 col-xs-12">
+    <h4 class="admin-setting-heding">Manage Measurement</h4>
+			
   <div class="customer-detail-page-contant">
    <div class="right-add-new-button"><a href="#/addmeasurements">Add New</a></div>
    <div class="details-table">
@@ -64,23 +84,32 @@
              boundary-links="true" >
      </dir-pagination-controls>
     </div>
- </div>
- <!-- Footer Section Start Here -->
- <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
- <!-- Footer Section End Here -->
+
+			
+			</div>
+		</div>
+
+		<!-- Customer Details page Section End Here -->
+		<div class="paging">
+			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+			</dir-pagination-controls>
+		</div>
+	</div>
+	<!-- Footer Section Start Here -->
+	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
+	<!-- Footer Section End Here -->
 </div>
+<script type="text/javascript">
+	$(document).ready(function (e) {
+		$(".menu-toggle").click(function () {
+			$(".navbar").slideToggle()
 
- <script type="text/javascript">
-         $(document).ready(function(e) {
-          $(".menu-toggle").click(function(){
-	        $(".navbar").slideToggle()
+		})
+		$(".navbar ul li").click(function () {
+			$(this).find("ul").slideToggle()
+			$(this).toggleClass("active");
 
-	        })
-	        $(".navbar ul li").click(function(){
-		      $(this).find("ul").slideToggle()
-		      $(this).toggleClass("active");
+		})
 
-		   })
-
-});
+	});
 </script>
