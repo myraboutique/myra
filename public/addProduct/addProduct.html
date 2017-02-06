@@ -38,11 +38,11 @@
 <!--ng-if="vm.type.length > 0" ng-init="vm.addProduct.selectedDesign = vm.type[0].title;vm.designSelect(vm.addProduct.selectedDesign)"-->
                     <div class="form-section-box">
                         <label style="text-align:left; ">Design</label>
-                        <select style="width: 53%!important;" rows="4" cols="50" name="design" ng-model="vm.addProduct.selectedDesign" ng-change="vm.designSelect(vm.addProduct.selectedDesign)" required>
+                        <select style="width: 53%!important;" rows="4" cols="50" name="type" ng-model="vm.addProduct.type" ng-change="vm.designSelect(vm.addProduct.type)" required>
                         <option value="" ng-selected="true">Select Design</option>
                         <option value="{{data.title}}" ng-repeat="data in vm.type | filter:data.isActive='true'">{{data.title}}</option>
                         </select>
-                        <span ng-show="form.design.$error.required && (form.design.$dirty || vm.formSubmitted)">Design is required.</span>
+                        <span ng-show="form.type.$error.required && (form.design.$dirty || vm.formSubmitted)">Design is required.</span>
                     </div>
 
                     <div class="form-section-box" style="margin-left: 34%;    margin-top: -15px;     width: 50%;">
@@ -80,8 +80,8 @@
 
                             <div class="form-box">
                                 <label style="text-align:left; ">Any Other Remarks</label>
-                                <textarea style="width: 53%!important;" rows="4" cols="50" ng-maxlength="200" ng-model="vm.addProduct.remarks" placeholder="Any Other Remark" name="remarks"></textarea>
-                                <span ng-show="vm.addProduct.remarks.$error.required && (form.material.$dirty || vm.formSubmitted)">Remarks description length must be less than 200.</span>
+                                <textarea style="width: 53%!important;" rows="4" cols="50" ng-maxlength="200" ng-model="vm.addProduct.cloth" placeholder="Any Other Remark" name="remarks"></textarea>
+                                <span ng-show="vm.addProduct.cloth.$error.required && (form.material.$dirty || vm.formSubmitted)">Remarks description length must be less than 200.</span>
                             </div>
                         </div>
                     </div>
