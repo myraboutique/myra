@@ -21,6 +21,13 @@ function statusController($resource,$state) {
      $state.go("editstatustype",{ 'referer': vm.selectData});
    
    }
+
+   vm.predicate = '';
+  vm.reverse = true;
+  function order(predicate) {
+    vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;
+    vm.predicate = predicate;
+  };
  
   var addstatus = $resource('/api/addstatuses')
   addstatus.query(function(info){
