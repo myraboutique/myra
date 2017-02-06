@@ -22,7 +22,7 @@ function statusController($resource,$state) {
    
    }
  
-  var addstatus = $resource('/api/addstatus')
+  var addstatus = $resource('/api/addstatuses')
   addstatus.query(function(info){
     console.log(info);
      

@@ -5,7 +5,7 @@ addstatusController.$inject = ['$resource'];
 
 function addstatusController($resource) {
 
-  var Addstatus = $resource('/api/addstatus')
+  var Addstatus = $resource('/api/addstatuses')
 
   var vm = this;
   vm.flag = false ;
