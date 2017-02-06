@@ -2,7 +2,9 @@
 
 	<!-- Header Section Start Here -->
 	<div class="main-header">
-			<div class="logo"><a href="#/home"><img src="assets/images/logo.png" alt=""></a></div>
+		<div class="logo">
+			<a href="#/home"><img src="assets/images/logo.png" alt=""></a>
+		</div>
 		<span class="menu-toggle">
       <i></i>
       <i></i>
@@ -15,13 +17,13 @@
 				<li><a href="#/order" class="active">Create Order</a></li>
 				<li><a href="#/alert">Alerts</a></li>
 				<li><a href="#/register">Settings</a>
-                    <!--<ul>
+					<!--<ul>
                         <li><a href='#/register'><span>Manage Users</span></a></li>
                         <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
                         <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
                         <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
                     </ul>-->
-                </li>
+				</li>
 				<li><a href="#/logout">Logout</a></li>
 			</ul>
 		</div>
@@ -30,126 +32,77 @@
 
 	<div class="inner-heading-bar">Order Details</div>
 	<form name="orderform" novalidate>
-	<div class="main-contant-part">
-		<div class="form-section-box">
+		<div class="main-contant-part">
+			<div class="form-section-box">
 				<div class="form-section-box">
 					<!--<div class="form-heading">Customer Details</div>-->
 					<div class="form-box">
 						<div class=" customer-detailsmain-box">
 							<label>Order by</label>
-							<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer "
-								required name="customeruser">
-				 	<option value="">-- Please Select --</option></select>
-
-							<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
+							<input type="text" ng-model="vm.records.customerName" disabled/>
 						</div>
 
-						<div class=" customer-detailsmain-box1"><label>Contact Number : </label><strong>{{vm.contact}}</strong></div>
+						<div class=" customer-detailsmain-box1"><label>Contact Number : </label><strong>{{vm.customerpatch.mobileNumber}}</strong></div>
 
-						<div class=" customer-detailsmain-box2"><label>Address : </label><strong>{{vm.address}}</strong></div>
+						<div class=" customer-detailsmain-box2"><label>Address : </label><strong>{{vm.customerpatch.address}}</strong></div>
 					</div>
-
-					<div ng-repeat="item in vm.items">
+					
 						<div class=" customer-detailsmain-box">
 							<label>Order Date</label>
-							<datepicker class="datepickerbx dateon-input" date-format="dd/MM/yyyy">
-								<input class="inputdatipicker " id="mydate" ng-model="vm.order[$index].orderdate" name="orderdate{{$index}}" required="required"
-									ng-change="vm.change(vm.order[$index].orderdate,vm.order[$index].deliverydate,$index)" type="text" placeholder="Order Date"
-								/>
-							</datepicker>
-							<!--<span ng-show="orderform['orderdate'+$index].$error.required && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">Order of Order is required.</span>-->
-							<!--<span ng-show="orderform['orderdate'+$index].$error.pattern && (orderform['orderdate'+$index].$dirty || vm.formSubmitted)">This is not valid date</span>-->
-
-
-				</div>
-				<div class=" customer-detailsmain-box">
-					<label>Status</label>
-					<select ng-model="vm.name" ng-change="" 
-						 name="customeruser" ng>
-							 <option  ng-repeat="x in vm.st">{{x.status}}</option>							 
-					 </select>
+							<input type="text" ng-model="vm.records.orderdate" disabled/>
 						</div>
-
-
-					</div>
-
-
+						<div class=" customer-detailsmain-box">
+							<label>Status</label>
+							<input type="text" ng-model="vm.records.status" disabled/>
+						</div>
 				</div>
 
-				<div ng-repeat="item in vm.items">
+				
 					<div class="form-section-box">
 						<div class="form-heading"></div>
 
-						<!--<div style="margin-left: 0%;" class="add-next-btn-box">
-							<div class="submit-button">
-								<a href="#/addorder"><input type="submit" value="Add New"/></a>
-							</div>
-						</div>-->
+						<div class="form-box">
+							<table class="table table-part" border="1" cellspacing="0" cellpadding="0">
+								<tr class="top-purpal-color-row">
+									<th>Design</th>
+									<th>Delivery Date</th>
+									<th>Stiching Date</th>
+									<th>Alert Date</th>
+									<th>Amount</th>
+									<th>Status</th>
+								</tr>
+								<tr ng-repeat="">
+									<th>{{data.type}}</th>
+									<th>{{data.date}}</th>
+									<th>{{data.date}}</th>
+									<th>{{data.alertday}}</th>
+									<th>{{data.amount}}</th>
+									<th>{{data.status}}</th>
 
-			<div class="form-box">
-				<table class="table table-part" border="1" cellspacing="0" cellpadding="0">
-			<tr class="top-purpal-color-row">
-				<th>Design</th>
-				<th>Delivery Date</th>
-				<th>Stiching Date</th>
-				<th>Alert Date</th>
-				<th>Amount</th>
-				<th>Status</th>
-				<!--<th>Action</th>-->
-			</tr>
-			<tr ng-repeat="data in vm.order2">
-				<th>{{data.type}}</th>
-				<th>{{data.date}}</th>
-				<th>{{data.date}}</th>
-				<th>{{data.alertday}}</th>
-				<th>{{data.amount}}</th>
-				<th>{{data.status}}</th>
-				
-
-				
-
-				<!--<th width="13%">
-					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
-					<img style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
-					<img ng-click="vm.deleteOrder(data.id)" style="margin-left: -2px;" src="assets/images/inr-icon.png" alt="">
-				</th>-->
-			</tr>
-		</table>
-	</div>
-
-						
-
+								</tr>
+							</table>
+						</div>
 					</div>
+			</div>
 
-				</div>
+
 
 		</div>
-		<!-- Left Form Section End Here -->
-
-
-	</div>
-	<!-- Footer Section Start Here -->
-	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
-	<!-- Footer Section End Here -->
+		<!-- Footer Section Start Here -->
+		<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
+		<!-- Footer Section End Here -->
 	</form>
 	<script type="text/javascript">
+		$(document).ready(function (e) {
+			$(".menu-toggle").click(function () {
+				$(".navbar").slideToggle()
 
-		// 	var myDate = new Date();
-    // var month = myDate.getMonth() + 1;
-    // var prettyDate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
-    // $("#mydate").val(prettyDate);
+			})
+			$(".navbar ul li").click(function () {
+				$(this).find("ul").slideToggle()
+				$(this).toggleClass("active");
 
-         $(document).ready(function(e) {
-          $(".menu-toggle").click(function(){
-	        $(".navbar").slideToggle()
+			})
 
-	        })
-	        $(".navbar ul li").click(function(){
-		      $(this).find("ul").slideToggle()
-		      $(this).toggleClass("active");
-
-		   })
-
-});
-</script>
-
+		});
+	</script>

@@ -43,9 +43,16 @@ function orderController($resource, $state) {
    });
 
     function sendData(info) {
-        vm.selectData = JSON.stringify(info);
-        $state.go("addProduct", { 'referer': vm.selectData });
-        localStorage.setItem('editproduct',vm.selectData);
+
+     vm.selectData = JSON.stringify(info);
+     if(localStorage.getItem('orderdetailsnew')){
+       localStorage.removeItem('orderdetailsnew');
+       localStorage.setItem('orderdetailsnew',vm.selectData);
+     }
+     else{
+            localStorage.setItem('orderdetailsnew',vm.selectData);       
+     }
+     $state.go("addordernew",{ 'referer': vm.selectData});
     }
 }
 
