@@ -33,7 +33,7 @@ module.exports = (function(){
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: 'root',
+            password: 'root@123',
             database: 'demo1'
         },
         logging: {
