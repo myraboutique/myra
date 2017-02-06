@@ -87,6 +87,29 @@ display: inline;
 }
 .paging ul li a{ text-decoration: none;}
 
+
+.managecustomer-left-menu-inner-page{
+  width: 100%; float: left;
+}
+.managecustomer-left-menu-inner-page ul{margin: -9px 0 0 0; padding: 0px;}
+.managecustomer-left-menu-inner-page ul li{list-style: none; display: block; margin-bottom: 1px;}
+.managecustomer-left-menu-inner-page ul li a{font-size: 15px; padding: 0px 15px; color: #000;line-height: 46px; background: #f1f1f1;display: inline-block; width:100%;
+  -webkit-transition: all 0.2s linear; */
+      -moz-transition: all 0.2s linear;
+      -o-transition: all 0.2s linear;
+      /* transition: all 0.2s linear; */
+}
+.managecustomer-left-menu-inner-page ul li a:hover{ background: #dadada;}
+.managecustomer-left-menu-inner-page ul li a.active{ background: #dadada;}
+
+.admin-setting-heding{
+  background: #ff36b6;
+  padding: 12px;
+  color: #fff;
+  display: inline-block;
+  width: 100%;
+}
+
 .create-order-box{
   margin-bottom:30px;
   display: inline-block;
