@@ -14,6 +14,14 @@ function addProductController($resource,$state,$http) {
   var customerdetails = $resource('/api/customerdetails');
   var orderdetails = $resource('/api/orderdetails');
   
+  var myDate = new Date();
+  var month = myDate.getMonth() + 1;
+  var orderdate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
+  vm.order = [
+    {
+      orderdate: orderdate
+    }
+  ]
 
   measurement.query(function (info) {
     vm.type = info;
@@ -22,7 +30,16 @@ function addProductController($resource,$state,$http) {
   addmaterial.query(function(info){
       vm.material = info; 
   });
+  
+    vm.selectCustomer = selectCustomer;
+  vm.data = [];
 
+  measurement.query(function (info) {
+    vm.type = info;
+  });
+  customerdetails.query(function (info) {
+    vm.customer = info;
+  });
   customerdetails.query(function (info) {
     vm.measureWAIST = info[0].measureWAIST;
     vm.measureBUST = info[0].measureBUST;
@@ -45,6 +62,12 @@ function addProductController($resource,$state,$http) {
     vm.measureMORI = info[0].measureMORI;
     vm.measureCROSS = info[0].measureCROSS;
   });
+function selectCustomer(info) {
+    vm.seleCust = info;
+    vm.contact = info.mobileNumber;
+    vm.email = info.email;
+    vm.address = info.address
+  }
 
   function designSelect(info) {
     vm.measurements = [];

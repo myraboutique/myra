@@ -193,6 +193,12 @@
       controller: 'alertController',
       controllerAs: 'vm'
     })
+     .state('test', {
+      url: '/test',
+      templateUrl: 'test/test.html',
+      controller: 'testController',
+      controllerAs: 'vm'
+    })
     .state('addProduct', {
       url: '/addProduct',
       templateUrl: 'addProduct/addProduct.html',

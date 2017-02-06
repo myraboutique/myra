@@ -41,7 +41,7 @@ function editsubdesignController($resource, $stateParams, $http,$scope) {
       // vm.subdesignimage = vm.data.subdesignimage;
        vm.data.subdesignimage = vm.src;
       
-    console.log('src data'+vm.src);
+    //console.log('src data'+vm.src);
   };
 
 

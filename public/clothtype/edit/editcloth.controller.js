@@ -39,7 +39,7 @@ function editclothController($resource, $stateParams, $http) {
         .then(
         function (response) {
           console.log("put successfull")
-          window.location = '#/subdesign';
+          window.location = '#/clothtype';
         },
         function (response) {
           console.log("put unsuccessfull")
