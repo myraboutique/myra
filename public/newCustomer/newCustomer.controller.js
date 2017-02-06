@@ -6,7 +6,11 @@ newCustomerController.$inject = ['$resource'];
 function newCustomerController($resource) {
 
   var vm = this;
+
   vm.measurementstype = [] ;
+  vm.mname = [];
+  vm.mvalue = [];
+
   vm.token = JSON.parse(localStorage.getItem('token'));
   vm.birthdate = birthdate;
   vm.anniversarydate = anniversarydate;
@@ -89,26 +93,15 @@ function newCustomerController($resource) {
       customerdetails.birthdayAlert = true;
       customerdetails.remarks = vm.remarks;
       if(vm.data){
-      customerdetails.measureSH = vm.data[0];
-      customerdetails.measureBUST=vm.data[1];
-      customerdetails.measureWAIST=vm.data[2];
-      customerdetails.measureLWAIST=vm.data[3];
-      customerdetails.measureHIPS=vm.data[4];
-      customerdetails.measureSLEEVES=vm.data[5];
-      customerdetails.measureSHORT=vm.data[6];
-      customerdetails.measuretype=vm.data[7];
-      customerdetails.measureLENGTH=vm.data[8];
-      customerdetails.measureFULL=vm.data[9];
-      customerdetails.measureFULLL=vm.data[10];
-      customerdetails.measureKNEE=vm.data[11];
-      customerdetails.measureARMHOLE=vm.data[12];
-      customerdetails.measureCROSS=vm.data[13];
-      customerdetails.measureLTHIGH=vm.data[14];
-      customerdetails.measureCALF=vm.data[15];
-      customerdetails.measureFNECK=vm.data[16];
-      customerdetails.measureBNECK=vm.data[17];
-      customerdetails.measureMORI=vm.data[18];
+        for (var index = 0; index < vm.measurementstype.length; index++) {
+          vm.mname.push(vm.measurementstype[index].name);
+          vm.mvalue.push(vm.data[index]);
+        }
+        console.log(vm.mname);
+        console.log(vm.mvalue);
       }
+      customerdetails.measurementsname = JSON.stringify(vm.mname);
+      customerdetails.measurementsvalue = JSON.stringify(vm.mvalue);
 
       customerdetails.$save(function(info){
 

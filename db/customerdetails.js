@@ -31,27 +31,29 @@ module.exports = (function () {
             address: req.body.address,
             billingAddress: req.body.billingAddress,
             remarks: req.body.remarks,
+            measurementsname: req.body.measurementsname,
+            measurementsvalue: req.body.measurementsvalue
 
-            measureSH: req.body.measureSH,
-            measureBUST: req.body.measureBUST,
-             measureWAIST: req.body.measureWAIST,
-             measureLWAIST: req.body.measureLWAIST,
-              measureHIPS: req.body.measureHIPS,
-               measureSLEEVES: req.body.measureSLEEVES,
-               measureSHORT: req.body.measureSHORT,
-               measuretype: req.body.measuretype,
-                measureLENGTH: req.body.measureLENGTH, 
-               measureFULL: req.body.measureFULL,
-               measureFULLL: req.body.measureFULLL,
-               measureKNEE: req.body.measureKNEE,
-               measureARMHOLE: req.body.measureARMHOLE,
-                measureUTHIGH: req.body.measureUTHIGH,
-                measureLTHIGH: req.body.measureLTHIGH,
-               measureCALF: req.body.measureCALF,
-              measureFNECK: req.body.measureFNECK,
-               measureBNECK: req.body.measureBNECK,
-              measureMORI: req.body.measureMORI,
-              measureCROSS: req.body.measureCROSS
+            // measureSH: req.body.measureSH,
+            // measureBUST: req.body.measureBUST,
+            //  measureWAIST: req.body.measureWAIST,
+            //  measureLWAIST: req.body.measureLWAIST,
+            //   measureHIPS: req.body.measureHIPS,
+            //    measureSLEEVES: req.body.measureSLEEVES,
+            //    measureSHORT: req.body.measureSHORT,
+            //    measuretype: req.body.measuretype,
+            //     measureLENGTH: req.body.measureLENGTH, 
+            //    measureFULL: req.body.measureFULL,
+            //    measureFULLL: req.body.measureFULLL,
+            //    measureKNEE: req.body.measureKNEE,
+            //    measureARMHOLE: req.body.measureARMHOLE,
+            //     measureUTHIGH: req.body.measureUTHIGH,
+            //     measureLTHIGH: req.body.measureLTHIGH,
+            //    measureCALF: req.body.measureCALF,
+            //   measureFNECK: req.body.measureFNECK,
+            //    measureBNECK: req.body.measureBNECK,
+            //   measureMORI: req.body.measureMORI,
+            //   measureCROSS: req.body.measureCROSS
              
 
 
@@ -77,7 +79,9 @@ module.exports = (function () {
           email: req.body.email,
           address: req.body.address,
           billingAddress: req.body.billingAddress,
-          remarks: req.body.remarks
+          remarks: req.body.remarks,
+          measurementsname: req.body.measurementsname,
+          measurementsvalue: req.body.measurementsvalue
         },
           {
             where: {

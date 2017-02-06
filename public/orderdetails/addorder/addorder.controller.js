@@ -1,34 +1,23 @@
 angular.module('myra')
   .controller('addorderController', addorderController);
 
-addorderController.$inject = ['$resource', '$scope'];
+addorderController.$inject = ['$resource'];
 
-
-
-function addorderController($resource, $scope) {
+function addorderController($resource) {
   var vm = this;
 
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
     window.location = '#/login';
   }
-  vm.disable = true;
   vm.datepattern = "/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/i";
   var measurement = $resource('/api/measurement');
   var customerdetails = $resource('/api/customerdetails');
   var Addmaterial = $resource('/api/addmaterial');
   var Orderdetails = $resource('/api/orderdetails');
-
   vm.order = [];
   vm.clothtype = [];
-  vm.date1 = false;
-  vm.date2 = false;
-  //vm.date4 = false;
-  vm.date3 = false;
-  vm.tempalert = false;
-  vm.date4 = false;
-  vm.cancel = cancel;
-  vm.addpro = addpro;
+   vm.cancel = cancel;
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
   var orderdate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
@@ -37,17 +26,14 @@ function addorderController($resource, $scope) {
       orderdate: orderdate
     }
   ]
-
+  vm.typeSelect = typeSelect;
   vm.items = [{}];
-  vm.addtable = [{}];                  //vm.addtable = [{}]; 
-
   vm.add = add;
   vm.final = final;
-
   // vm.cancelbtn = cancelbtn;
-  function cancel() {
-    window.location = '#/order';
-  }
+  function cancel(){
+       window.location = '#/order';
+      }
 
   vm.selectCustomer = selectCustomer;
   vm.data = [];
@@ -56,6 +42,7 @@ function addorderController($resource, $scope) {
     vm.type = info;
   });
   customerdetails.query(function (info) {
+    console.log(info);
     vm.customer = info;
   });
   Addmaterial.query(function (info) {
@@ -64,117 +51,36 @@ function addorderController($resource, $scope) {
 
   vm.change = change;
   vm.alertchange = alertchange;
-  vm.stitchingchange = stitchingchange;
-  vm.empty = empty;
-  vm.newAdd = newAdd;
-  vm.deleteProduct = deleteProduct;
-  vm.forstitchingdate = forstitchingdate;
-  // vm.changeforstich =changeforstich;
-  function empty(index) {
-    vm.order[index].customization = "";
-  }
-
-  //vm.newAdd()
-
+ 
   function selectCustomer(info) {
+    console.log(info);
     vm.seleCust = info;
     vm.contact = info.mobileNumber;
     vm.email = info.email;
-    vm.address = info.address;
-    vm.customerName = info.customerName;
+    vm.address = info.address
   }
 
-  function forstitchingdate(index) {
-    if (vm.order[index].stitchingdate > vm.order[index].deliverydate) {
-      console.log("Oyye");
-      vm.date4 = true;
-    }
-    else {
-      vm.date4 = false;
-    }
-  }
-  //new change 00 --index inject
-  function change(orderdate, index) {
-
-    if (vm.order[index].stitchingdate) {
-      console.log("There is ");
-      stitchingchange(vm.order[index].stitchingdate, index);
-      if (vm.order[index].deliverydate) {
-        forstitchingdate(index);
-      }
-    }
-
-    if (vm.order[index].deliverydate) {
-      var b = orderdate.split('/');
-      var a = vm.order[index].deliverydate.split('/');
-      console.log(a);
-      var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
-      var orderDate = new Date(b[2], b[1] - 1, b[0]);
-      orderDate.setHours(0, 0, 0, 0, 0);
-      deliveryDate.setHours(0, 0, 0, 0, 0);
-      //new change 00
-      // var alertday = a[0] - 2 + '/' + a[1] + '/' + a[2];
-      var alertDay = new Date(a[2], a[1], a[0] - 1);
-      alertDay.setHours(0, 0, 0, 0, 0);
-      var alertday = alertDay.getUTCDate() + '/' + alertDay.getUTCMonth() + '/' + alertDay.getUTCFullYear();
-      vm.order[index].alertday = '';
-      console.log(vm.order[index].alertday);
-      if (deliveryDate < orderDate) {
-        vm.date1 = true;
-        vm.order[index].alertday = alertday;
-        alertchange(orderDate, deliveryDate, vm.order[index].alertday);
-      } else {
-        vm.date1 = false;
-        vm.order[index].alertday = alertday;
-        alertchange(orderDate, deliveryDate, vm.order[index].alertday);
-      }
-    }
-
-  }
-
-  //new change 00 --index inject
-  function stitchingchange(stitchingdate, index) {
-
-    if (vm.order[index].orderdate) {
-      console.log(orderdate);
-      console.log(stitchingdate);
-      console.log(index);
-      var orderdate = vm.order[index].orderdate;
-      var b = orderdate.split('/');
-      var a = stitchingdate.split('/');
-      var stitchingDate = new Date(a[2], a[1] - 1, a[0]);
-      var orderDate = new Date(b[2], b[1] - 1, b[0]);
-      orderDate.setHours(0, 0, 0, 0, 0);
-      stitchingDate.setHours(0, 0, 0, 0, 0);
-
-      if (stitchingDate < orderDate) {
-        vm.tempalert = true;
-      } else {
-        vm.tempalert = false;
-      }
-      console.log(vm.tempalert);
-    }
-    if (vm.order[index].deliverydate) {
-      forstitchingdate(index);
+  function change(orderdate, deliverydate) {
+    var b = orderdate.split('/');
+    var a = deliverydate.split('/');
+    var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
+    var orderDate = new Date(b[2], b[1] - 1, b[0]);
+    orderDate.setHours(0, 0, 0, 0, 0);
+    deliveryDate.setHours(0, 0, 0, 0, 0);
+    if (deliveryDate < orderDate) {
+      vm.date1 = true;
+    } else {
+      vm.date1 = false;
     }
   }
+
 
   function alertchange(orderdate, deliverydate, alertdate) {
-    console.log(orderdate);
-    console.log(deliverydate);
-    console.log(alertdate);
-
-    var type = typeof orderdate;
-    if (type == 'string') {
-      var b = orderdate.split('/');
-      var a = deliverydate.split('/');
-      var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
-      var orderDate = new Date(b[2], b[1] - 1, b[0]);
-    } else {
-      orderDate = orderdate;
-      deliveryDate = deliverydate;
-    }
+    var b = orderdate.split('/');
+    var a = deliverydate.split('/');
     var c = alertdate.split('/');
+    var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
+    var orderDate = new Date(b[2], b[1] - 1, b[0]);
     var alertDate = new Date(c[2], c[1] - 1, c[0]);
     orderDate.setHours(0, 0, 0, 0, 0);
     deliveryDate.setHours(0, 0, 0, 0, 0);
@@ -184,6 +90,7 @@ function addorderController($resource, $scope) {
     } else {
       vm.date2 = false;
     }
+
     if (alertDate < orderDate) {
       vm.date3 = true;
     } else {
@@ -199,13 +106,12 @@ function addorderController($resource, $scope) {
       }
     });
     pos++;
-
+    
   }
 
-
-  function add(orderform, inform) {
+  function add(orderform,inform) {
     vm.formSubmitted = true;
-    if (!vm.date2 && !vm.date3 && !vm.date1 && orderform.$valid) {
+    if (orderform.$valid) {
       vm.formSubmitted = false;
       vm.order.push({ orderdate: orderdate });
       console.log(vm.order);
@@ -213,67 +119,42 @@ function addorderController($resource, $scope) {
     }
   }
 
-  function newAdd() {
-    vm.addtable.push({});
-  }
-
-  function deleteProduct() {
-    vm.addtable.drop({});
-  }
-
-
-
-function addpro() {
-  window.location = '#/addProduct';
-}
-
-
-
-function final(orderform) {
-  console.log('order data' + orderform);
-  vm.formSubmitted = true;
-  if (!vm.date2 && !vm.date3 && !vm.date1) {
-    var orderdetails = new Orderdetails();
-    var i = 0;
-    var rOrder = function () {
-      if (i < vm.order.length) {
-        // orderdetails.customerid = vm.seleCust.id;
-        orderdetails.customerName = vm.customerName;
-        // orderdetails.customeremail = vm.seleCust.email;
-        // orderdetails.type = vm.order[i].type.title
-        //   orderdetails.material = vm.order[i].materialtype.materialtype;
-        //orderdetails.color = vm.order[i].color;
-        // if (vm.order[i].checked) {
-        //   orderdetails.customization = vm.order[i].customization;
-        // } else {
-        //   orderdetails.customization = "";
-        // }
-        // orderdetails.cloth = vm.order[i].cloth;
-        orderdetails.orderdate = vm.order[i].orderdate;
-        orderdetails.stitchingdate = vm.order[i].stitchingdate;
-        orderdetails.date = vm.order[i].deliverydate;
-        orderdetails.alertday = vm.order[i].alertday;
-        orderdetails.amount = vm.order[i].amount;
-        // orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
-        orderdetails.status = 'New';
-        orderdetails.$save(function (info) {
-          i++;
-          rOrder();
-        });
-      } else {
-        swal("Record saved successfully.");
-        window.location = '#/order';
-      }
-
-    }
-    rOrder();
-  }
-
-}
-
-      var viewstatus = $resource('/api/addstatuses')
-          viewstatus.query(function(info){
-               vm.st = info ;
-               console.log(vm.st);
+  function final(orderform) {
+    vm.formSubmitted = true;
+    if (orderform.$valid) {
+      var orderdetails = new Orderdetails();
+      var i = 0;
+      var rOrder = function () {
+        if (i < vm.order.length) {
+          orderdetails.customerid = vm.seleCust.id;
+          orderdetails.customerName = vm.seleCust.customerName;
+          orderdetails.customeremail = vm.seleCust.email;
+          orderdetails.type = vm.order[i].type.title
+          orderdetails.material = vm.order[i].materialtype.materialtype;
+          orderdetails.color = vm.order[i].color;
+          if (vm.order[i].checked) {
+            orderdetails.customization = vm.order[i].customization;
+          } else {
+            orderdetails.customization = "";
+          }
+          orderdetails.cloth = vm.order[i].cloth
+          orderdetails.orderdate = vm.order[i].orderdate
+          orderdetails.date = vm.order[i].deliverydate
+          orderdetails.alertday = vm.order[i].alertday
+          orderdetails.amount = vm.order[i].amount
+          orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
+          orderdetails.status = 'new';
+          orderdetails.$save(function (info) {
+            i++;
+            rOrder();
           });
+        } else {
+          window.location = '#/order';
+        }
+      }
+      rOrder();
+    }
+
+  }
+
 }
