@@ -10,11 +10,11 @@ var Order = db.define('order', {
         autoIncrement: true,
         primaryKey: true,
     },
-    Order_date : Sequelize.STRING,
-     Customer_id : Sequelize.INTEGER,
-     Customer_name :Sequelize.STRING,
-     Customer_email : Sequelize.STRING,     
-    Status: Sequelize.STRING
+    Order_date : Sequelize.STRING
+    //  Customer_id : Sequelize.INTEGER,
+    //  Customer_name :Sequelize.STRING,
+    //  Customer_email : Sequelize.STRING,     
+    // Status: Sequelize.STRING
     
 }, {
         timestamps: false

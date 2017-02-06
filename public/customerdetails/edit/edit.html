@@ -16,14 +16,14 @@
         <li><a href="#/order">Orders</a></li>
 
         <li><a href="#/alert">Alerts</a></li>
-        <li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
-         <ul>
-	        <li><a href='#/register'><span>Manage Users</span></a></li>
-	        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
-          <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
-					<li><a href='#/materialtype'><span>Manage Materials</span></a></li>
-	      </ul>
-        </li>
+        <li><a href="#/register">Settings</a>
+                    <!--<ul>
+                        <li><a href='#/register'><span>Manage Users</span></a></li>
+                        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+                        <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+                    </ul>-->
+                </li>
         <li><a href="#/logout">Logout</a></li>
       </ul>
     </div>
@@ -115,9 +115,9 @@
 
         <div class="form-box">
           <label><em id="mandatory" style="color:Red">*</em>&nbsp;Address</label>
-          <textarea ng-model="vm.data.address" required rows="4" cols="50" placeholder="Address" name="address" ng-minlength="30" ng-maxlength="250" ></textarea>
+          <textarea ng-model="vm.data.address" required rows="4" cols="50" placeholder="Address" name="address" ng-minlength="2" ng-maxlength="250" ></textarea>
           <span ng-show="form.address.$error.required && (form.address.$dirty || vm.formSubmitted)">Address is required</span>
-           <span ng-show="form.address.$error.minlength && (form.address.$dirty || vm.formSubmitted)">Address should not be less than 30 characters.</span>
+           <span ng-show="form.address.$error.minlength && (form.address.$dirty || vm.formSubmitted)">Address should not be less than 02 characters.</span>
           <span ng-show="form.address.$error.maxlength && (form.address.$dirty || vm.formSubmitted)">Address should not be greater than 250 characters.</span>
 
         </div>
@@ -128,13 +128,13 @@
           <div class="customization-check-box">
             <input type="checkbox" ng-model="vm.data.other"  value="" class="checkbox">
             <strong class="billing-addres-checkbox">Other</strong>
-            <textarea  required  ng-minlength="30" ng-maxlength="250" name="billaddress" ng-if="vm.data.other" ng-model="vm.data.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
+            <textarea  required  ng-minlength="2" ng-maxlength="250" name="billaddress" ng-if="vm.data.other" ng-model="vm.data.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
        </textarea>
           </div>
           <!--New change00 -->
           <span ng-if="vm.data.other" ng-show="form.billaddress.$error.required && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address is required.</span>
-           <span ng-if="vm.data.other" ng-show="form.billaddress.$error.minlength && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should not be less than 30.</span>
-          <span ng-if="vm.data.other" ng-show="form.billaddress.$error.maxlength && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should not be greater than 250.</span>
+           <span ng-if="vm.data.other" ng-show="form.billaddress.$error.minlength && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should not be less than 02 characters.</span>
+          <span ng-if="vm.data.other" ng-show="form.billaddress.$error.maxlength && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should not be greater than 250 characters.</span>
         </div>
 
         <div class="form-box">

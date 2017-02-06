@@ -22,7 +22,7 @@ function newsubdesignController($resource, $scope) {
   vm.addClothtype = addClothtype;
   vm.isActive = true;
   vm.flag = false;
-  var AddSubDesign = $resource('/api/Addsubdesign');
+  var AddSubDesign = $resource('/api/addsubdesign');
   vm.delete = Delete;
 
   function Delete(number) {

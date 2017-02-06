@@ -6,8 +6,8 @@ clothtypeController.$inject = ['$resource','$state','$scope'];
 function clothtypeController($resource,$state,$scope) {
   var vm = this;
 
-  vm.image = [];
-  vm.images = [];
+  // vm.image = [];
+  // vm.images = [];
   vm.editpage = editpage;
 
   vm.temp = function(data) {
@@ -22,10 +22,12 @@ function clothtypeController($resource,$state,$scope) {
   var measurement = $resource('/api/measurement');
   measurement.query(function(info){
     vm.type = info;
-    info.forEach(function (e){
-      vm.image = e.image.split('###');
-      vm.images.push(vm.image);
-    });
+    // console.log(vm.type);
+    // info.forEach(function (e){
+    //   vm.image = e.image.split('###');
+    //   vm.images.push(vm.image);
+    // });
+    // console.log(vm.images);
   });
 
    function editpage(x)

@@ -9,6 +9,8 @@ module.exports = (function(){
     var addmaterial = require('./addmaterial') ;
     var managemeasurements = require('./managemeasurements');
     // var addproduct = require('./addproduct');
+    var addsubdesign = require('./addsubdesign');
+    var addstatuses = require('./addstatuses');
 
     var m = {
         order:order,
@@ -19,7 +21,8 @@ module.exports = (function(){
         measurement : measurement,
         addmaterial : addmaterial,
         managemeasurements : managemeasurements,
-        addsubdesign :addsubdesign
+        addsubdesign :addsubdesign,
+         addstatuses : addstatuses
     };
 
     return m;
