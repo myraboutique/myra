@@ -31,92 +31,151 @@
     <!-- Header Section End Here -->
 
 
-    <div class="inner-heading-bar">Add Product</div>
+    <div class="inner-heading-bar">Create Order</div>
         <form name="form" novalidate>
             <div class="main-contant-part">
-                <div class="form-heading"><h3>Design Details</h3></div>
-<!--ng-if="vm.type.length > 0" ng-init="vm.addProduct.selectedDesign = vm.type[0].title;vm.designSelect(vm.addProduct.selectedDesign)"-->
-                    <div class="form-section-box">
-                        <label style="text-align:left; ">Design</label>
-                        <select style="width: 53%!important;" rows="4" cols="50" name="type" ng-model="vm.addProduct.type" ng-change="vm.designSelect(vm.addProduct.type)" required>
-                        <option value="" ng-selected="true">Select Design</option>
-                        <option value="{{data.title}}" ng-repeat="data in vm.type | filter:data.isActive='true'">{{data.title}}</option>
-                        </select>
-                        <span ng-show="form.type.$error.required && (form.design.$dirty || vm.formSubmitted)">Design is required.</span>
-                    </div>
 
-                    <div class="form-section-box" style="margin-left: 34%;    margin-top: -15px;     width: 50%;">
-                        <span ng-repeat="img in vm.images1 track by $index">
-                        <img style="margin: 10px;" class="image" src="{{img}}" width="100" height="100" ng-click="vm.selectimage()"/>
-                        <span style="position: relative; top: 60px; right: 100px;">{{vm.images1title[$index]}}</span>
-                        </span>		
-			        </div>
+              <div class="form-box">
+                <div class=" customer-detailsmain-box">
+                  <label>Order #</label>
+                  <input style="width: 53%!important;border: 0px;" colorpicker rows="4" cols="50" ng-model="vm.addProduct.color" name="color"></input>
 
-                    <div class="form-section-box">
-                        <label style="text-align:left; ">Material Type</label>
-                        <select style="width: 53%!important;" rows="4" cols="50" name="material" ng-model="vm.addProduct.material" ng-change="vm.materialSelect2(vm.addProduct.material)" required>
-                        <option value="{{data.materialtype}}" ng-repeat="data in vm.material | filter:data.isActive='true'">{{data.materialtype}}</option>
-                        </select>
-                        <span ng-show="vm.addProduct.material.$error.required && (form.material.$dirty || vm.formSubmitted)">Material Type is required.</span>
-                    </div>
+                  <span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
+                </div>
 
-                    <div class="form-section-box">
-                        <label style="text-align:left; ">Color Code</label>
-                        <input style="width: 53%!important;" colorpicker rows="4" cols="50" ng-model="vm.addProduct.color" name="color"></input>
-                        <span ng-show="vm.addProduct.color.$error.required && (form.color.$dirty || vm.formSubmitted)">Color Code is required.</span>
-                    </div>
+                <div class=" customer-detailsmain-box1"><label>Order Placed </label><strong>{{vm.contact}}</strong></div>
 
-                    <div class="form-section-box">
-                        <div class="form-box">
-                            <label style="text-align:left;"><em ng-if="vm.addProduct.checked" id="mandatory" style="color:Red">*</em>&nbsp;Customization</label>
-                            <div class="customization-check-box">
-                                <input type="checkbox" ng-model="vm.addProduct.checked" ng-change="vm.empty()" name="checked" value="" class="checkbox" />
-                                <textarea style="width: 75%!important; clear:both;" ng-disabled="!vm.addProduct.checked" ng-minlength="10" ng-maxlength="100" 
-                                    ng-model="vm.addProduct.customization" class="customization-check-box-textarea"
-                                    rows="4" cols="50" placeholder="Customization Description" name="customization"></textarea>
-                                <span ng-show="form.customization.$error.minlength">Customization length must be greater than 10.</span>
-                                <span ng-show="form.customization.$error.maxlength">Customization length must be less than 100.</span>
-                            </div>
+                <div class=" customer-detailsmain-box2"><label>Order Status </label><strong>{{vm.address}}</strong></div>
+              </div>
 
-                            <div class="form-box">
-                                <label style="text-align:left; ">Any Other Remarks</label>
-                                <textarea style="width: 53%!important;" rows="4" cols="50" ng-maxlength="200" ng-model="vm.addProduct.cloth" placeholder="Any Other Remark" name="remarks"></textarea>
-                                <span ng-show="vm.addProduct.cloth.$error.required && (form.material.$dirty || vm.formSubmitted)">Remarks description length must be less than 200.</span>
-                            </div>
-                        </div>
-                    </div>
-            
+                <div class="form-box create-order-box">
+      						<div class=" customer-detailsmain-box">
+      							<label>Order by</label>
+      							<select class="create-order-box-select-bx" ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer "
+      								required name="customeruser">
+      				 	<option value="">-- Please Select --</option></select>
 
-            <div class="form-heading">Measurement Details</div>
-            <div class="measure" ng-show="vm.measure.indexOf('BUST') > 0"><label>BUST</label><input type="text" ng-model="vm.measureBUST"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('SH') > 0"><label>SH</label><input type="text" ng-model="vm.measureSH"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('WAIST') > 0"><label>WAIST</label><input type="text" ng-model="vm.measureWAIST"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('LWAIST') > 0"><label>LWAIST</label><input type="text" ng-model="vm.measureLWAIST"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('HIPS') > 0"><label>HIPS</label><input type="text" ng-model="vm.measureHIPS"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('SLEEVES') > 0"><label>SLEEVES</label><input type="text" ng-model="vm.measureSLEEVES"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('SHORT') > 0"><label>SHORT</label><input type="text" ng-model="vm.measureSHORT"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('LENGTH') > 0"><label>LENGTH</label><input type="text" ng-model="vm.measureLENGTH"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('FULL') > 0"><label>FULL</label><input type="text" ng-model="vm.measureFULL"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('FULLL') > 0"><label>FULLL</label><input type="text" ng-model="vm.measureFULLL"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('KNEE') > 0"><label>KNEE</label><input type="text" ng-model="vm.measureKNEE"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('ARMHOLE') > 0"><label>ARMHOLE</label><input type="text" ng-model="vm.measureARMHOLE"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('CROSS') > 0"><label>CROSS</label><input type="text" ng-model="vm.measureCROSS"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('LTHIGH') > 0"><label>LTHIGH</label><input type="text" ng-model="vm.measureLTHIGH"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('CALF') > 0"><label>CALF</label><input type="text" ng-model="vm.measureCALF"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('FNECK') > 0"><label>FNECK</label><input type="text" ng-model="vm.measureFNECK"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('BNECK') > 0"><label>BNECK</label><input type="text" ng-model="vm.measureBNECK"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('MORI') > 0"><label>MORI</label><input type="text" ng-model="vm.measureMORI"/></div>
-            <div class="measure" ng-show="vm.measure.indexOf('UTHIGH') > 0"><label>UTHIGH</label><input type="text" ng-model="vm.measureUTHIGH"/></div>
-            
-            
-            <!--submit button-->
-            <div class="submit-button">
-            <input class="add-next-button" type="submit" value="submit" ng-click="vm.submit(vm.addProduct)" />
+      							<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
+      						</div>
+
+      						<div class=" customer-detailsmain-box1"><label>Contact Number </label><strong>{{vm.contact}}</strong></div>
+
+      						<div class=" customer-detailsmain-box2"><label>Address </label><strong>{{vm.address}}</strong></div>
+      					</div>
+
+               <!--Add Product table Start Here-->
+                 <div class="addproducttable-main-box">
+
+                   <table style="width:40%">
+
+                      <tr>
+                        <td class="addproducttable-A"><b>Design</b></td>
+                        <td class="addproducttable-B">
+                          <select>
+                          <option value="volvo">Select</option>
+                          <option value="saab">Kurta</option>
+                          <option value="mercedes">Pents</option>
+                          <option value="audi">Salbar</option>
+                         </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Sub Design</b></td>
+                        <td class="addproducttable-B">
+                          <a href="#">Choose Sub Design</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Material Type</b></td>
+                        <td class="addproducttable-B">
+                          <select>
+                          <option value="volvo">Select</option>
+                          <option value="saab">Kurta</option>
+                          <option value="mercedes">Pents</option>
+                          <option value="audi">Salbar</option>
+                         </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Color Code</b></td>
+                        <td class="addproducttable-B">
+                          <input type="text" name="usrname">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Customization</b></td>
+                        <td class="addproducttable-B">
+                          <a href="#">Add Details</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Remarks</b></td>
+                        <td class="addproducttable-B">
+                          <a href="#">Add Comments</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Add Photo</b></td>
+                        <td class="addproducttable-B">
+                          <input type="submit" value="Browse">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Measurement</b></td>
+                        <td class="addproducttable-B">
+                          <table>
+                           <tr>
+                             <td>SH</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                           <tr>
+                             <td>BUST</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                           <tr>
+                             <td>WAIST</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                           <tr>
+                             <td>L WAIST</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                           <tr>
+                             <td>HIPS</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Add Pair</b></td>
+                        <td class="addproducttable-B">
+                          <div class="addproducttable-Add-BTN add-pair-box"> <input type="submit" value="Add"></div>
+                        </td>
+                      </tr>
+
+
+                    </table>
+
+                    <div class="addproducttable-Add-BTN"> <input type="submit" value="Add"></div>
+
+
+
+
+                 </div>
+               <!--Add Product table End Here-->
+
+
             </div>
+
+            <!--submit button-->
+            <!-- <div class="submit-button">
+            <input class="add-next-button" type="submit" value="submit" ng-click="vm.submit(vm.addProduct)" />
+            </div> -->
             <!--submit button End here-->
         </form>
-        </div>
-    
+
+
 <!-- Footer Section Start Here -->
 <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
 <!-- Footer Section End Here -->
