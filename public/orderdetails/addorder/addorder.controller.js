@@ -79,7 +79,7 @@ function addorderController($resource, $scope) {
     vm.seleCust = info;
     vm.contact = info.mobileNumber;
     vm.email = info.email;
-    vm.address = info.address
+    vm.address = info.address;
   }
 
   function forstitchingdate(index) {
@@ -283,9 +283,9 @@ function addpro(){
       var i = 0;
       var rOrder = function () {
         if (i < vm.order.length) {
-          orderdetails.customerid = vm.seleCust.id;
-          orderdetails.customerName = vm.seleCust.customerName;
-          orderdetails.customeremail = vm.seleCust.email;
+          // orderdetails.customerid = vm.seleCust.id;
+          // orderdetails.customerName = vm.customerName;
+          // orderdetails.customeremail = vm.seleCust.email;
          // orderdetails.type = vm.order[i].type.title
           //   orderdetails.material = vm.order[i].materialtype.materialtype;
           //orderdetails.color = vm.order[i].color;
@@ -301,7 +301,7 @@ function addpro(){
           orderdetails.alertday = vm.order[i].alertday;
           orderdetails.amount = vm.order[i].amount;
          // orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
-         // orderdetails.status = 'New';
+          orderdetails.status = 'New';
           orderdetails.$save(function (info) {
             i++;
             rOrder();

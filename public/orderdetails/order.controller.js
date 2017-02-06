@@ -14,7 +14,7 @@ function orderController($resource, $state) {
 
         window.location = '#/login';
     }
-    var measurement = $resource('/api/orderdetails');
+    var orderdetails = $resource('/api/orderdetails');
     var customer = $resource('/api/customerdetails/:id');
     vm.customerid = [];
     vm.customername = [];
@@ -33,7 +33,7 @@ function orderController($resource, $state) {
     };
    
     vm.sendData = sendData;
-    measurement.query(function (info) {
+    orderdetails.query(function (info) {
         info.forEach(function (e) {
             customer.get({ id: e.customerid }, function (response) {
                 vm.customerid.push(response.customerid);
