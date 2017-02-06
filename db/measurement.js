@@ -28,7 +28,7 @@ module.exports = (function(){
           title:req.body.title,
           measurement :req.body.measurement,
           isActive : req.body.isActive,
-          image: req.body.image
+          // image: req.body.image
         }).then(function(info){
           res.json(info);
         })

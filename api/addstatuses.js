@@ -3,17 +3,14 @@ module.exports = (function(){
 
   var m = {
     POST : function(req,res,next){
-      db.managemeasurements.create(req,res);
+      db.addstatuses.create(req,res);
     },
     GET : function(req,res,next){
-      db.managemeasurements.find(req,res);
+      db.addstatuses.find(req,res);
     },
     UPDATE : function(req,res,next){
-      db.managemeasurements.Update(req,res);
+      db.addstatuses.Update(req,res);
     }
   };
   return m;
 })();
-
-
-

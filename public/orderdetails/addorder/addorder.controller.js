@@ -211,7 +211,6 @@ function addorderController($resource, $scope) {
       console.log(vm.order);
       vm.items.push({});
     }
-
   }
 
   function newAdd() {
@@ -219,56 +218,57 @@ function addorderController($resource, $scope) {
   }
 
   function deleteProduct() {
-
-  }
-
-
-  function addpro() {
-    window.location = '#/addProduct';
+    vm.addtable.drop({});
   }
 
 
 
-  function final(orderform) {
-    console.log('order data' + orderform);
-    vm.formSubmitted = true;
-    if (!vm.date2 && !vm.date3 && !vm.date1) {
-      var orderdetails = new Orderdetails();
-      var i = 0;
-      var rOrder = function () {
-        if (i < vm.order.length) {
-          // orderdetails.customerid = vm.seleCust.id;
-          orderdetails.customerName = vm.customerName;
-          // orderdetails.customeremail = vm.seleCust.email;
-          // orderdetails.type = vm.order[i].type.title
-          //   orderdetails.material = vm.order[i].materialtype.materialtype;
-          //orderdetails.color = vm.order[i].color;
-          // if (vm.order[i].checked) {
-          //   orderdetails.customization = vm.order[i].customization;
-          // } else {
-          //   orderdetails.customization = "";
-          // }
-          // orderdetails.cloth = vm.order[i].cloth;
-          orderdetails.orderdate = vm.order[i].orderdate;
-          orderdetails.stitchingdate = vm.order[i].stitchingdate;
-          orderdetails.date = vm.order[i].deliverydate;
-          orderdetails.alertday = vm.order[i].alertday;
-          orderdetails.amount = vm.order[i].amount;
-          // orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
-          orderdetails.status = 'New';
-          orderdetails.$save(function (info) {
-            i++;
-            rOrder();
-          });
-        } else {
-          swal("Record saved successfully.");
-          window.location = '#/order';
-        }
+function addpro() {
+  window.location = '#/addProduct';
+}
 
+
+
+function final(orderform) {
+  console.log('order data' + orderform);
+  vm.formSubmitted = true;
+  if (!vm.date2 && !vm.date3 && !vm.date1) {
+    var orderdetails = new Orderdetails();
+    var i = 0;
+    var rOrder = function () {
+      if (i < vm.order.length) {
+        // orderdetails.customerid = vm.seleCust.id;
+        orderdetails.customerName = vm.customerName;
+        // orderdetails.customeremail = vm.seleCust.email;
+        // orderdetails.type = vm.order[i].type.title
+        //   orderdetails.material = vm.order[i].materialtype.materialtype;
+        //orderdetails.color = vm.order[i].color;
+        // if (vm.order[i].checked) {
+        //   orderdetails.customization = vm.order[i].customization;
+        // } else {
+        //   orderdetails.customization = "";
+        // }
+        // orderdetails.cloth = vm.order[i].cloth;
+        orderdetails.orderdate = vm.order[i].orderdate;
+        orderdetails.stitchingdate = vm.order[i].stitchingdate;
+        orderdetails.date = vm.order[i].deliverydate;
+        orderdetails.alertday = vm.order[i].alertday;
+        orderdetails.amount = vm.order[i].amount;
+        // orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
+        orderdetails.status = 'New';
+        orderdetails.$save(function (info) {
+          i++;
+          rOrder();
+        });
+      } else {
+        swal("Record saved successfully.");
+        window.location = '#/order';
       }
-      rOrder();
-    }
 
+    }
+    rOrder();
   }
+
+}
 
 }

@@ -1,27 +1,30 @@
 /// <reference path="../typings/tsd.d.ts" />
 
-module.exports = (function(){
-  var models = require('../models').managemeasurements;
+module.exports = (function()
+{
+  var models = require('../models').addstatuses;
   var db = require('../core/db');
   var sequelize = require('sequelize');
 
 
   var m = {
-    find: function(req, res){
-     db.sync().then( function(){
-       models.findAll().then(function(info){
-         res.json(info);
-       })
-     })
-    },
-
+    find: function(req, res)
+    {
+     db.sync().then(function ()
+      {
+        models.findAll().then(function (info)
+        {
+            res.json(info);
+        });
+      });
+    },//////end of find
     create: function(req, res)
   {
     db.sync().then(function () {
-      models.findOne({ where: { name: req.body.name } }).then(function (user) {
+      models.findOne({ where: { status: req.body.status } }).then(function (user) {
     if (user) {
       return res.status(200).json({
-        status: 'This Measurement type already exists.'
+        status: 'already00++--'
       });
       }
     else {
@@ -29,7 +32,7 @@ module.exports = (function(){
     {
       models.create(
         {
-        name : req.body.name,
+         status : req.body.status,
         isActive :  req.body.isActive,
         }).then(function(user)
       {
@@ -44,8 +47,8 @@ module.exports = (function(){
 
       db.sync().then(function(){
         models.update({
-           name : req.body.name,
-        isActive :  req.body.isActive,
+          status : req.body.status,
+          isActive :  req.body.isActive,
         },
         {
           where:{id:req.body.id}
@@ -57,7 +60,7 @@ module.exports = (function(){
 
 
 }
-
-  };
+};
   return m;
+
 })();
