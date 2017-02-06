@@ -10,6 +10,8 @@ module.exports = (function () {
     var addsubdesign = require('./addsubdesign');
     var managemeasurements = require('./managemeasurements');
     //  var addproduct = require('./addproduct');
+    var addstatuses = require('./addstatuses');
+    
     var m = [
         login,
         order,
@@ -18,8 +20,9 @@ module.exports = (function () {
         measurement,
         addmaterial,
         managemeasurements,
-        addsubdesign
-        // addproduct
+        addsubdesign,
+        addstatuses
+
     ];
     return m;
 })();

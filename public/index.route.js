@@ -180,8 +180,28 @@
       'referer': null
             }
     })
-   
-    .state('home', {
+    .state('statustype', {
+      url: '/statustype',
+      templateUrl: 'statustype/status.html',
+      controller: 'statusController',
+      controllerAs: 'vm'
+    })
+    .state('addstatustype', {
+      url: '/addstatustype',
+      templateUrl: 'statustype/addstatus/addstatus.html',
+      controller: 'addstatusController',
+      controllerAs: 'vm'
+    })
+    .state('editstatustype', {
+      url: '/editstatustype',
+      templateUrl: 'statustype/editstatus/editstatus.html',
+      controller: 'editstatusController',
+      controllerAs: 'vm',
+       params: {
+      'referer': null
+            }
+    })
+   .state('home', {
       url: '/home',
       templateUrl: 'home/home.html',
       controller: 'homeController',
