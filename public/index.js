@@ -7,11 +7,11 @@
     'restangular',
     'ngSignaturePad',
     'ngResource',
-    // 'ngStorage',
-    // 'hSweetAlert',
-    'ui.bootstrap',
+    //// 'ngStorage',
+    //// 'hSweetAlert',
+    // 'ui.bootstrap',
     '720kb.datepicker',
-    'angularUtils.directives.dirPagination'
+    // 'angularUtils.directives.dirPagination'
     ]);
 
 })();
