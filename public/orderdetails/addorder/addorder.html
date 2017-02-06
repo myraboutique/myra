@@ -58,7 +58,9 @@
 					<label>Order by</label>
 					<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer "
 						required name="customeruser">
-				 	<option value="">-- Please Select --</option></select>
+				 	<option value="">-- Please Select --</option>
+					 
+					 </select>
 
 					<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
 				</div>
@@ -88,9 +90,10 @@
 				</div>
 				<div class=" customer-detailsmain-box">
 					<label>Status</label>
-					<select ng-model="vm.name" ng-change="" ng-options=" "
-						 name="customeruser">
-				 	<option value="">-- Please Select --</option></select>
+					<select ng-model="vm.name" ng-change="" 
+						 name="customeruser" ng>
+							 <option  ng-repeat="x in vm.st">{{x.status}}</option>							 
+					 </select>
 
 				</div>
 				</div>
@@ -160,10 +163,7 @@
 								
 				<th>
 					<select class="outside" ng-model="data.status" name="status" required>
-							<option selected="selected" value="New">New</option>
-							<option value="In Progress">Stiching</option>
-							<option value="Stiching">Finish</option>
-							<option value="Finish">Cancel</option>
+							<option  ng-repeat="x in vm.st">{{x.status}}</option>			
 					</select>
 				</th>
 				<th width="13%">

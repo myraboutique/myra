@@ -315,5 +315,9 @@ function addorderController($resource, $scope) {
     }
 
   }
-
+      var viewstatus = $resource('/api/addstatuses')
+          viewstatus.query(function(info){
+               vm.st = info ;
+               console.log(vm.st);
+          });
 }

@@ -5,6 +5,7 @@ editstatusController.$inject = ['$resource', '$stateParams', '$http'];
 
 function editstatusController($resource, $stateParams, $http) {
   var vm = this;
+   vm.flag = false;
   vm.statuscancel = statuscancel;
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
@@ -23,9 +24,13 @@ function editstatusController($resource, $stateParams, $http) {
         .then(
         function (response) {
 
+         if(info.status != 'already00++--'){
           console.log("put successfull")
           window.location = '#/statustype';
-
+         }
+         else{
+           vm.flag = true;
+         }
         },
         function (response) {
           console.log("put unsuccessfull")
