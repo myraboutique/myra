@@ -138,6 +138,8 @@
       'referer': null
             }
     })
+   
+
    .state('password', {
       url: '/password/:data',
       templateUrl: 'password/password.html',
@@ -219,5 +221,26 @@
       controller: 'addProductController',
       controllerAs: 'vm'
      })
+      .state('measurements', {
+      url: '/measurements',
+      templateUrl: 'measurements/measurements.html',
+      controller: 'measurementsController',
+      controllerAs: 'vm'
+    })
+    .state('addmeasurements', {
+      url: '/addmeasurements',
+      templateUrl: 'measurements/addnew/addmeasurements.html',
+      controller: 'addmeasurementsController',
+      controllerAs: 'vm'
+    })
+    .state('editmeasurements', {
+      url: '/editmeasurements',
+      templateUrl: 'measurements/edit/editmeasurements.html',
+      controller: 'editmeasurementsController',
+      controllerAs: 'vm',
+       params: {
+      'referer': null
+            }
+    })
   }
 })();
