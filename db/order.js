@@ -19,11 +19,11 @@ module.exports = (function () {
       db.sync().then(function () {
         models.create(
           {
-            Order_date :req.body.orderdate,
-            Customer_id : req.body.customerid,
-            Customer_name : req.body.customername,
-            Customer_email : req.body.customeremail,            
-            Status: req.body.status
+            Order_date :req.body.orderdate
+            // Customer_id : req.body.customerid,
+            // Customer_name : req.body.customername,
+            // Customer_email : req.body.customeremail,            
+            // Status: req.body.status
           }).then(function (user) {
             res.json(user);
           })
@@ -34,11 +34,11 @@ module.exports = (function () {
       db.sync().then(function () {
         models.update(
           {
-            Order_date :req.body.orderdate,
-            Customer_id : req.body.customerid,
-            Customer_name : req.body.customername,
-            Customer_email : req.body.customeremail,            
-            Status: req.body.status
+            Order_date :req.body.orderdate
+            // Customer_id : req.body.customerid,
+            // Customer_name : req.body.customername,
+            // Customer_email : req.body.customeremail,            
+            // Status: req.body.status
           },
           {
             where: { Order_id: req.params.id }

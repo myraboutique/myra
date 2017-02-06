@@ -18,6 +18,7 @@ function addorderController($resource, $scope) {
   var customerdetails = $resource('/api/customerdetails');
   var Addmaterial = $resource('/api/addmaterial');
   var Orderdetails = $resource('/api/orderdetails');
+
   vm.order = [];
   vm.clothtype = [];
   vm.date1 = false;
@@ -27,7 +28,7 @@ function addorderController($resource, $scope) {
   vm.tempalert = false;
   vm.date4 = false;
   vm.cancel = cancel;
-  vm.addpro=addpro;
+  vm.addpro = addpro;
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
   var orderdate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
@@ -36,7 +37,7 @@ function addorderController($resource, $scope) {
       orderdate: orderdate
     }
   ]
- 
+
   vm.items = [{}];
   vm.addtable = [{}];                  //vm.addtable = [{}]; 
 
@@ -66,7 +67,7 @@ function addorderController($resource, $scope) {
   vm.stitchingchange = stitchingchange;
   vm.empty = empty;
   vm.newAdd = newAdd;
-   vm.deleteProduct = deleteProduct;
+  vm.deleteProduct = deleteProduct;
   vm.forstitchingdate = forstitchingdate;
   // vm.changeforstich =changeforstich;
   function empty(index) {
@@ -80,6 +81,7 @@ function addorderController($resource, $scope) {
     vm.contact = info.mobileNumber;
     vm.email = info.email;
     vm.address = info.address;
+    vm.customerName = info.customerName;
   }
 
   function forstitchingdate(index) {
@@ -129,26 +131,6 @@ function addorderController($resource, $scope) {
     }
 
   }
-
-  //  function changeforstich(orderdate, stitchingdate, index) {
-
-  //       console.log(orderdate);
-  //       console.log(stitchingdate);
-  //     var b = orderdate.split('/');
-  //     var a = stitchingdate.split('/');
-  //     var stitchingDate = new Date(a[2], a[1] - 1, a[0]);
-  //     var orderDate = new Date(b[2], b[1] - 1, b[0]);
-  //     orderDate.setHours(0, 0, 0, 0, 0);
-  //     stitchingDate.setHours(0, 0, 0, 0, 0);
-  //     //new change 00
-
-  //     if (stitchingDate < orderDate) {
-  //       vm.date4 = true;
-
-  //     } else {
-  //       vm.date4 = false;
-  //     }
-  //   }
 
   //new change 00 --index inject
   function stitchingchange(stitchingdate, index) {
@@ -232,51 +214,23 @@ function addorderController($resource, $scope) {
 
   }
 
-// function newAdd()
-// {
-//    vm.addtable.push({});
-//  }
-
   function newAdd() {
-       vm.addtable.push({});
-    // swal({
-    //   title: "",
-    //   text: "Are you sure you want to duplicate product ?",
-    //   showCancelButton: true,
-    //   confirmButtonColor: "#e527a0",
-    //   confirmButtonText: "Yes"
-    // },
-    //   function (confirm) {
-     
-    //      vm.addtable.push({});
-             
-    //   // window.location = "#/addorder"
-    //    //  swal("Deleted!", "Your imaginary file has been deleted.", "success");
-    //   });
+    vm.addtable.push({});
   }
 
- function deleteProduct() {
-   
- }
+  function deleteProduct() {
+
+  }
 
 
-
-
-  /*
-  function newAdd()
-  {
-      vm.addtable.push({});
-    }
-  */
-
-function addpro(){
-  window.location = '#/addProduct';
-}
+  function addpro() {
+    window.location = '#/addProduct';
+  }
 
 
 
   function final(orderform) {
-    console.log('order data'+orderform);
+    console.log('order data' + orderform);
     vm.formSubmitted = true;
     if (!vm.date2 && !vm.date3 && !vm.date1) {
       var orderdetails = new Orderdetails();
@@ -284,9 +238,9 @@ function addpro(){
       var rOrder = function () {
         if (i < vm.order.length) {
           // orderdetails.customerid = vm.seleCust.id;
-          // orderdetails.customerName = vm.customerName;
+          orderdetails.customerName = vm.customerName;
           // orderdetails.customeremail = vm.seleCust.email;
-         // orderdetails.type = vm.order[i].type.title
+          // orderdetails.type = vm.order[i].type.title
           //   orderdetails.material = vm.order[i].materialtype.materialtype;
           //orderdetails.color = vm.order[i].color;
           // if (vm.order[i].checked) {
@@ -294,13 +248,13 @@ function addpro(){
           // } else {
           //   orderdetails.customization = "";
           // }
-         // orderdetails.cloth = vm.order[i].cloth;
+          // orderdetails.cloth = vm.order[i].cloth;
           orderdetails.orderdate = vm.order[i].orderdate;
           orderdetails.stitchingdate = vm.order[i].stitchingdate;
           orderdetails.date = vm.order[i].deliverydate;
           orderdetails.alertday = vm.order[i].alertday;
           orderdetails.amount = vm.order[i].amount;
-         // orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
+          // orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
           orderdetails.status = 'New';
           orderdetails.$save(function (info) {
             i++;
