@@ -71,9 +71,9 @@
 									<th>Amount</th>
 									<th>Status</th>
 								</tr>
-								<tr ng-repeat="">
-									<th>{{data.type}}</th>
-									<th>{{data.date}}</th>
+								<tr ng-repeat="data in vm.selectedOrder">
+									<th>{{data.type.title}}</th>
+									<th>{{data.orderdate}}</th>
 									<th>{{data.date}}</th>
 									<th>{{data.alertday}}</th>
 									<th>{{data.amount}}</th>
