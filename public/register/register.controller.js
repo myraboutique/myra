@@ -11,6 +11,14 @@ function registerController($resource,$state) {
   if(!vm.token){
     window.location = '#/login';
   }
+
+    vm.predicate = '';
+  vm.reverse = true;
+  function order(predicate) {
+    vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;
+    vm.predicate = predicate;
+  };
+  
  var vm = this;
   vm.submit = submit;
   vm.confirm = confirm;
