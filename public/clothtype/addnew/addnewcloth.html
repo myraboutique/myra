@@ -81,32 +81,8 @@
        </div>
 
 			 <div class="form-box">
-			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Measurement</label>
-   <!--<select ng-model="vm.measu"  class="clothmeasurementinput"  >-->
-					
-   <!--<select ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput" required="" name="measurement">
-					<option value=""></option>
-							<option value="SH">SH</option>
-							<option value="BUST">BUST</option>
-              				<option value="WAIST">WAIST</option>
-							<option value="LWAIST">LWAIST</option>
-							<option value="HIPS">HIPS</option>
-							<option value="SLEEVES">SLEEVES</option>
-							<option value="SHORT">SHORT</option>
-							<option value="3/4">3/4</option>
-							<option value="FULL">FULL</option>
-							<option value="FULLL">FULLL</option>
-							<option value="KNEE">KNEE</option>
-							<option value="ARMHOLE">ARMHOLE</option>
-							<option value="UTHIGH">UTHIGH</option>
-							<option value="LTHIGH">LTHIGH</option>
-							<option value="FNECK">FNECK</option>
-							<option value="BNECK">BNECK</option>
-							<option value="MORI">MORI</option>
-							<option value="CROSS">CROSS</option>
+				 <select ng-model="vm.measu" name="measurement" ng-required="vm.selectMeasurement.length == 0" placeholder="Measurement" class="clothmeasurementinput" >
 
-					  </select>-->
-					  	<select ng-model="vm.measu" name="measurement" ng-required="vm.selectMeasurement.length == 0" placeholder="Measurement" class="clothmeasurementinput" >
 							<option ng-if="x.isActive" ng-repeat="x in vm.measurementstype"> {{x.name}}</option>
 						</select>
 						<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
