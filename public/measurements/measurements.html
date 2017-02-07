@@ -56,6 +56,7 @@
 			
   <div class="customer-detail-page-contant">
    <div class="right-add-new-button"><a href="#/addmeasurements">Add New</a></div>
+   <div class="search-box-main"><input class="serchInput" type="text" ng-model="vm.search" placeholder="Search"></div>
    <div class="details-table">
      <table class="table-part" border="0" cellspacing="0" cellpadding="0">
       <tr class="top-purpal-color-row">
@@ -64,7 +65,7 @@
         <!--<th>Action</th>-->
       </tr>
 <!-- ng-repeat="newdata in vm.materialdata"  -->
-      <tr dir-paginate="newdata in vm.measurements | orderBy:vm.predicate:vm.reverse |itemsPerPage:10 " ng-class="{
+      <tr dir-paginate="newdata in vm.measurements | orderBy:vm.predicate:vm.reverse |itemsPerPage:10  | filter:vm.search " ng-class="{
           'some':$index%2 == 0,
           'table-tr-alternate-color':$index%2 != 0
       }">

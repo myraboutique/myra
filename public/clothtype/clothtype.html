@@ -57,7 +57,8 @@
 		<!-- Customer Details page Section Start Here -->
 		<div class="customer-detail-page-contant">
      <div class="right-add-new-button"><a href="#/addclothtype">Add New</a></div>
-		 <div class="details-table">
+		    <div class="search-box-main"><input class="serchInput" type="text" ng-model="vm.search" placeholder="Search"></div>
+				<div class="details-table">
 			 	<table class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
 						<th>Design</th>
@@ -66,7 +67,7 @@
 						<th>Status</th>
 					</tr>
           <!-- ng-repeat="data in vm.type"  -->
-					<tr dir-paginate="data in vm.type|itemsPerPage:10" ng-class="{
+					<tr dir-paginate="data in vm.type|itemsPerPage:10  | filter:vm.search " ng-class="{
               'some':$index%2 == 0,
               'table-tr-alternate-color':$index%2 != 0
           }">

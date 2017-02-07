@@ -48,14 +48,14 @@ function addorderController($resource) {
     vm.type = info;
   });
   customerdetails.query(function (info) {
-    console.log(info);
+    // console.log(info);
     vm.customer = info;
   });
   Addmaterial.query(function (info) {
     vm.material = info;
   });
   addstatus.query(function(info){
-    console.log(info);
+    // console.log(info);
       vm.statusdata = info ;
   });
 
@@ -63,11 +63,11 @@ function addorderController($resource) {
   vm.alertchange = alertchange;
  
   function selectCustomer(info) {
-    console.log(info);
+    // console.log(info);
     vm.seleCust = info;
     vm.contact = info.mobileNumber;
     vm.email = info.email;
-    vm.address = info.address
+    vm.address = info.address;
   }
 
   function change(orderdate, deliverydate) {
@@ -120,8 +120,8 @@ function addorderController($resource) {
           vm.subdesign.push(e.subdesign);
         }
       });
-    console.log(vm.subdesignimage);
-    console.log(vm.subdesign);
+    // console.log(vm.subdesignimage);
+    // console.log(vm.subdesign);
       
     });
     vm.type.forEach(function (e) {
@@ -137,11 +137,21 @@ function addorderController($resource) {
     vm.formSubmitted = true;
     if (orderform.$valid) {
       vm.formSubmitted = false;
-      vm.order.push({ orderdate: orderdate });
+      vm.order.push({ orderdate: orderdate});
+      
+      if(localStorage.getItem('vmorder')){
+       localStorage.removeItem('vmorder');
+       localStorage.setItem('vmorder',JSON.stringify(vm.order));
+     }
+     else{
+            localStorage.setItem('vmorder',JSON.stringify(vm.order));       
+     }
+
       console.log(vm.order);
       vm.items.push({});
     }
   }
+
 
   function final(orderform) {
     vm.formSubmitted = true;
@@ -167,19 +177,20 @@ function addorderController($resource) {
           // orderdetails.alertday = vm.order[i].alertday;
           orderdetails.subdesign = vm.order[i].type2;
           orderdetails.status = vm.order[i].materialtype2.status;
-            console.log(vm.order[i].type2);
-            console.log(vm.order[i].materialtype2.status);
+            // console.log(vm.order[i].type2);
+            // console.log(vm.order[i].materialtype2.status);
           
           orderdetails.amount = vm.order[i].amount;
           orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
           // orderdetails.status = 'new';
+          // console.log(orderdetails);
+          
           orderdetails.$save(function (info) {
-            console.log(info);
             i++;
             rOrder();
           });
         } else {
-          window.location = '#/order';
+          window.location = '#/addordernew';
         }
       }
       rOrder();
