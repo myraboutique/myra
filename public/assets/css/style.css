@@ -87,7 +87,18 @@ display: inline;
 }
 .paging ul li a{ text-decoration: none;}
 
-<<<<<<< HEAD
+
+
+.left-list-addproduct{
+  width: 13%; float: left;
+}
+.left-list-addproduct ul{
+  margin: 0px; padding: 0px;
+}
+.left-list-addproduct ul li{
+  list-style: none; display: inline-block; padding:13px 13px 13px 0px; font-size: 15px; font-weight: bold; width: 100%;
+}
+
 
 .managecustomer-left-menu-inner-page{
   width: 100%; float: left;
@@ -111,8 +122,6 @@ display: inline;
   width: 100%;
 }
 
-=======
->>>>>>> dbcb13c3ff3024531907e1e6e3e31e91889eba04
 .create-order-box{
   margin-bottom:30px;
   display: inline-block;
@@ -137,7 +146,7 @@ display: inline;
 }
 .addproducttable-A b{font-size: 15px;}
 .addproducttable-B{
-  width:50%; float: left; padding:9px 12px 9px 12px; box-sizing: border-box;border: 1px solid #ccc;border-bottom: 0px;
+  width:100%; float: left; padding:9px 12px 9px 12px; box-sizing: border-box;border: 1px solid #ccc;border-bottom: 0px;border-left: 0px;
 }
 .addproducttable-B a{ line-height: 28px; font-size: 15px;}
 .addproducttable-B a:hover{border-bottom: 1px solid #23527c;}
@@ -151,12 +160,12 @@ display: inline;
 .addproducttable-B input{
   border-radius: 3px;
   border: 1px solid #969696;
-  padding: 3px 2px 2px 2px;
+  padding: 3px 4px 3px 4px;
   font-size: 15px;
   width: 100%;
 }
 .addproducttable-Add-BTN{
-  width:10%; float: left; padding:10px 0px 9px 0; box-sizing: border-box; text-align: center;
+  width:65px; float: left; padding:10px 0px 9px 0; box-sizing: border-box; text-align: center;
 }
 .addproducttable-Add-BTN input{
   border-radius: 3px;
@@ -174,24 +183,21 @@ display: inline;
   width:100%; border: 0px;
 }
 .addproducttable-main-box table tr td table tr td{
-<<<<<<< HEAD
-  width: 50%;
-=======
   width: 48%;
->>>>>>> dbcb13c3ff3024531907e1e6e3e31e91889eba04
-line-height: 19px;
-display: inline-block;
-float: left;
-margin-bottom: 10px;
+  line-height: 19px;
+  display: inline-block;
+  float: left;
+  margin-bottom: 10px;
 }
 .addproducttable-main-box table tr td table tr td input{
-  width:50%;
+  width:70%;
   display: inline-block; text-align: center;
 }
+.measurment-baist-hips-text{padding-top: 5px; font-size: 15px;}
 .add-pair-box{
-  text-align: left;
+  text-align: center;
   margin-top: 0;
-  width: 50px;
+  width: 80px;
   padding-top: 3px;
   padding-bottom: 0px;
 }
