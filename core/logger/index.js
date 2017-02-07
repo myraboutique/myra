@@ -12,7 +12,6 @@ module.exports = (function(){
         var loggingEnabled = (logLevelValue >= levelValue) ? true: (levelValue == -1 ? true : false);
 
         if (loggingEnabled){
-            console.log(value);
         } 
     }
 

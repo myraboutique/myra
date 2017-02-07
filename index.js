@@ -33,6 +33,8 @@ var urlPrefix = (config.server.ssl ? 'https://' : 'http://');
 var url = urlPrefix + host + ':' + port;
 
 server.listen(port, function () {
-    logger.log('Server started on : ' + url);
-    logger.log('This should only be seen if level id debug', logLevels.debug);
+    console.log('Server started on : ' + url);
+    // logger.log('Server started on : ' + url);
+    // console.log('This should only be seen if level id debug', logLevels.debug);
+    // logger.log('This should only be seen if level id debug', logLevels.debug);
 });

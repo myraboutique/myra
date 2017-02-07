@@ -13,8 +13,6 @@ function detailsController($resource, $stateParams) {
   }
   vm.data = JSON.parse($stateParams.referer);
   
-  console.log(vm.flag);
-  console.log(vm.data);
   vm.type = [];
   vm.measure = [];
   var Summary = $resource('/api/summary/:id');
@@ -30,15 +28,9 @@ function detailsController($resource, $stateParams) {
          if(e.type == f.title){
            vm.type.push(JSON.parse(e.measurement));
            vm.measure.push(f.measurement.split(","));
-           console.log(e.measurement);
-           console.log(f.measurement);
          } 
       })
     });
-    console.log(vm.type);
-    console.log(vm.measure);
-    console.log("abcd"+vm.measure.length);
-    
   })
 
 }

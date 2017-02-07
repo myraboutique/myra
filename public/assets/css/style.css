@@ -87,13 +87,118 @@ display: inline;
 }
 .paging ul li a{ text-decoration: none;}
 
+
+.managecustomer-left-menu-inner-page{
+  width: 100%; float: left;
+}
+.managecustomer-left-menu-inner-page ul{margin: -9px 0 0 0; padding: 0px;}
+.managecustomer-left-menu-inner-page ul li{list-style: none; display: block; margin-bottom: 1px;}
+.managecustomer-left-menu-inner-page ul li a{font-size: 15px; padding: 0px 15px; color: #000;line-height: 46px; background: #f1f1f1;display: inline-block; width:100%;
+  -webkit-transition: all 0.2s linear; */
+      -moz-transition: all 0.2s linear;
+      -o-transition: all 0.2s linear;
+      /* transition: all 0.2s linear; */
+}
+.managecustomer-left-menu-inner-page ul li a:hover{ background: #dadada;}
+.managecustomer-left-menu-inner-page ul li a.active{ background: #dadada;}
+
+.admin-setting-heding{
+  background: #ff36b6;
+  padding: 12px;
+  color: #fff;
+  display: inline-block;
+  width: 100%;
+}
+
+.create-order-box{
+  margin-bottom:30px;
+  display: inline-block;
+  border-bottom: 1px solid #333;
+  padding-bottom:30px;
+  margin-top:25px;
+}
+.create-order-box-select-bx{
+  border-radius: 3px;
+  border: 1px solid #969696;
+  padding: 4px;
+}
+
+.addproducttable-main-box{
+  width: 100%; display: inline-block;
+}
+.addproducttable-main-box table{
+  width:100%; float: left;border-bottom: 1px solid #ccc;border-left: 1px solid #ccc;
+}
+.addproducttable-A{
+  width: 50%; float: left;border: 1px solid #ccc;  padding:13px 12px 12px 12px; box-sizing: border-box;border-right: 0px;border-bottom: 0px;border-left: 0px;
+}
+.addproducttable-A b{font-size: 15px;}
+.addproducttable-B{
+  width:50%; float: left; padding:9px 12px 9px 12px; box-sizing: border-box;border: 1px solid #ccc;border-bottom: 0px;
+}
+.addproducttable-B a{ line-height: 28px; font-size: 15px;}
+.addproducttable-B a:hover{border-bottom: 1px solid #23527c;}
+.addproducttable-B select{
+  border-radius: 3px;
+  border: 1px solid #969696;
+  padding: 3px 2px 2px 2px;
+  font-size: 15px;
+  width: 100%;
+}
+.addproducttable-B input{
+  border-radius: 3px;
+  border: 1px solid #969696;
+  padding: 3px 2px 2px 2px;
+  font-size: 15px;
+  width: 100%;
+}
+.addproducttable-Add-BTN{
+  width:10%; float: left; padding:10px 0px 9px 0; box-sizing: border-box; text-align: center;
+}
+.addproducttable-Add-BTN input{
+  border-radius: 3px;
+  border: 1px solid #ff36b6;
+  padding: 4px 10px;
+  background: #ff36b6;
+  color: #fff;
+}
+.addproducttable-Add-BTN input:hover{
+  background: #f027a7;
+}
+.addproducttable-Addbx-second-top-bdr-none{border-top: 0px;}
+
+.addproducttable-main-box table tr td table{
+  width:100%; border: 0px;
+}
+.addproducttable-main-box table tr td table tr td{
+  width: 50%;
+line-height: 19px;
+display: inline-block;
+float: left;
+margin-bottom: 10px;
+}
+.addproducttable-main-box table tr td table tr td input{
+  width:50%;
+  display: inline-block; text-align: center;
+}
+.add-pair-box{
+  text-align: left;
+  margin-top: 0;
+  width: 50px;
+  padding-top: 3px;
+  padding-bottom: 0px;
+}
+
+
+
+
 ._720kb-datepicker-calendar{margin-top: 34px !important;}
 .container{width:1170px; margin: 0 auto; display: block;}
 .main-header{width:100%; display: inline-block; background: #fff;}
 .logo{float: left; margin: 13px 0 0 30px;}
 
 .customer-detailsmain-box {
-  width: 25%;
+  width: 26%;
   float: left;
   margin-right: 2%;
 }
@@ -101,7 +206,7 @@ display: inline;
   width: 30%;
   float: left;
   margin-right: 2%;
-  
+
 }
 .customer-detailsmain-box1 label {
   width: 41% !important;
@@ -132,7 +237,7 @@ font-weight: normal;
 .navbar ul li a:hover{ background: #eeefef; border-bottom: 4px solid #606060; }
 .navbar ul li a.active{ background: #eeefef; border-bottom: 4px solid #606060;}
 .menu-toggle{ float:right; display:none}
-.navbar ul li ul{ background:#f5f5f5; display:none; position:absolute; top:100%; left:0px; width:145px;z-index: 999;}
+.navbar ul li ul{ background:#f5f5f5; display:none; position:absolute; top:100%; left:0px; width:155px;z-index: 999;}
 .navbar ul li ul li a{border-bottom: 1px solid #DDD;}
 .navbar ul li ul li a:hover{border-bottom: 1px solid #DDD;}
 .navbar ul li:hover ul{ display:block;}
@@ -334,6 +439,16 @@ transform: translate(-50%, -50%);
 .forget-password a:hover{ font-size: 15px; color: #eb2ba5; text-decoration: none; border-bottom:1px solid #eb2ba5;}
 .submit-btn-for-pass{display:block; margin-top: 12px !important;padding-bottom: 30px !important;}
 
+/* class added by vishesh */
+
+.action-img{
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 25px;
+  height: 25px;
+  }
+
+
 
 .inner-heading-bar{width:100%; background: #ff36b6; line-height: 60px; font-size: 25px; color: #fff; padding: 0 0 0 30px; box-sizing: border-box;}
 .main-contant-part{width:100%; float: left; background: #fff; padding: 30px; box-sizing: border-box;}
@@ -446,7 +561,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
   box-sizing: border-box;
-  margin-bottom: 15px;
+   margin-bottom: 15px;
 }
 .outside{
   width: 70%;
@@ -910,7 +1025,29 @@ border-radius: 3px;
 
 }
 
+.measure {
+  display: flex;
+}
 
+.measure label {
+    /*margin-left: 20px;*/
+    width: 15%;
+    float: left;
+    color: #202020;
+}
+.measure input {
+    /*margin-right: 10px;*/
+    /*width: 10%;*/
+    margin-bottom: 10px;
+    float: left;
+    color: #333;
+    padding: 8px 12px 8px 12px;
+    border: 1px solid rgb(178, 178, 178);
+    border-radius: 4px;
+    box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+    transition: all 0.2s linear;
+    box-sizing: border-box;
+}
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   .float-right {
@@ -1079,8 +1216,8 @@ input[type=radio] + label>img {
 }
 
 /*input[type=radio]:checked + label>img {
-  transform: 
-    rotateZ(-10deg) 
+  transform:
+    rotateZ(-10deg)
     rotateX(10deg);
 }*/
 
@@ -1091,16 +1228,16 @@ input[type=radio] + label>img {
 html {
   background-color: #fff;
   background-size: 100% 1.2em;
-  background-image: 
+  background-image:
     linear-gradient(
-      90deg, 
-      transparent 79px, 
-      #abced4 79px, 
-      #abced4 81px, 
+      90deg,
+      transparent 79px,
+      #abced4 79px,
+      #abced4 81px,
       transparent 81px
     ),
     linear-gradient(
-      #eee .1em, 
+      #eee .1em,
       transparent .1em
     );
 
@@ -1118,7 +1255,7 @@ display: inline-block;
 .color-box{
   height: 150px;
   width: 150px;
-  
+
   border: 1px solid #000;
   float: left;
 margin-right: 20px;

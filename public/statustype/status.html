@@ -1,0 +1,116 @@
+<div class="container">
+
+	<!-- Header Section Start Here -->
+	<div class="main-header">
+		<div class="logo">
+			<a href="#/home"><img src="assets/images/logo.png" alt=""></a>
+		</div>
+		<span class="menu-toggle">
+      <i></i>
+      <i></i>
+      <i></i>
+    </span>
+		<div class="navbar">
+			<ul>
+				<li><a href="#/home">Home</a></li>
+
+
+				<li><a href="#/customerdetails">Customers </a></li>
+				<li><a href="#/order">Orders</a></li>
+
+				<li><a href="#/alert">Alerts</a></li>
+				<li><a href="#/register" class="active">Settings</a>
+					<!--<ul>
+                        <li><a href='#/register'><span>Manage Users</span></a></li>
+                        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+                        <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+                    </ul>-->
+				</li>
+				<li><a href="#/logout">Logout</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- Header Section End Here -->
+
+	<div class="inner-heading-bar">Manage Customers </div>
+
+	<div class="main-contant-part">
+		<!-- Customer Details page Section Start Here -->
+		<div class="row">
+					<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="managecustomer-left-menu-inner-page">
+					<h4 class="admin-setting-heding">Settings</h4>
+					<ul>
+						<li><a href='#/register'><span>Manage Users</span></a></li>
+						<li><a href='#/statustype' class="active"><span>Manage Status</span></a></li>
+						<li><a href='#/measurements'><span>Manage Measurement</span></a></li>
+						<li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+						<li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+						<li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+					</ul>
+				</div>
+			</div>
+	<div class="col-md-9 col-sm-9 col-xs-12">
+    <h4 class="admin-setting-heding">Manage Status</h4>
+			
+
+  <!-- Customer Details page Section Start Here -->
+  <div class="customer-detail-page-contant">
+   <div class="right-add-new-button"><a href="#/addstatustype">Add New</a></div>
+   <div class="details-table">
+     <table class="table-part" border="0" cellspacing="0" cellpadding="0">
+      <tr class="top-purpal-color-row">
+        <th>Status</th>
+        <th>Is Active</th>
+        <!--<th>Action</th>-->
+      </tr>
+<!-- ng-repeat="newdata in vm.materialdata"  -->
+      <tr dir-paginate="newdata in vm.statusdata|itemsPerPage:10 | orderBy:vm.predicate:vm.reverse" ng-class="{
+          'some':$index%2 == 0,
+          'table-tr-alternate-color':$index%2 != 0
+      }">
+        <td data-th="Status: " class="top-purpal-color-row2"><span><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.status}}</a></span></td>
+        <!--<td data-th="Action: " class="top-purpal-color-row2">{{newdata.active}}</td>-->
+        	<td data-th="Status: "  ng-if="newdata.isActive" class="top-purpal-color-row2">Active</td>
+						<td data-th="Status: "  ng-if="newdata.isActive == false" class="top-purpal-color-row2">Inactive</td>
+      </tr>
+</table>
+   </div>
+  </div>
+  <!-- Customer Details page Section End Here -->
+  <div class="paging">
+   <dir-pagination-controls
+              max-size="10"
+             direction-links="true"
+             boundary-links="true" >
+     </dir-pagination-controls>
+    </div>
+			
+			</div>
+		</div>
+
+		<!-- Customer Details page Section End Here -->
+		<div class="paging">
+			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+			</dir-pagination-controls>
+		</div>
+	</div>
+	<!-- Footer Section Start Here -->
+	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
+	<!-- Footer Section End Here -->
+</div>
+<script type="text/javascript">
+	$(document).ready(function (e) {
+		$(".menu-toggle").click(function () {
+			$(".navbar").slideToggle()
+
+		})
+		$(".navbar ul li").click(function () {
+			$(this).find("ul").slideToggle()
+			$(this).toggleClass("active");
+
+		})
+
+	});
+</script>

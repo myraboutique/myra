@@ -6,14 +6,12 @@ clothtypeController.$inject = ['$resource','$state','$scope'];
 function clothtypeController($resource,$state,$scope) {
   var vm = this;
 
-  vm.image = [];
-  vm.images = [];
+  // vm.image = [];
+  // vm.images = [];
   vm.editpage = editpage;
 
   vm.temp = function(data) {
-    console.log(data);
     $scope.index = data;
-    console.log($scope.index);
   }
   
   vm.token = JSON.parse(localStorage.getItem('token'));
@@ -24,17 +22,25 @@ function clothtypeController($resource,$state,$scope) {
   var measurement = $resource('/api/measurement');
   measurement.query(function(info){
     vm.type = info;
-    console.log(vm.type);
-    info.forEach(function (e){
-      vm.image = e.image.split('###');
-      vm.images.push(vm.image);
-    });
-    console.log(vm.images);
+    // console.log(vm.type);
+    // info.forEach(function (e){
+    //   vm.image = e.image.split('###');
+    //   vm.images.push(vm.image);
+    // });
+    // console.log(vm.images);
   });
 
    function editpage(x)
    {
      vm.selectData = JSON.stringify(x);
+     if(localStorage.getItem('editcloth')){
+       localStorage.removeItem('editcloth');
+       localStorage.setItem('editcloth',vm.selectData);
+     }
+     else{
+            localStorage.setItem('editcloth',vm.selectData);       
+     }
+     //localStorage.setItem('editcloth',vm.selectData);
      $state.go("editclothtype",{ 'referer': vm.selectData});
    }
 }

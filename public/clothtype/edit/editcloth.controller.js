@@ -5,17 +5,18 @@ editclothController.$inject = ['$resource', '$stateParams', '$http'];
 
 function editclothController($resource, $stateParams, $http) {
   var vm = this;
+    vm.measurementstype = [] ;
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
     window.location = '#/login';
   }
-  vm.data = JSON.parse($stateParams.referer);
+  vm.data1=localStorage.getItem('editcloth');
+  vm.data = JSON.parse(vm.data1);
   vm.measurement = measuremet;
   vm.update = update;
   vm.delete = Delete;
   vm.selectMeasurement = [];
   vm.selectMeasurement = vm.data.measurement.split(',');
-  console.log(vm.selectMeasurement);
 
   function measuremet(data) {
     if (data) {
@@ -31,7 +32,6 @@ function editclothController($resource, $stateParams, $http) {
   function update(form) {
     if (form.$valid) {
       vm.data.measurement = vm.selectMeasurement.join(',');
-      console.log(vm.data);
 
       $http.put('/api/measurement', vm.data)
         .then(
@@ -44,5 +44,8 @@ function editclothController($resource, $stateParams, $http) {
         });
     }
   }
-
+var managemeasurements = $resource('/api/managemeasurements')
+  managemeasurements.query(function(info){
+      vm.measurementstype = info ;
+   });
 }

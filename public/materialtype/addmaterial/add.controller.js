@@ -23,7 +23,6 @@ function addController($resource) {
   function materialsave(frm) {
     vm.formSubmitted = true;
       if(frm.$valid){
-    console.log("inside save function")
     var addmaterial = new AddMaterial();
     addmaterial.active = vm.active;
     addmaterial.materialtype = vm.materialtype;

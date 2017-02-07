@@ -58,7 +58,8 @@ function cancel()
             localStorage.setItem('token',JSON.stringify(vm.token));
             window.location = '#/register';
             console.log(swal("Password Updated Successfully."))
-        window.location = '#/alert';
+                // window.location = '#/alert';
+                window.location = '#/register';
         },
         function(err){
           console.log(err);

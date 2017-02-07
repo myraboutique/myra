@@ -6,218 +6,177 @@
             <a href="#/home"><img src="assets/images/logo.png" alt=""></a>
         </div>
         <span class="menu-toggle">
-      <i></i>
-      <i></i>
-      <i></i>
-    </span>
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
         <div class="navbar">
             <ul>
                 <li><a href="#/home">Home</a></li>
                 <li><a href="#/customerdetails" class="active">Customers</a></li>
                 <li><a href="#/order">Orders</a></li>
                 <li><a href="#/alert">Alerts</a></li>
-                <li><a href="">Settings <span><img src="assets/images/menu-drop-arrow.png" alt="Myra The Boutique"></span></a>
-                    <ul>
+                <li><a href="#/register">Settings</a>
+                    <!--<ul>
                         <li><a href='#/register'><span>Manage Users</span></a></li>
                         <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
-                        <li><a href='#/materialtype'><span>Manage Material</span></a></li>
-                    </ul>
+                        <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+                    </ul>-->
                 </li>
                 <li><a href="#/logout">Logout</a></li>
             </ul>
         </div>
     </div>
     <!-- Header Section End Here -->
-    <div class="inner-heading-bar">Add Product</div>
-    <form name="form" novalidate>
-        <div class="main-contant-part">
-            <!-- Customer Details page Section Start Here -->
-            <!--for select design-->
-            <div class="form-heading">
-                <h3>Design Details</h3>
+
+
+    <div class="inner-heading-bar">Create Order</div>
+        <form name="form" novalidate>
+            <div class="main-contant-part">
+
+              <div class="form-box">
+                <div class=" customer-detailsmain-box">
+                  <label>Order #</label>
+                  <input style="width: 53%!important;border: 0px;" colorpicker rows="4" cols="50" ng-model="vm.addProduct.color" name="color"></input>
+
+                  <span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
+                </div>
+
+                <div class=" customer-detailsmain-box1"><label>Order Placed </label><strong>{{vm.contact}}</strong></div>
+
+                <div class=" customer-detailsmain-box2"><label>Order Status </label><strong>{{vm.address}}</strong></div>
+              </div>
+
+                <div class="form-box create-order-box">
+      						<div class=" customer-detailsmain-box">
+      							<label>Order by</label>
+      							<select class="create-order-box-select-bx" ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer "
+      								required name="customeruser">
+      				 	<option value="">-- Please Select --</option></select>
+
+      							<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
+      						</div>
+
+      						<div class=" customer-detailsmain-box1"><label>Contact Number </label><strong>{{vm.contact}}</strong></div>
+
+      						<div class=" customer-detailsmain-box2"><label>Address </label><strong>{{vm.address}}</strong></div>
+      					</div>
+
+               <!--Add Product table Start Here-->
+                 <div class="addproducttable-main-box">
+
+                   <table style="width:40%">
+
+                      <tr>
+                        <td class="addproducttable-A"><b>Design</b></td>
+                        <td class="addproducttable-B">
+                          <select>
+                          <option value="volvo">Select</option>
+                          <option value="saab">Kurta</option>
+                          <option value="mercedes">Pents</option>
+                          <option value="audi">Salbar</option>
+                         </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Sub Design</b></td>
+                        <td class="addproducttable-B">
+                          <a href="#">Choose Sub Design</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Material Type</b></td>
+                        <td class="addproducttable-B">
+                          <select>
+                          <option value="volvo">Select</option>
+                          <option value="saab">Kurta</option>
+                          <option value="mercedes">Pents</option>
+                          <option value="audi">Salbar</option>
+                         </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Color Code</b></td>
+                        <td class="addproducttable-B">
+                          <input type="text" name="usrname">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Customization</b></td>
+                        <td class="addproducttable-B">
+                          <a href="#">Add Details</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Remarks</b></td>
+                        <td class="addproducttable-B">
+                          <a href="#">Add Comments</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Add Photo</b></td>
+                        <td class="addproducttable-B">
+                          <input type="submit" value="Browse">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Measurement</b></td>
+                        <td class="addproducttable-B">
+                          <table>
+                           <tr>
+                             <td>SH</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                           <tr>
+                             <td>BUST</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                           <tr>
+                             <td>WAIST</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                           <tr>
+                             <td>L WAIST</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                           <tr>
+                             <td>HIPS</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-A"><b>Add Pair</b></td>
+                        <td class="addproducttable-B">
+                          <div class="addproducttable-Add-BTN add-pair-box"> <input type="submit" value="Add"></div>
+                        </td>
+                      </tr>
+
+
+                    </table>
+
+                    <div class="addproducttable-Add-BTN"> <input type="submit" value="Add"></div>
+
+
+
+
+                 </div>
+               <!--Add Product table End Here-->
+
+
             </div>
-            <!--select Design section start here-->
-            <!--<div class="container">-->
-            <h4>Select Design </h4>
-            <div class="table-box">
-                <div style="float:left;" ng-repeat="x in vm.product">
-<input type="radio" name="emotion" id="{{x.title}}" ng-model="vm.adddesign" value="{{x.title}}" class="input-hidden" />
-<label for="{{x.title}}"><img src="assets/images/shirt.jpeg" alt="Myra The Boutique" /></label>
-<span  style="display: table-row;">{{x.title}}</span>
-{{vm.adddesign}}
 
-</div>
-
-</div>
-<!--select Design section end here-->
-
-<!--Material type section start here-->
-<div class="form-heading" style="margin-top: 20px;"></div>
-<h4>Select Material Type</h4>
-
-<div class="table-box" > 
-    <div style="float:left;" ng-repeat="x in vm.product1">
-<input type="radio" name="emotion" id="{{x.materialtype}}" ng-model="vm.addmaterial" value="{{x.materialtype}}" class="input-hidden" />
-<label for="{{x.materialtype}}"><img src="assets/images/jade-blue-bharuch-logo.jpg" alt="Myra The Boutique" /></label>
-<span style="display: table-row;">{{x.materialtype}}</span>
-{{vm.addmaterial}}
-</div>
+            <!--submit button-->
+            <!-- <div class="submit-button">
+            <input class="add-next-button" type="submit" value="submit" ng-click="vm.submit(vm.addProduct)" />
+            </div> -->
+            <!--submit button End here-->
+        </form>
 
 
-</div>
-<!--Material type section ends here-->
-<div class="form-heading" style="margin-top: 20px;" ></div>
-<div class="order-form-left-section" style="width: 100%;">
-
-
-<div class="form-section-box">
-    <label style="text-align:left; ">Color Code</label>
-<input style="width: 53%!important;" rows="4" cols="50" ng-maxlength="200" ng-model="vm.addProduct.cloth" name="clothdesc"></input>
-<span ng-show="vm.addProduct.clothdesc.$error.maxlength">Color Code is required.</span>
-
-
-
-<div class="form-box">
-        <label style="text-align:left;"><em ng-if="vm.addProduct.checked" id="mandatory" style="color:Red">*</em>&nbsp;Customization</label>
-<div class="customization-check-box">
-        <input type="checkbox" ng-model="vm.addProduct.checked" ng-change="vm.empty()" name="vehicle" value="" class="checkbox" />
-        <textarea style="width: 75%!important; clear:both;" ng-disabled="!vm.addProduct.checked" ng-minlength="10" ng-maxlength="100" ng-model="vm.addProduct.customization" class="customization-check-box-textarea"
-        rows="4" cols="50" placeholder="Customization Description" name="customization"></textarea>
-        <span ng-show="form.customization.$error.minlength">Customization length must be greater than 10.</span>
-        <span ng-show="form.customization.$error.maxlength">Customization length must be less than 100.</span>
-</div>
-
-<div class="form-box">
-         <label style="text-align:left; ">Any Other Remarks</label>
-         <textarea style="width: 53%!important;" rows="4" cols="50" ng-maxlength="200" ng-model="vm.addProduct.cloth" placeholder="Any Other Remark" name="clothdesc"></textarea>
-         <span ng-show="vm.addProduct.clothdesc.$error.maxlength">Remarks description length must be less than 200.</span>
-</div>
-</div>
-
-<span>{{vm.addmaterial.measurement}}</span>
-<!--measurement section tart here-->
-<div class="form-heading" style="width: 100%;" ></div>
-<div class="form-section-box" ng-hide="true" >
-    <h3>Measurement Details</h3>
-    <div class="measurement-li-box">
-        <ul class="ng-scope" >
-
-                <li style="float: left;"><i>SH:</i>
-                <strong><input class="measurement-input" name="measureSH" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.measureSH" >
-                <span ng-show="form.measureSH.$error.pattern">Cloth measurement must be a number.</span>
-                <img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li style="float: left;"><i>BUST:</i>
-                <strong><input class="measurement-input" name="measureBUST" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.measureBUST" >
-                <span ng-show="form.measureBUST.$error.pattern ">Cloth measurement must be a number.</span>
-				<img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li><i>WAIST:</i>
-                 <strong><input class="measurement-input" name="measureWAIST" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureWAIST" >
-                <span ng-show="form.measureWAIST.$error.pattern">Cloth measurement must be a number.</span>
-				 <img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li><i>L.WAIST:</i>
-                <strong><input class="measurement-input" name="measureLWAIST" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureLWAIST" >
-                <span ng-show="form.measureLWAIST.$error.pattern ">Cloth measurement must be a number.</span>
-				<img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li><i>HIPS:</i>
-                <strong><input class="measurement-input" name="measureHIPS" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureHIPS" >
-                <span ng-show="form.measureHIPS.$error.pattern ">Cloth measurement must be a number.</span>
-				 <img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li><i>SLEEVES:</i>
-                <strong><input class="measurement-input" name="measureSLEEVES" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.measureSLEEVES" >
-                <span ng-show="form.measureSLEEVES.$error.pattern ">Cloth measurement must be a number.</span>
-				<img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li><i>SHORT:</i>
-                <strong><input class="measurement-input" name="measureSHORT" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureSHORT" >
-                <span ng-show="form.measureSHORT.$error.pattern ">Cloth measurement must be a number.</span>
-				 <img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li><i>3/4:</i>
-                <strong><input class="measurement-input" name="measuretype" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measuretype" >
-                <span ng-show="form.measuretype.$error.pattern ">Cloth measurement must be a number.</span>
-				 <img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li><i>LENGTH:</i>
-                    <strong><input class="measurement-input" name="measureLENGTH" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureLENGTH" >
-                <span ng-show="form.measureLENGTH.$error.pattern ">Cloth measurement must be a number.</span>
-				 <img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li><i>FULL</i>
-                <strong><input class="measurement-input" name="measureFULL" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureFULL" >
-                <span ng-show="form.measureFULL.$error.pattern ">Cloth measurement must be a number.</span>
-				<img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li> <i>FULL LEN:</i>
-                <strong><input class="measurement-input" name="measureFULLL" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureFULLL" >
-                <span ng-show="form.measureFULLL.$error.pattern ">Cloth measurement must be a number.</span>
-				<img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li> <i>KNEE LEN:</i>
-                <strong><input class="measurement-input" name="measureKNEE" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureKNEE" >
-                <span ng-show="form.measureKNEE.$error.pattern ">Cloth measurement must be a number.</span>
-				 <img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li> <i>ARMHOLE:</i>
-                <strong><input class="measurement-input" name="measureARMHOLE" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.measureARMHOLE" >
-                <span ng-show="form.measureARMHOLE.$error.pattern ">Cloth measurement must be a number.</span>
-				<img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li> <i>U.THIGH:</i>
-                <strong><input class="measurement-input" name="measureUTHIGH" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureUTHIGH" >
-                <span ng-show="form.measureUTHIGH.$error.pattern ">Cloth measurement must be a number.</span>
-				<img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li> <i>L.THIGH:</i>
-                <strong><input class="measurement-input" name="measureLTHIGH" type="text" ng-pattern="/^[0-9]{1,10}$/"ng-model="vm.measureLTHIGH" >
-                <span ng-show="form.measureLTHIGH.$error.pattern ">Cloth measurement must be a number.</span>
-								  <img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li><i>CALF:</i>
-                <strong><input class="measurement-input" name="measureCALF" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureCALF" >
-                <span ng-show="form.measureCALF.$error.pattern ">Cloth measurement must be a number.</span>
-				<img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li><i>F-NECK:</i>
-                <strong><input class="measurement-input" name="measureFNECK" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureFNECK" >
-                <span ng-show="form.measureFNECK.$error.pattern ">Cloth measurement must be a number.</span>
-				<img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li><i>B-NECK:</i>
-                <strong><input class="measurement-input" name="measureBNECK" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureBNECK" >
-                <span ng-show="form.measureBNECK.$error.pattern">Cloth measurement must be a number.</span>
-				<img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li><i>MORI:</i>
-                 <strong><input class="measurement-input" name="measureMORI" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureMORI" >
-                <span ng-show="form.measureMORI.$error.pattern ">Cloth measurement must be a number.</span>
-				<img src="assets/images/inc-icon.png" alt=""></strong></li>
-
-                <li><i>CROSS B:</i>
-                <strong><input class="measurement-input" name="measureCROSS" type="text" ng-pattern="/^[0-9]{1,10}$/"  ng-model="vm.measureCROSS" >
-                <span ng-show="form.measureCROSS.$error.pattern ">Cloth measurement must be a number.</span>
-				<img src="assets/images/inc-icon.png" alt=""></strong>
-</li>
-</ul>
-</div>
-</div>
-<!--measurement section end here-->
-
-
-<!--submit button-->
-<div class="submit-button" style="clear:both; margin-left:300px;">
-<input class="add-next-button" type="submit" value="submit" ng-click=" vm.add(addProduct)" />
-</div>
-<!--submit button End here-->
-
-</div>
-</div>
 <!-- Footer Section Start Here -->
 <div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
 <!-- Footer Section End Here -->
-
-
+</div>

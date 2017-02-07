@@ -1,0 +1,162 @@
+  <div class="container">
+
+	<!-- Header Section Start Here -->
+	<div class="main-header">
+		<div class="logo">
+			<a href="#/home"><img src="assets/images/logo.png" alt=""></a>
+		</div>
+		<span class="menu-toggle">
+      <i></i>
+      <i></i>
+      <i></i>
+    </span>
+		<div class="navbar">
+			<ul>
+				<li><a href="#/home">Home</a></li>
+
+
+				<li><a href="#/customerdetails">Customers </a></li>
+				<li><a href="#/order">Orders</a></li>
+
+				<li><a href="#/alert">Alerts</a></li>
+				<li><a href="#/register" class="active">Settings</a>
+					<!--<ul>
+                        <li><a href='#/register'><span>Manage Users</span></a></li>
+                        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+                        <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+                    </ul>-->
+				</li>
+				<li><a href="#/logout">Logout</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- Header Section End Here -->
+
+	<div class="inner-heading-bar">Manage Customers </div>
+
+	<div class="main-contant-part">
+		<!-- Customer Details page Section Start Here -->
+		<div class="row">
+			<div class="col-md-3 col-sm-3 col-xs-12">
+				<div class="managecustomer-left-menu-inner-page">
+					<h4 class="admin-setting-heding">Settings</h4>
+					<ul>
+						<li><a href='#/register' class="active"><span>Manage Users</span></a></li>
+						<li><a href='#/statustype'><span>Manage Status</span></a></li>
+						<li><a href='#/measurements'><span>Manage Measurement</span></a></li>
+						<li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+						<li><a href='#/subdesign' class="active"><span>Manage Styles</span></a></li>
+						<li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+					</ul>
+				</div>
+			</div>
+	<div class="col-md-9 col-sm-9 col-xs-12">
+    <h4 class="admin-setting-heding">Edit Styles</h4>
+			
+		<!-- Left Form Section Start Here -->
+		<form name="form" novalidate>
+    <div class="order-form-left-section add-new-form">
+      <div class="form-section-box">
+	
+			 <div class="form-box">
+			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Style</label>
+
+					  	<input ng-model="vm.data.subdesign" type="text" class="clothmeasurementinput">
+						
+						</input>
+						<!--<strong class="clothaddbutton"><a href="" ng-click="vm.subdesign(vm.subdesi,image2)">Add</a></strong>
+				<span ng-show="vm.flagformeasure">This Sub Design already added.</span>
+		-->
+			 <span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
+			 <!--</div>
+<div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
+				 {{data}}
+			 <button type="button" ng-click="vm.delete($index)">X</button>
+				</div>-->
+ <div class="form-box">
+
+			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Design</label>
+					<select   class="clothmeasurementinput" ng-model="vm.data.design" required="required" name="design"  >
+						<option  ng-repeat="x in vm.measurementstype"> {{x.title}}</option>
+					</select>
+       </div>
+	   
+<div class="form-box">
+		<label><em id="mandatory" style="color:Red">*</em> Image</label>
+	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*"  image="image2"  resize-max-height="200" resize-max-width="200" resize-quality="0.7"	/>
+	<img style="margin-left:200px " ng-show="image2" ng-src="{{image2.resized.dataURL}}" />{{imgage2}}
+	<!--<button type="submit" ng-click="">Preview</button>-->
+</div>
+<img  ng-hide="image2" style="margin-left:200px " ng-src="{{vm.subdesignimage}}"/>
+			 
+			 <!--<div class="form-box">
+			  <label><em id="mandatory" style="color:Red">*</em> Design</label>
+			  <input id="" name="style" required="required" type="text" placeholder="Design" ng-model="vm.data.design"/>
+					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Design is required</span>
+		   </div>
+			 <div class="form-box">
+			  <label><em id="mandatory" style="color:Red">*</em> Measurement</label>
+        <input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>
+				<select ng-model="vm.measu"  class="clothmeasurementinput" >
+							<option ng-if="x.isActive" ng-repeat="x in vm.measurementstype"> {{x.name}}</option>
+				</select>
+				<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
+				<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required</span>
+			 </div>
+
+			 <div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
+				 {{data}}
+        <button ng-click="vm.delete($index)">X</button>
+			  </div>-->
+
+			 <div class="form-box">
+				  <label><em id="mandatory" style="color:Red">*</em> Is Active</label>
+				 <input type="checkbox" class="billing-addres-checkbox clothcheck"  ng-model="vm.data.isActive" />
+			 </div>
+
+
+
+			</div>
+
+      <div class="add-new-btm-btn">
+			<div class="submit-button">
+				<input type="submit" value="Save" ng-click="single(image2.resized.dataURL);vm.update(form)"/>
+			</div>
+			<div class="cancel-button">
+				<input type="submit" value="Cancel" ui-sref="subdesign"/>
+			</div>
+	   </div>
+
+
+		</div>
+		</form>
+
+			
+			</div>
+		</div>
+
+		<!-- Customer Details page Section End Here -->
+		<div class="paging">
+			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
+			</dir-pagination-controls>
+		</div>
+	</div>
+	<!-- Footer Section Start Here -->
+	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
+	<!-- Footer Section End Here -->
+</div>
+<script type="text/javascript">
+	$(document).ready(function (e) {
+		$(".menu-toggle").click(function () {
+			$(".navbar").slideToggle()
+
+		})
+		$(".navbar ul li").click(function () {
+			$(this).find("ul").slideToggle()
+			$(this).toggleClass("active");
+
+		})
+
+	});
+</script>

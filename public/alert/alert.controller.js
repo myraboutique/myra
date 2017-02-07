@@ -20,8 +20,6 @@ function alertController($resource,$http) {
   });
 
   function update(info) {
-    // console.log(info);
-    // console.log(vm.user.anniversaryAlert);
     $http.put('/api/customerdetails', info)
       .then(
       function (response) {
