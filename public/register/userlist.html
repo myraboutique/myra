@@ -69,7 +69,7 @@
 					<!-- ng-repeat="data in vm.user" -->
 
 
-					<tr dir-paginate= "data in vm.user|itemsPerPage:10  | filter:vm.search"  ng-class="{
+					<tr dir-paginate= "data in vm.user|itemsPerPage:10 | orderBy:vm.predicate:vm.reverse | filter:vm.search"  ng-class="{
 			        'some':$index%2 == 0,
 			        'table-tr-alternate-color':$index%2 != 0
 			    }">

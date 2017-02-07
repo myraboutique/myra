@@ -1264,3 +1264,6 @@ input[type="radio"]:checked + label > span {
     border: 1px solid #ff36b6;
     box-shadow: 0 0 7px 7px #ff36b6;
 }
+.subdesign-submenu{
+  width: 75% !important;
+}
