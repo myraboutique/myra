@@ -271,4 +271,9 @@ function final(orderform) {
 
 }
 
+      var viewstatus = $resource('/api/addstatuses')
+          viewstatus.query(function(info){
+               vm.st = info ;
+               console.log(vm.st);
+          });
 }
