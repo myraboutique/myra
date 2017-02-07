@@ -5,7 +5,7 @@ registerController.$inject = ['$resource','$state'];
 
 function registerController($resource,$state) {
   var vm = this;
-
+  vm.order = order;
   vm.check = false;
    vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){

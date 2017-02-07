@@ -92,10 +92,11 @@
         <div class="form-box">
           <label><em id="mandatory" style="color:Red">*</em>&nbsp;Mobile Number</label>
           <input id="" ng-model="vm.mobileNumber" ng-pattern="/^[0-9]{1,10}$/" name="mobilenumber" ng-minlength="10" ng-maxlength="10" required="required" type="text" placeholder="Mobile Number" />
-          <span ng-show="form.mobilenumber.$error.required && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number is required.</span>
 
-          <span ng-show="form.mobilenumber.$error.minlength && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number should be exactly 10 digits.</span>
-           <span ng-show="(form.mobilenumber.$error.pattern | form.mobilenumber.$error.maxlength) && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number should be exactly 10 digits.</span>
+         <span ng-show="form.mobilenumber.$error.required && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number is required.</span>
+          <span ng-show="form.mobilenumber.$error.pattern && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number should be digits.</span>
+          <span ng-show="(form.mobilenumber.$error.minlength || form.mobilenumber.$error.maxlength)&& (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number should be exactly 10 digits..</span>
+
 
         </div>
 

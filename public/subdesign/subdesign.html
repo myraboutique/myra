@@ -61,7 +61,20 @@
 			 	<table class="table-part" border="0" cellspacing="0" cellpadding="0">
 					 
 					<tr class="top-purpal-color-row">
-						<th>Style</th>						
+							 <th class="customer-detail-th-width-1">
+							<a href="" ng-click="vm.order('subdesign')">
+								<font color="#337ab7">Style</font>&nbsp&nbsp
+
+								<span ng-show="vm.predicate == 'subdesign'">
+                <span ng-show="!vm.reverse">
+                    <img src="assets/images/up-arrow-1.png" alt="">
+                </span>
+								<span ng-show="vm.reverse">
+                   <img src="assets/images/down-arrow-1.png" alt="">
+                </span>
+								</span>
+							</a>
+					</th>						
 						<th>Design</th>
 						<!--<th>Images</th>-->
 						<th>Status</th>
