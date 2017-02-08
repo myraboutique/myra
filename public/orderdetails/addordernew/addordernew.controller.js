@@ -10,8 +10,6 @@ function addordernewController($resource, $scope) {
   vm.records = JSON.parse(vm.data1);
   vm.data2=localStorage.getItem('vmorder');
   vm.selectedOrder = JSON.parse(vm.data2);
-
-  console.log(vm.selectedOrder);
   
 
   vm.token = JSON.parse(localStorage.getItem('token'));
