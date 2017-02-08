@@ -73,12 +73,36 @@
 								</tr>
 								<tr ng-repeat="data in vm.selectedOrder">
 									<th>{{data.type.title}}</th>
-									<th>{{data.orderdate}}</th>
-									<th>{{data.date}}</th>
-									<th>{{data.alertday}}</th>
-									<th>{{data.amount}}</th>
-									<th>{{data.status}}</th>
-
+									<td>
+										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
+										<!--New change 00 --index inject -->
+										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.order[$index].orderdate,$index)"
+										id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
+										</datepicker>
+									</td>
+									
+									<td>
+									<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
+									<input style="margin-bottom: 0px;" class="inputdatipicker " ng-model="vm.order[$index].stitchingdate" name="stitchingdate{{$index}}" required="required" ng-change="vm.stitchingchange(vm.order[$index].stitchingdate,$index)"
+									type="text" placeholder="Date of Stitching" />
+									</datepicker>
+									</td>
+									<td>
+										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
+										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.order[$index].alertday" ng-change="vm.alertchange(vm.order[$index].orderdate,vm.order[$index].deliverydate,vm.order[$index].alertday)"
+										id="" name="alertdate{{$index}}" required type="text" placeholder="Date of Alert" />
+										</datepicker>
+									</td>
+									<td>
+										<input style="width: 100% !important; margin-bottom: 0px;" class="addorder-amount-icon" id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required"
+										ng-model="vm.order[$index].amount" type="text" placeholder="Amount" style="width: 100% !important;"/>
+									</td>
+									<td>
+										<select ng-model="vm.order[$index].materialtype2" ng-options="data as data.status for data in vm.statusdata" required
+											name="material{{$index}}">
+										<option value="">-- Please Select --</option></select>
+										</select>
+									</td>
 								</tr>
 							</table>
 						</div>

@@ -10,6 +10,8 @@ function addordernewController($resource, $scope) {
   vm.records = JSON.parse(vm.data1);
   vm.data2=localStorage.getItem('vmorder');
   vm.selectedOrder = JSON.parse(vm.data2);
+
+  console.log(vm.selectedOrder);
   
 
   vm.token = JSON.parse(localStorage.getItem('token'));
@@ -23,6 +25,12 @@ function addordernewController($resource, $scope) {
   customer.get({ id: vm.records.id }, function (response) {
     console.log(response);
     vm.customerpatch = response;
+  });
+  
+  var addstatus = $resource('/api/addstatuses');
+  addstatus.query(function(info){
+    // console.log(info);
+      vm.statusdata = info ;
   });
 
   customerdetails.query(function (info) {

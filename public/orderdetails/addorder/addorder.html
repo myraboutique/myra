@@ -43,9 +43,9 @@
 			<!-- Left Form Section Start Here -->
 			<div class="order-form-left-section">
 				<div class="form-section-box">
-					<div class="form-heading">Customer Details</div>
+					<!--<div class="form-heading">Customer Details</div>-->
 
-					<div class="form-box">
+					<div class="form-box-new">
 						<label>Name:</label>
 						<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer"
 							required name="customeruser">{{vm.name}}
@@ -54,21 +54,39 @@
 						<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name must be required</span>
 					</div>
 
-					<div class="form-box">
+					<div class="form-box-new">
 						<label>Contact Number:</label>
 						<input id="" name="" ng-disabled="vm.contact" required="required" ng-model="vm.contact" type="text" placeholder="Contact Number"
 						/>
 					</div>
 
-					<div class="form-box">
+					<div class="form-box-new">
 						<label>Email Id:</label>
 						<input id="" name="" ng-disabled="vm.email" required="required" type="text" ng-model="vm.email" placeholder="Email Id" />
 					</div>
 				</div>
 
-				<div ng-repeat="item in vm.items">
+				<!--<div class="col-md-3 addproducttable-main-box">
+                   <div class="left-list-addproduct">
+                     <ul>
+                      <li>Design</li>
+                      <li>Sub Design</li>
+                      <li>Material Type</li>
+                      <li>Color Code</li>
+                      <li>Customization</li>
+                      <li>Remarks</li>
+                      <li>Add Photo</li>
+                      <li>Measurement</li>
+                    </ul>
+                   </div>
+				</div>-->
+
+					<div style="width: 167%" class="form-heading"></div>
+
+
+				<div class="col-lg-6" ng-repeat="item in vm.items">
 					<div class="form-section-box">
-						<div class="form-heading">Cloth Description</div>
+						<!--<div class="form-heading">Cloth Description</div>-->
 
 						<div class="form-box">
 							<label>Design:</label>
@@ -77,7 +95,9 @@
 								<option value="">-- Please Select --</option></select>
 							<span ng-show="orderform['clothtype'+$index].$invalid && (orderform['clothtype'+$index].$touched || vm.formSubmitted)">Cloth style must be required</span>
 						</div>
-
+						<!--<div class="submit-button">
+							<input class="add-next-button" type="submit" value="Add Next" ng-click=" vm.add(orderform)" />
+						</div>-->
 						<div class="form-box">
 							<label>Sub Design:</label>
 							<select ng-model="vm.order[$index].type2" name="clothtype{{$index}}" ng-change="vm.typeSelect2(vm.order[$index].type2)" required>
@@ -188,22 +208,21 @@
 									<span ng-show="orderform['measurement'+$index].$error.required && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">{{type}} must be required</span>
 							    <span ng-show="orderform['measurement'+$index].$error.pattern && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement must be a number</span>
 									 <span ng-show="orderform['measurement'+$index].$error.maxlength && (orderform['measurement'+$index].$dirty || vm.formSubmitted)">Cloth measurement length must less then 5</span>
-								  <img src="assets/images/inc-icon.png" alt=""></strong>
+								  <!--<img src="assets/images/inc-icon.png" alt=""></strong>-->
 							</ul>
 						</div>
 					</div>
 
 					<div class="add-next-btn-box">
 						<div class="submit-button">
-							<!-- ng-disabled="orderform.$valid" -->
 							<input type="submit" value="Save" ng-click="vm.final(orderform)" />
 						</div>
 						<div class="submit-button">
 							<input class="add-next-button" type="submit" value="Add Next" ng-click=" vm.add(orderform)" />
 						</div>
-						<div class="cancel-button">
+						<!--<div class="cancel-button">
 							<input type="submit" value="Cancel" ng-click="vm.cancel()" />
-						</div>
+						</div>-->
 					</div>
 				</div>
 

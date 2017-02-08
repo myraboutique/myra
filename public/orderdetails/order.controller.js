@@ -7,7 +7,14 @@ function orderController($resource, $state) {
     var vm = this;
     vm.myDropDown = "";
     vm.temp = ["Keyword","Status"];
-    vm.status = ["New","Stiching", "Cancel"];
+
+    var addstatus = $resource('/api/addstatuses');
+    addstatus.query(function(info){
+        // console.log(info);
+        vm.status = info ;
+    });
+
+    // vm.status = ["New","Stiching", "Cancel"];
 
     vm.token = JSON.parse(localStorage.getItem('token'));
     if (!vm.token) {

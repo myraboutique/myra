@@ -20,12 +20,12 @@ var OrderDetails = db.define('orderdetails', {
     color: Sequelize.STRING,
     customization : Sequelize.STRING,
     cloth: Sequelize.STRING,
-    // deliverydate: Sequelize.STRING,
-    // orderdate: Sequelize.STRING,
-    // alertday: Sequelize.STRING,
+    deliverydate: Sequelize.STRING,
+    orderdate: Sequelize.STRING,
+    alertday: Sequelize.STRING,
     amount: Sequelize.BIGINT,
     measurement: Sequelize.STRING,
-    // stitchingdate:Sequelize.STRING,
+    stitchingdate:Sequelize.STRING,
     status: Sequelize.STRING,
     subdesign : Sequelize.STRING
 

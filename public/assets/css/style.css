@@ -641,7 +641,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
   margin-bottom: 15px;
 }
 .form-section-box .birthdate{width:18% !important; float: left; margin-right: 12px;}
-.form-box{width:100%; display: inline-block;position: relative;}
+.form-box{width: 100%;display: inline-block;position: relative;}
+.form-box-new{width: 50%;display: inline-block;position: relative;}
 
 
 
@@ -657,7 +658,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
 .customization-check-box-textarea{width: 100% !important;margin-top: -12px;}
 .measurement-li-box{width:100%; display: inline-block;}
 .measurement-li-box ul{margin: 0px; padding: 0px;}
-.measurement-li-box ul li{list-style: none; display: table; background:url("../images/mesurment-li-icon.png") no-repeat left; line-height:19px;padding-left: 34px;width:66%; font-weight: 600; font-size: 14px;color: #474747;}
+.measurement-li-box ul li{list-style: none; display: table;/* background:url("../images/mesurment-li-icon.png") no-repeat left; */line-height:19px;padding-left: 34px;width:66%;font-weight: 600;font-size: 14px;color: #474747;}
 .measurement-li-box ul li i{line-height: 60px; font-style: normal;display: inline-block;padding-top: 4px;}
 .measurement-li-box ul li strong{float: right; position: relative;width: 60%; font-weight: 400;}
 .measurement-li-box ul li strong span {
@@ -689,7 +690,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
     box-shadow: none;
 }
 .submit-button input:hover{background: #e527a0;}
-.submit-button{float: left;margin-right: 15px; width:auto;}
+.submit-button{float: left;margin-right: 15px;width:auto;}
 .cancel-button{float: left;width:auto;}
 .cancel-button input{
     width:105px;
