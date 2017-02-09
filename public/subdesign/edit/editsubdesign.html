@@ -62,13 +62,17 @@
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Style</label>
 
-					  	<input ng-model="vm.data.subdesign" type="text" class="clothmeasurementinput">
+					  	<input ng-model="vm.data.subdesign" type="text" class="clothmeasurementinput" required="required" name="editstyle">
 						
+						<span ng-show="form.editstyle.$error.required && (form.editstyle.$dirty || vm.formSubmitted)">Style name is required.</span>
+						<span ng-show="form.editstyle.$error.minlength && (form.editstyle.$dirty || vm.formSubmitted)">Style name length must be greater than 3 characters.</span>
+          	<span ng-show="form.editstyle.$error.maxlength && (form.editstyle.$dirty || vm.formSubmitted)">Style name must be less than 20 characters.</span>
+						<span ng-show="vm.flag">This Style is already exists.</span>
 						</input>
 						<!--<strong class="clothaddbutton"><a href="" ng-click="vm.subdesign(vm.subdesi,image2)">Add</a></strong>
 				<span ng-show="vm.flagformeasure">This Sub Design already added.</span>
 		-->
-			 <span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
+			 <!--<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>-->
 			 <!--</div>
 <div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
 				 {{data}}
@@ -77,10 +81,12 @@
  <div class="form-box">
 
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Design</label>
-					<select   class="clothmeasurementinput" ng-model="vm.data.design" required="required" name="design"  >
+					<select   class="clothmeasurementinput" ng-model="vm.data.design" required="required" name="editdesign"  >
 						<option  ng-repeat="x in vm.measurementstype"> {{x.title}}</option>
 					</select>
+						<span ng-show="form.editdesign.$error.required && (form.editdesign.$dirty || vm.formSubmitted)">Design name is required.</span>
        </div>
+
 	   
 <div class="form-box">
 		<label><em id="mandatory" style="color:Red">*</em> Image</label>
@@ -111,7 +117,7 @@
 			  </div>-->
 
 			 <div class="form-box">
-				  <label><em id="mandatory" style="color:Red">*</em> Is Active</label>
+				  <label> Is Active</label>
 				 <input type="checkbox" class="billing-addres-checkbox clothcheck"  ng-model="vm.data.isActive" />
 			 </div>
 

@@ -5,7 +5,7 @@ newsubdesignController.$inject = ['$resource', '$scope'];
 
 function newsubdesignController($resource, $scope) {
   var vm = this;
-  
+  vm.flag = false;
   $scope.single = function (image) {
       vm.src=image;
   };
@@ -21,7 +21,6 @@ function newsubdesignController($resource, $scope) {
   // vm.selectMeasurement = [];
   vm.addClothtype = addClothtype;
   vm.isActive = true;
-  vm.flag = false;
   var AddSubDesign = $resource('/api/addsubdesign');
   // vm.delete = Delete;
 
@@ -71,14 +70,14 @@ function newsubdesignController($resource, $scope) {
       addsubdesign.isActive = vm.isActive;
 
       addsubdesign.$save(function (info) {
-        // if (!info.status) {
+        if (!info.status) {
           swal("Recored Saved Successfully.");
           window.location = '#/subdesign';
-        // }
-        // else {
-        //   vm.flag = true;
-        //   vm.status = info.status;
-        // }
+        }
+        else {
+          vm.flag = true;
+          vm.status = info.status;
+        }
       });
 
     }

@@ -15,13 +15,14 @@ module.exports = (function(){
      })
     },
     Create: function(req, res){
-      // db.sync().then(function () {
-      //    models.findOne({ where: { design: req.body.design } }).then(function (user) {
-      // if (user) {
-      //     return res.status(200).json({
-      //     });
-      //     }
-      // else{
+      db.sync().then(function () {
+         models.findOne({ where: { subdesign: req.body.subdesign } }).then(function (user) {
+      if (user) {
+          return res.status(200).json({
+                status:"already78787878"
+           });
+         }
+       else{
       db.sync().then(function(){
         models.create({
           design:req.body.design,
@@ -33,25 +34,61 @@ module.exports = (function(){
           res.json(info);
         })
       })
-  //   }
-  // })
-  //  })
+     }
+   })
+    })
     },
-    Update: function(req,res){
+    // Update: function(req,res){
+    //   db.sync().then(function(){
+    //     models.update({
+    //       design:req.body.design,
+    //       subdesign :req.body.subdesign,
+    //       subdesignimage : req.body.subdesignimage,
+    //       isActive : req.body.isActive
+    //       // image: req.body.image
+    //     },{
+    //       where:{id:req.body.id}
+    //     }).then(function(info){
+    //       res.json(info);
+    //     })
+    //   })
+    // }
+ Update: function(req,res){
+
       db.sync().then(function(){
-        models.update({
+         models.findOne({where: {subdesign: req.body.subdesign }}).then(function (info){
+           
+             if(info && info.id != req.body.id){
+               console.log("oyyyyyyyy");
+               return res.json({
+                 msg: 'already00++--'
+               })
+        }
+        
+        else{
+         
+         db.sync().then(function(){
+           console.log("bbbbbbbbbbbbbbba");
+          models.update({
           design:req.body.design,
           subdesign :req.body.subdesign,
           subdesignimage : req.body.subdesignimage,
           isActive : req.body.isActive
-          // image: req.body.image
-        },{
+        },
+        {
           where:{id:req.body.id}
         }).then(function(info){
           res.json(info);
+         }) 
+       
         })
-      })
-    }
-  };
+      }
+  })
+
+ })
+
+
+} 
+ };
   return m;
 })();
