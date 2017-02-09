@@ -14,29 +14,58 @@ module.exports = (function(){
        })
      })
     },
-    Create: function(req, res){
-      // db.sync().then(function () {
-      //    models.findOne({ where: { design: req.body.design } }).then(function (user) {
-      // if (user) {
-      //     return res.status(200).json({
-      //     });
-      //     }
-      // else{
-      db.sync().then(function(){
-        models.create({
-          design:req.body.design,
+  //   Create: function(req, res){
+  //     // db.sync().then(function () {
+  //     //    models.findOne({ where: { design: req.body.design } }).then(function (user) {
+  //     // if (user) {
+  //     //     return res.status(200).json({
+  //     //     });
+  //     //     }
+  //     // else{
+  //     db.sync().then(function(){
+  //       models.create({
+  //         design:req.body.design,
+  //         subdesign :req.body.subdesign,
+  //         subdesignimage : req.body.subdesignimage,
+  //         isActive : req.body.isActive
+  //         // image: req.body.image
+  //       }).then(function(info){
+  //         res.json(info);
+  //       })
+  //     })
+  // //   }
+  // // })
+  // //  })
+  //   },
+
+    create: function(req, res)
+  {
+    db.sync().then(function () {
+      models.findOne({ where: { design: req.body.design } }).then(function (user) {
+    if (user) {
+      return res.status(200).json({
+        status: 'already00++--'
+      });
+      }
+    else {
+    db.sync().then(function()
+    {
+      models.create(
+        {
+         design:req.body.design,
           subdesign :req.body.subdesign,
           subdesignimage : req.body.subdesignimage,
           isActive : req.body.isActive
-          // image: req.body.image
-        }).then(function(info){
-          res.json(info);
-        })
+            // image: req.body.image
+        }).then(function(user)
+      {
+        res.json(user);
       })
-  //   }
-  // })
-  //  })
-    },
+    })}
+    })
+      })
+
+  },
     Update: function(req,res){
       db.sync().then(function(){
         models.update({

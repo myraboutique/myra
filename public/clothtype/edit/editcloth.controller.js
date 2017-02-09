@@ -6,6 +6,7 @@ editclothController.$inject = ['$resource', '$stateParams', '$http'];
 function editclothController($resource, $stateParams, $http) {
   var vm = this;
     vm.measurementstype = [] ;
+   
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
     window.location = '#/login';
@@ -15,6 +16,7 @@ function editclothController($resource, $stateParams, $http) {
   vm.measurement = measuremet;
   vm.update = update;
   vm.delete = Delete;
+   vm.flag = false;
   vm.selectMeasurement = [];
   vm.selectMeasurement = vm.data.measurement.split(',');
 
@@ -36,16 +38,30 @@ function editclothController($resource, $stateParams, $http) {
       $http.put('/api/measurement', vm.data)
         .then(
         function (response) {
-          console.log("put successfull")
-          window.location = '#/clothtype';
-        },
-        function (response) {
-          console.log("put unsuccessfull")
-        });
+          if(!response.data.msg){
+             console.log("put successfull")
+             window.location = '#/clothtype';
+          }
+          else {
+          vm.flag = true;
+          //vm.status = info.status;
+        }
+      });
+
     }
   }
-var managemeasurements = $resource('/api/managemeasurements')
+  var managemeasurements = $resource('/api/managemeasurements')
   managemeasurements.query(function(info){
       vm.measurementstype = info ;
    });
 }
+
+  //        else{
+  //          vm.flag = true;
+  //        }
+  //       },
+  //       function (response) {
+  //         console.log("put unsuccessfull")
+  //       });
+  //   }
+  // }

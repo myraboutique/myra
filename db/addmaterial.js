@@ -43,20 +43,34 @@ module.exports = (function()
       })
 
   },
-    Update: function(req,res){
+  Update: function(req,res){
 
       db.sync().then(function(){
-        models.update({
+         models.findOne({where: {materialtype: req.body.materialtype }}).then(function (info){
+            console.log("oyy"+info);
+             if(info && info.id != req.body.id){
+               return res.json({
+                 msg: 'already00++--'
+               })
+        }
+        
+        else{
+         db.sync().then(function(){
+          models.update({
           materialtype : req.body.materialtype,
-          active :  req.body.active,
+           active :  req.body. active,
         },
         {
           where:{id:req.body.id}
         }).then(function(info){
           res.json(info);
+         }) 
+       
         })
-      })
+      }
+  })
 
+ })
 
 
 }

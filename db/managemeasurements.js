@@ -40,24 +40,61 @@ module.exports = (function(){
       })
 
   },
-    Update: function(req,res){
+//     Update: function(req,res){
+
+//       db.sync().then(function(){
+//         models.update({
+//            name : req.body.name,
+//         isActive :  req.body.isActive,
+//         },
+//         {
+//           where:{id:req.body.id}
+//         }).then(function(info){
+//           res.json(info);
+//         })
+//       })
+
+
+
+// }
+
+//   };
+//   return m;
+// })();
+
+  Update: function(req,res){
 
       db.sync().then(function(){
-        models.update({
-           name : req.body.name,
-        isActive :  req.body.isActive,
+         models.findOne({where: {name: req.body.name }}).then(function (info){
+           
+             if(info && info.id != req.body.id){
+               return res.json({
+                 msg: 'already00++--'
+               })
+        }
+        
+        else{
+         
+         db.sync().then(function(){
+          models.update({
+          name : req.body.name,
+          isActive :  req.body.isActive,
         },
         {
           where:{id:req.body.id}
         }).then(function(info){
           res.json(info);
+         }) 
+       
         })
-      })
+      }
+  })
 
+ })
 
 
 }
-
-  };
+};
   return m;
+
 })();
