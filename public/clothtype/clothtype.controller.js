@@ -9,11 +9,19 @@ function clothtypeController($resource,$state,$scope) {
   // vm.image = [];
   // vm.images = [];
   vm.editpage = editpage;
+  vm.order = order;
 
   vm.temp = function(data) {
     $scope.index = data;
   }
   
+  vm.predicate = '';
+  vm.reverse = true;
+  function order(predicate) {
+    vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;
+    vm.predicate = predicate;
+  };
+
   vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
     window.location = '#/login';

@@ -51,7 +51,7 @@ body{margin:0px; padding:0px; background:#292929 !important; font-family: 'Open 
 .home-page{display:table; text-align:center;margin: 0 auto;}
 
 .no-record-found-text{background: #e1e1e1; text-align: center; font-size: 20px; font-weight: 600; padding:12px 0;border-radius: 4px;}
-.customer-detail-th-width-1{width: 14% !important;}
+.customer-detail-th-width-1{width: 18% !important;}
 .customer-detail-th-width-1 a{color: #4c9ee4;}
 .table-tr-alternate-color{background: #f8f8f8;}
 
@@ -1263,4 +1263,7 @@ margin-right: 20px;
 input[type="radio"]:checked + label > span {
     border: 1px solid #ff36b6;
     box-shadow: 0 0 7px 7px #ff36b6;
+}
+.subdesign-submenu{
+  width: 75% !important;
 }

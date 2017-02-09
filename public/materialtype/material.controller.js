@@ -8,6 +8,7 @@ function materialtypeController($resource,$state) {
   var vm = this;
   vm.materialdata = [] ;
    vm.editpage = editpage;
+   vm.order = order;
    vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
    

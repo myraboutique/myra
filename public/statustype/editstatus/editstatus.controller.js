@@ -23,15 +23,16 @@ function editstatusController($resource, $stateParams, $http) {
       $http.put('/api/addstatuses', vm.data)
         .then(
         function (response) {
-        console.log(response.data.msg);
-        if(response.data.msg){
+
+         if(vm.data.status != 'already00++--'){
+          console.log("put successfull")
+          window.location = '#/statustype';
+         }
+         else{
+
            vm.flag = true;
         }
-        else
-        {
-           console.log("put successfull")
-          window.location = '#/statustype';
-        }
+    
         
         });
     }

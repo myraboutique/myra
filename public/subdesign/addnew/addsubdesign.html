@@ -68,7 +68,7 @@
       					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style name is required.</span>
 						<span ng-show="form.style.$error.minlength && (form.style.$dirty || vm.formSubmitted)">Style name length must be greater than 3 characters.</span>
           				<span ng-show="form.style.$error.maxlength && (form.style.$dirty || vm.formSubmitted)">Style name must be less than 20 characters.</span>
-						 <span ng-if="vm.flag">This Style is already exits</span>
+						<span ng-show="vm.flag">This Style is already exists.</span>
 						</input>
 						<!--<strong class="clothaddbutton"><a href="" ng-click="vm.subdesign(vm.subdesi,image2)">Add</a></strong>
 				<span ng-show="vm.flagformeasure">This Sub Design already added.</span>-->

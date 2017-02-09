@@ -1,4 +1,4 @@
-/// <reference path="../typings/tsd.d.ts" />
+// <reference path="../typings/tsd.d.ts" />
 
 module.exports = (function(){
   var models = require('../models').managemeasurements;
@@ -65,6 +65,7 @@ module.exports = (function(){
   Update: function(req,res){
 
       db.sync().then(function(){
+
          models.findOne({where: {name: req.body.name }}).then(function (info){
            
              if(info && info.id != req.body.id){
