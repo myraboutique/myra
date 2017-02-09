@@ -64,21 +64,24 @@
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Style</label>
 
-					  	<input ng-model="vm.subdesigns" type="text" class="clothmeasurementinput" >
-							
+					  	<input ng-model="vm.subdesigns" name="style"  type="text" required="required" class="clothmeasurementinput" >
+      					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style name is required.</span>
+						<span ng-show="form.style.$error.minlength && (form.style.$dirty || vm.formSubmitted)">Style name length must be greater than 3 characters.</span>
+          				<span ng-show="form.style.$error.maxlength && (form.style.$dirty || vm.formSubmitted)">Style name must be less than 20 characters.</span>
+						<span ng-show="vm.flag">This Style is already exists.</span>
 						</input>
 						<!--<strong class="clothaddbutton"><a href="" ng-click="vm.subdesign(vm.subdesi,image2)">Add</a></strong>
 				<span ng-show="vm.flagformeasure">This Sub Design already added.</span>-->
-		
-			 <!--<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>-->
-			 </div>
+     
+          			 </div>
 
 			 <div class="form-box">
 
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Design</label>
-					<select   class="clothmeasurementinput" ng-model="vm.designs" required="required" name="design"  >
+					<select   class="clothmeasurementinput" ng-model="vm.designs" type="text" required="required" name="design"  >
 						<option  ng-repeat="x in vm.design"> {{x.title}}</option>
-					</select>
+						</select>
+						<span ng-show="form.design.$error.required && (form.design.$dirty || vm.formSubmitted)">Design is required.</span>
        </div>
 
 			 <!--<div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
@@ -87,9 +90,12 @@
 			  </div>-->
 <div class="form-box">
 		<label><em id="mandatory" style="color:Red">*</em> Image</label>
-	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*"  image="image2"  resize-max-height="200" resize-max-width="200" resize-quality="0.7"	/>
+	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*"  image="image2"  resize-max-height="200" resize-max-width="200" resize-quality="0.7"	 required="required" name="image">
+	<span ng-show="form.image.$error.required && (form.image.$dirty || vm.formSubmitted)">Image is required.</span></input>
 	<img style="margin-left:200px " ng-show="image2" ng-src="{{image2.resized.dataURL}}" />{{imgage2}}
+		
 	<!--<button type="submit" ng-click="">Preview</button>-->
+	
 </div>
 
 			<!--<div class="form-box">
@@ -100,8 +106,9 @@
 					<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
 			</div>-->
 			 <div class="form-box">
-				 		  <label>Is Active</label>
+				 		  <label> Is Active</label>
 				 <input type="checkbox" class="billing-addres-checkbox clothcheck" ng-model="vm.isActive"/>
+
 			 </div>
 			</div>
 
