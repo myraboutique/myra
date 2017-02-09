@@ -27,7 +27,7 @@
 	</div>
 	<!-- Header Section End Here -->
 
-	<div class="inner-heading-bar">Order Form</div>
+	<div class="inner-heading-bar">Create Order</div>
 	<form name="orderform" novalidate>
 		<div class="main-contant-part">
 
@@ -141,31 +141,31 @@
 
                       <tr>
                         <td class="addproducttable-B">
-<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type"
-								required>
-								<option value="">-- Please Select --</option></select>
+													<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.typeSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type"
+													required>
+													<option value="">-- Please Select --</option></select>
                         </td>
                       </tr>
                       <tr>
                         <td class="addproducttable-B">
                           	<select ng-model="vm.order[$index].type2" name="clothtype{{$index}}" ng-change="vm.typeSelect2(vm.order[$index].type2)" required>
-								<option value="">-- Please Select --</option>
-								<option ng-repeat="style in vm.subdesign track by $index">{{style}}</option>
-							</select>
+															<option value="">-- Please Select --</option>
+															<option ng-repeat="style in vm.subdesign track by $index">{{style}}</option>
+														</select>
                         </td>
                       </tr>
                       <tr>
                         <td class="addproducttable-B">
-							<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material" required
-								name="material{{$index}}">
-				  			<option value="">-- Please Select --</option></select>
-							</select>
+													<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material" required
+														name="material{{$index}}">
+														<option value="">-- Please Select --</option></select>
+													</select>
                         </td>
                       </tr>
                       <tr>
                         <td class="addproducttable-B">
                           	<input id="" name="color{{$index}}" ng-model="vm.order[$index].color" ng-minlength="3" ng-maxlength="15" required="required"
-								type="text" />
+															type="text" />
                         </td>
                       </tr>
                       <tr>
@@ -256,3 +256,353 @@
 
 		});
 	</script>
+
+
+===============================addProduct by mukeshbhai==========================
+
+<div class="container">
+
+    <!-- Header Section Start Here -->
+    <div class="main-header">
+        <div class="logo">
+            <a href="#/home"><img src="assets/images/logo.png" alt=""></a>
+        </div>
+        <span class="menu-toggle">
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
+        <div class="navbar">
+            <ul>
+                <li><a href="#/home">Home</a></li>
+                <li><a href="#/customerdetails" class="active">Customers</a></li>
+                <li><a href="#/order">Orders</a></li>
+                <li><a href="#/alert">Alerts</a></li>
+                <li><a href="#/register">Settings</a>
+                    <!--<ul>
+                        <li><a href='#/register'><span>Manage Users</span></a></li>
+                        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
+                        <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+                    </ul>-->
+                </li>
+                <li><a href="#/logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Header Section End Here -->
+
+
+    <div class="inner-heading-bar">Create Order</div>
+        <form name="form" novalidate>
+            <div class="main-contant-part">
+
+              <div class="form-box">
+                <div class=" customer-detailsmain-box">
+                  <label>Order #</label>
+                  <input style="width: 53%!important;border: 0px;" colorpicker rows="4" cols="50" ng-model="vm.addProduct.color" name="color"></input>
+
+                  <span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
+                </div>
+
+                <div class=" customer-detailsmain-box1"><label>Order Placed </label><strong>{{vm.contact}}</strong></div>
+
+                <div class=" customer-detailsmain-box2"><label>Order Status </label><strong>{{vm.address}}</strong></div>
+              </div>
+
+                <div class="form-box create-order-box">
+      						<div class=" customer-detailsmain-box">
+      							<label>Order by</label>
+      							<select class="create-order-box-select-bx" ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer "
+      								required name="customeruser">
+      				 	<option value="">-- Please Select --</option></select>
+
+      							<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>
+      						</div>
+
+      						<div class=" customer-detailsmain-box1"><label>Contact Number </label><strong>{{vm.contact}}</strong></div>
+
+      						<div class=" customer-detailsmain-box2"><label>Address </label><strong>{{vm.address}}</strong></div>
+      					</div>
+
+               <!--Add Product table Start Here-->
+                 <div class="addproducttable-main-box">
+                   <div class="left-list-addproduct">
+                     <ul>
+                      <li>Design</li>
+                      <li>Sub Design</li>
+                      <li>Material Type</li>
+                      <li>Color Code</li>
+                      <li>Customization</li>
+                      <li>Remarks</li>
+                      <li>Add Photo</li>
+                      <li>Measurement</li>
+                    </ul>
+                   </div>
+
+                   <table style="width:20%">
+
+                      <tr>
+                        <td class="addproducttable-B">
+                          <select>
+                          <option value="volvo">Select</option>
+                          <option value="saab">Kurta</option>
+                          <option value="mercedes">Pents</option>
+                          <option value="audi">Salbar</option>
+                         </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-B">
+                          <a href="#">Choose Sub Design</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-B">
+                          <select>
+                          <option value="volvo">Select</option>
+                          <option value="saab">Kurta</option>
+                          <option value="mercedes">Pents</option>
+                          <option value="audi">Salbar</option>
+                         </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-B">
+                          <input type="text" name="usrname">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-B">
+                          <a href="#">Add Details</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-B">
+                          <a href="#">Add Comments</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-B">
+                          <input type="submit" value="Browse">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-B">
+                          <table>
+                           <tr>
+                             <td class="measurment-baist-hips-text">SH</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                           <tr>
+                             <td class="measurment-baist-hips-text">BUST</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                           <tr>
+                             <td class="measurment-baist-hips-text">WAIST</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                           <tr>
+                             <td class="measurment-baist-hips-text">L WAIST</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                           <tr>
+                             <td class="measurment-baist-hips-text">HIPS</td>
+                             <td><input type="text" name="usrname"></td>
+                           </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="addproducttable-B">
+                          <div class="addproducttable-Add-BTN add-pair-box"> <input type="submit" value="Add Pair"></div>
+                        </td>
+                      </tr>
+
+                    </table>
+
+                    <table style="width:20%">
+                       <tr>
+                         <td class="addproducttable-B">
+                           <select>
+                           <option value="volvo">Select</option>
+                           <option value="saab">Kurta</option>
+                           <option value="mercedes">Pents</option>
+                           <option value="audi">Salbar</option>
+                          </select>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td class="addproducttable-B">
+                           <a href="#">Choose Sub Design</a>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td class="addproducttable-B">
+                           <select>
+                           <option value="volvo">Select</option>
+                           <option value="saab">Kurta</option>
+                           <option value="mercedes">Pents</option>
+                           <option value="audi">Salbar</option>
+                          </select>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td class="addproducttable-B">
+                           <input type="text" name="usrname">
+                         </td>
+                       </tr>
+                       <tr>
+                         <td class="addproducttable-B">
+                           <a href="#">Add Details</a>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td class="addproducttable-B">
+                           <a href="#">Add Comments</a>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td class="addproducttable-B">
+                           <input type="submit" value="Browse">
+                         </td>
+                       </tr>
+                       <tr>
+                         <td class="addproducttable-B">
+                           <table>
+                            <tr>
+                              <td class="measurment-baist-hips-text">SH</td>
+                              <td><input type="text" name="usrname"></td>
+                            </tr>
+                            <tr>
+                              <td class="measurment-baist-hips-text">BUST</td>
+                              <td><input type="text" name="usrname"></td>
+                            </tr>
+                            <tr>
+                              <td class="measurment-baist-hips-text">WAIST</td>
+                              <td><input type="text" name="usrname"></td>
+                            </tr>
+                            <tr>
+                              <td class="measurment-baist-hips-text">L WAIST</td>
+                              <td><input type="text" name="usrname"></td>
+                            </tr>
+                            <tr>
+                              <td class="measurment-baist-hips-text">HIPS</td>
+                              <td><input type="text" name="usrname"></td>
+                            </tr>
+                           </table>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td class="addproducttable-B">
+                           <div class="addproducttable-Add-BTN add-pair-box"> <input type="submit" value="Add Pair"></div>
+                         </td>
+                       </tr>
+
+                     </table>
+
+                     <table style="width:20%">
+                        <tr>
+                          <td class="addproducttable-B">
+                            <select>
+                            <option value="volvo">Select</option>
+                            <option value="saab">Kurta</option>
+                            <option value="mercedes">Pents</option>
+                            <option value="audi">Salbar</option>
+                           </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="addproducttable-B">
+                            <a href="#">Choose Sub Design</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="addproducttable-B">
+                            <select>
+                            <option value="volvo">Select</option>
+                            <option value="saab">Kurta</option>
+                            <option value="mercedes">Pents</option>
+                            <option value="audi">Salbar</option>
+                           </select>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="addproducttable-B">
+                            <input type="text" name="usrname">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="addproducttable-B">
+                            <a href="#">Add Details</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="addproducttable-B">
+                            <a href="#">Add Comments</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="addproducttable-B">
+                            <input type="submit" value="Browse">
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="addproducttable-B">
+                            <table>
+                             <tr>
+                               <td class="measurment-baist-hips-text">SH</td>
+                               <td><input type="text" name="usrname"></td>
+                             </tr>
+                             <tr>
+                               <td class="measurment-baist-hips-text">BUST</td>
+                               <td><input type="text" name="usrname"></td>
+                             </tr>
+                             <tr>
+                               <td class="measurment-baist-hips-text">WAIST</td>
+                               <td><input type="text" name="usrname"></td>
+                             </tr>
+                             <tr>
+                               <td class="measurment-baist-hips-text">L WAIST</td>
+                               <td><input type="text" name="usrname"></td>
+                             </tr>
+                             <tr>
+                               <td class="measurment-baist-hips-text">HIPS</td>
+                               <td><input type="text" name="usrname"></td>
+                             </tr>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="addproducttable-B">
+                            <div class="addproducttable-Add-BTN add-pair-box"> <input type="submit" value="Add Pair"></div>
+                          </td>
+                        </tr>
+
+                      </table>
+
+                      
+
+                    <div class="addproducttable-Add-BTN"> <input type="submit" value="Add"></div>
+
+
+
+
+                 </div>
+               <!--Add Product table End Here-->
+
+
+            </div>
+
+            <!--submit button-->
+            <!-- <div class="submit-button">
+            <input class="add-next-button" type="submit" value="submit" ng-click="vm.submit(vm.addProduct)" />
+            </div> -->
+            <!--submit button End here-->
+        </form>
+
+
+<!-- Footer Section Start Here -->
+<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
+<!-- Footer Section End Here -->
+</div>

@@ -44,9 +44,7 @@ function addorderController($resource) {
   vm.subdesign = [];
   vm.subdesignimage  = [];
 
-  measurement.query(function (info) {
-    vm.type = info;
-  });
+
   customerdetails.query(function (info) {
     // console.log(info);
     vm.customer = info;
@@ -124,6 +122,7 @@ function addorderController($resource) {
     // console.log(vm.subdesign);
       
     });
+    
     vm.type.forEach(function (e) {
       if (e.id == selecttype.id) {
         vm.clothtype[pos] = selecttype.measurement.split(',');
@@ -139,15 +138,15 @@ function addorderController($resource) {
       vm.formSubmitted = false;
       // vm.order.push({ orderdate: orderdate});
       
-      if(localStorage.getItem('vmorder')){
-       localStorage.removeItem('vmorder');
-       localStorage.setItem('vmorder',JSON.stringify(vm.order));
-     }
-     else{
-            localStorage.setItem('vmorder',JSON.stringify(vm.order));     
-     }
+    //   if(localStorage.getItem('vmorder')){
+    //    localStorage.removeItem('vmorder');
+    //    localStorage.setItem('vmorder',JSON.stringify(vm.order));
+    //  }
+    //  else{
+    //         localStorage.setItem('vmorder',JSON.stringify(vm.order));     
+    //  }
 
-      console.log(vm.order);
+      // console.log(vm.order);
       vm.items.push({});
     }
   }
