@@ -188,14 +188,14 @@
 							<span ng-if="vm.date3">please select alertdate after order date</span>
 						</div>-->
 
-						<div class="form-box">
+						<!--<div class="form-box">
 							<label>Amount:</label>
 							<input id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required" ng-model="vm.order[$index].amount"
 								type="text" placeholder="Amount" />
 							<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Cloth amount must be required</span>
 							<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Cloth amount must be a number</span>
 							<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Cloth amount length must be less then 10</span>
-						</div>
+						</div>-->
 
 					</div>
 

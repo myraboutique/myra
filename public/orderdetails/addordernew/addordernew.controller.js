@@ -10,6 +10,7 @@ function addordernewController($resource, $scope) {
   vm.records = JSON.parse(vm.data1);
   vm.data2=localStorage.getItem('vmorder');
   vm.selectedOrder = JSON.parse(vm.data2);
+  console.log(vm.selectedOrder);
   
 
   vm.token = JSON.parse(localStorage.getItem('token'));
@@ -41,5 +42,26 @@ function addordernewController($resource, $scope) {
       }
     }, this);
   });
+
+  function final(orderform) {
+    vm.formSubmitted = true;
+     var i = 0;
+     if (i < vm.order.length) {
+       vm.order[i].id = $index;
+       $http.put('/api/orderdetails',  vm.order[i])
+      .then(
+      function (response) {
+        swal("Record add successfully.");
+        window.location = '#/order';
+      },
+      function (err) {
+        console.log(err);
+      });
+     }
+  }
+
+  vm.updateOrder = function(info){
+    console.log(info);
+  };
 
 }

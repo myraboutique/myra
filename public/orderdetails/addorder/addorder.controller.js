@@ -21,13 +21,13 @@ function addorderController($resource) {
 
   vm.order = [];
   vm.clothtype = [];
-   vm.cancel = cancel;
+  vm.cancel = cancel;
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
   var orderdate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
   vm.order = [
     {
-      orderdate: orderdate
+      // orderdate: orderdate
     }
   ]
   vm.typeSelect = typeSelect;
@@ -137,14 +137,15 @@ function addorderController($resource) {
     vm.formSubmitted = true;
     if (orderform.$valid) {
       vm.formSubmitted = false;
-      vm.order.push({ orderdate: orderdate});
+      // vm.order.push({ orderdate: orderdate});
       
       if(localStorage.getItem('vmorder')){
        localStorage.removeItem('vmorder');
        localStorage.setItem('vmorder',JSON.stringify(vm.order));
      }
      else{
-            localStorage.setItem('vmorder',JSON.stringify(vm.order));       
+            localStorage.setItem('vmorder',JSON.stringify(vm.order));  
+            aler     
      }
 
       console.log(vm.order);
@@ -180,7 +181,7 @@ function addorderController($resource) {
             // console.log(vm.order[i].type2);
             // console.log(vm.order[i].materialtype2.status);
           
-          orderdetails.amount = vm.order[i].amount;
+          // orderdetails.amount = vm.order[i].amount;
           orderdetails.measurement = JSON.stringify(vm.order[i].measurement);
           // orderdetails.status = 'new';
           // console.log(orderdetails);
