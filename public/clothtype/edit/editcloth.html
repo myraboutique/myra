@@ -63,6 +63,7 @@
 			  <label><em id="mandatory" style="color:Red">*</em> Design</label>
 			  <input id="" name="style" required="required" type="text" placeholder="Style" ng-model="vm.data.title"/>
 					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Design is required</span>
+					<span ng-if="vm.flag">This Design already exits.</span>
 		   </div>
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em> Measurement</label>

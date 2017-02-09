@@ -29,13 +29,15 @@ function editstatusController($resource, $stateParams, $http) {
           window.location = '#/statustype';
          }
          else{
+
            vm.flag = true;
-         }
-        },
-        function (response) {
-          console.log("put unsuccessfull")
+        }
+    
+        
         });
     }
 
   }
+
+  
 }

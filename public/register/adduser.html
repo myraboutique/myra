@@ -56,6 +56,7 @@
  <form name="userform" novalidate>
 		<!-- Left Form Section Start Here -->
     <div class="order-form-left-section add-new-form subdesign-submenu">
+
       <div class="form-section-box form-section-box-2">
 
               <div class="form-box">
@@ -89,9 +90,9 @@
 
 			  <label> Email Address</label>
 			  <input id="username" name="emailAddress" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/" ng-model="vm.email"  ng-minlength="10" ng-maxlength="50"  type="email" placeholder="Email Address"/>
-				 <span ng-show="form.emailAddress.$error.pattern && (form.emailAddress.$dirty || vm.formSubmitted)">Enter valid Email Address.</span>
-				<span ng-show="userform.emailAddress.$error.minlength && (userform.emailAddress.$dirty || vm.formSubmitted)">Email Address length must be greater than 10.</span>
-				<span ng-show="userform.emailAddress.$error.maxlength && (userform.emailAddress.$dirty || vm.formSubmitted)">Email Address length must be less than 50.</span>						
+				 <span ng-show="form.emailAddress.$error.pattern && (form.emailAddress.$dirty || vm.formSubmitted)">Enter a valid Email Address.</span>
+				<span ng-show="userform.emailAddress.$error.minlength && (userform.emailAddress.$dirty || vm.formSubmitted)">Please enter the valid Email Address format (e.g. example@email.com)</span>
+				<span ng-show="userform.emailAddress.$error.maxlength && (userform.emailAddress.$dirty || vm.formSubmitted)">Email must be greater than 50.</span>						
 		  					
 
 		   </div>
@@ -117,7 +118,7 @@
 			  <input id="" name="phonenumber" required="required" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-minlength="10" ng-model="vm.number" placeholder="Phone Number" />
 		   	<span ng-show="userform.phonenumber.$error.required && (userform.phonenumber.$dirty || vm.formSubmitted)">Phone Number is required.</span>
 				 <span ng-show="userform.phonenumber.$error.pattern && (userform.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be exactly 10 digits.</span>
-				 <span ng-show="userform.phonenumber.$error.minlength && (userform.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be exactly 10 digits.</span>			
+				 <span ng-show="userform.phonenumber.$error.minlength && (userform.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be digits.</span>			
 		   </div>
 
         <div class="form-box">
@@ -152,7 +153,6 @@
 			
 			</div>
 		</div>
-
 
 	<!-- Footer Section Start Here -->
 	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>

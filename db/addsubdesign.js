@@ -26,35 +26,23 @@ module.exports = (function(){
       db.sync().then(function(){
         models.create({
           design:req.body.design,
+
           subdesign :req.body.subdesign,
           subdesignimage : req.body.subdesignimage,
           isActive : req.body.isActive
-          // image: req.body.image
-        }).then(function(info){
-          res.json(info);
-        })
+            // image: req.body.image
+        }).then(function(user)
+      {
+        res.json(user);
       })
-     }
-   })
-    })
-    },
-    // Update: function(req,res){
-    //   db.sync().then(function(){
-    //     models.update({
-    //       design:req.body.design,
-    //       subdesign :req.body.subdesign,
-    //       subdesignimage : req.body.subdesignimage,
-    //       isActive : req.body.isActive
-    //       // image: req.body.image
-    //     },{
-    //       where:{id:req.body.id}
-    //     }).then(function(info){
-    //       res.json(info);
-    //     })
-    //   })
-    // }
- Update: function(req,res){
 
+    })
+  }
+    })
+      })
+  },
+  
+    Update: function(req,res){
       db.sync().then(function(){
          models.findOne({where: {subdesign: req.body.subdesign }}).then(function (info){
            

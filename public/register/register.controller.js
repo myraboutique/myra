@@ -45,13 +45,14 @@ function registerController($resource,$state) {
   }
 
   function resetPassword(data){
+    console.log(data);
      vm.selectData = JSON.stringify(data);
         $state.go("reset-password", { 'referer': vm.selectData });
   }
 
   function submit(userform){
     vm.formSubmitted = true;
-    if(!vm.check && userform.$valid){
+    if(!vm.check && userform){
     var register = new Register()
     
        var i, c, txt = "";
@@ -63,6 +64,7 @@ function registerController($resource,$state) {
             }
             txt += c;
        }
+   console.log(txt);
 
     register.name = txt;
     register.email = vm.email;
@@ -74,6 +76,8 @@ function registerController($resource,$state) {
     register.isActive = true;
     
     register.$save(function(info){
+      console.log(info.status);
+      console.log(info);
       if(info.status){
         swal(info.status);
       } else {

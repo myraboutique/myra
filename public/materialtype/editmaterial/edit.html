@@ -67,7 +67,8 @@
       	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Material name is required.</span>
         	<span ng-show="frm.materialtype.$error.minlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name length must be greater than 3 characters.</span>
           	<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material name must be less than 20 characters.</span>
-
+              <span ng-if="vm.flag">This material type already exists.</span>
+           <!--<span ng-show="vm.flag">This material type already exists.</span>-->
       </div>
 
      <div class="form-box">

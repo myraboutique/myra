@@ -64,7 +64,7 @@
       	<span ng-show="frm.statustype.$error.required && (frm.statustype.$dirty || vm.formSubmitted)">Status is required.</span>
         	<span ng-show="frm.statustype.$error.minlength && (frm.statustype.$dirty || vm.formSubmitted)">Status length must be greater than 3 characters.</span>
           	<span ng-show="frm.statustype.$error.maxlength && (frm.statustype.$dirty || vm.formSubmitted)">Status name must be less than 20 characters.</span>
-
+			<span ng-if="vm.flag">status already there</span>
       </div>
 
      <div class="form-box">

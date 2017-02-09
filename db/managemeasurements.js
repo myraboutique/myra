@@ -65,17 +65,15 @@ module.exports = (function(){
   Update: function(req,res){
 
       db.sync().then(function(){
-        console.log("ouuuu"+req.body.id);
-         models.findOne({where: {name: req.body.name } , id :{$ne :req.body.id} }).then(function (info){
+
+         models.findOne({where: {name: req.body.name }}).then(function (info){
+           
              if(info && info.id != req.body.id){
-               console.log(info.id);
-               console.log("reqbody"+req.body.id);
                return res.json({
                  msg: 'already00++--'
                })
-               
         }
-    
+        
         else{
          
          db.sync().then(function(){
@@ -97,25 +95,6 @@ module.exports = (function(){
 
 
 }
-
-    // Update: function (req, res) {
-    //   db.sync().then(function () {
-    //     models.update(
-    //       {
-    //         Order_date :req.body.orderdate
-    //         // Customer_id : req.body.customerid,
-    //         // Customer_name : req.body.customername,
-    //         // Customer_email : req.body.customeremail,            
-    //         // Status: req.body.status
-    //       },
-    //       {
-    //         where: { Order_id: req.params.id }
-    //       }
-    //     ).then(function (info) {
-    //       res.json(info);
-    //     })
-    //   })
-    // }
 };
   return m;
 
