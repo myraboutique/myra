@@ -6,8 +6,15 @@ newsubdesignController.$inject = ['$resource', '$scope'];
 function newsubdesignController($resource, $scope) {
   var vm = this;
   vm.flag = false;
-  $scope.single = function (image) {
-      vm.src=image;
+  vm.flagforimg  = false;
+  $scope.single = function (image,form) {
+    vm.src=image;  
+    if (!vm.src) {
+        // alert("Name must be filled out");
+        vm.flagforimg = true;
+    }else{
+        addClothtype(form);
+    }
   };
   
 
@@ -30,6 +37,7 @@ function newsubdesignController($resource, $scope) {
       // var newArr = vm.selectMeasurement.join(",");
     
       var addsubdesign = new AddSubDesign();
+      
       addsubdesign.design = vm.designs;
       // addsubdesign.subdesign = newArr;
       addsubdesign.subdesign = vm.subdesigns;
