@@ -90,8 +90,8 @@
 			  </div>-->
 <div class="form-box">
 		<label><em id="mandatory" style="color:Red">*</em> Image</label>
-	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*"  image="image2"  resize-max-height="200" resize-max-width="200" resize-quality="0.7"	 required="required" name="image">
-	<span ng-show="form.image.$error.required && (form.image.$dirty || vm.formSubmitted)">Image is required.</span></input>
+	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*"  image="image2"  resize-max-height="200" resize-max-width="200" resize-quality="0.7"	 required="required" name="image123" >
+	<span ng-show="vm.flagforimg">Image is required.</span></input>
 	<img style="margin-left:200px " ng-show="image2" ng-src="{{image2.resized.dataURL}}" />{{imgage2}}
 		
 	<!--<button type="submit" ng-click="">Preview</button>-->
@@ -114,7 +114,7 @@
 
       <div class="add-new-btm-btn">
 			<div class="submit-button">
-				<input type="button" value="Save" ng-click="single(image2.resized.dataURL);vm.addClothtype(form)"/>
+				<input type="button" value="Save" ng-click="single(image2.resized.dataURL,form)"/>
 			</div>
 			<div class="cancel-button">
 				<input type="button" value="Cancel" ui-sref="subdesign"/>
@@ -129,11 +129,6 @@
 			</div>
 		</div>
 
-		<!-- Customer Details page Section End Here -->
-		<div class="paging">
-			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
-			</dir-pagination-controls>
-		</div>
 	</div>
 	<!-- Footer Section Start Here -->
 	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
