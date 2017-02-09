@@ -1,4 +1,4 @@
-/// <reference path="../typings/tsd.d.ts" />
+// <reference path="../typings/tsd.d.ts" />
 
 module.exports = (function(){
   var models = require('../models').managemeasurements;
@@ -40,24 +40,83 @@ module.exports = (function(){
       })
 
   },
-    Update: function(req,res){
+//     Update: function(req,res){
+
+//       db.sync().then(function(){
+//         models.update({
+//            name : req.body.name,
+//         isActive :  req.body.isActive,
+//         },
+//         {
+//           where:{id:req.body.id}
+//         }).then(function(info){
+//           res.json(info);
+//         })
+//       })
+
+
+
+// }
+
+//   };
+//   return m;
+// })();
+
+  Update: function(req,res){
 
       db.sync().then(function(){
-        models.update({
-           name : req.body.name,
-        isActive :  req.body.isActive,
+        console.log("ouuuu"+req.body.id);
+         models.findOne({where: {name: req.body.name } , id :{$ne :req.body.id} }).then(function (info){
+             if(info && info.id != req.body.id){
+               console.log(info.id);
+               console.log("reqbody"+req.body.id);
+               return res.json({
+                 msg: 'already00++--'
+               })
+               
+        }
+    
+        else{
+         
+         db.sync().then(function(){
+          models.update({
+          name : req.body.name,
+          isActive :  req.body.isActive,
         },
         {
           where:{id:req.body.id}
         }).then(function(info){
           res.json(info);
+         }) 
+       
         })
-      })
+      }
+  })
 
+ })
 
 
 }
 
-  };
+    // Update: function (req, res) {
+    //   db.sync().then(function () {
+    //     models.update(
+    //       {
+    //         Order_date :req.body.orderdate
+    //         // Customer_id : req.body.customerid,
+    //         // Customer_name : req.body.customername,
+    //         // Customer_email : req.body.customeremail,            
+    //         // Status: req.body.status
+    //       },
+    //       {
+    //         where: { Order_id: req.params.id }
+    //       }
+    //     ).then(function (info) {
+    //       res.json(info);
+    //     })
+    //   })
+    // }
+};
   return m;
+
 })();
