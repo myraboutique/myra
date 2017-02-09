@@ -29,7 +29,6 @@ function addProductController($resource, $state, $http) {
 
   measurement.query(function (info) {
     vm.type = info;
-    console.log(vm.type);
   });
 
   addmaterial.query(function (info) {
@@ -42,13 +41,17 @@ function addProductController($resource, $state, $http) {
 
   function selectCustomer(info) {
     vm.seleCust = info;
-    console.log(vm.seleCust);
+    // vm.customerdetailsnew = [info.customerName,info.address,info.mobileNumber];
+    // if(localStorage.getItem('customerdetailsnew')){
+    //     localStorage.removeItem('customerdetailsnew');
+    //     localStorage.setItem('customerdetailsnew',JSON.stringify(vm.customerdetailsnew));
+    //     }
+    //     else{
+    //         localStorage.setItem('customerdetailsnew',JSON.stringify(vm.customerdetailsnew));     
+    //     }
   }
 
   function designSelect(info) {
-    vm.measure = [];
-    vm.images1 = [];
-    vm.images1title = [];
 
     addsubdesigns.query(function (subdesigns) {
       vm.subdesign = [];
@@ -59,8 +62,29 @@ function addProductController($resource, $state, $http) {
           vm.subdesign.push(e.subdesign);
         }
       });
-      console.log(vm.subdesignimage);
     });
+
+    vm.type.forEach(function(element) {
+    if (element.title == info.title) {
+      vm.measure = element.measurement;
+      vm.measu = vm.measure.split(',');
+      vm.mlength=vm.measu.length;
+    }
+    }, this);
+
+
+    
+  //  vm.customer.forEach(function(element) {    
+  //     vm.measureval = JSON.parse(element.measurementsvalue);          
+  //   }, this);
+
+    
+      // for (var index = 0; index < vm.mlength; index++) {
+      //   for (var indexx = 0; indexx < vm.measureval.length; indexx++) {
+      //       vm.order[index].xyz[indexx]=vm.measureval[indexx];
+      //       console.log(vm.order[index].xyz[indexx]);
+      //   }        
+      // }
   };
 
   function submit(info) {
@@ -94,6 +118,7 @@ function addProductController($resource, $state, $http) {
           orderdetails.color = vm.order[i].color;
           orderdetails.customization = vm.order[i].customization;
           orderdetails.cloth = vm.order[i].cloth;
+          orderdetails.measurement = JSON.stringify(vm.order[i].xyz);
                
           orderdetails.$save(function (info) {
             i++;
