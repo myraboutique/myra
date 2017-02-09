@@ -43,25 +43,25 @@ function addordernewController($resource, $scope) {
     }, this);
   });
 
-  function final(orderform) {
-    vm.formSubmitted = true;
-     var i = 0;
-     if (i < vm.order.length) {
-       vm.order[i].id = $index;
-       $http.put('/api/orderdetails',  vm.order[i])
-      .then(
-      function (response) {
-        swal("Record add successfully.");
-        window.location = '#/order';
-      },
-      function (err) {
-        console.log(err);
-      });
-     }
-  }
+  // function final(orderform) {
+  //   vm.formSubmitted = true;
+  //    var i = 0;
+  //    if (i < vm.order.length) {
+  //      vm.order[i].id = $index;
+  //      $http.put('/api/orderdetails',  vm.order[i])
+  //     .then(
+  //     function (response) {
+  //       swal("Record add successfully.");
+  //       window.location = '#/order';
+  //     },
+  //     function (err) {
+  //       console.log(err);
+  //     });
+  //    }
+  // }
 
-  vm.updateOrder = function(info){
-    console.log(info);
-  };
+  // vm.updateOrder = function(info){
+  //   console.log(info);
+  // };
 
 }

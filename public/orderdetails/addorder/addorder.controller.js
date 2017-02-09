@@ -144,8 +144,7 @@ function addorderController($resource) {
        localStorage.setItem('vmorder',JSON.stringify(vm.order));
      }
      else{
-            localStorage.setItem('vmorder',JSON.stringify(vm.order));  
-            aler     
+            localStorage.setItem('vmorder',JSON.stringify(vm.order));     
      }
 
       console.log(vm.order);
