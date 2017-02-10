@@ -5,6 +5,7 @@ editsubdesignController.$inject = ['$resource', '$stateParams', '$http', '$scope
 
 function editsubdesignController($resource, $stateParams, $http,$scope) {
   var vm = this;
+  vm.flag = false;
     vm.measurementstype = [] ;
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
@@ -52,8 +53,14 @@ function editsubdesignController($resource, $stateParams, $http,$scope) {
       $http.put('/api/addsubdesign', vm.data)
         .then(
         function (response) {
-          console.log("put successfull")
+          if(response.data.msg){
+                    vm.flag = true;
+         }
+         else{
+           console.log("put successfull")
           window.location = '#/subdesign';
+         }
+          
         },
         function (response) {
           console.log("put unsuccessfull")

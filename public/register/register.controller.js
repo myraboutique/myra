@@ -5,12 +5,20 @@ registerController.$inject = ['$resource','$state'];
 
 function registerController($resource,$state) {
   var vm = this;
-
+  vm.order = order;
   vm.check = false;
    vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
     window.location = '#/login';
   }
+
+    vm.predicate = '';
+  vm.reverse = true;
+  function order(predicate) {
+    vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;
+    vm.predicate = predicate;
+  };
+  
  var vm = this;
   vm.submit = submit;
   vm.confirm = confirm;
@@ -37,13 +45,14 @@ function registerController($resource,$state) {
   }
 
   function resetPassword(data){
+    console.log(data);
      vm.selectData = JSON.stringify(data);
         $state.go("reset-password", { 'referer': vm.selectData });
   }
 
   function submit(userform){
     vm.formSubmitted = true;
-    if(!vm.check && userform.$valid){
+    if(!vm.check && userform){
     var register = new Register()
     
        var i, c, txt = "";
@@ -55,6 +64,7 @@ function registerController($resource,$state) {
             }
             txt += c;
        }
+   console.log(txt);
 
     register.name = txt;
     register.email = vm.email;
@@ -66,6 +76,8 @@ function registerController($resource,$state) {
     register.isActive = true;
     
     register.$save(function(info){
+      console.log(info.status);
+      console.log(info);
       if(info.status){
         swal(info.status);
       } else {

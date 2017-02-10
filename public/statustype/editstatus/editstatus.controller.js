@@ -24,18 +24,20 @@ function editstatusController($resource, $stateParams, $http) {
         .then(
         function (response) {
 
-         if(info.status != 'already00++--'){
+         if(vm.data.status != 'already00++--'){
           console.log("put successfull")
           window.location = '#/statustype';
          }
          else{
+
            vm.flag = true;
-         }
-        },
-        function (response) {
-          console.log("put unsuccessfull")
+        }
+    
+        
         });
     }
 
   }
+
+  
 }

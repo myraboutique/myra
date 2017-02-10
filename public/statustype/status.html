@@ -62,7 +62,20 @@
    <div class="details-table">
      <table class="table-part" border="0" cellspacing="0" cellpadding="0">
       <tr class="top-purpal-color-row">
-        <th>Status</th>
+    <th class="customer-detail-th-width-1">
+							<a href="" ng-click="vm.order('status')">
+								<font color="#337ab7">Status</font>&nbsp
+
+								<span ng-show="vm.predicate == 'status'">
+                <span ng-show="!vm.reverse">
+                    <img src="assets/images/up-arrow-1.png" alt="">
+                </span>
+								<span ng-show="vm.reverse">
+                   <img src="assets/images/down-arrow-1.png" alt="">
+                </span>
+								</span>
+							</a>
+						</th>
         <th>Is Active</th>
         <!--<th>Action</th>-->
       </tr>
@@ -71,10 +84,10 @@
           'some':$index%2 == 0,
           'table-tr-alternate-color':$index%2 != 0
       }">
-        <td data-th="Status: " class="top-purpal-color-row2"><span><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.status}}</a></span></td>
+		<td data-th="Status:" class="top-purpal-color-row2"><span><a ng-click="vm.editpage(newdata)" class="customer-name-link">{{newdata.status}}</a></span></td>
         <!--<td data-th="Action: " class="top-purpal-color-row2">{{newdata.active}}</td>-->
         	<td data-th="Status: "  ng-if="newdata.isActive" class="top-purpal-color-row2">Active</td>
-						<td data-th="Status: "  ng-if="newdata.isActive == false" class="top-purpal-color-row2">Inactive</td>
+			<td data-th="Status: "  ng-if="newdata.isActive == false" class="top-purpal-color-row2">Inactive</td>
       </tr>
 </table>
    </div>
