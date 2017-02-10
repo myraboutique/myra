@@ -504,7 +504,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
 
 .form-section-box{width:100%; display: inline-block; margin-bottom:26px;}
 .form-section-box-2{margin-bottom: 0px;}
-.form-heading{width:100%; border-bottom: 1px solid #2e2e2e; padding: 0 0 0 0; margin: 0px 0 30px 0; font-size: 18px; color: #2e2e2e;}
+.form-heading{width:100%;border-bottom: 1px solid #2e2e2e;padding: 0 0 0 0;margin: 0px 0 30px 0;font-size: 18px;color: #2e2e2e;}
 .form-section-box label{width:28%; float: left; font-size: 15px; padding: 0 0 0 0; margin: 8px 2% 0 0; text-align: right; color: #202020;}
 .form-section-box input{
   width: 70%;

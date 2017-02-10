@@ -36,34 +36,39 @@
 			<div class="form-section-box">
 				<div class="form-section-box">
 					<!--<div class="form-heading">Customer Details</div>-->
+
 					<div class="form-box">
 						<div class=" customer-detailsmain-box">
-							<label>Order by</label>
-							<input type="text" ng-model="vm.customerdetailsnew[0]" disabled/>
+							<label>Order #</label>
+						</div>
+						<div class=" customer-detailsmain-box1">
+							<label>Order Date </label>
+							<datepicker date-format="dd/MM/yyyy">
+								<input id="mydate" ng-model="vm.orderdate1" name="orderdate{{$index}}" type="text" placeholder="Date of Order" />
+								</datepicker>
 						</div>
 
-						<div class=" customer-detailsmain-box1"><label>Contact Number : </label><strong>{{vm.customerdetailsnew[2]}}</strong></div>
-
-						<div class=" customer-detailsmain-box2"><label>Address : </label><strong>{{vm.customerdetailsnew[1]}}</strong></div>
+		                <div class=" customer-detailsmain-box2"><label>Order Status </label><strong>{{vm.address}}</strong></div>
 					</div>
+
+
+
+
+                <div class="form-box create-order-box">
+      						<div class=" customer-detailsmain-box">
+      							<label>Order by</label><strong>{{vm.customerdetailsnew[0]}}</strong>
+      						</div>
+
+      						<div class=" customer-detailsmain-box1"><label>Contact Number </label><strong>{{vm.customerdetailsnew[2]}}}</strong></div>
+
+      						<div class=" customer-detailsmain-box2"><label>Address </label><strong>{{vm.customerdetailsnew[1]}}}</strong></div>
+      			 </div>
+				   
 					
-						<div class=" customer-detailsmain-box">
-							<label>Order Date</label>
-							<input type="text" ng-model="vm.selectedOrderdate" disabled/>
-							<!--<datepicker style="width: 70%;" class="datepickerbx" date-format="dd/MM/yyyy">
-										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.orderdate" ng-change="vm.change(vm.order[$index].orderdate,$index)"
-										id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
-							</datepicker>-->
-						</div>
-						<!--<div class=" customer-detailsmain-box">
-							<label>Status</label>
-							<input type="text" ng-model="vm.records.status" disabled/>
-						</div>-->
-				</div>
 
 				
 					<div class="form-section-box">
-						<div class="form-heading"></div>
+						<!--<div class="form-heading"></div>-->
 
 						<div class="form-box">
 							<table class="table table-part" border="1" cellspacing="0" cellpadding="0">
@@ -76,8 +81,8 @@
 									<th>Status</th>
 								</tr>
 								<tr ng-repeat="data in vm.selectedOrder">
-									<td>{{data}}</td>
-									<td>
+									<td style="width: 200px;">{{data}}</td>
+									<td >
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
 										<!--New change 00 --index inject -->
 										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.order[$index].orderdate,$index)"

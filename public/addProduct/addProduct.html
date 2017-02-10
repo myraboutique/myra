@@ -52,9 +52,9 @@
       						<div class=" customer-detailsmain-box">
       							<label>Order by</label>
       							<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer"
-							 name="customeruser">{{vm.name}}
-				 <option value="">-- Please Select --</option></select>
-						</select>
+													name="customeruser">{{vm.name}}
+										<option value="">-- Please Select --</option></select>
+												</select>
 
       							<!--<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>-->
       						</div>
