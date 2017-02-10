@@ -10,10 +10,11 @@ function addProductController($resource, $state, $http) {
   var month = myDate.getMonth() + 1;
   vm.orderdate1 = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
   vm.orderdate2 = myDate.getTime();
-  vm.clicked = function(info) {
-    vm.flag = true;
-    console.log(info);
-  };
+  
+  
+vm.clicked = function(info) {
+   vm.order[vm.newinex].type2=info;
+ };
 
   vm.items = [{}];
   vm.order = [{}];
@@ -45,11 +46,9 @@ function addProductController($resource, $state, $http) {
     vm.seleCust = info;
   }
 
-  function designSelect(info) {
-
-  vm.flag = false;
-// vm.order[0].xyz[0] = 777;
-    
+  function designSelect(info,index) {
+    vm.newinex = index;
+   vm.order[vm.newinex].type2='';
 
     addsubdesigns.query(function (subdesigns) {
       vm.subdesign = [];

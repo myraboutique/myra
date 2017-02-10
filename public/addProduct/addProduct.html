@@ -33,132 +33,194 @@
 		<div class="main-contant-part">
 
 			<div class="form-box">
-                <div class=" customer-detailsmain-box">
-                  <label>Order #</label>
-                </div>
+				<div class=" customer-detailsmain-box">
+					<label>Order #</label>
+</div>
 
-                <div class=" customer-detailsmain-box1">
-					<label>Order Date </label>
-							<datepicker date-format="dd/MM/yyyy">
+<div class=" customer-detailsmain-box1">
+	<label>Order Date </label>
+	<datepicker date-format="dd/MM/yyyy">
 								<input id="mydate" ng-model="vm.orderdate1" name="orderdate{{$index}}"
 									type="text" placeholder="Date of Order" />
-							</datepicker>
-				</div>
+	</datepicker>
+</div>
 
-                <div class=" customer-detailsmain-box2"><label>Order Status </label><strong>{{vm.address}}</strong></div>
-			</div>
+<div class=" customer-detailsmain-box2"><label>Order Status </label><strong>{{vm.address}}</strong></div>
+</div>
 
-                <div class="form-box create-order-box">
-      						<div class=" customer-detailsmain-box">
-      							<label>Order by</label>
-      							<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer"
-													name="customeruser">{{vm.name}}
-										<option value="">-- Please Select --</option></select>
-												</select>
+<div class="form-box create-order-box">
+	<div class=" customer-detailsmain-box">
+		<label>Order by</label>
+		<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer"
+			name="customeruser">{{vm.name}}
+				 <option value="">-- Please Select --</option></select>
+		</select>
 
-      							<!--<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>-->
-      						</div>
+		<!--<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>-->
+	</div>
 
       						<div class=" customer-detailsmain-box1"><label>Contact Number </label><strong>{{vm.seleCust.mobileNumber}}</strong></div>
 
       						<div class=" customer-detailsmain-box2"><label>Address </label><strong>{{vm.seleCust.address}}</strong></div>
-      			 </div>
+</div>
 
-                 <div class="addproducttable-main-box">
-                   <div class="left-list-addproduct">
-                     <ul>
-                      <li>Design</li>
-                      <li>Sub Design</li>
-                      <li>Material Type</li>
-                      <li>Color Code</li>
-                      <li>Customization</li>
-                      <li></li>
-                      <li></li>
-                      <li>Remarks</li>
-                      <!--<li>Add Photo</li>-->
-                      <li></li>
-                      <li>Measurement</li>
-                    </ul>
-                   </div>
+<div class="addproducttable-main-box">
+	<div class="left-list-addproduct">
+		<ul>
+			<li>Design</li>
+			<li>Sub Design</li>
+			<li>Material Type</li>
+			<li>Color Code</li>
+			<li>Customization</li>
+			<li>Remarks</li>
+			<!--<li>Add Photo</li>-->
+			<li>Measurement</li>
+		</ul>
+	</div>
 
 
 
-			          <div ng-repeat="item in vm.items">
-                   <table style="width:20%">
+	<div ng-repeat="item in vm.items">
+		<table style="width:20%">
 
-                      <tr>
-                        <td class="addproducttable-B">
-													<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.designSelect(vm.order[$index].type)" ng-options="data as data.title for data in vm.type"
-													>
+<tr>
+	<td class="addproducttable-B">
+		<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.designSelect(vm.order[$index].type,$index)" ng-options="data as data.title for data in vm.type"
+			data-toggle="modal" data-target="#myModal">
 													<option value="">-- Please Select --</option></select>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="addproducttable-B">
-                          	<select ng-model="vm.order[$index].type2" name="clothtype{{$index}}" ng-change="vm.typeSelect2(vm.order[$index].type2)">
-															<option value="">-- Please Select --</option>
-															<option ng-repeat="style in vm.subdesign track by $index">{{style}}</option>
-														</select>
-                        </td>
-                      </tr>
-											<tr>
-												<td ng-repeat="data in vm.subdesignimage">
-													<img ng-hide="vm.flag" ng-src="{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
-												</td>
-											</tr>
-                      <tr>
-                        <td class="addproducttable-B">
-													<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material" 
-														name="material{{$index}}">
+	</td>
+</tr>
+<tr>
+	<td class="addproducttable-B">
+		<input ng-model="vm.order[$index].type2" name="clothtype{{$index}}" disabled />
+
+		<!-- Prompt Box -->
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">select style</h4>
+					</div>
+					<div class="modal-body">
+						<span ng-repeat="data in vm.subdesignimage">
+																			<img style="margin: 5px; border: 1px red solid" ng-src="{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
+</span>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+</div>
+</div>
+
+</div>
+</div>
+<!-- Prompt Box -->
+</tr>
+
+<tr>
+	<td class="addproducttable-B">
+		<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material" name="material{{$index}}">
 														<option value="">-- Please Select --</option></select>
-													</select>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="addproducttable-B">
-                          	<input ng-model="vm.order[$index].color" type="text" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="addproducttable-B">
-                          <textarea style="margin-top: 0px;" ng-model="vm.order[$index].customization"
-									          class="customization-check-box-textarea" rows="4" cols="50" ></textarea>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="addproducttable-B">
-                          <textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.order[$index].cloth" class="customization-check-box-textarea"
-								            name="clothdesc{{$index}}"></textarea>
-                        </td>
-                      </tr>
-                      <!--<tr>
-                        <td class="addproducttable-B">
-                          <input type="submit" value="Browse">
-                        </td>
-                      </tr>-->
-                      <tr>
-                        <td class="addproducttable-B">
-													<div ng-repeat="data in vm.measu">														
+		</select>
+	</td>
+</tr>
+<tr>
+	<td class="addproducttable-B">
+		<input ng-model="vm.order[$index].color" type="text" />
+	</td>
+</tr>
+<tr>
+	<td class="addproducttable-B">
+                          <a data-toggle="modal" data-target="#myModal2">Details</a>
+		<!--<textarea style="margin-top: 0px;" ng-model="vm.order[$index].customization" class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization
+Description" ></textarea>-->
+</td>
+
+		<!-- Prompt Box For Add Details-->
+		<!-- Modal -->
+		<div class="modal fade" id="myModal2" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Add Customization</h4>
+					</div>
+					<div class="modal-body">
+					<textarea style="margin-top: 0px;" ng-model="vm.order[$index].customization" class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization Description" ></textarea>
+</span>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+</div>
+</div>
+
+</div>
+</div>
+<!-- Prompt Box -->
+
+
+</tr>
+<tr>
+	<td class="addproducttable-B">
+                           <a data-toggle="modal" data-target="#myModal3">Comments</a>
+		<!--<textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.order[$index].cloth" class="customization-check-box-textarea" name="clothdesc{{$index}}">
+</textarea>-->
+</td>
+</tr>
+
+	<!-- Prompt Box For Add Details-->
+		<!-- Modal -->
+		<div class="modal fade" id="myModal3" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Add Summary</h4>
+					</div>
+					<div class="modal-body">
+					<textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.order[$index].cloth" class="customization-check-box-textarea" name="clothdesc{{$index}}" placeholder="Summary">
+</textarea>
+</span>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+</div>
+</div>
+
+</div>
+</div>
+<!-- Prompt Box -->
+
+<tr>
+	<td class="addproducttable-B">
+			<div ng-repeat="data in vm.measu">														
 														<label>{{data}}</label>
 														<input style="width: 50%;" ng-model="vm.order[$parent.$index].xyz[$index]" class="measurement-input" name="measurement{{$index}}" required="required" type="text" />
-													</div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="addproducttable-B">
-                          <div class="addproducttable-Add-BTN add-pair-box"> <input type="submit" value="Add Pair"></div>
-                        </td>
-                      </tr>
+</div>
+</td>
+</tr>
+<tr>
+	<td class="addproducttable-B">
+		<div class="addproducttable-Add-BTN add-pair-box"> <input type="submit" value="Add Pair"></div>
+	</td>
+</tr>
 
-                    </table>
-					 <div class="addproducttable-Add-BTN"><input type="submit" value="Add" ng-click="vm.submit()" /></div>
-
-
-			</div>
+</table>
+<div class="addproducttable-Add-BTN"><input type="submit" value="Add" ng-click="vm.submit()" /></div>
 
 
+</div>
 
-					<!--<div class="add-next-btn-box">
+
+
+<!--<div class="add-next-btn-box">
 						<div class="submit-button">
 							<input type="submit" value="Save" ng-click="vm.final(orderform)" />
 						</div>
@@ -169,20 +231,20 @@
 							<input type="submit" value="Cancel" ng-click="vm.cancel()" />
 						</div>
 					</div>-->
-				</div>
-						<div class="submit-button">
-							<input type="submit" value="Save" ng-click="vm.final(orderform)" />
-						</div>
-			</div>
-			<!-- Left Form Section End Here -->
+</div>
+<div class="submit-button">
+	<input type="submit" value="Save" ng-click="vm.final(orderform)" />
+</div>
+</div>
+<!-- Left Form Section End Here -->
 
 
-		</div>
-		<!-- Footer Section Start Here -->
-		<div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
-		<!-- Footer Section End Here -->
-	</form>
-	<script type="text/javascript">
+</div>
+<!-- Footer Section Start Here -->
+<div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+<!-- Footer Section End Here -->
+</form>
+<script type="text/javascript">
 
 		// 	var myDate = new Date();
 		// var month = myDate.getMonth() + 1;
