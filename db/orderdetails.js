@@ -21,6 +21,7 @@ module.exports = (function () {
       db.sync().then(function () {
         models.create(
           {
+            timestamp : req.body.timestamp,
             customerid : req.body.customerid,
             customerName : req.body.customerName,
             // customeremail : req.body.customeremail,
@@ -71,6 +72,7 @@ module.exports = (function () {
       db.sync().then(function () {
         models.update(
           {
+            timestamp : req.body.timestamp,
             customerid : req.body.customerid,
             type :  req.body.type,
             material: req.body.material,

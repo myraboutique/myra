@@ -114,6 +114,7 @@ function addProductController($resource, $state, $http) {
                 }
         
         if (i < vm.order.length) {
+          Orderdetails.timestamp = myDate;
           orderdetails.customerid = vm.seleCust.id;
           orderdetails.customerName = vm.seleCust.customerName;
           orderdetails.orderdate = vm.orderdate1;
