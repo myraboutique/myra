@@ -9,9 +9,10 @@ function addProductController($resource, $state, $http) {
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
   vm.orderdate1 = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
-
-  vm.clicked = function() {
+  vm.orderdate2 = myDate.getTime();
+  vm.clicked = function(info) {
     vm.flag = true;
+    console.log(info);
   };
 
   vm.items = [{}];
@@ -42,14 +43,6 @@ function addProductController($resource, $state, $http) {
 
   function selectCustomer(info) {
     vm.seleCust = info;
-    // vm.customerdetailsnew = [info.customerName,info.address,info.mobileNumber];
-    // if(localStorage.getItem('customerdetailsnew')){
-    //     localStorage.removeItem('customerdetailsnew');
-    //     localStorage.setItem('customerdetailsnew',JSON.stringify(vm.customerdetailsnew));
-    //     }
-    //     else{
-    //         localStorage.setItem('customerdetailsnew',JSON.stringify(vm.customerdetailsnew));     
-    //     }
   }
 
   function designSelect(info) {
@@ -114,7 +107,7 @@ function addProductController($resource, $state, $http) {
                 }
         
         if (i < vm.order.length) {
-          Orderdetails.timestamp = myDate;
+          orderdetails.timestamp = vm.orderdate2;
           orderdetails.customerid = vm.seleCust.id;
           orderdetails.customerName = vm.seleCust.customerName;
           orderdetails.orderdate = vm.orderdate1;

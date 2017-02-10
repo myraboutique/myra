@@ -40,32 +40,10 @@ module.exports = (function () {
             stitchingdate: req.body.stitchingdate,
             status: req.body.status,
             subdesign : req.body.subdesign
-            // measureWAIST: req.body.measureWAIST,
-            // measureWAIST: req.body.measureWAIST,
-            // measureBUST: req.body.measureBUST,
-            // measureSH: req.body.measureSH,
-            // measureLWAIST: req.body.measureLWAIST,
-            // measureHIPS: req.body.measureHIPS,
-            // measureSLEEVES: req.body.measureSLEEVES,
-            // measureSHORT: req.body.measureSHORT,
-            // measuretype: req.body.measuretype,
-            // measureLENGTH: req.body.measureLENGTH,
-            // measureFULL: req.body.measureFULL,
-            // measureFULLL: req.body.measureFULLL,
-            // measureKNEE: req.body.measureKNEE,
-            // measureARMHOLE: req.body.measureARMHOLE,
-            // measureUTHIGH: req.body.measureUTHIGH,
-            // measureLTHIGH: req.body.measureLTHIGH,
-            // measureCALF: req.body.measureCALF,
-            // measureFNECK: req.body.measureFNECK,
-            // measureBNECK: req.body.measureBNECK,
-            // measureMORI: req.body.measureMORI,
-            // measureCROSS: req.body.measureCROSS
           }).then(function (user) {
             res.json(user);
           })
       })
-
     },
     Update: function (req, res) {
       // console.log(req.body);
@@ -113,6 +91,13 @@ module.exports = (function () {
         models.findAll({
           where: { customerid: req.params.id }
         }).then(function (info) {
+          res.json(info);
+        })
+      })
+    },
+    findid: function (req, res) {
+      db.sync().then(function () {
+        models.findOne({ where: { id: req.params.id } }).then(function (info) {
           res.json(info);
         })
       })

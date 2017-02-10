@@ -6,6 +6,10 @@ editProductController.$inject = ['$resource', '$state', '$http'];
 function editProductController($resource, $state, $http) {
   var vm = this;
 
+  vm.data1 = localStorage.getItem('orderdetailsnew');
+  vm.records = JSON.parse(vm.data1);
+  console.log(vm.records);
+
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
     window.location = '#/login';
@@ -47,6 +51,17 @@ function editProductController($resource, $state, $http) {
         vm.subdesign.push(e.subdesign);
       }
     });
+  });
+
+  var customer = $resource('/api/orderdetails');
+  customer.query(function (response) {
+    vm.productwiserecord = [];
+      for (var index = 0; index < response.length; index++) {
+        if(response[index].timestamp == vm.records.timestamp) {
+          vm.productwiserecord.push(response[index]);
+          console.log(vm.productwiserecord);
+        }
+      }      
   });
 
   vm.update = function(info) {

@@ -16,7 +16,10 @@ module.exports = (function(){
     },
     summary: function(req,res,next){
       db.orderdetails.Summary(req,res);
-    }
+    },
+    FindId : function(req,res,next){
+       db.orderdetails.findid(req,res);
+     } 
   };
   return m;
 })();

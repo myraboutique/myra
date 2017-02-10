@@ -103,7 +103,7 @@
                       </tr>
 											<tr>
 												<td ng-repeat="data in vm.subdesignimage">
-													<img ng-hide="vm.flag" ng-src="{{data}}" ng-click="vm.clicked()" />
+													<img ng-hide="vm.flag" ng-src="{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
 												</td>
 											</tr>
                       <tr>

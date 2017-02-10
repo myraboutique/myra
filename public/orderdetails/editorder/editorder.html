@@ -33,33 +33,35 @@
 	<div class="inner-heading-bar">Order Details</div>
 	<form name="orderform" novalidate>
 		<div class="main-contant-part">
-			<div class="form-section-box">
-				<div class="form-section-box">
-					<!--<div class="form-heading">Customer Details</div>-->
-					<div class="form-box">
-						<div class=" customer-detailsmain-box">
-							<label>Order by</label>
-							<input type="text" ng-model="vm.records.customerName" disabled/>
-						</div>
+			
+			<div class="form-box">
+                <div class=" customer-detailsmain-box">
+                  <label>Order #</label>&nbsp;{{vm.records.timestamp}}
+                </div>
 
-						<div class=" customer-detailsmain-box1"><label>Contact Number : </label><strong>{{vm.customerdetailsnew[2]}}</strong></div>
-
-						<div class=" customer-detailsmain-box2"><label>Address : </label><strong>{{vm.customerdetailsnew[1]}}</strong></div>
-					</div>
-					
-						<div class=" customer-detailsmain-box">
-							<label>Order Date</label>
-							<input type="text" ng-model="vm.records.orderdate" disabled/>
-						</div>
-						<!--<div class=" customer-detailsmain-box">
-							<label>Status</label>
-							<input type="text" ng-model="vm.records.status" disabled/>
-						</div>-->
+                <div class=" customer-detailsmain-box1">
+					<label>Order Date </label><strong>{{vm.records.orderdate}}</strong>
 				</div>
 
-				
+                <div class=" customer-detailsmain-box2"><label>Order Status </label><strong></strong></div>
+			</div>
+
+                <div class="form-box create-order-box">
+      						<div class=" customer-detailsmain-box">
+      							<label>Order by</label>&nbsp;{{vm.records.customerName}}
+      						</div>
+
+      						<div class=" customer-detailsmain-box1"><label>Contact Number </label><strong>{{vm.customerdetailsnew.mobileNumber}}</strong></div>
+
+      						<div class=" customer-detailsmain-box2"><label>Address </label>&nbsp;<strong>{{vm.customerdetailsnew.address}}</strong></div>
+      			 </div>
+			
+			
+			
+
+
+
 					<div class="form-section-box">
-						<div class="form-heading"></div>
 
 						<div class="form-box">
 							<table class="table table-part" border="1" cellspacing="0" cellpadding="0">
@@ -71,34 +73,33 @@
 									<th>Amount</th>
 									<th>Status</th>
 								</tr>
-								<tr>
-									<td><a href="#/editProduct"><b>{{vm.records.type}}</b></a></td>
+								<tr ng-repeat="i in vm.productwiserecord">
+									<td style="width: 200px"><a href="#/editProduct"><b>{{vm.productwiserecord[$index].type}}</b></a></td>
 									<td>
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
-										<!--New change 00 --index inject -->
-										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.records.deliverydate" ng-change="vm.change(vm.order[$index].orderdate,$index)"
+										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.productwiserecord[$index].deliverydate" ng-change="vm.change(vm.order[$index].orderdate,$index)"
 										id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
 										</datepicker>
 									</td>
 									
 									<td>
 									<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
-									<input style="margin-bottom: 0px;" class="inputdatipicker " ng-model="vm.records.stitchingdate" name="stitchingdate{{$index}}" required="required" ng-change="vm.stitchingchange(vm.order[$index].stitchingdate,$index)"
+									<input style="margin-bottom: 0px;" class="inputdatipicker " ng-model="vm.productwiserecord[$index].stitchingdate" name="stitchingdate{{$index}}" required="required" ng-change="vm.stitchingchange(vm.order[$index].stitchingdate,$index)"
 									type="text" placeholder="Date of Stitching" />
 									</datepicker>
 									</td>
 									<td>
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
-										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.records.alertday" ng-change="vm.alertchange(vm.order[$index].orderdate,vm.order[$index].deliverydate,vm.order[$index].alertday)"
+										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.productwiserecord[$index].alertday" ng-change="vm.alertchange(vm.order[$index].orderdate,vm.order[$index].deliverydate,vm.order[$index].alertday)"
 										id="" name="alertdate{{$index}}" required type="text" placeholder="Date of Alert" />
 										</datepicker>
 									</td>
 									<td>
 										<input style="width: 100% !important; margin-bottom: 0px;" class="addorder-amount-icon" id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required"
-										ng-model="vm.records.amount" type="text" placeholder="Amount" style="width: 100% !important;"/>
+										ng-model="vm.productwiserecord[$index].amount" type="text" placeholder="Amount" style="width: 100% !important;"/>
 									</td>
 									<td>
-										<select ng-model="vm.records.status" name="material{{$index}}">
+										<select ng-model="vm.productwiserecord[$index].status" name="material{{$index}}">
 										<option value="">-- Please Select --</option>
 										<option ng-repeat="data in vm.statusdata">{{data.status}}</option>
 										</select>
@@ -107,7 +108,7 @@
 								</tr>
 							</table>
 						</div>
-						<div class="right-add-new-button"><a ng-click="vm.updateOrder(vm.records)">Update</a></div>
+						<div class="right-add-new-button"><a ng-click="vm.updateOrder(vm.productwiserecord)">Update</a></div>
 					</div>
 			</div>
 

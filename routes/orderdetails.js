@@ -12,6 +12,7 @@ module.exports = (function () {
 
   m.route('/api/orderdetails/:id')
     .delete(api.DELETE)
+    .get(api.FindId)
 
   m.route('/api/summary/:id')
     .get(api.summary)

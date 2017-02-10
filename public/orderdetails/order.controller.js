@@ -42,6 +42,7 @@ function orderController($resource, $state) {
     vm.sendData = sendData;
     orderdetails.query(function (info) {
         info.forEach(function (e) {
+            
             customer.get({ id: e.customerid }, function (response) {
                 vm.customerid.push(response.customerid);
             });
@@ -51,6 +52,18 @@ function orderController($resource, $state) {
    });
 
     function sendData(info) {
+
+        customer.get({ id: info.customerid }, function (response) {
+    if(localStorage.getItem('customerdetailsnew')){
+        localStorage.removeItem('customerdetailsnew');
+        localStorage.setItem('customerdetailsnew',JSON.stringify(response));
+        }
+        else{
+            localStorage.setItem('customerdetailsnew',JSON.stringify(response));     
+        }
+            });
+    
+
 
      vm.selectData = JSON.stringify(info);
      if(localStorage.getItem('orderdetailsnew')){
