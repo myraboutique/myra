@@ -10,6 +10,9 @@ function addProductController($resource, $state, $http) {
   vm.items = [{}];
   vm.order = [{}];
 
+  vm.clicked = function(info) {
+    vm.order[vm.newinex].type2=info;
+  };
 
   vm.designSelect = designSelect;
   vm.submit = submit;
@@ -45,11 +48,12 @@ function addProductController($resource, $state, $http) {
     console.log(vm.seleCust);
   }
 
-  function designSelect(info) {
+  function designSelect(info,index) {
     vm.measure = [];
     vm.images1 = [];
     vm.images1title = [];
-
+    vm.newinex = index;
+    vm.order[vm.newinex].type2='';
     addsubdesigns.query(function (subdesigns) {
       vm.subdesign = [];
       vm.subdesignimage  = [];
