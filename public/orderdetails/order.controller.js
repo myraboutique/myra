@@ -60,7 +60,7 @@ function orderController($resource, $state) {
      else{
             localStorage.setItem('orderdetailsnew',vm.selectData);       
      }
-     $state.go("addordernew",{ 'referer': vm.selectData});
+     $state.go("editorder",{ 'referer': vm.selectData});
     }
 }
 

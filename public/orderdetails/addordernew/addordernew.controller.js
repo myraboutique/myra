@@ -5,9 +5,6 @@ addordernewController.$inject = ['$resource', '$scope','$http'];
 
 function addordernewController($resource, $scope, $http) {
   var vm = this;
-
-  vm.data1 = localStorage.getItem('orderdetailsnew');
-  vm.records = JSON.parse(vm.data1);
   
   vm.data2=localStorage.getItem('vmorder');
   vm.selectedOrder = JSON.parse(vm.data2);
@@ -25,12 +22,6 @@ function addordernewController($resource, $scope, $http) {
   orderdetails.query(function(info) {
     vm.lastid = info[info.length -1].id;
     console.log(vm.lastid);
-  });
-
-  var customer = $resource('/api/customerdetails/:id');
-  customer.get({ id: vm.records.id }, function (response) {
-    console.log(response);
-    vm.customerpatch = response;
   });
   
   var addstatus = $resource('/api/addstatuses');
@@ -63,8 +54,8 @@ for (var index = 0; index < vm.selectedOrder.length; index++) {
        $http.put('/api/orderdetails',  info[index])
       .then(
       function (response) {
-        // swal("Record add successfully.");
-        // window.location = '#/order';
+        swal("Record add successfully.");
+        window.location = '#/order';
       },
       function (err) {
         console.log(err);

@@ -129,12 +129,6 @@
       controller: 'newsubdesignController',
       controllerAs: 'vm'
     })
-    .state('settings', {
-      url: '/settings',
-      templateUrl: 'settings/settings.html',
-      controller: 'settingsController',
-      controllerAs: 'vm'
-    })
     .state('editsubdesign', {
       url: '/editsubdesign',
       templateUrl: 'subdesign/edit/editsubdesign.html',
@@ -221,16 +215,16 @@
       controller: 'alertController',
       controllerAs: 'vm'
     })
-     .state('test', {
-      url: '/test',
-      templateUrl: 'test/test.html',
-      controller: 'testController',
-      controllerAs: 'vm'
-    })
     .state('addProduct', {
       url: '/addProduct',
       templateUrl: 'addProduct/addProduct.html',
       controller: 'addProductController',
+      controllerAs: 'vm'
+     })    
+     .state('editProduct', {
+      url: '/editProduct',
+      templateUrl: 'editProduct/editProduct.html',
+      controller: 'editProductController',
       controllerAs: 'vm'
      })
       .state('measurements', {

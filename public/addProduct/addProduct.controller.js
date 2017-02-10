@@ -6,27 +6,28 @@ addProductController.$inject = ['$resource', '$state', '$http'];
 function addProductController($resource, $state, $http) {
   var vm = this;
 
+  var myDate = new Date();
+  var month = myDate.getMonth() + 1;
+  vm.orderdate1 = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
+
+  vm.clicked = function() {
+    vm.flag = true;
+  };
 
   vm.items = [{}];
   vm.order = [{}];
-
 
   vm.designSelect = designSelect;
   vm.submit = submit;
   vm.final = final;
   vm.selectCustomer = selectCustomer;
   
-
   var measurement = $resource('/api/measurement');
   var addsubdesigns = $resource('/api/addsubdesign');
   var addmaterial = $resource('/api/addmaterial');
   var customerdetails = $resource('/api/customerdetails');
   var Orderdetails = $resource('/api/orderdetails');
   
-  var myDate = new Date();
-  var month = myDate.getMonth() + 1;
-  var orderdate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
-
   measurement.query(function (info) {
     vm.type = info;
   });
@@ -52,6 +53,10 @@ function addProductController($resource, $state, $http) {
   }
 
   function designSelect(info) {
+
+  vm.flag = false;
+// vm.order[0].xyz[0] = 777;
+    
 
     addsubdesigns.query(function (subdesigns) {
       vm.subdesign = [];
@@ -111,7 +116,7 @@ function addProductController($resource, $state, $http) {
         if (i < vm.order.length) {
           orderdetails.customerid = vm.seleCust.id;
           orderdetails.customerName = vm.seleCust.customerName;
-          orderdetails.customerid = vm.seleCust.id;
+          orderdetails.orderdate = vm.orderdate1;
           orderdetails.type = vm.order[i].type.title;
           orderdetails.subdesign = vm.order[i].type2;
           orderdetails.material = vm.order[i].materialtype.materialtype;

@@ -4,7 +4,7 @@
   angular
   .module('myra', [
     'ui.router',
-    'ngSignaturePad',
+    // 'ngSignaturePad',
     'ngResource',
     // 'ngStorage',
     // 'hSweetAlert',
