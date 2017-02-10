@@ -15,6 +15,10 @@ function materialtypeController($resource,$state) {
     window.location = '#/login';
     
   }
+  vm.filter = {
+    search: ''
+  };
+
 vm.predicate = '';
   vm.reverse = true;
   function order(predicate) {
@@ -39,6 +43,6 @@ vm.predicate = '';
  
   var addmaterial = $resource('/api/addmaterial')
   addmaterial.query(function(info){
-      vm.materialdata = info ;
+      vm.materialdata = info.reverse();
    })
 }

@@ -14,7 +14,9 @@ function clothtypeController($resource,$state,$scope) {
   vm.temp = function(data) {
     $scope.index = data;
   }
-  
+   vm.filter = {
+     search : ''
+   }
   vm.predicate = '';
   vm.reverse = true;
   function order(predicate) {
@@ -29,7 +31,7 @@ function clothtypeController($resource,$state,$scope) {
 
   var measurement = $resource('/api/measurement');
   measurement.query(function(info){
-    vm.type = info;
+    vm.type = info.reverse();
     // console.log(vm.type);
     // info.forEach(function (e){
     //   vm.image = e.image.split('###');

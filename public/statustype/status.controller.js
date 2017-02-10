@@ -22,6 +22,9 @@ function statusController($resource,$state) {
      $state.go("editstatustype",{ 'referer': vm.selectData});
    
    }
+   vm.filters = {
+     search : ''
+   }
 
  vm.predicate = '';
   vm.reverse = true;
@@ -34,7 +37,7 @@ function statusController($resource,$state) {
   addstatus.query(function(info){
     console.log(info);
      
-      vm.statusdata = info ;
+      vm.statusdata = info.reverse();
         
    })
 

@@ -82,7 +82,7 @@
 					<!-- ng-repeat="data in vm.user" -->
 
 
-					<tr dir-paginate= "data in vm.user|itemsPerPage:10 | orderBy:vm.predicate:vm.reverse | filter:vm.search"  ng-class="{
+					<tr dir-paginate= "data in vm.user | filter:vm.search | itemsPerPage:5 "  ng-class="{
 			        'some':$index%2 == 0,
 			        'table-tr-alternate-color':$index%2 != 0
 			    }">
@@ -110,10 +110,7 @@
 		</div>
 
 		<!-- Customer Details page Section End Here -->
-		<div class="paging">
-			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
-			</dir-pagination-controls>
-		</div>
+		
 	</div>
 	<!-- Footer Section Start Here -->
 	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>

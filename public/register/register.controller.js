@@ -30,7 +30,8 @@ function registerController($resource,$state) {
   };
 
   Register.query(function(info){
-    vm.user = info;
+   // vm.user = info(reverse);
+     vm.user = info.reverse();
   })
 
   function confirm(){

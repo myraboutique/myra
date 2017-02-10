@@ -78,7 +78,7 @@
         <!--<th>Action</th>-->
       </tr>
 <!-- ng-repeat="newdata in vm.materialdata"  -->
-      <tr dir-paginate="newdata in vm.materialdata|itemsPerPage:10 | orderBy:vm.predicate:vm.reverse" ng-class="{
+      <tr dir-paginate="newdata in vm.materialdata| filter:vm.search | itemsPerPage:5" ng-class="{
           'some':$index%2 == 0,
           'table-tr-alternate-color':$index%2 != 0
       }">

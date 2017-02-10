@@ -13,6 +13,9 @@ vm.order = order;
   vm.temp = function(data) {
     $scope.index = data;
   }
+  vm.filters = {
+     search: ''
+  }
   vm.predicate = '';
   vm.reverse = true;
   function order(predicate) {
@@ -27,7 +30,7 @@ vm.order = order;
 
   var measurement = $resource('/api/addsubdesign');
   measurement.query(function(info){
-    vm.type = info;
+    vm.type = info.reverse();
     // info.forEach(function (e){
     //   vm.image = e.image.split('###');
     //   vm.images.push(vm.image);

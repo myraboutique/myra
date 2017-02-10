@@ -15,6 +15,10 @@ function measurementsController($resource,$state) {
     window.location = '#/login';
     
   }
+  vm.filter = {
+    search: ''
+  };
+
   vm.predicate = '';
   vm.reverse = true;
   function order(predicate) {
@@ -41,7 +45,7 @@ function measurementsController($resource,$state) {
   addmaterial.query(function(info){
     console.log(info);
      
-      vm.measurements = info ;
+      vm.measurements = info.reverse();
         
    })
 
