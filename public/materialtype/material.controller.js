@@ -8,13 +8,24 @@ function materialtypeController($resource,$state) {
   var vm = this;
   vm.materialdata = [] ;
    vm.editpage = editpage;
+   vm.order = order;
    vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
    
     window.location = '#/login';
     
   }
+  vm.filter = {
+    search: ''
+  };
 
+vm.predicate = '';
+  vm.reverse = true;
+  function order(predicate) {
+    vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;
+    vm.predicate = predicate;
+  };
+  
    function editpage(x)
    {
      vm.selectData = JSON.stringify(x);
@@ -32,6 +43,6 @@ function materialtypeController($resource,$state) {
  
   var addmaterial = $resource('/api/addmaterial')
   addmaterial.query(function(info){
-      vm.materialdata = info ;
+      vm.materialdata = info.reverse();
    })
 }

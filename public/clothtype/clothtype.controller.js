@@ -9,11 +9,21 @@ function clothtypeController($resource,$state,$scope) {
   // vm.image = [];
   // vm.images = [];
   vm.editpage = editpage;
+  vm.order = order;
 
   vm.temp = function(data) {
     $scope.index = data;
   }
-  
+   vm.filter = {
+     search : ''
+   }
+  vm.predicate = '';
+  vm.reverse = true;
+  function order(predicate) {
+    vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;
+    vm.predicate = predicate;
+  };
+
   vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
     window.location = '#/login';
@@ -21,7 +31,7 @@ function clothtypeController($resource,$state,$scope) {
 
   var measurement = $resource('/api/measurement');
   measurement.query(function(info){
-    vm.type = info;
+    vm.type = info.reverse();
     // console.log(vm.type);
     // info.forEach(function (e){
     //   vm.image = e.image.split('###');

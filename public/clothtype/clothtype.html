@@ -61,13 +61,26 @@
 				<div class="details-table">
 			 	<table class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
-						<th>Design</th>
+							 <th class="customer-detail-th-width-1">
+							<a href="" ng-click="vm.order('title')">
+								<font color="#337ab7">Design</font>&nbsp
+
+								<span ng-show="vm.predicate == 'title'">
+                <span ng-show="!vm.reverse">
+                    <img src="assets/images/up-arrow-1.png" alt="">
+                </span>
+								<span ng-show="vm.reverse">
+                   <img src="assets/images/down-arrow-1.png" alt="">
+                </span>
+								</span>
+							</a>
+						</th>
 						<th>Measurement</th>
 						<!--<th>Images</th>-->
 						<th>Status</th>
 					</tr>
           <!-- ng-repeat="data in vm.type"  -->
-					<tr dir-paginate="data in vm.type|itemsPerPage:10  | filter:vm.search " ng-class="{
+					<tr dir-paginate="data in vm.type| filter:vm.search | itemsPerPage:5" ng-class="{
               'some':$index%2 == 0,
               'table-tr-alternate-color':$index%2 != 0
           }">
@@ -102,10 +115,7 @@
 		</div>
 
 		<!-- Customer Details page Section End Here -->
-		<div class="paging">
-			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
-			</dir-pagination-controls>
-		</div>
+		
 	</div>
 	<!-- Footer Section Start Here -->
 	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>

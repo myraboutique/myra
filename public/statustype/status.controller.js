@@ -8,6 +8,7 @@ function statusController($resource,$state) {
   var vm = this;
   vm.statusdata = [] ;
    vm.editpage = editpage;
+   vm.order = order;
    vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
    
@@ -21,19 +22,22 @@ function statusController($resource,$state) {
      $state.go("editstatustype",{ 'referer': vm.selectData});
    
    }
+   vm.filters = {
+     search : ''
+   }
 
-   vm.predicate = '';
+ vm.predicate = '';
   vm.reverse = true;
   function order(predicate) {
     vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;
     vm.predicate = predicate;
   };
- 
+
   var addstatus = $resource('/api/addstatuses')
   addstatus.query(function(info){
     console.log(info);
      
-      vm.statusdata = info ;
+      vm.statusdata = info.reverse();
         
    })
 

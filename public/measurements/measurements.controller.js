@@ -8,12 +8,17 @@ function measurementsController($resource,$state) {
   var vm = this;
   vm.measurements = [] ;
    vm.editpage = editpage;
+   vm.order = order;
    vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
    
     window.location = '#/login';
     
   }
+  vm.filter = {
+    search: ''
+  };
+
   vm.predicate = '';
   vm.reverse = true;
   function order(predicate) {
@@ -40,7 +45,7 @@ function measurementsController($resource,$state) {
   addmaterial.query(function(info){
     console.log(info);
      
-      vm.measurements = info ;
+      vm.measurements = info.reverse();
         
    })
 

@@ -30,7 +30,8 @@ function customerdetailsController($scope, $resource, $state) {
 
   var customerdetails = $resource('/api/customerdetails')
   customerdetails.query(function (info) {
-    vm.data = info;
+    vm.data = info.reverse();
+    
   })
 
   function editpage(x) {
