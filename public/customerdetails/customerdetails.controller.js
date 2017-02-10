@@ -20,17 +20,16 @@ function customerdetailsController($scope, $resource, $state) {
   vm.filters = {
     search: ''
   };
-
-  vm.predicate = '';
+vm.predicate = '';
   vm.reverse = true;
   function order(predicate) {
     vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;
     vm.predicate = predicate;
   };
-
   var customerdetails = $resource('/api/customerdetails')
   customerdetails.query(function (info) {
     vm.data = info;
+    console.log(info.reverse());
   })
 
   function editpage(x) {
