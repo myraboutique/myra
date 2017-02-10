@@ -54,13 +54,27 @@
 	<div class="col-md-9 col-sm-9 col-xs-12">
     <h4 class="admin-setting-heding">Manage Measurement</h4>
 			
-  <div class="customer-detail-page-contant">
+  <div class="customer-detail-page-contant" >
    <div class="right-add-new-button"><a href="#/addmeasurements">Add New</a></div>
    <div class="search-box-main"><input class="serchInput" type="text" ng-model="vm.search" placeholder="Search"></div>
    <div class="details-table">
      <table class="table-part" border="0" cellspacing="0" cellpadding="0">
       <tr class="top-purpal-color-row">
-        <th>Measurements</th>
+        			  <th class="customer-detail-th-width-1">
+							<a href="" ng-click="vm.order('name')">
+								<font color="#337ab7">Measurements</font>&nbsp
+
+								<span ng-show="vm.predicate == 'name'">
+                <span ng-show="!vm.reverse">
+                    <img src="assets/images/up-arrow-1.png" alt="">
+                </span>
+								<span ng-show="vm.reverse">
+                   <img src="assets/images/down-arrow-1.png" alt="">
+                </span>
+								</span>
+							</a>
+						</th>
+
         <th>Status</th>
         <!--<th>Action</th>-->
       </tr>

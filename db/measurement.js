@@ -37,20 +37,55 @@ module.exports = (function(){
   })
     })
     },
-    Update: function(req,res){
+//     Update: function(req,res){
+//       db.sync().then(function(){
+//         models.update({
+//           title:req.body.title,
+//           measurement :req.body.measurement,
+//           isActive : req.body.isActive
+//           // image: req.body.image
+//         },{
+//           where:{id:req.body.id}
+//         }).then(function(info){
+//           res.json(info);
+//         })
+//       })
+//     }
+//   };
+//   return m;
+// })();
+ Update: function(req,res){
+
       db.sync().then(function(){
-        models.update({
+         models.findOne({where: {title: req.body.title }}).then(function (info){
+             if(info && info.id != req.body.id){
+               return res.json({
+                 msg: 'already00++--'
+               })
+        }
+        
+        else{
+         db.sync().then(function(){
+          models.update({
           title:req.body.title,
           measurement :req.body.measurement,
-          isActive : req.body.isActive
-          // image: req.body.image
-        },{
+          isActive : req.body.isActive,
+        },
+        {
           where:{id:req.body.id}
         }).then(function(info){
           res.json(info);
+         }) 
+       
         })
-      })
-    }
-  };
+      }
+  })
+
+ })
+
+
+}
+};
   return m;
+
 })();

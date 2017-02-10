@@ -61,8 +61,20 @@
    <div class="details-table">
      <table class="table-part" border="0" cellspacing="0" cellpadding="0">
       <tr class="top-purpal-color-row">
-        <th>Material Type</th>
-        <th>Status</th>
+       <th class="customer-detail-th-width-1">
+							<a href="" ng-click="vm.order('materialtype')">
+								<font color="#337ab7">Material Type</font>
+								<span ng-show="vm.predicate == 'materialtype'">
+                				<span ng-show="!vm.reverse">
+                   				 <img src="assets/images/up-arrow-1.png" alt="">
+               					 </span>
+								<span ng-show="vm.reverse">
+                   				<img src="assets/images/down-arrow-1.png" alt="">
+                				</span>
+								</span>
+							</a>
+						</th>
+			        <th>Status</th>
         <!--<th>Action</th>-->
       </tr>
 <!-- ng-repeat="newdata in vm.materialdata"  -->
@@ -91,11 +103,7 @@
 			</div>
 		</div>
 
-		<!-- Customer Details page Section End Here -->
-		<div class="paging">
-			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
-			</dir-pagination-controls>
-		</div>
+	
 	</div>
 	<!-- Footer Section Start Here -->
 	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>

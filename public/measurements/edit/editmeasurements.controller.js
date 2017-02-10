@@ -19,20 +19,42 @@ function editmeasurementsController($resource, $stateParams, $http) {
     window.location = '#/measurements';
   }
 
-  function update(frm) {
+//   function update(frm) {
+//     if (frm.$valid) {
+//       $http.put('/api/managemeasurements', vm.data)
+//         .then(
+//         function (response) {
+
+//           console.log("put successfull")
+//           window.location = '#/measurements';
+
+//         },
+//         function (response) {
+//           console.log("put unsuccessfull")
+//         });
+//     }
+
+//   }
+// }
+function update(frm) {
     if (frm.$valid) {
       $http.put('/api/managemeasurements', vm.data)
         .then(
         function (response) {
-
-          console.log("put successfull")
+        console.log(response.data.msg);
+        if(response.data.msg){
+           vm.flag = true;
+        }
+        else
+        {
+           console.log("put successfull")
           window.location = '#/measurements';
-
-        },
-        function (response) {
-          console.log("put unsuccessfull")
+        }
+        
         });
     }
 
   }
+
+  
 }
