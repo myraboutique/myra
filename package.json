@@ -12,6 +12,9 @@
     "start": "node index.js",
     "postinstall": "bower install"
   },
+  "engines": {
+    "node": "6.9.4"
+  },
   "dependencies": {
     "angular-ui-router": "^0.3.2",
     "body-parser": "^1.15.0",
