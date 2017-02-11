@@ -39,16 +39,16 @@
 
 					<div class="form-box">
 						<div class=" customer-detailsmain-box">
-							<label>Order #</label>
+							<label>Order #</label>{{vm.orderidfromlastpage}}
 						</div>
 						<div class=" customer-detailsmain-box1">
-							<label>Order Date </label> <strong>{{vm.address}}</strong>
+							<label>Order Date </label><strong>{{vm.orderdate1}}</strong>
 							<!--<datepicker date-format="dd/MM/yyyy">
-								<input id="mydate" ng-model="vm.orderdate1" name="orderdate{{$index}}" type="text" placeholder="Date of Order" />
+								<input id="mydate" ng-model="vm.orderdate1" name="orderdate{{$index}}" ng-change="vm.change(vm.alertdat1,$index)" type="text" placeholder="Date of Order" />
 								</datepicker>-->
 						</div>
 
-		                <div class=" customer-detailsmain-box2"><label>Order Status </label><strong>{{vm.address}}</strong></div>
+		                <div class=" customer-detailsmain-box2"><label>Order Status </label><strong>New</strong></div>
 					</div>
 
 
@@ -56,12 +56,12 @@
 
                 <div class="form-box create-order-box">
       						<div class=" customer-detailsmain-box">
-      							<label>Order by</label><strong>{{vm.customerdetailsnew[0]}}</strong>
+      							<label>Order by</label>&nbsp;<strong>{{vm.addProductscustomer.customerName}}</strong>
       						</div>
 
-      						<div class=" customer-detailsmain-box1"><label>Contact Number </label><strong>{{vm.customerdetailsnew[2]}}</strong></div>
+      						<div class=" customer-detailsmain-box1"><label>Contact Number </label><strong>{{vm.addProductscustomer.mobileNumber}}</strong></div>
 
-      						<div class=" customer-detailsmain-box2"><label>Address </label><strong>{{vm.customerdetailsnew[1]}}</strong></div>
+      						<div class=" customer-detailsmain-box2"><label>Address </label><strong>{{vm.addProductscustomer.address}}</strong></div>
       			 </div>
 				   
 					
@@ -85,7 +85,7 @@
 									<td >
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
 										<!--New change 00 --index inject -->
-										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.order[$index].orderdate,$index)"
+										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.orderdate1,$index)"
 										id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
 										</datepicker>
 									</td>
@@ -98,7 +98,7 @@
 									</td>
 									<td>
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
-										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.order[$index].alertday" ng-change="vm.alertchange(vm.order[$index].orderdate,vm.order[$index].deliverydate,vm.order[$index].alertday)"
+										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.order[$index].alertday" ng-change="vm.alertchange(vm.orderdate1,vm.order[$index].deliverydate,vm.order[$index].alertday)"
 										id="" name="alertdate{{$index}}" required type="text" placeholder="Date of Alert" />
 										</datepicker>
 									</td>
@@ -107,7 +107,7 @@
 										ng-model="vm.order[$index].amount" type="text" placeholder="Amount" style="width: 100% !important;"/>
 									</td>
 									<td>
-										<input ng-init="vm.order[$index].status = 'New'" ng-model="vm.order[$index].status" disabled/>
+										<input ng-init="vm.order[$index].status = 'New'" ng-model="vm.order[$index].status" disabled />
 										<!--<select ng-model="vm.order[$index].status" name="material{{$index}}">
 										<option value="">-- Please Select --</option>
 										<option ng-repeat="data in vm.statusdata">{{data.status}}</option>
@@ -117,12 +117,33 @@
 								</tr>
 							</table>
 						</div>
+
+						<!--validation-->
+						<div style="color: red">
+							<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Delivery date must be greater than Date of Order.<br></span>
+
+							<span ng-if="vm.date1">Delivery date should be greater than Order date.<br></span>
+							<span ng-if="vm.date4">Delivery date should be greater than Stitching date.<br></span>
+							<span ng-show="orderform['stitchingdate'+$index].$error.required && (orderform['stitchingdate'+$index].$dirty || vm.formSubmitted)">Stitching Date of Order is required.<br></span>
+							<span ng-if="vm.tempalert">Stiching date should be  greater tnan Order date.<br></span>
+
+							<span ng-show="orderform['alertdate'+$index].$error.required && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">Alert Date is required.<br></span>
+							<span ng-if="vm.date2">Alert Date should be greater than Order date.<br></span>
+							<span ng-if="vm.date3">Alert Date should be greater than Delivery date.<br></span>
+
+							<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount is required.<br></span>
+							<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount can only contain numeric values.<br></span>
+							<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount should not be greater than 10 digits.<br></span>
+</div>
+						<!--validation-->
+
 						<div class="right-add-new-button"><a ng-click="vm.updateOrder(vm.order)">Add Order</a></div>
 					</div>
 			</div>
 
 
 
+		</div>
 		</div>
 		<!-- Footer Section Start Here -->
 		<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>

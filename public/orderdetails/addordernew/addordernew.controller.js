@@ -5,10 +5,10 @@ addordernewController.$inject = ['$resource', '$scope','$http'];
 
 function addordernewController($resource, $scope, $http) {
   var vm = this;
-  
-  vm.data3=localStorage.getItem('addProductscustomer');
-  vm.addProductscustomer = JSON.parse(vm.data3);
 
+  vm.data1=localStorage.getItem('addProductscustomer');
+  vm.addProductscustomer = JSON.parse(vm.data1);
+  
   vm.data2=localStorage.getItem('vmorder');
   vm.selectedOrder = JSON.parse(vm.data2);
   
@@ -23,8 +23,10 @@ function addordernewController($resource, $scope, $http) {
   var customerdetails = $resource('/api/customerdetails');
   var orderdetails = $resource('/api/orderdetails');
   orderdetails.query(function(info) {
+    vm.orderidfromlastpage = info[info.length -1].timestamp;
+    vm.orderdate1 = info[info.length -1].orderdate;
     vm.lastid = info[info.length -1].id;
-    console.log(vm.lastid);
+    // console.log(vm.lastid);
   });
   
   var addstatus = $resource('/api/addstatuses');
@@ -33,137 +35,141 @@ function addordernewController($resource, $scope, $http) {
       vm.statusdata = info ;
   });
 
-  customerdetails.query(function (info) {
-    vm.customer = info;
+  // customerdetails.query(function (info) {
+  //   vm.customer = info;
 
-    info.forEach(function (element) {
-      if (info.id == vm.records.id) {
-        vm.customerphone = info.mobileNumber;
-        console.log(vm.customerphone);
+  //   info.forEach(function (element) {
+  //     if (info.id == vm.records.id) {
+  //       vm.customerphone = info.mobileNumber;
+  //       console.log(vm.customerphone);
+  //     }
+  //   }, this);
+  // });
+//  var orderdate1  = new Date();
+//  var orderdate1 = orderdate1.getUTCDate() + '/' + orderdate1.getUTCMonth() + '/' + orderdate1.getUTCFullYear();
+ 
+  //  vm.orderdate1 = orderdate1;
+// =============================================================
+
+  vm.date1 = false;
+  vm.date2 = false;
+  vm.date3 = false;
+
+  vm.tempalert = false;
+  vm.date4 = false;
+
+  vm.change = change;
+  vm.alertchange = alertchange;
+  vm.stitchingchange = stitchingchange;
+  vm.forstitchingdate = forstitchingdate;
+
+
+  function forstitchingdate(index) {
+    if (vm.order[index].stitchingdate > vm.order[index].deliverydate) {
+      console.log("Oyye");
+      vm.date4 = true;
+    }
+    else {
+      vm.date4 = false;
+    }
+  }
+  //new change 00 --index inject
+  function change(orderdate, index) {
+
+    if (vm.order[index].stitchingdate) {
+      console.log("There is ");
+      stitchingchange(vm.order[index].stitchingdate, index);
+      if (vm.order[index].deliverydate) {
+        forstitchingdate(index);
       }
-    }, this);
-  });
-//=============================================================
+    }
 
-  // vm.date1 = false;
-  // vm.date2 = false;
-  // vm.date3 = false;
+    if (vm.order[index].deliverydate) {
+      var b = orderdate.split('/');
+      var a = vm.order[index].deliverydate.split('/');
+      console.log(a);
+      var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
+      var orderDate = new Date(b[2], b[1] - 1, b[0]);
+      orderDate.setHours(0, 0, 0, 0, 0);
+      deliveryDate.setHours(0, 0, 0, 0, 0);
+      //new change 00
+      // var alertday = a[0] - 2 + '/' + a[1] + '/' + a[2];
+      var alertDay = new Date(a[2], a[1], a[0] - 1);
+      alertDay.setHours(0, 0, 0, 0, 0);
+      var alertday = alertDay.getUTCDate() + '/' + alertDay.getUTCMonth() + '/' + alertDay.getUTCFullYear();
+      vm.order[index].alertday = '';
+      console.log(vm.order[index].alertday);
+      if (deliveryDate < orderDate) {
+        vm.date1 = true;
+        vm.order[index].alertday = alertday;
+        alertchange(orderDate, deliveryDate, vm.order[index].alertday);
+      } else {
+        vm.date1 = false;
+        vm.order[index].alertday = alertday;
+        alertchange(orderDate, deliveryDate, vm.order[index].alertday);
+      }
+    }
 
-  // vm.tempalert = false;
-  // vm.date4 = false;
+  }
 
-  // vm.change = change;
-  // vm.alertchange = alertchange;
-  // vm.stitchingchange = stitchingchange;
-  // vm.forstitchingdate = forstitchingdate;
+  // new change 00 --index inject
+  function stitchingchange(stitchingdate, index) {
 
+    if (vm.order[index].orderdate) {
+      console.log(orderdate);
+      console.log(stitchingdate);
+      console.log(index);
+      var orderdate = vm.orderday1;
+      var b = orderdate.split('/');
+      var a = stitchingdate.split('/');
+      var stitchingDate = new Date(a[2], a[1] - 1, a[0]);
+      var orderDate = new Date(b[2], b[1] - 1, b[0]);
+      orderDate.setHours(0, 0, 0, 0, 0);
+      stitchingDate.setHours(0, 0, 0, 0, 0);
 
-  // function forstitchingdate(index) {
-  //   if (vm.order[index].stitchingdate > vm.order[index].deliverydate) {
-  //     console.log("Oyye");
-  //     vm.date4 = true;
-  //   }
-  //   else {
-  //     vm.date4 = false;
-  //   }
-  // }
-  //new change 00 --index inject
-  // function change(orderdate, index) {
+      if (stitchingDate < orderDate) {
+        vm.tempalert = true;
+      } else {
+        vm.tempalert = false;
+      }
+      console.log(vm.tempalert);
+    }
+    if (vm.order[index].deliverydate) {
+      forstitchingdate(index);
+    }
+  }
 
-  //   if (vm.order[index].stitchingdate) {
-  //     console.log("There is ");
-  //     stitchingchange(vm.order[index].stitchingdate, index);
-  //     if (vm.order[index].deliverydate) {
-  //       forstitchingdate(index);
-  //     }
-  //   }
+  function alertchange(orderdate, deliverydate, alertdate) {
+    console.log(orderdate);
+    console.log(deliverydate);
+    console.log(alertdate);
 
-  //   if (vm.order[index].deliverydate) {
-  //     var b = orderdate.split('/');
-  //     var a = vm.order[index].deliverydate.split('/');
-  //     console.log(a);
-  //     var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
-  //     var orderDate = new Date(b[2], b[1] - 1, b[0]);
-  //     orderDate.setHours(0, 0, 0, 0, 0);
-  //     deliveryDate.setHours(0, 0, 0, 0, 0);
-  //     //new change 00
-  //     // var alertday = a[0] - 2 + '/' + a[1] + '/' + a[2];
-  //     var alertDay = new Date(a[2], a[1], a[0] - 1);
-  //     alertDay.setHours(0, 0, 0, 0, 0);
-  //     var alertday = alertDay.getUTCDate() + '/' + alertDay.getUTCMonth() + '/' + alertDay.getUTCFullYear();
-  //     vm.order[index].alertday = '';
-  //     console.log(vm.order[index].alertday);
-  //     if (deliveryDate < orderDate) {
-  //       vm.date1 = true;
-  //       vm.order[index].alertday = alertday;
-  //       alertchange(orderDate, deliveryDate, vm.order[index].alertday);
-  //     } else {
-  //       vm.date1 = false;
-  //       vm.order[index].alertday = alertday;
-  //       alertchange(orderDate, deliveryDate, vm.order[index].alertday);
-  //     }
-  //   }
-
-  // }
-
-  //new change 00 --index inject
-  // function stitchingchange(stitchingdate, index) {
-
-  //   if (vm.order[index].orderdate) {
-  //     console.log(orderdate);
-  //     console.log(stitchingdate);
-  //     console.log(index);
-  //     var orderdate = vm.order[index].orderdate;
-  //     var b = orderdate.split('/');
-  //     var a = stitchingdate.split('/');
-  //     var stitchingDate = new Date(a[2], a[1] - 1, a[0]);
-  //     var orderDate = new Date(b[2], b[1] - 1, b[0]);
-  //     orderDate.setHours(0, 0, 0, 0, 0);
-  //     stitchingDate.setHours(0, 0, 0, 0, 0);
-
-  //     if (stitchingDate < orderDate) {
-  //       vm.tempalert = true;
-  //     } else {
-  //       vm.tempalert = false;
-  //     }
-  //     console.log(vm.tempalert);
-  //   }
-  //   if (vm.order[index].deliverydate) {
-  //     forstitchingdate(index);
-  //   }
-  // }
-
-  // function alertchange(orderdate, deliverydate, alertdate) {
-  //   console.log(orderdate);
-  //   console.log(deliverydate);
-  //   console.log(alertdate);
-
-  //   var type = typeof orderdate;
-  //   if (type == 'string') {
-  //     var b = orderdate.split('/');
-  //     var a = deliverydate.split('/');
-  //     var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
-  //     var orderDate = new Date(b[2], b[1] - 1, b[0]);
-  //   } else {
-  //     orderDate = orderdate;
-  //     deliveryDate = deliverydate;
-  //   }
-  //   var c = alertdate.split('/');
-  //   var alertDate = new Date(c[2], c[1] - 1, c[0]);
-  //   orderDate.setHours(0, 0, 0, 0, 0);
-  //   deliveryDate.setHours(0, 0, 0, 0, 0);
-  //   alertDate.setHours(0, 0, 0, 0, 0);
-  //   if (alertDate > deliveryDate) {
-  //     vm.date2 = true;
-  //   } else {
-  //     vm.date2 = false;
-  //   }
-  //   if (alertDate < orderDate) {
-  //     vm.date3 = true;
-  //   } else {
-  //     vm.date3 = false;
-  //   }
-  // }
+    var type = typeof orderdate;
+    if (type == 'string') {
+      var b = orderdate.split('/');
+      var a = deliverydate.split('/');
+      var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
+      var orderDate = new Date(b[2], b[1] - 1, b[0]);
+    } else {
+      orderDate = orderdate;
+      deliveryDate = deliverydate;
+    }
+    var c = alertdate.split('/');
+    var alertDate = new Date(c[2], c[1] - 1, c[0]);
+    orderDate.setHours(0, 0, 0, 0, 0);
+    deliveryDate.setHours(0, 0, 0, 0, 0);
+    alertDate.setHours(0, 0, 0, 0, 0);
+    if (alertDate > deliveryDate) {
+      vm.date2 = true;
+    } else {
+      vm.date2 = false;
+    }
+    if (alertDate < orderDate) {
+      vm.date3 = true;
+    } else {
+      vm.date3 = false;
+    }
+  }
 
 
 
@@ -172,8 +178,7 @@ function addordernewController($resource, $scope, $http) {
 //=============================================================
 
   vm.updateOrder = function(info) {
-    console.log(info);
-    
+
 
 for (var index = 0; index < vm.selectedOrder.length; index++) {
       info[index].orderdate = vm.orderdate;
@@ -189,9 +194,7 @@ for (var index = 0; index < vm.selectedOrder.length; index++) {
       },
       function (err) {
         console.log(err);
-      });
-
-  
+      });  
 }
 
   }
