@@ -46,7 +46,16 @@ module.exports = (function()
     Update: function(req,res){
 
       db.sync().then(function(){
-        models.update({
+         models.findOne({where: {status: req.body.status }}).then(function (info){
+             if(info && info.id != req.body.id){
+               return res.json({
+                 msg: 'already00++--'
+               })
+        }
+        
+        else{
+         db.sync().then(function(){
+          models.update({
           status : req.body.status,
           isActive :  req.body.isActive,
         },
@@ -54,9 +63,13 @@ module.exports = (function()
           where:{id:req.body.id}
         }).then(function(info){
           res.json(info);
+         }) 
+       
         })
-      })
+      }
+  })
 
+ })
 
 
 }
