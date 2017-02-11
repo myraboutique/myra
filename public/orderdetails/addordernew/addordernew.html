@@ -42,10 +42,10 @@
 							<label>Order #</label>
 						</div>
 						<div class=" customer-detailsmain-box1">
-							<label>Order Date </label>
-							<datepicker date-format="dd/MM/yyyy">
+							<label>Order Date </label> <strong>{{vm.address}}</strong>
+							<!--<datepicker date-format="dd/MM/yyyy">
 								<input id="mydate" ng-model="vm.orderdate1" name="orderdate{{$index}}" type="text" placeholder="Date of Order" />
-								</datepicker>
+								</datepicker>-->
 						</div>
 
 		                <div class=" customer-detailsmain-box2"><label>Order Status </label><strong>{{vm.address}}</strong></div>
@@ -107,11 +107,12 @@
 										ng-model="vm.order[$index].amount" type="text" placeholder="Amount" style="width: 100% !important;"/>
 									</td>
 									<td>
-										<select ng-model="vm.order[$index].status" name="material{{$index}}">
+										<input ng-init="vm.order[$index].status = 'New'" ng-model="vm.order[$index].status" disabled/>
+										<!--<select ng-model="vm.order[$index].status" name="material{{$index}}">
 										<option value="">-- Please Select --</option>
 										<option ng-repeat="data in vm.statusdata">{{data.status}}</option>
 										</select>
-										</select>
+										</select>-->
 									</td>
 								</tr>
 							</table>

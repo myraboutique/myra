@@ -6,6 +6,9 @@ addordernewController.$inject = ['$resource', '$scope','$http'];
 function addordernewController($resource, $scope, $http) {
   var vm = this;
   
+  vm.data3=localStorage.getItem('addProductscustomer');
+  vm.addProductscustomer = JSON.parse(vm.data3);
+
   vm.data2=localStorage.getItem('vmorder');
   vm.selectedOrder = JSON.parse(vm.data2);
   

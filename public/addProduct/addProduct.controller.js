@@ -6,6 +6,15 @@ addProductController.$inject = ['$resource', '$state', '$http'];
 function addProductController($resource, $state, $http) {
   var vm = this;
 
+
+  vm.single = function (image) {
+    vm.src=image;  
+    // if (!vm.src) {
+    //     vm.flagforimg = true;
+    // }else{
+    //     addClothtype(form);
+    // }
+  };
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
   vm.orderdate1 = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
@@ -44,6 +53,13 @@ vm.clicked = function(info) {
 
   function selectCustomer(info) {
     vm.seleCust = info;
+    if(localStorage.getItem('addProductscustomer')){
+        localStorage.removeItem('addProductscustomer');
+        localStorage.setItem('addProductscustomer',JSON.stringify(info));
+        }
+        else{
+            localStorage.setItem('addProductscustomer',JSON.stringify(info));     
+        }
   }
 
   function designSelect(info,index) {
@@ -106,6 +122,7 @@ vm.clicked = function(info) {
                 }
         
         if (i < vm.order.length) {
+          orderdetails.browseimage = vm.src;
           orderdetails.timestamp = vm.orderdate2;
           orderdetails.customerid = vm.seleCust.id;
           orderdetails.customerName = vm.seleCust.customerName;

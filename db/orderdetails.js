@@ -21,6 +21,7 @@ module.exports = (function () {
       db.sync().then(function () {
         models.create(
           {
+            browseimage : req.body.browseimage,
             timestamp : req.body.timestamp,
             customerid : req.body.customerid,
             customerName : req.body.customerName,
@@ -50,6 +51,7 @@ module.exports = (function () {
       db.sync().then(function () {
         models.update(
           {
+            browseimage : req.body.browseimage,
             timestamp : req.body.timestamp,
             customerid : req.body.customerid,
             type :  req.body.type,

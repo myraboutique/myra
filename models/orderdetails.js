@@ -28,7 +28,8 @@ var OrderDetails = db.define('orderdetails', {
     measurement: Sequelize.STRING,
     stitchingdate:Sequelize.STRING,
     status: Sequelize.STRING,
-    subdesign : Sequelize.STRING    
+    subdesign : Sequelize.STRING ,
+    browseimage : Sequelize.BLOB   
 }, {
         timestamps: false
     });
