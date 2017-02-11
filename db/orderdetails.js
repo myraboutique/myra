@@ -15,19 +15,13 @@ module.exports = (function () {
       })
     },
     create: function (req, res) {
-      // console.log(req.body.date);
-      // console.log(req.body.orderdate);
-      // console.log(req.body.alertday);
       db.sync().then(function () {
         models.create(
           {
-            browseimage : req.body.browseimage,
-            timestamp : req.body.timestamp,
-            customerid : req.body.customerid,
-            customerName : req.body.customerName,
-            // customeremail : req.body.customeremail,
-            // orderdetailid: req.body.orderdetailid,
-            // orderid: req.body.orderid,
+            browseimage: req.body.browseimage,
+            timestamp: req.body.timestamp,
+            customerid: req.body.customerid,
+            customerName: req.body.customerName,
             type: req.body.type,
             material: req.body.material,
             color: req.body.color,
@@ -36,37 +30,36 @@ module.exports = (function () {
             deliverydate: req.body.date,
             alertday: req.body.alertday,
             amount: req.body.amount,
-            orderdate : req.body.orderdate,
+            orderdate: req.body.orderdate,
             measurement: req.body.measurement,
             stitchingdate: req.body.stitchingdate,
             status: req.body.status,
-            subdesign : req.body.subdesign
+            subdesign: req.body.subdesign
           }).then(function (user) {
             res.json(user);
           })
       })
     },
     Update: function (req, res) {
-      // console.log(req.body);
       db.sync().then(function () {
         models.update(
           {
-            browseimage : req.body.browseimage,
-            timestamp : req.body.timestamp,
-            customerid : req.body.customerid,
-            type :  req.body.type,
+            browseimage: req.body.browseimage,
+            timestamp: req.body.timestamp,
+            customerid: req.body.customerid,
+            type: req.body.type,
             material: req.body.material,
-            color : req.body.color,
-            customization : req.body.customization,
-            cloth : req.body.cloth,
-            orderdate : req.body.orderdate ,
-            alertday : req.body.alertday ,
-            amount : req.body.amount,
+            color: req.body.color,
+            customization: req.body.customization,
+            cloth: req.body.cloth,
+            orderdate: req.body.orderdate,
+            alertday: req.body.alertday,
+            amount: req.body.amount,
             measurement: req.body.measurement,
-            status : req.body.status, 
+            status: req.body.status,
             deliverydate: req.body.deliverydate,
             amount: req.body.amount,
-            subdesign : req.body.subdesign,
+            subdesign: req.body.subdesign,
             stitchingdate: req.body.stitchingdate
           },
           {

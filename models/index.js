@@ -9,21 +9,19 @@ module.exports = (function () {
     var addsubdesign = require('./addsubdesign');
     var addmaterial = require('./addmaterial');
     var managemeasurements = require('./managemeasurements');
-    // var addproduct = require('./addproduct');
     var addsubdesign = require('./addsubdesign');
     var addstatuses = require('./addstatuses');
-    
+
     var m = {
         login: login,
-        order:order,
-        // addproduct:addproduct,
+        order: order,
         orderdetails: orderdetails,
         customerdetails: customerdetails,
         measurement: measurement,
         addmaterial: addmaterial,
-        managemeasurements:managemeasurements,
-        addsubdesign : addsubdesign,
-        addstatuses : addstatuses
+        managemeasurements: managemeasurements,
+        addsubdesign: addsubdesign,
+        addstatuses: addstatuses
     };
     return m;
 })();
