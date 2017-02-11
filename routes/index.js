@@ -8,9 +8,8 @@ module.exports = (function () {
     var alert = require('./alertCron');
     var addsubdesign = require('./addsubdesign');
     var managemeasurements = require('./managemeasurements');
-    //  var addproduct = require('./addproduct');
     var addstatuses = require('./addstatuses');
-    
+
     var m = [
         login,
         order,
@@ -21,7 +20,7 @@ module.exports = (function () {
         managemeasurements,
         addsubdesign,
         addstatuses
-
     ];
+
     return m;
 })();

@@ -8,7 +8,7 @@ module.exports = (function () {
     .post(api.POST)
     .get(api.GET)
     .put(api.UPDATE)
-  //   .delete(api.DELETE)
+  //.delete(api.DELETE)
 
   m.route('/api/orderdetails/:id')
     .delete(api.DELETE)

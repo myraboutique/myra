@@ -1,4 +1,3 @@
-
 module.exports = (function () {
 
     var express = require('express');
@@ -7,7 +6,7 @@ module.exports = (function () {
     var m = express.Router();
 
     m.route('/api/managemeasurements')
- .post(api.POST)
+        .post(api.POST)
         .get(api.GET)
         .put(api.UPDATE)
 
