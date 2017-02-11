@@ -6,6 +6,10 @@ addProductController.$inject = ['$resource', '$state', '$http'];
 function addProductController($resource, $state, $http) {
   var vm = this;
 
+// vm.savecus = function(info) {
+// vm.order[vm.newinex].customization = info;
+// console.log(info);
+// }
 
   vm.single = function (image) {
     vm.src=image;  
@@ -22,6 +26,7 @@ function addProductController($resource, $state, $http) {
   
   
 vm.clicked = function(info) {
+
    vm.order[vm.newinex].type2=info;
  };
 

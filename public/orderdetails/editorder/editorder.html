@@ -77,20 +77,20 @@
 									<td style="width: 200px"><a href="#/editProduct"><b>{{vm.productwiserecord[$index].type}}</b></a></td>
 									<td>
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
-										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.productwiserecord[$index].deliverydate" ng-change="vm.change(vm.order[$index].orderdate,$index)"
+										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.productwiserecord[$index].deliverydate" ng-change="vm.change(vm.records.orderdate,$index)"
 										id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
 										</datepicker>
 									</td>
 									
 									<td>
 									<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
-									<input style="margin-bottom: 0px;" class="inputdatipicker " ng-model="vm.productwiserecord[$index].stitchingdate" name="stitchingdate{{$index}}" required="required" ng-change="vm.stitchingchange(vm.order[$index].stitchingdate,$index)"
+									<input style="margin-bottom: 0px;" class="inputdatipicker " ng-model="vm.productwiserecord[$index].stitchingdate" name="stitchingdate{{$index}}" required="required" ng-change="vm.stitchingchange(vm.productwiserecord[$index].stitchingdate,$index)"
 									type="text" placeholder="Date of Stitching" />
 									</datepicker>
 									</td>
 									<td>
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
-										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.productwiserecord[$index].alertday" ng-change="vm.alertchange(vm.order[$index].orderdate,vm.order[$index].deliverydate,vm.order[$index].alertday)"
+										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.productwiserecord[$index].alertday" ng-change="vm.alertchange(vm.records.orderdate,vm.productwiserecord[$index].deliverydate,vm.productwiserecord[$index].alertday)"
 										id="" name="alertdate{{$index}}" required type="text" placeholder="Date of Alert" />
 										</datepicker>
 									</td>
@@ -99,15 +99,35 @@
 										ng-model="vm.productwiserecord[$index].amount" type="text" placeholder="Amount" style="width: 100% !important;"/>
 									</td>
 									<td>
-										<select ng-model="vm.productwiserecord[$index].status" name="material{{$index}}">
-										<option value="">-- Please Select --</option>
-										<option ng-repeat="data in vm.statusdata">{{data.status}}</option>
-										</select>
+			
+										<select style="width: 100%" ng-model="vm.productwiserecord[$index].status" name="material{{$index}}">
+										<option value="{{vm.productwiserecord[$index].status}}">{{vm.productwiserecord[$index].status}}</option>
+										<option  ng-repeat="data in vm.statusdata">{{data.status}}</option>
 										</select>
 									</td>
 								</tr>
 							</table>
 						</div>
+
+
+<!--validation-->
+						<div style="color: red">
+							<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Delivery date must be greater than Date of Order.<br></span>
+
+							<span ng-if="vm.date1">Delivery date should be greater than Order date.<br></span>
+							<span ng-if="vm.date4">Delivery date should be greater than Stitching date.<br></span>
+							<span ng-show="orderform['stitchingdate'+$index].$error.required && (orderform['stitchingdate'+$index].$dirty || vm.formSubmitted)">Stitching Date of Order is required.<br></span>
+							<span ng-if="vm.tempalert">Stiching date should be  greater tnan Order date.<br></span>
+
+							<span ng-show="orderform['alertdate'+$index].$error.required && (orderform['alertdate'+$index].$dirty || vm.formSubmitted)">Alert Date is required.<br></span>
+							<span ng-if="vm.date2">Alert Date should be greater than Order date.<br></span>
+							<span ng-if="vm.date3">Alert Date should be greater than Delivery date.<br></span>
+
+							<span ng-show="orderform['amount'+$index].$error.required && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount is required.<br></span>
+							<span ng-show="orderform['amount'+$index].$error.pattern && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount can only contain numeric values.<br></span>
+							<span ng-show="orderform['amount'+$index].$error.maxlength && (orderform['amount'+$index].$dirty || vm.formSubmitted)">Amount should not be greater than 10 digits.<br></span>
+						</div>
+						<!--validation-->
 						<div class="right-add-new-button"><a ng-click="vm.updateOrder(vm.productwiserecord)">Update</a></div>
 					</div>
 			</div>

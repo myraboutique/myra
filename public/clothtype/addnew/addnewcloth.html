@@ -71,6 +71,7 @@
        </div>
 
 			 <div class="form-box">
+				 <label><em id="mandatory" style="color:Red">*</em> Measurement</label>
 				 <select ng-model="vm.measu" name="measurement" ng-required="vm.selectMeasurement.length == 0" placeholder="Measurement" class="clothmeasurementinput" >
 
 							<option ng-if="x.isActive" ng-repeat="x in vm.measurementstype"> {{x.name}}</option>

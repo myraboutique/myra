@@ -59,7 +59,8 @@
      <div class="right-add-new-button"><a href="#/addclothtype">Add New</a></div>
 		    <div class="search-box-main"><input class="serchInput" type="text" ng-model="vm.search" placeholder="Search"></div>
 				<div class="details-table">
-			 	<table class="table-part" border="0" cellspacing="0" cellpadding="0">
+									<h2 class="no-record-found-text" ng-hide="vm.temp.length">No record found</h2>
+			 	<table ng-show="vm.temp.length" class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
 							 <th class="customer-detail-th-width-1">
 							<a href="" ng-click="vm.order('title')">
@@ -80,7 +81,7 @@
 						<th>Status</th>
 					</tr>
           <!-- ng-repeat="data in vm.type"  -->
-					<tr dir-paginate="data in vm.type|itemsPerPage:10  | filter:vm.search " ng-class="{
+					<tr dir-paginate="data in vm.temp=(vm.type| filter:vm.search |itemsPerPage:10  ) " ng-class="{
 
               'some':$index%2 == 0,
               'table-tr-alternate-color':$index%2 != 0
@@ -116,10 +117,7 @@
 		</div>
 
 		<!-- Customer Details page Section End Here -->
-		<div class="paging">
-			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
-			</dir-pagination-controls>
-		</div>
+
 	</div>
 	<!-- Footer Section Start Here -->
 	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>

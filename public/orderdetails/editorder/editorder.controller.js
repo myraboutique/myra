@@ -28,12 +28,139 @@ function editorderController($resource, $scope, $http) {
       for (var index = 0; index < response.length; index++) {
         if(response[index].timestamp == vm.records.timestamp) {
           vm.productwiserecord.push(response[index]);
-          // console.log(vm.productwiserecord);
+          console.log(vm.productwiserecord);
         }
       }      
   });
 
-  
+  // =============================================================
+
+  vm.date1 = false;
+  vm.date2 = false;
+  vm.date3 = false;
+
+  vm.tempalert = false;
+  vm.date4 = false;
+
+  vm.change = change;
+  vm.alertchange = alertchange;
+  vm.stitchingchange = stitchingchange;
+  vm.forstitchingdate = forstitchingdate;
+
+
+  function forstitchingdate(index) {
+    if (vm.productwiserecord[index].stitchingdate > vm.productwiserecord[index].deliverydate) {
+      console.log("Oyye");
+      vm.date4 = true;
+    }
+    else {
+      vm.date4 = false;
+    }
+  }
+  //new change 00 --index inject
+  function change(orderdate, index) {
+
+    if (vm.productwiserecord[index].stitchingdate) {
+      console.log("There is ");
+      stitchingchange(vm.productwiserecord[index].stitchingdate, index);
+      if (vm.productwiserecord[index].deliverydate) {
+        forstitchingdate(index);
+      }
+    }
+
+    if (vm.productwiserecord[index].deliverydate) {
+      var b = orderdate.split('/');
+      var a = vm.productwiserecord[index].deliverydate.split('/');
+      console.log(a);
+      var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
+      var orderDate = new Date(b[2], b[1] - 1, b[0]);
+      orderDate.setHours(0, 0, 0, 0, 0);
+      deliveryDate.setHours(0, 0, 0, 0, 0);
+      //new change 00
+      // var alertday = a[0] - 2 + '/' + a[1] + '/' + a[2];
+      var alertDay = new Date(a[2], a[1], a[0] - 1);
+      alertDay.setHours(0, 0, 0, 0, 0);
+      var alertday = alertDay.getUTCDate() + '/' + alertDay.getUTCMonth() + '/' + alertDay.getUTCFullYear();
+      vm.productwiserecord[index].alertday = '';
+      console.log(vm.productwiserecord[index].alertday);
+      if (deliveryDate < orderDate) {
+        vm.date1 = true;
+        vm.productwiserecord[index].alertday = alertday;
+        alertchange(orderDate, deliveryDate, vm.productwiserecord[index].alertday);
+      } else {
+        vm.date1 = false;
+        vm.productwiserecord[index].alertday = alertday;
+        alertchange(orderDate, deliveryDate, vm.productwiserecord[index].alertday);
+      }
+    }
+
+  }
+
+  // new change 00 --index inject
+  function stitchingchange(stitchingdate, index) {
+
+    if (vm.records.orderdate) {
+      console.log(orderdate);
+      console.log(stitchingdate);
+      console.log(index);
+      var orderdate = vm.records.orderdate;
+      var b = orderdate.split('/');
+      var a = stitchingdate.split('/');
+      var stitchingDate = new Date(a[2], a[1] - 1, a[0]);
+      var orderDate = new Date(b[2], b[1] - 1, b[0]);
+      orderDate.setHours(0, 0, 0, 0, 0);
+      stitchingDate.setHours(0, 0, 0, 0, 0);
+
+      if (stitchingDate < orderDate) {
+        vm.tempalert = true;
+      } else {
+        vm.tempalert = false;
+      }
+      console.log(vm.tempalert);
+    }
+    if (vm.productwiserecord[index].deliverydate) {
+      forstitchingdate(index);
+    }
+  }
+
+  function alertchange(orderdate, deliverydate, alertdate) {
+    console.log(orderdate);
+    console.log(deliverydate);
+    console.log(alertdate);
+
+    var type = typeof orderdate;
+    if (type == 'string') {
+      var b = orderdate.split('/');
+      var a = deliverydate.split('/');
+      var deliveryDate = new Date(a[2], a[1] - 1, a[0]);
+      var orderDate = new Date(b[2], b[1] - 1, b[0]);
+    } else {
+      orderDate = orderdate;
+      deliveryDate = deliverydate;
+    }
+    var c = alertdate.split('/');
+    var alertDate = new Date(c[2], c[1] - 1, c[0]);
+    orderDate.setHours(0, 0, 0, 0, 0);
+    deliveryDate.setHours(0, 0, 0, 0, 0);
+    alertDate.setHours(0, 0, 0, 0, 0);
+    if (alertDate > deliveryDate) {
+      vm.date2 = true;
+    } else {
+      vm.date2 = false;
+    }
+    if (alertDate < orderDate) {
+      vm.date3 = true;
+    } else {
+      vm.date3 = false;
+    }
+  }
+
+
+
+
+
+//=============================================================
+
 
   // vm.test = [];
   // vm.productwiserecord.forEach(function(element) {

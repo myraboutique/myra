@@ -35,20 +35,7 @@ function addordernewController($resource, $scope, $http) {
       vm.statusdata = info ;
   });
 
-  // customerdetails.query(function (info) {
-  //   vm.customer = info;
 
-  //   info.forEach(function (element) {
-  //     if (info.id == vm.records.id) {
-  //       vm.customerphone = info.mobileNumber;
-  //       console.log(vm.customerphone);
-  //     }
-  //   }, this);
-  // });
-//  var orderdate1  = new Date();
-//  var orderdate1 = orderdate1.getUTCDate() + '/' + orderdate1.getUTCMonth() + '/' + orderdate1.getUTCFullYear();
- 
-  //  vm.orderdate1 = orderdate1;
 // =============================================================
 
   vm.date1 = false;
@@ -119,7 +106,7 @@ function addordernewController($resource, $scope, $http) {
       console.log(orderdate);
       console.log(stitchingdate);
       console.log(index);
-      var orderdate = vm.orderday1;
+      var orderdate = vm.orderdate1;
       var b = orderdate.split('/');
       var a = stitchingdate.split('/');
       var stitchingDate = new Date(a[2], a[1] - 1, a[0]);
