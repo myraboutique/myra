@@ -97,8 +97,6 @@ function newCustomerController($resource) {
           vm.mname.push(vm.measurementstype[index].name);
           vm.mvalue.push(vm.data[index]);
         }
-        console.log(vm.mname);
-        console.log(vm.mvalue);
       }
       customerdetails.measurementsname = JSON.stringify(vm.mname);
       customerdetails.measurementsvalue = JSON.stringify(vm.mvalue);

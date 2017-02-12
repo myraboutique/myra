@@ -18,9 +18,15 @@ function detailsController($resource, $stateParams) {
   var Summary = $resource('/api/summary/:id');
   var measurement = $resource('/api/measurement');
 
+  // measurement.query(function (info) {
+  //   vm.type = info;
+  // });
+
   Summary.query({ id: vm.data.id }, function (info) {
     vm.order = info;
   });
 
-
+    // for (var index = 0; index < info.length; index++) {
+    //   vm.order[index].measurement = JSON.parse(info[index].measurement);
+    // }
 }
