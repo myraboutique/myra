@@ -17,6 +17,7 @@ function addProductController($resource, $state, $http) {
 
   vm.items = [{}];
   vm.order = [{}];
+  vm.measu = [];
 
   vm.designSelect = designSelect;
   vm.submit = submit;
@@ -68,10 +69,9 @@ function addProductController($resource, $state, $http) {
     });
 
     vm.type.forEach(function (element) {
-      if (element.title == info.title) {
+      if (element.title == info.title && element.isActive) {
         vm.measure = element.measurement;
-        vm.measu = vm.measure.split(',');
-        vm.mlength = vm.measu.length;
+        vm.measu[vm.newinex] = vm.measure.split(',');
       }
     }, this);
 
@@ -112,7 +112,9 @@ function addProductController($resource, $state, $http) {
     }
 
     if (i < vm.order.length) {
-      orderdetails.browseimage = vm.order[i].image.resized.dataURL;
+      if(vm.order[i].image) {
+        orderdetails.browseimage = vm.order[i].image.resized.dataURL;
+      }
       orderdetails.timestamp = vm.orderdate2;
       orderdetails.customerid = vm.seleCust.id;
       orderdetails.customerName = vm.seleCust.customerName;
@@ -123,6 +125,10 @@ function addProductController($resource, $state, $http) {
       orderdetails.color = vm.order[i].color;
       orderdetails.customization = vm.order[i].customization;
       orderdetails.cloth = vm.order[i].cloth;
+      // vm.newobject = [];
+      // for (var index = 0; index < vm.measu[i].length; index++) {
+      //   vm.newobject.push(vm.measu[index] + " : " + vm.order[i].xyz[index]);
+      // }
       orderdetails.measurement = JSON.stringify(vm.order[i].xyz);
 
       orderdetails.$save(function (info) {

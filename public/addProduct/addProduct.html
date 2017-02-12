@@ -147,8 +147,8 @@
 											<h4 class="modal-title">Add Customization</h4>
 										</div>
 										<div class="modal-body">
-											<textarea style="margin-top: 0px;" ng-model="vm.order[$index].customization" class="customization-check-box-textarea" rows="4" cols="50" placeholder="Customization
-											Description" ></textarea>
+											<textarea style="margin-top: 0px;" ng-model="vm.order[$index].customization"  rows="4" cols="50" placeholder="Customization Description"
+											class="customization-check-box-textarea" ></textarea>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
@@ -199,7 +199,7 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<div ng-repeat="data in vm.measu">
+							<div ng-repeat="data in vm.measu[$index]">
 								<label>{{data}}</label>
 								<input style="width: 50%;" ng-model="vm.order[$parent.$index].xyz[$index]" class="measurement-input" name="measurement{{$index}}" required="required"
 									type="text" />

@@ -6,7 +6,7 @@ detailsController.$inject = ['$resource', '$stateParams'];
 function detailsController($resource, $stateParams) {
 
   var vm = this;
-  vm.arr=
+
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
     window.location = '#/login';
@@ -22,15 +22,5 @@ function detailsController($resource, $stateParams) {
     vm.order = info;
   });
 
-  measurement.query(function(info){
-    vm.order.forEach(function(e){
-      info.forEach(function(f){
-         if(e.type == f.title){
-           vm.type.push(JSON.parse(e.measurement));
-           vm.measure.push(f.measurement.split(","));
-         } 
-      })
-    });
-  })
 
 }

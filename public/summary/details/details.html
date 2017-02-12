@@ -35,30 +35,30 @@
 		<div class="customer-detail-page-contant">
 			 <div class="details-table">
 			<a href="#/customerdetails"> <input class="add-next-button" type="submit" value="Back"></a>
-			<h2 ng-hide="vm.measure.length" class="no-record-found-text">No record found </h2>
-			 	<table ng-show="vm.measure.length" class="table-part" border="0" cellspacing="0" cellpadding="0">
+			<h2 ng-hide="vm.order.length" class="no-record-found-text">No record found </h2>
+			 	<table ng-show="vm.order.length" class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
 						<th>
-								<font>Order Number</font>&nbsp
+								<font>Order Number</font>&nbsp;
 						</th>
 						<th>
-								<font>Cloth Type</font>&nbsp
+								<font>Cloth Type</font>&nbsp;
 						</th>
 						
 						<th>
-								<font>Color</font>&nbsp
+								<font>Color</font>&nbsp;
 						</th>
 						<th>
-								<font>Cloth Description</font>&nbsp
+								<font>Cloth Description</font>&nbsp;
 						</th>
 						<th>
-								<font>Measurement</font>&nbsp
+								<font>Measurement</font>&nbsp;
 						</th>
 						<th>
-								<font>Amount</font>&nbsp
+								<font>Amount</font>&nbsp;
 						</th>
 						<th>
-								<font>Status</font>&nbsp
+								<font>Status</font>&nbsp;
 						</th>
 					</tr>
 					<tr ng-repeat="data in vm.order" ng-class="{
@@ -71,14 +71,9 @@
 						<td class="top-purpal-color-row2">{{data.color}}</td>
 						<td class="top-purpal-color-row2">{{data.cloth}}</td>
 						<td class="top-purpal-color-row2">
-						<span ng-repeat="d in vm.type[$index]">
-						{{vm.measure[$parent.$index][$index] }}:{{d}}
-					</span>
-						<td class="top-purpal-color-row2">
-					{{vm.order[$index].amount}}
-
-					</td>
-					<td class="top-purpal-color-row2">{{data.status}}</td>
+						<span>{{data.measurement}}</span></td>
+						<td class="top-purpal-color-row2">{{vm.order[$index].amount}}</td>
+						<td class="top-purpal-color-row2">{{data.status}}</td>
 					</tr>
 
 				</table>

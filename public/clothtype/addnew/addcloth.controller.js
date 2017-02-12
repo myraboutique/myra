@@ -6,23 +6,12 @@ newclothController.$inject = ['$resource', '$scope'];
 function newclothController($resource, $scope) {
   var vm = this;
   vm.measurementstype = [] ;
-  // vm.src = [];
-  
-  // $scope.single = function (image) {
-  //   image.forEach(function (e) {
-  //     vm.src.push(e.resized.dataURL);
-  //   });
-  //   console.log(vm.src);
-  // };
-  
-
 
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
     window.location = '#/login';
   }
   vm.measurement = measuremet;
-  // vm.single = single;
   vm.selectMeasurement = [];
   vm.addClothtype = addClothtype;
   vm.isActive = true;
@@ -43,7 +32,7 @@ function newclothController($resource, $scope) {
         }
       }
       if (vm.flagformeasure == 0) {
-        vm.selectMeasurement.push(data);
+        vm.selectMeasurement.push(data.trim());
         vm.measu = "";
       }
       else {
@@ -52,25 +41,14 @@ function newclothController($resource, $scope) {
     }
   }
 
-    // function single(data) {
-    //   vm.data = data;
-    //   // console.log(vm.data);
-    //   vm.src.push(data);
-    //   // vm.measu = "";
-    //   console.log(vm.src);
-    // }
-
   function addClothtype(form) {
     vm.formSubmitted = true;
     if (form.$valid && vm.selectMeasurement.length > 0) {
       var newArr = vm.selectMeasurement.join(",");
-      // var newArr2 = vm.src.join("###");
       var clothtype = new Clothtype();
       clothtype.title = vm.title;
       clothtype.measurement = newArr;
       clothtype.isActive = vm.isActive;
-      // clothtype.image = newArr2;
-      //console.log(newArr2);
 
       clothtype.$save(function (info) {
         if (!info.status) {

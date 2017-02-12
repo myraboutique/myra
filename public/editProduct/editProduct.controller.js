@@ -65,7 +65,6 @@ function editProductController($resource, $state, $http) {
   });
 
   vm.update = function(info) {
-    console.log(vm.order.length);
     if(vm.order){
       for (var index = 0; index < info.length; index++) {
         vm.productwiserecord[index].browseimage = vm.order[index].image.resized.dataURL;
