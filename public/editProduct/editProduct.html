@@ -96,10 +96,10 @@
                       </tr>
                       <tr>
                         <td class="addproducttable-B">
-                          	<select ng-model="vm.productwiserecord[$index].subdesign" name="clothtype{{$index}}">
-															<!--<option value="">-- Please Select --</option>-->
+													<input ng-model="vm.productwiserecord[$index].subdesign" name="clothtype{{$index}}" disabled />
+                          	<!--<select ng-model="vm.productwiserecord[$index].subdesign" name="clothtype{{$index}}">
 															<option ng-repeat="data in vm.subdesign track by $index">{{data}}</option>
-														</select>
+														</select>-->
                         </td>
                       </tr>
 											<!--<tr>
@@ -128,7 +128,6 @@
 									          class="customization-check-box-textarea" rows="4" cols="50" ></textarea>
 
 														<a data-toggle="modal" data-target="#myModal2">Details</a>
-{{$index}}
 														<!-- Prompt Box For Add Details-->
 														<!-- Modal -->
 														<div class="modal fade" id="myModal2" role="dialog">
@@ -140,8 +139,8 @@
 																		<button type="button" class="close" data-dismiss="modal">&times;</button>
 																		<h4 class="modal-title">Add Customization</h4>
 																	</div>
-																	<div class="modal-body">{{$index}}
-																		<textarea style="margin-top: 0px;" ng-model="vm.productwiserecord[1].customization"  rows="4" cols="50" placeholder="Customization Description" class="customization-check-box-textarea"></textarea>
+																	<div class="modal-body">
+																		<textarea style="margin-top: 0px;" ng-model="vm.productwiserecord[$index].customization"  rows="4" cols="50" placeholder="Customization Description" class="customization-check-box-textarea"></textarea>
 																	</div>
 																	<div class="modal-footer">
 																		<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
