@@ -191,9 +191,9 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*" image="image2" resize-max-height="200"
-								resize-max-width="200" resize-quality="0.7" required="required" name="image123" />
-							<img ng-show="image2" ng-bind="vm.single(image2.resized.dataURL)" ng-src="{{image2.resized.dataURL}}" />
+							<input class="clothmeasurementinput" id="browseimage{{$index}}" type="file" accept="image/*" image="vm.order[$index].image" resize-max-height="200"
+								resize-max-width="200" resize-quality="0.7" required="required" name="browseimage{{$index}}" />
+							<img ng-show="vm.order[$index].image" ng-src="{{vm.order[$index].image.resized.dataURL}}" />
 						</td>
 					</tr>
 

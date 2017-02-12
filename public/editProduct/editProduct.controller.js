@@ -65,16 +65,23 @@ function editProductController($resource, $state, $http) {
   });
 
   vm.update = function(info) {
-    info.id = vm.records.id;
-
-    $http.put('/api/orderdetails',  info)
-      .then(
-      function (response) {
-        window.location = '#/editorder';
-      },
-      function (err) {
-         console.log(err);
-      });
+    console.log(vm.order.length);
+    if(vm.order){
+      for (var index = 0; index < info.length; index++) {
+        vm.productwiserecord[index].browseimage = vm.order[index].image.resized.dataURL;
+      }
+    }
+    console.log(info);
+    info.forEach(function(element) {
+      $http.put('/api/orderdetails', element)
+        .then(
+        function (response) {
+          window.location = '#/editorder';
+        },
+        function (err) {
+          console.log(err);
+        });
+      }, this);
   };
 }
 

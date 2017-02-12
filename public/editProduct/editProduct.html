@@ -75,7 +75,7 @@
                       <li></li>
                       <li></li>
                       <li>Remarks</li>
-                      <!--<li>Add Photo</li>-->
+                      <li>Add Photo</li>
                       <li></li>
                       <!--<li>Measurement</li>-->
                     </ul>
@@ -119,12 +119,38 @@
                       <tr>
                         <td class="addproducttable-B">
                           	<input ng-model="vm.productwiserecord[$index].color" type="text" />
+														<span ng-hide="true"></span>
                         </td>
                       </tr>
                       <tr>
                         <td class="addproducttable-B">
                           <textarea style="margin-top: 0px;" ng-model="vm.productwiserecord[$index].customization"
 									          class="customization-check-box-textarea" rows="4" cols="50" ></textarea>
+
+														<a data-toggle="modal" data-target="#myModal2">Details</a>
+{{$index}}
+														<!-- Prompt Box For Add Details-->
+														<!-- Modal -->
+														<div class="modal fade" id="myModal2" role="dialog">
+															<div class="modal-dialog">
+
+																<!-- Modal content-->
+																<div class="modal-content">
+																	<div class="modal-header">
+																		<button type="button" class="close" data-dismiss="modal">&times;</button>
+																		<h4 class="modal-title">Add Customization</h4>
+																	</div>
+																	<div class="modal-body">{{$index}}
+																		<textarea style="margin-top: 0px;" ng-model="vm.productwiserecord[1].customization"  rows="4" cols="50" placeholder="Customization Description" class="customization-check-box-textarea"></textarea>
+																	</div>
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!-- Prompt Box -->
+														
                         </td>
                       </tr>
                       <tr>
@@ -133,11 +159,14 @@
 								            name="clothdesc{{$index}}"></textarea>
                         </td>
                       </tr>
-                      <!--<tr>
-                        <td class="addproducttable-B">
-                          <input type="submit" value="Browse">
-                        </td>
-                      </tr>-->
+                      <tr>
+												<td class="addproducttable-B">
+													<input class="clothmeasurementinput" id="browseimage{{$index}}" type="file" accept="image/*" image="vm.order[$index].image" resize-max-height="200"
+														resize-max-width="200" resize-quality="0.7" required="required" name="browseimage{{$index}}" />
+													<img ng-show="vm.order[$index].image" ng-src="{{vm.order[$index].image.resized.dataURL}}" />
+													<img ng-hide="vm.order[$index].image"ng-src="{{vm.productwiserecord[$index].browseimage}}" />
+												</td>
+											</tr>
                       <!--<tr>
                         <td class="addproducttable-B">
 													<div>														
