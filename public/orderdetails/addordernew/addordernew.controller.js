@@ -20,18 +20,15 @@ function addordernewController($resource, $scope, $http) {
     window.location = '#/login';
   }
 
+  var myDate = new Date();
+  var month = myDate.getMonth() + 1;
+  vm.orderdate1 = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
+
   var customerdetails = $resource('/api/customerdetails');
-  var orderdetails = $resource('/api/orderdetails');
-  orderdetails.query(function(info) {
-    vm.orderidfromlastpage = info[info.length -1].timestamp;
-    vm.orderdate1 = info[info.length -1].orderdate;
-    vm.lastid = info[info.length -1].id;
-    // console.log(vm.lastid);
-  });
-  
+  var Orderdetails = $resource('/api/orderdetails');
   var addstatus = $resource('/api/addstatuses');
+  
   addstatus.query(function(info){
-    // console.log(info);
       vm.statusdata = info ;
   });
 
@@ -173,27 +170,46 @@ function addordernewController($resource, $scope, $http) {
 
 
 //=============================================================
-
+  var orderdetails = new Orderdetails();
   vm.updateOrder = function(info) {
+        console.log(info);
+        vm.temp = [];
+    for (var index = 0; index < vm.selectedOrder.length; index++) {
 
+        vm.data4=localStorage.getItem('vmorder' + index);
+        vm.temp[index] = JSON.parse(vm.data4);
 
-for (var index = 0; index < vm.selectedOrder.length; index++) {
-      info[index].orderdate = vm.orderdate;
-      info[index].id = vm.lastid;
-      vm.lastid--;
-      console.log(info[index]);
-      
-       $http.put('/api/orderdetails',  info[index])
-      .then(
-      function (response) {
-        swal("Record add successfully.");
-        window.location = '#/order';
-      },
-      function (err) {
-        console.log(err);
-      });  
-}
+        orderdetails.measurement = vm.temp[index].measurement;
+        orderdetails.customerName = vm.temp[index].customerName;
+        orderdetails.customerid = vm.temp[index].customerid;
+        orderdetails.timestamp = vm.temp[index].timestamp;
+        orderdetails.cloth = vm.temp[index].cloth;
+        orderdetails.color = vm.temp[index].color;
+        orderdetails.customization = vm.temp[index].customization;
+        if(vm.temp[index].image){
+        orderdetails.browseimage = vm.temp[index].image.dataURL;
+        }
+        orderdetails.material = vm.temp[index].materialtype.materialtype;
+        orderdetails.type = vm.temp[index].type.title;
+        orderdetails.subdesign = vm.temp[index].type2;
+        orderdetails.status = info[index].status;
+        orderdetails.alertday = info[index].alertday;
+        orderdetails.stitchingdate = info[index].stitchingdate;
+        orderdetails.deliverydate = info[index].deliverydate;
+        orderdetails.amount = info[index].amount;
+        orderdetails.orderdate = vm.orderdate1;
 
+        orderdetails.$save(function (info) {
+        // if (!info.status) {
+        //   swal("Recored Saved Successfully.");
+        //   window.location = '#/clothtype';
+        // }
+        // else {
+        //   vm.flag = true;
+        //   vm.status = info.status;
+        // }
+      });
+      localStorage.removeItem('vmorder' + index);
+    }
   }
-
 }

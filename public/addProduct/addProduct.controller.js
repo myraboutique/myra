@@ -5,7 +5,6 @@ addProductController.$inject = ['$resource', '$state', '$http'];
 
 function addProductController($resource, $state, $http) {
   var vm = this;
-  vm.pair = [];
 
   vm.clicked = function (info) {
     vm.order[vm.newinex].type2 = info;
@@ -15,8 +14,6 @@ function addProductController($resource, $state, $http) {
     console.log(index);
     vm.indexforpromptbox = index;
   };
-
-
 
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
@@ -29,7 +26,6 @@ function addProductController($resource, $state, $http) {
 
   vm.designSelect = designSelect;
   vm.submit = submit;
-  vm.submit2 = submit2;
   vm.final = final;
   vm.selectCustomer = selectCustomer;
 
@@ -38,6 +34,11 @@ function addProductController($resource, $state, $http) {
   var addmaterial = $resource('/api/addmaterial');
   var customerdetails = $resource('/api/customerdetails');
   var Orderdetails = $resource('/api/orderdetails');
+
+  Orderdetails.query(function (info) {
+    vm.temp = info[info.length -1].timestamp;
+    vm.pid = Number(vm.temp) + 1;
+  });
 
   measurement.query(function (info) {
     vm.type = info;
@@ -53,13 +54,7 @@ function addProductController($resource, $state, $http) {
 
   function selectCustomer(info) {
     vm.seleCust = info;
-    if (localStorage.getItem('addProductscustomer')) {
-      localStorage.removeItem('addProductscustomer');
-      localStorage.setItem('addProductscustomer', JSON.stringify(info));
-    }
-    else {
-      localStorage.setItem('addProductscustomer', JSON.stringify(info));
-    }
+    console.log(info);
   }
 
   function designSelect(info, index) {
@@ -83,39 +78,18 @@ function addProductController($resource, $state, $http) {
         vm.measu[vm.newinex] = vm.measure.split(',');
       }
     }, this);
-
-
-
-    //  vm.customer.forEach(function(element) {    
-    //     vm.measureval = JSON.parse(element.measurementsvalue);          
-    //   }, this);
-
-
-    // for (var index = 0; index < vm.mlength; index++) {
-    //   for (var indexx = 0; indexx < vm.measureval.length; indexx++) {
-    //       vm.order[index].xyz[indexx]=vm.measureval[indexx];
-    //       console.log(vm.order[index].xyz[indexx]);
-    //   }        
-    // }
   };
 
   function submit() {
     vm.items.push({});
   }
 
-  function submit2(info) {
-    vm.items.push({});
-    vm.pair[info + 1] = false;
-  }
 
 
-  var orderdetails = new Orderdetails();
-  var i = 0;
-
-  function final() {
+  function final(info) {
     vm.designs = [];
-    vm.order.forEach(function (element) {
-      console.log(element);
+    info.forEach(function (element) {
+//       console.log(element);
       vm.designs.push(element.type.title + " (" + element.type2 + ")");
     }, this);
 
@@ -127,33 +101,22 @@ function addProductController($resource, $state, $http) {
       localStorage.setItem('vmorder', JSON.stringify(vm.designs));
     }
 
-    if (i < vm.order.length) {
-      if(vm.order[i].image) {
-        orderdetails.browseimage = vm.order[i].image.resized.dataURL;
+    for (var index = 0; index < info.length; index++) {
+      info[index].timestamp = vm.pid;
+      info[index].customerid = vm.seleCust.id;
+      info[index].customerName = vm.seleCust.customerName;
+      
+      
+      if (localStorage.getItem('vmorder' + index)) {
+        localStorage.removeItem('vmorder' + index);
+        localStorage.setItem('vmorder' + index, JSON.stringify(info[index]));
       }
-      orderdetails.timestamp = vm.orderdate2;
-      orderdetails.customerid = vm.seleCust.id;
-      orderdetails.customerName = vm.seleCust.customerName;
-      orderdetails.orderdate = vm.orderdate1;
-      orderdetails.type = vm.order[i].type.title;
-      orderdetails.subdesign = vm.order[i].type2;
-      orderdetails.material = vm.order[i].materialtype.materialtype;
-      orderdetails.color = vm.order[i].color;
-      orderdetails.customization = vm.order[i].customization;
-      orderdetails.cloth = vm.order[i].cloth;
-      // vm.newobject = [];
-      // for (var index = 0; index < vm.measu[i].length; index++) {
-      //   vm.newobject.push(vm.measu[index] + " : " + vm.order[i].xyz[index]);
-      // }
-      orderdetails.measurement = JSON.stringify(vm.order[i].xyz);
-
-      orderdetails.$save(function (info) {
-        i++;
-        final();
-      });
-    } else {
-      window.location = '#/addordernew';
+      else {
+        localStorage.setItem('vmorder' + index, JSON.stringify(info[index]));
+      }
     }
+
+    window.location = '#/addordernew';
 
   }
 

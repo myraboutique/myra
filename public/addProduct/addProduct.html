@@ -14,14 +14,7 @@
 				<li><a href="#/customerdetails">Customers</a></li>
 				<li><a href="#/order" class="active">Orders</a></li>
 				<li><a href="#/alert">Alerts</a></li>
-				<li><a href="#/register">Settings</a>
-					<!--<ul>
-                        <li><a href='#/register'><span>Manage Users</span></a></li>
-                        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
-                        <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
-                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
-                    </ul>-->
-				</li>
+				<li><a href="#/register">Settings</a></li>
 				<li><a href="#/logout">Logout</a></li>
 			</ul>
 		</div>
@@ -50,7 +43,7 @@
 			<div class="form-box create-order-box">
 				<div class=" customer-detailsmain-box">
 					<label>Order by</label>
-					<select ng-model="vm.name" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer"
+					<select ng-model="temp" ng-change="vm.selectCustomer(temp)" ng-options="data as data.customerName for data in vm.customer"
 						name="customeruser">{{vm.name}}
 				 		<option value="">-- Please Select --</option>
 					</select>
@@ -220,7 +213,7 @@
 		</div>
 		<!-- Addproducttable Main Box End Here -->
 		<div class="submit-button">
-			<input type="submit" value="Save" ng-click="vm.final(orderform)" />
+			<input type="submit" value="Save" ng-click="vm.final(vm.order)" />
 		</div>
 	<!-- Main Contant Part End Here -->		
 	</div>
