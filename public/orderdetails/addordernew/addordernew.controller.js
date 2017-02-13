@@ -171,9 +171,10 @@ function addordernewController($resource, $scope, $http) {
 
 //=============================================================
   var orderdetails = new Orderdetails();
+
   vm.updateOrder = function(info) {
-        console.log(info);
-        vm.temp = [];
+    vm.temp = [];
+    
     for (var index = 0; index < vm.selectedOrder.length; index++) {
 
         vm.data4=localStorage.getItem('vmorder' + index);
