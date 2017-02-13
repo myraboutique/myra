@@ -115,7 +115,8 @@ function addProductController($resource, $state, $http) {
   function final() {
     vm.designs = [];
     vm.order.forEach(function (element) {
-      vm.designs.push(element.type.title);
+      console.log(element);
+      vm.designs.push(element.type.title + " (" + element.type2 + ")");
     }, this);
 
     if (localStorage.getItem('vmorder')) {
