@@ -30,12 +30,19 @@ function clothtypeController($resource,$state,$scope) {
   var measurement = $resource('/api/measurement');
   measurement.query(function(info){
     vm.type = info;
-    // console.log(vm.type);
+    vm.measure = [];
+    console.log(vm.type);
+
+    for (var index = 0; index < info.length; index++) {
+      
+    }
+
     // info.forEach(function (e){
-    //   vm.image = e.image.split('###');
-    //   vm.images.push(vm.image);
+    //   vm.mesu1 = e.measurement;
+    //   vm.mesu = vm.mesu1.split(',');
+    //   vm.measure.push(vm.mesu); 
     // });
-    // console.log(vm.images);
+    console.log(vm.measure);
   });
 
    function editpage(x)
