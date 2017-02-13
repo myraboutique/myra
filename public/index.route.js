@@ -6,7 +6,9 @@
   .config(routerConfig);
 
   function routerConfig($stateProvider, $urlRouterProvider) {
+    alert(' I was here ');
     $urlRouterProvider.otherwise('/login');
+    alert(' I was here too');
     $stateProvider
     .state('login', {
       url: '/login',
