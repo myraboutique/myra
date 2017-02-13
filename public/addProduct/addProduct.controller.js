@@ -10,6 +10,9 @@ function addProductController($resource, $state, $http) {
   vm.items = [{}];
   vm.order = [{}];
 
+  vm.clicked = function(info) {
+    vm.order[vm.newinex].type2=info;
+  };
 
   vm.designSelect = designSelect;
   vm.submit = submit;
@@ -52,6 +55,7 @@ function addProductController($resource, $state, $http) {
   }
 
   function designSelect(info) {
+
 
     addsubdesigns.query(function (subdesigns) {
       vm.subdesign = [];
