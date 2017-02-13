@@ -5,7 +5,7 @@
   .module('myra')
   .config(routerConfig);
 
-  function routerConfig($stateProvider, $urlRouterProvider ,$locationProvider) {
+  function routerConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
     $urlRouterProvider.otherwise('/login');
     $stateProvider
