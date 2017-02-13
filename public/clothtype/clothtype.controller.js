@@ -30,19 +30,13 @@ function clothtypeController($resource,$state,$scope) {
   var measurement = $resource('/api/measurement');
   measurement.query(function(info){
     vm.type = info;
-    vm.measure = [];
-    console.log(vm.type);
-
-    for (var index = 0; index < info.length; index++) {
-      
-    }
-
+    // console.log(vm.type);
     // info.forEach(function (e){
     //   vm.mesu1 = e.measurement;
     //   vm.mesu = vm.mesu1.split(',');
     //   vm.measure.push(vm.mesu); 
     // });
-    console.log(vm.measure);
+    // console.log(vm.measure);
   });
 
    function editpage(x)
