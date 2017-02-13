@@ -85,14 +85,24 @@ function addordernewController($resource, $scope, $http) {
       alertDay.setHours(0, 0, 0, 0, 0);
       var alertday = alertDay.getUTCDate() + '/' + alertDay.getUTCMonth() + '/' + alertDay.getUTCFullYear();
       vm.order[index].alertday = '';
+
+      //stitchingdate setring
+      var stitchingDay = new Date(a[2], a[1], a[0] - 4);
+      stitchingDay.setHours(0, 0, 0, 0, 0);
+      var stitchingday = stitchingDay.getUTCDate() + '/' + stitchingDay.getUTCMonth() + '/' + stitchingDay.getUTCFullYear();
+      vm.order[index].stitchingdate = '';
+
+      //stitchingdate setring
       console.log(vm.order[index].alertday);
       if (deliveryDate < orderDate) {
         vm.date1 = true;
         vm.order[index].alertday = alertday;
+        vm.order[index].stitchingdate = stitchingday;
         alertchange(orderDate, deliveryDate, vm.order[index].alertday);
       } else {
         vm.date1 = false;
         vm.order[index].alertday = alertday;
+        vm.order[index].stitchingdate = stitchingday;
         alertchange(orderDate, deliveryDate, vm.order[index].alertday);
       }
     }

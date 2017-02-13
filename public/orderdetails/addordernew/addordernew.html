@@ -80,7 +80,7 @@
 									<th>Amount</th>
 									<th>Status</th>
 								</tr>
-								<tr ng-repeat="data in vm.selectedOrder">
+								<tr ng-repeat="data in vm.selectedOrder track by $index">
 									<td style="width: 200px;">{{data}}</td>
 									<td >
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
