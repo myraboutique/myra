@@ -7,7 +7,7 @@
 
   function routerConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
-    //$urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/login');
     $stateProvider
     .state('login', {
       url: '/login',
