@@ -8,7 +8,10 @@ function editProductController($resource, $state, $http) {
 
   vm.data1 = localStorage.getItem('orderdetailsnew');
   vm.records = JSON.parse(vm.data1);
-  console.log(vm.records);
+
+  vm.data2 = localStorage.getItem('customerdetailsnew');
+  vm.records2 = JSON.parse(vm.data2);
+  // console.log(vm.records);
 
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {

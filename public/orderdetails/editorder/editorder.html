@@ -43,7 +43,7 @@
 					<label>Order Date </label><strong>{{vm.records.orderdate}}</strong>
 				</div>
 
-                <div class=" customer-detailsmain-box2"><label>Order Status </label><strong></strong></div>
+				<div class=" customer-detailsmain-box2"><label>Order Status </label>&nbsp;<strong>{{vm.productwiserecord[0].status}}</strong></div>
 			</div>
 
                 <div class="form-box create-order-box">
@@ -74,7 +74,7 @@
 									<th>Status</th>
 								</tr>
 								<tr ng-repeat="i in vm.productwiserecord">
-									<td style="width: 200px"><a href="#/editProduct"><b>{{vm.productwiserecord[$index].type}}</b></a></td>
+									<td style="width: 200px"><a href="#/editProduct"><b>{{vm.productwiserecord[$index].type + " (" + vm.productwiserecord[$index].subdesign + ")"}}</b></a></td>
 									<td>
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
 										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.productwiserecord[$index].deliverydate" ng-change="vm.change(vm.records.orderdate,$index)"
