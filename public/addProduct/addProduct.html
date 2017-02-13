@@ -133,9 +133,9 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<a data-toggle="modal" data-target="#myModal2">Details</a>
+							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)">Details</a>
 
-							<!-- Prompt Box For Add Details-->
+							<!-- Prompt Box For Add Customization-->
 							<!-- Modal -->
 							<div class="modal fade" id="myModal2" role="dialog">
 								<div class="modal-dialog">
@@ -147,7 +147,7 @@
 											<h4 class="modal-title">Add Customization</h4>
 										</div>
 										<div class="modal-body">
-											<textarea style="margin-top: 0px;" ng-model="vm.order[$index].customization"  rows="4" cols="50" placeholder="Customization Description"
+											<textarea style="margin-top: 0px;" ng-model="vm.order[vm.indexforpromptbox].customization"  rows="4" cols="50" placeholder="Customization Description"
 											class="customization-check-box-textarea" ></textarea>
 										</div>
 										<div class="modal-footer">
@@ -162,7 +162,7 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<a data-toggle="modal" data-target="#myModal3">Comments</a>
+							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)">Comments</a>
 							<!-- Prompt Box For Add Details-->
 							<!-- Modal -->
 							<div class="modal fade" id="myModal3" role="dialog">
@@ -175,7 +175,7 @@
 											<h4 class="modal-title">Add Summary</h4>
 										</div>
 										<div class="modal-body">
-											<textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.order[$index].cloth" class="customization-check-box-textarea" name="clothdesc{{$index}}"
+											<textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.order[vm.indexforpromptbox].cloth" class="customization-check-box-textarea" name="clothdesc{{$index}}"
 												placeholder="Summary">
 											</textarea>
 										</div>
