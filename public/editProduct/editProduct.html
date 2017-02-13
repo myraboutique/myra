@@ -122,40 +122,61 @@
                         </td>
                       </tr>
                       <tr>
-                        <td class="addproducttable-B">
-                          <textarea style="margin-top: 0px;" ng-model="vm.productwiserecord[$index].customization"
-									          class="customization-check-box-textarea" rows="4" cols="50" disabled></textarea>
+                     
+													<td class="addproducttable-B">
+							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)">Details</a>
 
-														<!--<a data-toggle="modal" data-target="#myModal2">Details</a>-->
-														<!-- Prompt Box For Add Details-->
-														<!-- Modal -->
-														<div class="modal fade" id="myModal2" role="dialog">
-															<div class="modal-dialog">
+							<!-- Prompt Box For Add Customization-->
+							<!-- Modal -->
+							<div class="modal fade" id="myModal2" role="dialog">
+								<div class="modal-dialog">
 
-																<!-- Modal content-->
-																<div class="modal-content">
-																	<div class="modal-header">
-																		<button type="button" class="close" data-dismiss="modal">&times;</button>
-																		<h4 class="modal-title">Add Customization</h4>
-																	</div>
-																	<div class="modal-body">
-																		<textarea style="margin-top: 0px;" ng-model="vm.productwiserecord[$index].customization"  rows="4" cols="50" placeholder="Customization Description" class="customization-check-box-textarea"></textarea>
-																	</div>
-																	<div class="modal-footer">
-																		<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<!-- Prompt Box -->
-														
-                        </td>
+									<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">Add Customization</h4>
+										</div>
+										<div class="modal-body">
+											<textarea style="margin-top: 0px;" ng-model="vm.productwiserecord[vm.indexforpromptbox].customization"  rows="4" cols="50" placeholder="Customization Description"
+											class="customization-check-box-textarea" disabled ></textarea>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Prompt Box -->
+						</td>
                       </tr>
                       <tr>
                         <td class="addproducttable-B">
-                          <textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.productwiserecord[$index].cloth" class="customization-check-box-textarea"
-								            name="clothdesc{{$index}}" disabled></textarea>
-                        </td>
+							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)">Comments</a>
+							<!-- Prompt Box For Add Details-->
+							<!-- Modal -->
+							<div class="modal fade" id="myModal3" role="dialog">
+								<div class="modal-dialog">
+
+									<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">Add Summary</h4>
+										</div>
+										<div class="modal-body">
+											<textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.productwiserecord[vm.indexforpromptbox].cloth" class="customization-check-box-textarea" name="clothdesc{{$index}}"
+												placeholder="Summary" disabled>
+											</textarea>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Prompt Box -->
+						</td>
                       </tr>
                       <tr>
 												<td class="addproducttable-B">

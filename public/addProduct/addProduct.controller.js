@@ -11,10 +11,12 @@ function addProductController($resource, $state, $http) {
     vm.order[vm.newinex].type2 = info;
   };
 
-  vm.inexforprompt = function (index) {
-  //  console.log(index);
-   vm.indexforpromptbox = index;
- };
+   vm.inexforprompt = function (index) {
+    console.log(index);
+    vm.indexforpromptbox = index;
+  };
+
+
 
   var myDate = new Date();
   var month = myDate.getMonth() + 1;

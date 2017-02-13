@@ -5,7 +5,10 @@ editProductController.$inject = ['$resource', '$state', '$http'];
 
 function editProductController($resource, $state, $http) {
   var vm = this;
-
+     vm.inexforprompt = function (index) {
+    console.log(index);
+    vm.indexforpromptbox = index;
+  };
   vm.data1 = localStorage.getItem('orderdetailsnew');
   vm.records = JSON.parse(vm.data1);
 
