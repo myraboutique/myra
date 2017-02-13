@@ -63,9 +63,9 @@
       <input id="mtype" name="measurementtype" type="text" ng-minlength="2" ng-maxlength="50" ng-model="vm.data.name"  placeholder="Measurement Type" required/>
 
       	<span ng-show="frm.measurementtype.$error.required && (frm.measurementtype.$dirty || vm.formSubmitted)">Measurement name is required.</span>
-        	<span ng-show="frm.measurementtype.$error.minlength && (frm.measurementtype.$dirty || vm.formSubmitted)">Measurement name length must be greater than 2 characters.</span>
-          	<span ng-show="frm.measurementtype.$error.maxlength && (frm.measurementtype.$dirty || vm.formSubmitted)">Measurement name must be less than 50 characters.</span>
-			<span ng-if="vm.flag">This Measurement already exists.</span>
+        	<span ng-show="frm.measurementtype.$error.minlength && (frm.measurementtype.$dirty || vm.formSubmitted)">Measurement name length must be greater than 02 characters.</span>
+          	<span ng-show="frm.measurementtype.$error.maxlength && (frm.measurementtype.$dirty || vm.formSubmitted)">Measurement name must be less than 20 characters.</span>
+			<span ng-if="vm.flag">This Measurement is already exists.</span>
       </div>
 
      <div class="form-box">

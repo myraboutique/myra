@@ -64,16 +64,16 @@
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Username</label>
 			  <input id=""  focus="true" name="username" ng-minlength="3" ng-maxlength="20" required type="text" ng-model="vm.username" placeholder="Username"/>
 				<span ng-show="userform.username.$error.required && (userform.username.$dirty || vm.formSubmitted)">Username is required.</span>
-			  <span ng-show="userform.username.$error.minlength && (userform.username.$dirty || vm.formSubmitted)">Username should be greater than 3 characters.</span>
-				<span ng-show="userform.username.$error.maxlength && (userform.username.$dirty || vm.formSubmitted)">Username should not be less than 20 characters.</span>						
+			  <span ng-show="userform.username.$error.minlength && (userform.username.$dirty || vm.formSubmitted)">Username must be greater than 02 characters.</span>
+				<span ng-show="userform.username.$error.maxlength && (userform.username.$dirty || vm.formSubmitted)">Username must be less than 20 characters.</span>						
 		   </div>
 			 <div class="form-box">
 
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Full Name</label>
 			  <input id=""  focus="true" name="name" ng-minlength="3" ng-maxlength="20" required type="text" ng-model="vm.name" placeholder="Full Name"/>
-				<span ng-show="userform.name.$error.required && (userform.name.$dirty || vm.formSubmitted)">Full is required.</span>
-			  <span ng-show="userform.name.$error.minlength && (userform.name.$dirty || vm.formSubmitted)">Full should be greater than 3 characters.</span>
-				<span ng-show="userform.name.$error.maxlength && (userform.name.$dirty || vm.formSubmitted)">Full should not be less than 20 characters.</span>						
+				<span ng-show="userform.name.$error.required && (userform.name.$dirty || vm.formSubmitted)">Full Name is required.</span>
+			  <span ng-show="userform.name.$error.minlength && (userform.name.$dirty || vm.formSubmitted)">Full Name must be greater than 02 characters.</span>
+				<span ng-show="userform.name.$error.maxlength && (userform.name.$dirty || vm.formSubmitted)">Full Name must be less than 20 characters.</span>						
 		   </div>
 
 			 <div class="form-box">
@@ -101,8 +101,8 @@
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Password</label>
 			     <input id="" name="password"  ng-minlength="3" ng-maxlength="20" required="required" ng-change="vm.confirm()"  type="password" placeholder="Password" ng-model="vm.password1"/>
        	<span ng-show="userform.password.$error.required && (userform.password.$dirty || vm.formSubmitted)">Password is required.</span>
-				 	<span ng-show="userform.password.$error.minlength && (userform.password.$dirty || vm.formSubmitted)">Password should not be less than 3 characters.</span>
-				<span ng-show="userform.password.$error.maxlength && (userform.password.$dirty || vm.formSubmitted)">Password should not be greater than 20 characters.</span>						
+				 	<span ng-show="userform.password.$error.minlength && (userform.password.$dirty || vm.formSubmitted)">Password must be greater than 02 characters.</span>
+				<span ng-show="userform.password.$error.maxlength && (userform.password.$dirty || vm.formSubmitted)">Password must be less than 20 characters.</span>						
 		   </div>
 
 			  <div class="form-box">
@@ -125,8 +125,8 @@
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Address</label>
 			  <textarea rows="4" cols="50"  placeholder="Address" ng-minlength="2" ng-maxlength="250" ng-model="vm.address" name="address" required></textarea>
 			 	<span ng-show="userform.address.$error.required && (userform.address.$dirty || vm.formSubmitted)">Address is required.</span>
-				 	<span ng-show="userform.address.$error.minlength && (userform.address.$dirty || vm.formSubmitted)">Address should not be less than 02 characters.</span>
-				<span ng-show="userform.address.$error.maxlength && (userform.address.$dirty || vm.formSubmitted)">Address should not be greater than 250 characters.</span>						
+				 	<span ng-show="userform.address.$error.minlength && (userform.address.$dirty || vm.formSubmitted)">Address must be greater than 02 characters.</span>
+				<span ng-show="userform.address.$error.maxlength && (userform.address.$dirty || vm.formSubmitted)">Address must be less than 250 characters.</span>						
 		   </div>
 
         <div class="register-btm-btn-box">

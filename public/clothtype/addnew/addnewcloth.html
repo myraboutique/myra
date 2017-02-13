@@ -63,10 +63,13 @@
 			 <div class="form-box">
 
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Design</label>
-			  <input id="" focus="true" name="style" required="required" type="text" placeholder="Design" ng-model="vm.title"/>
+			  <input id="" focus="true" name="style" required="required" ng-minlength="2" ng-maxlength="20" type="text" placeholder="Design" ng-model="vm.title"/>
 
 					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Design is required.</span>
-          <span ng-show="vm.flag">This style already exists.</span>
+					<span ng-show="form.style.$error.minlength && (form.style.$dirty || vm.formSubmitted)">Design name length must be greater than 02 characters.</span>
+          	         <span ng-show="form.style.$error.maxlength && (form.style.$dirty || vm.formSubmitted)">Design name length must be less than 02 characters.</span>
+   
+          <span ng-show="vm.flag">This design is already exists.</span>
 
        </div>
 

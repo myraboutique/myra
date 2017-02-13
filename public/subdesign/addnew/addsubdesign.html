@@ -64,12 +64,12 @@
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Style</label>
 
-					  	<input ng-model="vm.subdesigns" name="style"  type="text" required="required" class="clothmeasurementinput" >
+					  	<input ng-model="vm.subdesigns" name="style" ng-minlength="02" ng-maxlength="20" type="text" required="required" class="clothmeasurementinput" />
       					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style name is required.</span>
-						<span ng-show="form.style.$error.minlength && (form.style.$dirty || vm.formSubmitted)">Style name length must be greater than 3 characters.</span>
+						<span ng-show="form.style.$error.minlength && (form.style.$dirty || vm.formSubmitted)">Style name length must be greater than 02 characters.</span>
           				<span ng-show="form.style.$error.maxlength && (form.style.$dirty || vm.formSubmitted)">Style name must be less than 20 characters.</span>
 						<span ng-show="vm.flag">This Style is already exists.</span>
-						</input>
+					
 						<!--<strong class="clothaddbutton"><a href="" ng-click="vm.subdesign(vm.subdesi,image2)">Add</a></strong>
 				<span ng-show="vm.flagformeasure">This Sub Design already added.</span>-->
      

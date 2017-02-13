@@ -61,9 +61,12 @@
 
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em> Design</label>
-			  <input id="" name="style" required="required" type="text" placeholder="Style" ng-model="vm.data.title"/>
-					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Design is required</span>
-					<span ng-if="vm.flag">This Design already exits.</span>
+			  <input id="" name="style" required="required" type="text" ng-minlength="02" ng-maxlength="20" placeholder="Style" ng-model="vm.data.title"/>
+					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Design is required.</span>
+					<span ng-show="form.style.$error.minlength && (form.style.$dirty || vm.formSubmitted)">Design name length must be greater than 02 characters.</span>
+          	         <span ng-show="form.style.$error.maxlength && (form.style.$dirty || vm.formSubmitted)">Design name length must be less than 02 characters.</span>
+  
+					<span ng-if="vm.flag">This Design is already exits.</span>
 		   </div>
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em> Measurement</label>
