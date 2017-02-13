@@ -5,10 +5,16 @@ addProductController.$inject = ['$resource', '$state', '$http'];
 
 function addProductController($resource, $state, $http) {
   var vm = this;
+  vm.pair = [];
 
   vm.clicked = function (info) {
     vm.order[vm.newinex].type2 = info;
   };
+
+  vm.inexforprompt = function (index) {
+  //  console.log(index);
+   vm.indexforpromptbox = index;
+ };
 
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
@@ -21,6 +27,7 @@ function addProductController($resource, $state, $http) {
 
   vm.designSelect = designSelect;
   vm.submit = submit;
+  vm.submit2 = submit2;
   vm.final = final;
   vm.selectCustomer = selectCustomer;
 
@@ -90,9 +97,15 @@ function addProductController($resource, $state, $http) {
     // }
   };
 
-  function submit(info) {
+  function submit() {
     vm.items.push({});
   }
+
+  function submit2(info) {
+    vm.items.push({});
+    vm.pair[info + 1] = false;
+  }
+
 
   var orderdetails = new Orderdetails();
   var i = 0;

@@ -88,10 +88,10 @@
 
                       <tr>
                         <td class="addproducttable-B">
-													<select ng-model="vm.productwiserecord[$index].type" name="clothtype{{$index}}" >
-													<!--<option value="">-- Please Select --</option>-->
+													<input ng-model="vm.productwiserecord[$index].type" name="clothtype{{$index}}" disabled />
+													<!--<select ng-model="vm.productwiserecord[$index].type" name="clothtype{{$index}}" >
 													<option ng-repeat="data in vm.type">{{data.title}}</option>
-													</select>
+													</select>-->
                         </td>
                       </tr>
                       <tr>
@@ -109,25 +109,24 @@
 											</tr>-->
                       <tr>
                         <td class="addproducttable-B">
-													<select ng-model="vm.productwiserecord[$index].material" name="material{{$index}}">
-														<!--<option value="">-- Please Select --</option>-->
+													<input ng-model="vm.productwiserecord[$index].material" name="clothtype{{$index}}" disabled />
+													<!--<select ng-model="vm.productwiserecord[$index].material" name="material{{$index}}">
 														<option ng-repeat="data in vm.material track by $index">{{data.materialtype}}</option>
-														</select>
-													</select>
+														</select>-->
                         </td>
                       </tr>
                       <tr>
                         <td class="addproducttable-B">
-                          	<input ng-model="vm.productwiserecord[$index].color" type="text" />
+                          	<input ng-model="vm.productwiserecord[$index].color" type="text" disabled/>
 														<span ng-hide="true"></span>
                         </td>
                       </tr>
                       <tr>
                         <td class="addproducttable-B">
                           <textarea style="margin-top: 0px;" ng-model="vm.productwiserecord[$index].customization"
-									          class="customization-check-box-textarea" rows="4" cols="50" ></textarea>
+									          class="customization-check-box-textarea" rows="4" cols="50" disabled></textarea>
 
-														<a data-toggle="modal" data-target="#myModal2">Details</a>
+														<!--<a data-toggle="modal" data-target="#myModal2">Details</a>-->
 														<!-- Prompt Box For Add Details-->
 														<!-- Modal -->
 														<div class="modal fade" id="myModal2" role="dialog">
@@ -155,14 +154,14 @@
                       <tr>
                         <td class="addproducttable-B">
                           <textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.productwiserecord[$index].cloth" class="customization-check-box-textarea"
-								            name="clothdesc{{$index}}"></textarea>
+								            name="clothdesc{{$index}}" disabled></textarea>
                         </td>
                       </tr>
                       <tr>
 												<td class="addproducttable-B">
-													<input class="clothmeasurementinput" id="browseimage{{$index}}" type="file" accept="image/*" image="vm.order[$index].image" resize-max-height="200"
+													<!--<input class="clothmeasurementinput" id="browseimage{{$index}}" type="file" accept="image/*" image="vm.order[$index].image" resize-max-height="200"
 														resize-max-width="200" resize-quality="0.7" required="required" name="browseimage{{$index}}" />
-													<img ng-show="vm.order[$index].image" ng-src="{{vm.order[$index].image.resized.dataURL}}" />
+													<img ng-show="vm.order[$index].image" ng-src="{{vm.order[$index].image.resized.dataURL}}" />-->
 													<img ng-hide="vm.order[$index].image"ng-src="{{vm.productwiserecord[$index].browseimage}}" />
 												</td>
 											</tr>
@@ -188,9 +187,9 @@
 
 
 				</div>
-						<div class="submit-button">
+						<!--<div class="submit-button">
 							<input type="submit" value="Update" ng-click="vm.update(vm.productwiserecord)" />
-						</div>
+						</div>-->
 			
 			<!-- Left Form Section End Here -->
 
