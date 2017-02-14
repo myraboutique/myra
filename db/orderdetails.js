@@ -27,7 +27,7 @@ module.exports = (function () {
             color: req.body.color,
             customization: req.body.customization,
             cloth: req.body.cloth,
-            deliverydate: req.body.date,
+            deliverydate: req.body.deliverydate,
             alertday: req.body.alertday,
             amount: req.body.amount,
             orderdate: req.body.orderdate,

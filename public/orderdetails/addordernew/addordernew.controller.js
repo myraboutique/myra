@@ -5,6 +5,7 @@ addordernewController.$inject = ['$resource', '$scope','$http'];
 
 function addordernewController($resource, $scope, $http) {
   var vm = this;
+  vm.temp = [];
 
   vm.data1=localStorage.getItem('addProductscustomer');
   vm.addProductscustomer = JSON.parse(vm.data1);
@@ -14,6 +15,13 @@ function addordernewController($resource, $scope, $http) {
   
   vm.data3=localStorage.getItem('customerdetailsnew');
   vm.customerdetailsnew = JSON.parse(vm.data3);
+
+  for (var index = 0; index < vm.selectedOrder.length; index++) {
+
+    vm.data4=localStorage.getItem('vmorder' + index);
+    vm.temp[index] = JSON.parse(vm.data4);
+
+  }
 
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
@@ -173,12 +181,12 @@ function addordernewController($resource, $scope, $http) {
   var orderdetails = new Orderdetails();
 
   vm.updateOrder = function(info) {
-    vm.temp = [];
+    // vm.temp = [];
     
     for (var index = 0; index < vm.selectedOrder.length; index++) {
 
-        vm.data4=localStorage.getItem('vmorder' + index);
-        vm.temp[index] = JSON.parse(vm.data4);
+        // vm.data4=localStorage.getItem('vmorder' + index);
+        // vm.temp[index] = JSON.parse(vm.data4);
 
         orderdetails.measurement = vm.temp[index].measurement;
         orderdetails.customerName = vm.temp[index].customerName;
@@ -188,7 +196,7 @@ function addordernewController($resource, $scope, $http) {
         orderdetails.color = vm.temp[index].color;
         orderdetails.customization = vm.temp[index].customization;
         if(vm.temp[index].image){
-        orderdetails.browseimage = vm.temp[index].image.dataURL;
+          orderdetails.browseimage = vm.temp[index].image.dataURL;
         }
         orderdetails.material = vm.temp[index].materialtype.materialtype;
         orderdetails.type = vm.temp[index].type.title;
@@ -200,6 +208,8 @@ function addordernewController($resource, $scope, $http) {
         orderdetails.amount = info[index].amount;
         orderdetails.orderdate = vm.orderdate1;
 
+        console.log(orderdetails);
+
         orderdetails.$save(function (info) {
         // if (!info.status) {
         //   swal("Recored Saved Successfully.");
@@ -210,7 +220,7 @@ function addordernewController($resource, $scope, $http) {
         //   vm.status = info.status;
         // }
       });
-      localStorage.removeItem('vmorder' + index);
+      // localStorage.removeItem('vmorder' + index);
     }
   }
 }
