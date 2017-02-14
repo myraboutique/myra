@@ -50,18 +50,16 @@
 
                 <div class="form-box create-order-box">
       						<div class=" customer-detailsmain-box">
-      							<label>Order by</label>
-      							<select ng-model="vm.records.customerName" name="customeruser">
-											<!--<option value="">-- Please Select --</option>-->
+      							<label>Order by</label>&nbsp;{{vm.records.customerName}}
+      							<!--<select ng-model="vm.records.customerName" name="customeruser">
 											<option ng-repeat="data in vm.customer">{{data.customerName}}</option>
-										</select>
-						</select>
+										</select>-->
 
       							<!--<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>-->
       						</div>
 
-									<div class=" customer-detailsmain-box1"><label>Contact Number </label><strong>{{vm.customer.mobileNumber}}</strong></div>
-      						<div class=" customer-detailsmain-box2"><label>Address </label><strong>{{vm.customer.address}}</strong></div>
+									<div class=" customer-detailsmain-box1"><label>Contact Number </label>&nbsp;<strong>{{vm.records2.mobileNumber}}</strong></div>
+      						<div class=" customer-detailsmain-box2"><label>Address </label>&nbsp;<strong>{{vm.records2.address}}</strong></div>
       			 </div>
 
                  <div class="addproducttable-main-box">
@@ -72,12 +70,9 @@
                       <li>Material Type</li>
                       <li>Color Code</li>
                       <li>Customization</li>
-                      <li></li>
-                      <li></li>
                       <li>Remarks</li>
                       <li>Add Photo</li>
-                      <li></li>
-                      <!--<li>Measurement</li>-->
+                      <li>Measurement</li>
                     </ul>
                    </div>
 
@@ -88,18 +83,18 @@
 
                       <tr>
                         <td class="addproducttable-B">
-													<input ng-model="vm.productwiserecord[$index].type" name="clothtype{{$index}}" disabled />
-													<!--<select ng-model="vm.productwiserecord[$index].type" name="clothtype{{$index}}" >
+													<!--<input ng-model="vm.productwiserecord[$index].type" name="clothtype{{$index}}" disabled />-->
+													<select ng-model="vm.productwiserecord[$index].type" name="clothtype{{$index}}" >
 													<option ng-repeat="data in vm.type">{{data.title}}</option>
-													</select>-->
+													</select>
                         </td>
                       </tr>
                       <tr>
                         <td class="addproducttable-B">
-													<input ng-model="vm.productwiserecord[$index].subdesign" name="clothtype{{$index}}" disabled />
-                          	<!--<select ng-model="vm.productwiserecord[$index].subdesign" name="clothtype{{$index}}">
+													<!--<input ng-model="vm.productwiserecord[$index].subdesign" name="clothtype{{$index}}" disabled />-->
+                          	<select ng-model="vm.productwiserecord[$index].subdesign" name="clothtype{{$index}}">
 															<option ng-repeat="data in vm.subdesign track by $index">{{data}}</option>
-														</select>-->
+														</select>
                         </td>
                       </tr>
 											<!--<tr>
@@ -109,15 +104,15 @@
 											</tr>-->
                       <tr>
                         <td class="addproducttable-B">
-													<input ng-model="vm.productwiserecord[$index].material" name="clothtype{{$index}}" disabled />
-													<!--<select ng-model="vm.productwiserecord[$index].material" name="material{{$index}}">
+													<!--<input ng-model="vm.productwiserecord[$index].material" name="clothtype{{$index}}" disabled />-->
+													<select ng-model="vm.productwiserecord[$index].material" name="material{{$index}}">
 														<option ng-repeat="data in vm.material track by $index">{{data.materialtype}}</option>
-														</select>-->
+														</select>
                         </td>
                       </tr>
                       <tr>
                         <td class="addproducttable-B">
-                          	<input ng-model="vm.productwiserecord[$index].color" type="text" disabled/>
+                          	<input ng-model="vm.productwiserecord[$index].color" type="text"/>
 														<span ng-hide="true"></span>
                         </td>
                       </tr>
@@ -180,20 +175,16 @@
                       </tr>
                       <tr>
 												<td class="addproducttable-B">
-													<!--<input class="clothmeasurementinput" id="browseimage{{$index}}" type="file" accept="image/*" image="vm.order[$index].image" resize-max-height="200"
+													<input class="clothmeasurementinput" id="browseimage{{$index}}" type="file" accept="image/*" image="vm.order[$index].image" resize-max-height="200"
 														resize-max-width="200" resize-quality="0.7" required="required" name="browseimage{{$index}}" />
-													<img ng-show="vm.order[$index].image" ng-src="{{vm.order[$index].image.resized.dataURL}}" />-->
+													<img ng-show="vm.order[$index].image" ng-src="{{vm.order[$index].image.resized.dataURL}}" />
 													<img ng-hide="vm.order[$index].image"ng-src="{{vm.productwiserecord[$index].browseimage}}" height="200" width="200"/>
 												</td>
 											</tr>
-                      <!--<tr>
+                      <tr>
                         <td class="addproducttable-B">
-													<div>														
-														<label ng-repeat="data in vm.measu">{{data}}</label>
-														<input ng-repeat="data in vm.measu" style="width: 50%;" ng-model="" class="measurement-input" name="measurement{{$index}}" type="text" />
-													</div>
                         </td>
-                      </tr>-->
+                      </tr>
                       <!--<tr>
                         <td class="addproducttable-B">
                           <div class="addproducttable-Add-BTN add-pair-box"> <input type="submit" value="Add Pair"></div>
@@ -208,9 +199,9 @@
 
 
 				</div>
-						<!--<div class="submit-button">
+						<div class="submit-button">
 							<input type="submit" value="Update" ng-click="vm.update(vm.productwiserecord)" />
-						</div>-->
+						</div>
 			
 			<!-- Left Form Section End Here -->
 

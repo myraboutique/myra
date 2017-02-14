@@ -21,9 +21,6 @@ function editProductController($resource, $state, $http) {
     window.location = '#/login';
   }
 
-  vm.data1 = localStorage.getItem('orderdetailsnew');
-  vm.records = JSON.parse(vm.data1);
-
   var customerdetails = $resource('/api/customerdetails');
   customerdetails.query(function (info) {
     vm.customer = info;

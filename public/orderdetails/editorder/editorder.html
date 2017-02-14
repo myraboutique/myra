@@ -74,7 +74,12 @@
 									<th>Status</th>
 								</tr>
 								<tr ng-repeat="i in vm.productwiserecord">
-									<td style="width: 200px"><a href="#/editProduct"><b>{{vm.productwiserecord[$index].type + " (" + vm.productwiserecord[$index].subdesign + ")"}}</b></a></td>
+									<td style="width: 200px">
+										<a href="#/editProduct">
+											<b>{{vm.productwiserecord[$index].type + " (" + vm.productwiserecord[$index].subdesign + ")"}}</b>
+										</a>
+										<img ng-src="{{vm.productwiserecord[$index].browseimage}}" height="50" width="50"/>
+									</td>
 									<td>
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
 										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.productwiserecord[$index].deliverydate" ng-change="vm.change(vm.records.orderdate,$index)"

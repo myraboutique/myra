@@ -13,8 +13,8 @@
 		<div class="navbar">
 			<ul>
 				<li><a href="#/home">Home</a></li>
-				<li><a href="#/customerdetails">Customer Details</a></li>
-				<li><a href="#/order" class="active">Create Order</a></li>
+				<li><a href="#/customerdetails">Customers</a></li>
+				<li><a href="#/order" class="active">Orders</a></li>
 				<li><a href="#/alert">Alerts</a></li>
 				<li><a href="#/register">Settings</a>
 					<!--<ul>
@@ -39,7 +39,7 @@
 
 					<div class="form-box">
 						<div class=" customer-detailsmain-box">
-							<label>Order #</label>{{vm.orderidfromlastpage}}
+							<label>Order #</label>{{vm.temp[0].timestamp}}
 						</div>
 						<div class=" customer-detailsmain-box1">
 							<label>Order Date </label><strong>{{vm.orderdate1}}</strong>

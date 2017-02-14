@@ -35,9 +35,18 @@ function addProductController($resource, $state, $http) {
   var customerdetails = $resource('/api/customerdetails');
   var Orderdetails = $resource('/api/orderdetails');
 
+  function pad(number, length) {
+    var str = '' + number;
+    while (str.length < length) {
+        str = '0' + str;
+    }
+    return str;
+  }
+  
   Orderdetails.query(function (info) {
     vm.temp = info[info.length -1].timestamp;
-    vm.pid = Number(vm.temp) + 1;
+    vm.pid1 = Number(vm.temp) + 1;
+    vm.pid = pad(vm.pid1,5);
   });
 
   measurement.query(function (info) {
@@ -54,7 +63,13 @@ function addProductController($resource, $state, $http) {
 
   function selectCustomer(info) {
     vm.seleCust = info;
-    console.log(info);
+    if (localStorage.getItem('addProductscustomer')) {
+     localStorage.removeItem('addProductscustomer');
+     localStorage.setItem('addProductscustomer', JSON.stringify(info));
+   }
+   else {
+     localStorage.setItem('addProductscustomer', JSON.stringify(info));
+   }
   }
 
   function designSelect(info, index) {
@@ -105,7 +120,6 @@ function addProductController($resource, $state, $http) {
       info[index].timestamp = vm.pid;
       info[index].customerid = vm.seleCust.id;
       info[index].customerName = vm.seleCust.customerName;
-      
       
       if (localStorage.getItem('vmorder' + index)) {
         localStorage.removeItem('vmorder' + index);

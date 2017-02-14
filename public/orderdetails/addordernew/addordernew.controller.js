@@ -20,6 +20,7 @@ function addordernewController($resource, $scope, $http) {
 
     vm.data4=localStorage.getItem('vmorder' + index);
     vm.temp[index] = JSON.parse(vm.data4);
+    console.log(vm.temp[index]);
 
   }
 
@@ -178,17 +179,19 @@ function addordernewController($resource, $scope, $http) {
 
 
 //=============================================================
-  var orderdetails = new Orderdetails();
-
   vm.updateOrder = function(info) {
     // vm.temp = [];
     
-    for (var index = 0; index < vm.selectedOrder.length; index++) {
+    // for (var index = 0; index < vm.selectedOrder.length; index++) {
 
         // vm.data4=localStorage.getItem('vmorder' + index);
         // vm.temp[index] = JSON.parse(vm.data4);
+var orderdetails = new Orderdetails();
+var index = 0;
 
-        orderdetails.measurement = vm.temp[index].measurement;
+var rOrder = function () {
+if (index < vm.selectedOrder.length) {
+        orderdetails.measurement = JSON.stringify(vm.temp[index].xyz);
         orderdetails.customerName = vm.temp[index].customerName;
         orderdetails.customerid = vm.temp[index].customerid;
         orderdetails.timestamp = vm.temp[index].timestamp;
@@ -208,19 +211,19 @@ function addordernewController($resource, $scope, $http) {
         orderdetails.amount = info[index].amount;
         orderdetails.orderdate = vm.orderdate1;
 
-        console.log(orderdetails);
+    
 
         orderdetails.$save(function (info) {
-        // if (!info.status) {
-        //   swal("Recored Saved Successfully.");
-        //   window.location = '#/clothtype';
-        // }
-        // else {
-        //   vm.flag = true;
-        //   vm.status = info.status;
-        // }
-      });
-      // localStorage.removeItem('vmorder' + index);
+            index++;
+            rOrder();
+            swal("Record saved successfully.");
+            window.location = '#/order';
+        });
+      localStorage.removeItem('vmorder' + index);
     }
+
+  }
+
+  rOrder();
   }
 }
