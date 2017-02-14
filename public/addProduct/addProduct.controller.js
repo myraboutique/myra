@@ -18,7 +18,7 @@ function addProductController($resource, $state, $http) {
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
   vm.orderdate1 = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
-  vm.orderdate2 = myDate.getTime();
+  vm.uniqeno = myDate.getTime();
 
   vm.items = [{}];
   vm.order = [{}];
@@ -99,12 +99,23 @@ function addProductController($resource, $state, $http) {
     vm.items.push({});
   }
 
-
+  vm.hidepairbutton = [];
+  vm.pairs = [];
+  vm.submit2 = function(info) {
+    console.log(info);
+    vm.items.push({});
+    vm.hidepairbutton[info] = true;
+    vm.hidepairbutton[info + 1] = true;
+    vm.pairs[info] = vm.uniqeno + info;
+    vm.pairs[info+1] = vm.uniqeno + info;
+    console.log(vm.pairs);
+    
+    // vm.pid
+  }
 
   function final(info) {
     vm.designs = [];
     info.forEach(function (element) {
-//       console.log(element);
       vm.designs.push(element.type.title + " (" + element.type2 + ")");
     }, this);
 
@@ -120,6 +131,7 @@ function addProductController($resource, $state, $http) {
       info[index].timestamp = vm.pid;
       info[index].customerid = vm.seleCust.id;
       info[index].customerName = vm.seleCust.customerName;
+      info[index].pair = vm.pairs[index];
       
       if (localStorage.getItem('vmorder' + index)) {
         localStorage.removeItem('vmorder' + index);

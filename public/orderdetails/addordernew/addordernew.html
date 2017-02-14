@@ -80,7 +80,7 @@
 									<th>Amount</th>
 									<th>Status</th>
 								</tr>
-								<tr ng-repeat="data in vm.selectedOrder">
+								<tr ng-repeat="data in vm.selectedOrder track by $index">
 									<td style="width: 200px;">{{vm.selectedOrder[$index]}}
 										<img ng-src="{{vm.temp[$index].image.dataURL}}" height="50" width="50"/>
 									</td>

@@ -204,6 +204,7 @@ if (index < vm.selectedOrder.length) {
         orderdetails.material = vm.temp[index].materialtype.materialtype;
         orderdetails.type = vm.temp[index].type.title;
         orderdetails.subdesign = vm.temp[index].type2;
+        orderdetails.pair = vm.temp[index].pair;
         orderdetails.status = info[index].status;
         orderdetails.alertday = info[index].alertday;
         orderdetails.stitchingdate = info[index].stitchingdate;

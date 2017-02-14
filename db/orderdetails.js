@@ -34,7 +34,8 @@ module.exports = (function () {
             measurement: req.body.measurement,
             stitchingdate: req.body.stitchingdate,
             status: req.body.status,
-            subdesign: req.body.subdesign
+            subdesign: req.body.subdesign,
+            pair: req.body.pair
           }).then(function (user) {
             res.json(user);
           })
@@ -60,7 +61,8 @@ module.exports = (function () {
             deliverydate: req.body.deliverydate,
             amount: req.body.amount,
             subdesign: req.body.subdesign,
-            stitchingdate: req.body.stitchingdate
+            stitchingdate: req.body.stitchingdate,
+            pair: req.body.pair
           },
           {
             where: { id: req.body.id }

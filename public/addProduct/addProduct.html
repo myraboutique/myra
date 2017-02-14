@@ -203,7 +203,9 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<div class="addproducttable-Add-BTN add-pair-box"> <input type="submit" value="Add Pair" ng-click="vm.submit2($index)"></div>
+							<div class="addproducttable-Add-BTN add-pair-box">
+								 <input ng-hide="vm.hidepairbutton[$index]" type="submit" value="Add Pair" ng-click="vm.submit2($index)">
+							</div>
 						</td>
 					</tr>
 				</table>
