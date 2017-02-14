@@ -89,10 +89,33 @@
 			 <button type="button" ng-click="vm.delete($index)">X</button>
 			  </div>-->
 <div class="form-box">
-		<label><em id="mandatory" style="color:Red">*</em> Image</label>
+		<!--<label><em id="mandatory" style="color:Red">*</em> Image</label>
 	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*"  image="image2"  resize-max-height="200" resize-max-width="200" resize-quality="0.7"	 required="required" name="image123" >
 	<span ng-show="vm.flagforimg">Image is required.</span></input>
-	<img style="margin-left:200px " ng-show="image2" ng-src="{{image2.resized.dataURL}}" />{{imgage2}}
+	<img style="margin-left:200px " ng-show="image2" ng-src="{{image2.resized.dataURL}}" />{{imgage2}}-->
+	<label><em id="mandatory" style="color:Red">*</em> Image</label>
+	<input class="clothmeasurementinput"
+                type="file" 
+                ngf-select 
+                ng-model="vm.file" 
+                name="file" 
+                ngf-pattern="'image/*'"
+                accept="image/*" 
+                ngf-max-size="20MB" 
+				required
+                />
+            <img style="margin-left:200px ;width:200px" ng-show="!!vm.file" ngf-thumbnail="vm.file"/>
+			<!--<span ng-show="form.file.$error.required && (form.design.$dirty || vm.formSubmitted)">Image is required.</span>
+			<span ng-show="form.file.$error.maxSize && (form.design.$dirty || vm.formSubmitted)">Image is required.</span>-->
+			
+            <span ng-show="form.file.$error.required && (form.file.$dirty || vm.formSubmitted)">Image is required.</span><br>
+            <span ng-show="form.file.$error.maxSize">File too large 
+            {{vm.file.size / 1000000|number:1}}MB: max 20M</i>
+           <!--  Multiple files
+            <div class="button" ngf-select ng-model="up.files" ngf-multiple="true">Select</div>
+            Drop files: <div ngf-drop ng-model="up.files" class="drop-box">Drop</div> -->
+            <!--<button type="submit" ng-click="vm.submit()">submit</button>-->
+            <p>{{vm.progress}}</p>
 		
 	<!--<button type="submit" ng-click="">Preview</button>-->
 	
@@ -114,7 +137,7 @@
 
       <div class="add-new-btm-btn">
 			<div class="submit-button">
-				<input type="button" value="Save" ng-click="single(image2.resized.dataURL,form)"/>
+				<input type="submit" value="Save" ng-click="vm.addClothtype(form)"/>
 			</div>
 			<div class="cancel-button">
 				<input type="button" value="Cancel" ui-sref="subdesign"/>

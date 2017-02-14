@@ -1,4 +1,4 @@
-  <div class="container">
+<div class="container">
 
 	<!-- Header Section Start Here -->
 	<div class="main-header">
@@ -78,13 +78,34 @@
 						<span ng-show="form.editdesign.$error.required && (form.editdesign.$dirty || vm.formSubmitted)">Design name is required.</span>
        </div>
 
-	   
+<!--	   
 <div class="form-box">
 		<label><em id="mandatory" style="color:Red">*</em> Image</label>
 	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*"  image="image2"  resize-max-height="200" resize-max-width="200" resize-quality="0.7"	/>
 	<img style="margin-left:200px " ng-show="image2" ng-src="{{image2.resized.dataURL}}" />{{imgage2}}
-</div>
-<img  ng-hide="image2" style="margin-left:200px " ng-src="{{vm.subdesignimage}}"/>
+</div>-->
+
+<!--file upload-->
+		<div class="form-box">
+			<label><em id="mandatory" style="color:Red">*</em> Image</label>
+			<input class="clothmeasurementinput"
+						type="file" 
+						ngf-select 
+						ng-model="vm.file" 
+						name="file" 
+						ngf-pattern="'image/*'"
+						accept="image/*" 
+						ngf-max-size="20MB" 
+						/>
+					<img style="margin-left:200px ;width:200px" ng-show="!!vm.file" ngf-thumbnail="vm.file"/>
+					<span ng-show="form.file.$error.required">Image is required.</span><br>
+					<span ng-show="form.file.$error.maxSize">File too large 
+					{{vm.file.size / 1000000|number:1}}MB: max 20M</i>
+					<p>{{vm.progress}}</p>
+		</div>
+<!--file upload-->
+
+<img  ng-hide="vm.file" style="margin-left:200px;width:200px" ng-src="imgupload/{{vm.subdesignimage}}"/>
 			 <div class="form-box">
 				  <label> Is Active</label>
 				 <input type="checkbox" class="billing-addres-checkbox clothcheck"  ng-model="vm.data.isActive" />
@@ -96,7 +117,7 @@
 
       <div class="add-new-btm-btn">
 			<div class="submit-button">
-				<input type="submit" value="Save" ng-click="single(image2.resized.dataURL);vm.update(form)"/>
+				<input type="submit" value="Save" ng-click="vm.update(form)"/>
 			</div>
 			<div class="cancel-button">
 				<input type="submit" value="Cancel" ui-sref="subdesign"/>
