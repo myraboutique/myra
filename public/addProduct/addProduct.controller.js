@@ -102,15 +102,11 @@ function addProductController($resource, $state, $http) {
   vm.hidepairbutton = [];
   vm.pairs = [];
   vm.submit2 = function(info) {
-    console.log(info);
     vm.items.push({});
     vm.hidepairbutton[info] = true;
     vm.hidepairbutton[info + 1] = true;
     vm.pairs[info] = vm.uniqeno + info;
     vm.pairs[info+1] = vm.uniqeno + info;
-    console.log(vm.pairs);
-    
-    // vm.pid
   }
 
   function final(info) {
