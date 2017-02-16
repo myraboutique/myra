@@ -46,7 +46,7 @@ function newsubdesignController($resource, $scope) {
 
       addsubdesign.$save(function (info) {
         if (!info.status) {
-          swal("Recored Saved Successfully.");
+          swal("Your record has been saved successfully.");
           window.location = '#/subdesign';
         }
         else {

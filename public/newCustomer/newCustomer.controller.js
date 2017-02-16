@@ -103,7 +103,7 @@ function newCustomerController($resource) {
 
       customerdetails.$save(function(info){
 
-       swal("Record saved successfully.");
+       swal("Your record has been saved successfully.");
           window.location = '#/customerdetails';
        })
 

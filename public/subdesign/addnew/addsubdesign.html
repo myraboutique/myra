@@ -43,8 +43,8 @@
 					<h4 class="admin-setting-heding">Settings</h4>
 					<ul>
 						<li><a href='#/register' class="active"><span>Manage Users</span></a></li>
-						<li><a href='#/statustype'><span>Manage Status</span></a></li>
-						<li><a href='#/measurements'><span>Manage Measurement</span></a></li>
+						<li><a href='#/statustype'><span>Manage Order Status</span></a></li>
+						<li><a href='#/measurements'><span>Manage Measurements</span></a></li>
 						<li><a href='#/clothtype'><span>Manage Designs</span></a></li>
 						<li><a href='#/subdesign' class="active"><span>Manage Styles</span></a></li>
 						<li><a href='#/materialtype'><span>Manage Materials</span></a></li>
@@ -64,12 +64,12 @@
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Style</label>
 
-					  	<input ng-model="vm.subdesigns" name="style"  type="text" required="required" class="clothmeasurementinput" >
-      					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style name is required.</span>
-						<span ng-show="form.style.$error.minlength && (form.style.$dirty || vm.formSubmitted)">Style name length must be greater than 3 characters.</span>
-          				<span ng-show="form.style.$error.maxlength && (form.style.$dirty || vm.formSubmitted)">Style name must be less than 20 characters.</span>
-						<span ng-show="vm.flag">This Style is already exists.</span>
-						</input>
+					  	<input ng-model="vm.subdesigns" name="style" ng-minlength="02" ng-maxlength="20" type="text" required="required" class="clothmeasurementinput" placeholder="Style"/>
+ 					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style name is required.</span>
+						<span ng-show="(form.style.$error.minlength || form.style.$error.maxlength) && (form.style.$dirty || vm.formSubmitted)">Style Name should be between 2 to 20 characters long.</span>
+          				<!--<span ng-show="form.style.$error.maxlength && (form.style.$dirty || vm.formSubmitted)">Style name must be less than 20 characters.</span>-->
+						<span ng-show="vm.flag">This Style already exists.</span>
+					
 						<!--<strong class="clothaddbutton"><a href="" ng-click="vm.subdesign(vm.subdesi,image2)">Add</a></strong>
 				<span ng-show="vm.flagformeasure">This Sub Design already added.</span>-->
      
@@ -79,6 +79,7 @@
 
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Design</label>
 					<select   class="clothmeasurementinput" ng-model="vm.designs" type="text" required="required" name="design"  >
+						 <option value="">Please Select</option>
 						<option  ng-repeat="x in vm.design"> {{x.title}}</option>
 						</select>
 						<span ng-show="form.design.$error.required && (form.design.$dirty || vm.formSubmitted)">Design is required.</span>
@@ -88,7 +89,7 @@
 				 {{data}}
 			 <button type="button" ng-click="vm.delete($index)">X</button>
 			  </div>-->
-<div class="form-box">
+   <div class="form-box">
 		<label><em id="mandatory" style="color:Red">*</em> Image</label>
 	<input class="clothmeasurementinput" id="inputImage2" type="file" accept="image/*"  image="image2"  resize-max-height="200" resize-max-width="200" resize-quality="0.7"	 required="required" name="image123" >
 	<span ng-show="vm.flagforimg">Image is required.</span></input>

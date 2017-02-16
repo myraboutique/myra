@@ -52,7 +52,7 @@ function newclothController($resource, $scope) {
 
       clothtype.$save(function (info) {
         if (!info.status) {
-          swal("Recored Saved Successfully.");
+          swal("Your record has been saved successfully.");
           window.location = '#/clothtype';
         }
         else {

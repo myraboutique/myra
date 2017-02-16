@@ -33,7 +33,7 @@ function addstatusController($resource) {
     console.log(info.status);
       if(info.status != 'already00++--'){
 
-        console.log(swal("Record saved successfully."));
+        console.log(swal("Your record has been saved successfully."));
          window.location = "#/statustype"
       }
       else {
