@@ -46,13 +46,7 @@
             <input id="" focus="true" ng-minlength="3" ng-maxlength="20" ng-required="true" ng-model="vm.customerName" name="customerName" type="text"
               placeholder="Customer Name" />
             <span ng-show="form.customerName.$error.required && (form.customerName.$dirty || vm.formSubmitted)">Customer Name is required.</span>
-<<<<<<< HEAD
-            <span ng-show="form.customerName.$error.minlength && (form.customerName.$dirty || vm.formSubmitted)">Customer Name should be between 2 to 20 characters long.</span>
-            <span ng-show="form.customerName.$error.maxlength && (form.customerName.$dirty || vm.formSubmitted)">Customer Name should be between 2 to 20 characters long.</span>
-=======
-            <span ng-show="form.customerName.$error.minlength && (form.customerName.$dirty || vm.formSubmitted)">Customer Name length must be 2 characters long.</span>
-            <span ng-show="form.customerName.$error.maxlength && (form.customerName.$dirty || vm.formSubmitted)">Customer Name length must be less than 20 characters.</span>
->>>>>>> a45d90f836b194ce9cb33ca60917493401883d21
+            <span ng-show="(form.customerName.$error.minlength || form.customerName.$error.maxlength) && (form.customerName.$dirty || vm.formSubmitted)">Customer Name should be between 2 to 20 characters long.</span>
 
           </div>
           <div class="form-box">
