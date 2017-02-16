@@ -131,9 +131,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
       info[index].customerid = vm.seleCust.id;
       info[index].customerName = vm.seleCust.customerName;
       info[index].pair = vm.pairs[index];
-      info[index].imagenew = vm.tempimg[index];
-      console.log(vm.tempimg[index]);
-      console.log(info[index].imagenew);
+      console.log(vm.tempimg);
       
       if (localStorage.getItem('vmorder' + index)) {
         localStorage.removeItem('vmorder' + index);
@@ -147,6 +145,9 @@ function addProductController($resource, $state, $http, Upload, $window) {
     window.location = '#/addordernew';
 
   }
+
+
+  
   //file uploa ==========================================
    vm.fileup = function(){ //function to call on form submit
      for(var i=0;i<vm.order.length;i++){

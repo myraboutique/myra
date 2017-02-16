@@ -30,7 +30,7 @@
 	</div>
 	<!-- Header Section End Here -->
 
-	<div class="inner-heading-bar">Order Details</div>
+	<div class="inner-heading-bar">{{vm.temp[0].timestamp}}</div>
 	<form name="orderform" novalidate>
 		<div class="main-contant-part">
 			<div class="form-section-box">
@@ -38,9 +38,9 @@
 					<!--<div class="form-heading">Customer Details</div>-->
 
 					<div class="form-box">
-						<div class=" customer-detailsmain-box">
+						<!--<div class=" customer-detailsmain-box">
 							<label>Order #</label>{{vm.temp[0].timestamp}}
-						</div>
+						</div>-->
 						<div class=" customer-detailsmain-box1">
 							<label>Order Date </label><strong>{{vm.orderdate1}}</strong>
 							<!--<datepicker date-format="dd/MM/yyyy">
