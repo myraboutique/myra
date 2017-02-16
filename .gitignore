@@ -35,6 +35,9 @@ build/Release
 node_modules/
 bower_components/
 
+#Image Uploads Folder
+uploads/
+
 # Debug log from npm
 npm-debug.log
 

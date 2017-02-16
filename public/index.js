@@ -6,6 +6,7 @@
     'ui.router',
     // 'ngSignaturePad',
     'ngResource',
+    'ngFileUpload',
     // 'ngStorage',
     // 'hSweetAlert',
     'ui.bootstrap',
