@@ -97,7 +97,7 @@
 										</div>
 										<div class="modal-body">
 											<span ng-repeat="data in vm.subdesignimage">
-												<img style="margin: 5px; border: 1px red solid" ng-src="{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
+												<img style="margin: 5px; border: 1px red solid ;width:200px" ng-src="/imgupload/{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
 											</span>
 										</div>
 										<div class="modal-footer">
@@ -185,9 +185,33 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<input class="clothmeasurementinput" id="browseimage{{$index}}" type="file" accept="image/*" image="vm.order[$index].image" resize-max-height="200"
+							<!--<input class="clothmeasurementinput" id="browseimage{{$index}}" type="file" accept="image/*" image="vm.order[$index].image" resize-max-height="200"
 								resize-max-width="200" resize-quality="0.7" required="required" name="browseimage{{$index}}" />
-							<img ng-show="vm.order[$index].image" ng-src="{{vm.order[$index].image.resized.dataURL}}" />
+							<img ng-show="vm.order[$index].image" ng-src="{{vm.order[$index].image.resized.dataURL}}" />-->
+
+								<input class="clothmeasurementinput"
+									type="file" 
+									ngf-select 
+									ng-model="vm.order[$index].image" 
+									name="file" 
+									ngf-pattern="'image/*'"
+									accept="image/*" 
+									ngf-max-size="20MB" 
+									required
+									/>
+								<img style="width:200px" ng-show="!!vm.vm.order[$index].image" ngf-thumbnail="vm.order[$index].image"/>
+								<!--<span ng-show="form.file.$error.required && (form.design.$dirty || vm.formSubmitted)">Image is required.</span>
+								<span ng-show="form.file.$error.maxSize && (form.design.$dirty || vm.formSubmitted)">Image is required.</span>-->
+								
+								<span ng-show="form.file.$error.required && (form.file.$dirty || vm.formSubmitted)">Image is required.</span><br>
+								<span ng-show="form.file.$error.maxSize">File too large 
+								{{vm.vm.order[$index].image.size / 1000000|number:1}}MB: max 20M</i>
+							<!--  Multiple files
+								<div class="button" ngf-select ng-model="up.files" ngf-multiple="true">Select</div>
+								Drop files: <div ngf-drop ng-model="up.files" class="drop-box">Drop</div> -->
+								<!--<button type="submit" ng-click="vm.submit()">submit</button>-->
+								<p>{{vm.progress}}</p>
+
 						</td>
 					</tr>
 

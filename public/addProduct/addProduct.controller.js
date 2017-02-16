@@ -1,9 +1,9 @@
 angular.module('myra')
   .controller('addProductController', addProductController);
 
-addProductController.$inject = ['$resource', '$state', '$http'];
+addProductController.$inject = ['$resource', '$state', '$http' ,'Upload','$window'];
 
-function addProductController($resource, $state, $http) {
+function addProductController($resource, $state, $http, Upload, $window) {
   var vm = this;
 
   vm.clicked = function (info) {
@@ -23,6 +23,7 @@ function addProductController($resource, $state, $http) {
   vm.items = [{}];
   vm.order = [{}];
   vm.measu = [];
+  vm.tempimg =[];
 
   vm.designSelect = designSelect;
   vm.submit = submit;
@@ -109,7 +110,9 @@ function addProductController($resource, $state, $http) {
     vm.pairs[info+1] = vm.uniqeno + info;
   }
 
+    
   function final(info) {
+    vm.fileup();
     vm.designs = [];
     info.forEach(function (element) {
       vm.designs.push(element.type.title + " (" + element.type2 + ")");
@@ -141,6 +144,46 @@ function addProductController($resource, $state, $http) {
     window.location = '#/addordernew';
 
   }
+  //file uploa ==========================================
+   vm.fileup = function(){ //function to call on form submit
+     for(var i=0;i<vm.order.length;i++){
+       if (vm.order[i].image) { //check if from is valid
+            vm.upload(vm.order[i].image); //call upload function
+        }
+     }
+    };
+    
+    vm.upload = function (file) {
+        Upload.upload({
+            url: 'http://localhost:3000/upload', //webAPI exposed to upload the file
+            data:{file:file} //pass file as data, should be user ng-model
+        }).then(function (resp) { //upload function returns a promise
+            if(resp.data.error_code === 0){ //validate success
+                // vm.mage = resp.data.fname;
+            vm.tempimg.push(resp.data.fname);
+                console.log(vm.tempimg);
+                addsubdesign.$save(function (info) {
+        if (!info.status) {
+          swal("Your record has been saved successfully.");
+          window.location = '#/subdesign';
+        }
+        else {
+          vm.flag = true;
+          vm.status = info.status;
+        }
+      });
+            } 
+        }, function (resp) { //catch error
+            console.log('Error status: ' + resp.status);
+            $window.alert('Error status: ' + resp.status);
+        }, function (evt) { 
+            console.log(evt);
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+            vm.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
+        });
+    };
+//file uploa ==========================================
 
 }
 

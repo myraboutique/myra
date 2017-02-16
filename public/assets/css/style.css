@@ -1041,6 +1041,7 @@ border-radius: 3px;
 
 }
 
+
 .measure {
   display: flex;
 }
@@ -1282,4 +1283,8 @@ input[type="radio"]:checked + label > span {
 }
 .subdesign-submenu{
   width: 75% !important;
+}
+
+.editupload{
+  color: transparent;
 }
