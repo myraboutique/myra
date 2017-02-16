@@ -21,7 +21,7 @@ function clothtypeController($resource,$state,$scope) {
     vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;
     vm.predicate = predicate;
   };
-
+ 
   vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
     window.location = '#/login';

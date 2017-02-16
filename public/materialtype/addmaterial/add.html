@@ -43,8 +43,8 @@
 					<h4 class="admin-setting-heding">Settings</h4>
 					<ul>
 						<li><a href='#/register'><span>Manage Users</span></a></li>
-						<li><a href='#/statustype'><span>Manage Status</span></a></li>
-						<li><a href='#/measurements'><span>Manage Measurement</span></a></li>
+						<li><a href='#/statustype'><span>Manage Order Status</span></a></li>
+						<li><a href='#/measurements'><span>Manage Measurements</span></a></li>
 						<li><a href='#/clothtype'><span>Manage Designs</span></a></li>
 						<li><a href='#/subdesign'><span>Manage Styles</span></a></li>
 						<li><a href='#/materialtype' class="active"><span>Manage Materials</span></a></li>
@@ -64,9 +64,9 @@
 
       <label><em id="mandatory" style="color:Red">*</em>&nbsp;Material Type</label>
       <input id="mtype" focus="true" name="materialtype" type="text" ng-minlength="3" ng-maxlength="20" ng-model="vm.materialtype"  placeholder="Material Type" required/>
-      	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Material is required.</span>
-        	<span ng-show="frm.materialtype.$error.minlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material type should not be less than 2 characters.</span>
-          	<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material type should not be less than 20 characters.</span>
+      	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Material Type is required.</span>
+        	<span ng-show="(frm.materialtype.$error.minlength || frm.materialtype.$error.maxlength) && (frm.materialtype.$dirty || vm.formSubmitted)">Material Type Name should be between 2 to 20 characters long.</span>
+          	<!--<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material type name length must be less than 20 characters.</span>-->
             <span ng-show="vm.flag">This material type already exists.</span>
 
       </div>

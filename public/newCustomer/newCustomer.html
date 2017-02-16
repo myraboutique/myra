@@ -46,8 +46,7 @@
             <input id="" focus="true" ng-minlength="3" ng-maxlength="20" ng-required="true" ng-model="vm.customerName" name="customerName" type="text"
               placeholder="Customer Name" />
             <span ng-show="form.customerName.$error.required && (form.customerName.$dirty || vm.formSubmitted)">Customer Name is required.</span>
-            <span ng-show="form.customerName.$error.minlength && (form.customerName.$dirty || vm.formSubmitted)">Customer Name should be 2 characters long.</span>
-            <span ng-show="form.customerName.$error.maxlength && (form.customerName.$dirty || vm.formSubmitted)">Customer Name length must be less than 20 characters.</span>
+            <span ng-show="(form.customerName.$error.minlength || form.customerName.$error.maxlength) && (form.customerName.$dirty || vm.formSubmitted)">Customer Name should be between 2 to 20 characters long.</span>
 
           </div>
           <div class="form-box">
@@ -95,17 +94,16 @@
 
           <span ng-show="form.mobilenumber.$error.required && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number is required.</span>
 
-          <span ng-show="form.mobilenumber.$error.minlength && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number should be exactly 10 digits.</span>
-          <span ng-show="form.mobilenumber.$error.maxlength && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number should be digits.</span>
-           <span ng-show="form.mobilenumber.$error.pattern && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number should be exactly 10 digits.</span>
-        </div>
+          <span ng-show="(form.mobilenumber.$error.minlength || form.mobilenumber.$error.maxlength) && (form.mobilenumber.$dirty || vm.formSubmitted)">Please insert a valid 10-digit mobile number.</span>
+          <!--<span ng-show="form.mobilenumber.$pattern && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number should be digits.</span>-->
+          </div>
 
         <div class="form-box">
           <label> Phone Number</label>
           <input id="" ng-model="vm.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="10" ng-maxlength="10"  type="text" placeholder="Phone Number" />
 
-          <span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be digits.</span>
-          <span ng-show="(form.phonenumber.$error.minlength || form.phonenumber.$error.maxlength)&& (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be exactly 10 digits..</span>
+          <!--<span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be digits.</span>-->
+          <span ng-show="(form.phonenumber.$error.minlength || form.phonenumber.$error.maxlength)&& (form.phonenumber.$dirty || vm.formSubmitted)">Please enter a valid 10-digit phone number.</span>
 
         </div>
 
@@ -115,9 +113,8 @@
           <label>Email Address</label>
           <input id="" ng-model="vm.email" name="email"  type="text" placeholder="Email Address" ng-minlength="7" ng-maxlength="50" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/"/>
 
-          <span ng-show="form.email.$error.pattern && (form.email.$dirty || vm.formSubmitted)">Enter a valid Email Address.</span>
-            <span ng-show="form.email.$error.minlength && (form.email.$dirty || vm.formSubmitted)">Please enter the valid Email Address format (e.g. example@email.com)</span>
-          <span ng-show="form.email.$error.maxlength && (form.email.$dirty || vm.formSubmitted)">Email must be greater than 50.</span>
+            <span ng-show="(form.email.$error.minlength || form.email.$error.pattern) && (form.email.$dirty || vm.formSubmitted)">Please enter a valid Email Address(e.g. example@email.com).</span>
+          <span ng-show="form.email.$error.maxlength && (form.email.$dirty || vm.formSubmitted)">Email must be greater than 250.</span>
         
 
 		   </div>
@@ -125,10 +122,9 @@
         <div class="form-box">
           <label><em id="mandatory" style="color:Red">*</em>&nbsp;Address</label>
           <textarea ng-model="vm.address" required rows="4" cols="50" placeholder="Address" name="address" ng-minlength="2" ng-maxlength="250" ></textarea>
-          <span ng-show="form.address.$error.required && (form.address.$dirty || vm.formSubmitted)">Address is required for delivery.</span>
+          <span ng-show="form.address.$error.required && (form.address.$dirty || vm.formSubmitted)">Address is required.</span>
 
-           <span ng-show="form.address.$error.minlength && (form.address.$dirty || vm.formSubmitted)">Address should not be less than 02 characters.</span>
-          <span ng-show="form.address.$error.maxlength && (form.address.$dirty || vm.formSubmitted)">Address should not be greater than 250 characters.</span>
+           <span ng-show="(form.address.$error.minlength || form.address.$error.maxlength) && (form.address.$dirty || vm.formSubmitted)">Address should be between 20 to 250 characters long.</span>
         
 
         </div>
@@ -143,15 +139,14 @@
           </div>
           <!--New change00 -->
           <span ng-if="vm.other" ng-show="form.billaddress.$error.required && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address is required.</span>
-           <span ng-if="vm.other" ng-show="form.billaddress.$error.minlength && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should not be less than 02.</span>
-          <span ng-if="vm.other" ng-show="form.billaddress.$error.maxlength && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should not be greater than 250.</span>
+           <span ng-if="vm.other" ng-show="(form.billaddress.$error.minlength || form.billaddress.$error.maxlength) && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should be between 20 to 250 characters long.</span>
         </div>
 
         <div class="form-box">
 <label>Remarks</label>
 
           <textarea name="remarks" ng-model="vm.remarks" rows="4" cols="50" ng-maxlength="200" placeholder="Remarks Description"></textarea>
-          <span ng-show="form.remarks.$error.maxlength && (form.remarks.$dirty || vm.formSubmitted)">Remark description length must be less than 200.</span>
+          <span ng-show="form.remarks.$error.maxlength && (form.remarks.$dirty || vm.formSubmitted)">Remark description cannot be more than 200 characters long.</span>
 
         </div>
               <div class="form-section-box">
@@ -163,7 +158,7 @@
                       <i>{{x.name}}</i>
                         <strong>
                           <input class="measurement-input" name="{{x.name}}" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-model="vm.data[$index]" / >
-                          <span ng-show="form.{{'aa'+x.name}}.$error.pattern">Cloth measurement must be a number.</span>
+                          <!--<span ng-show="form.{{'aa'+x.name}}.$error.pattern">Cloth measurement must be a number.</span>-->
                           <img src="assets/images/inc-icon.png" alt="">
                         </strong>
                       </li>

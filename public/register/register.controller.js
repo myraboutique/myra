@@ -64,7 +64,7 @@ function registerController($resource,$state) {
             }
             txt += c;
        }
-   console.log(txt);
+  
 
     register.name = txt;
     register.email = vm.email;
@@ -76,14 +76,14 @@ function registerController($resource,$state) {
     register.isActive = true;
     
     register.$save(function(info){
-      console.log(info.status);
-      console.log(info);
-      if(info.status){
-        swal(info.status);
-      } else {
-      swal("Record saved successfully.");
+      // console.log(info.status);
+      // console.log(info);
+      // if(info.status){
+      //   swal(info.status);
+      // } else {
+      swal("Your record has been saved successfully.");
          window.location = '#/register';
-      }
+      //}
      
     });
   }
