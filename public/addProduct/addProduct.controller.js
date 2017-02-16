@@ -131,6 +131,9 @@ function addProductController($resource, $state, $http, Upload, $window) {
       info[index].customerid = vm.seleCust.id;
       info[index].customerName = vm.seleCust.customerName;
       info[index].pair = vm.pairs[index];
+      info[index].imagenew = vm.tempimg[index];
+      console.log(vm.tempimg[index]);
+      console.log(info[index].imagenew);
       
       if (localStorage.getItem('vmorder' + index)) {
         localStorage.removeItem('vmorder' + index);
@@ -162,16 +165,16 @@ function addProductController($resource, $state, $http, Upload, $window) {
                 // vm.mage = resp.data.fname;
             vm.tempimg.push(resp.data.fname);
                 console.log(vm.tempimg);
-                addsubdesign.$save(function (info) {
-        if (!info.status) {
-          swal("Your record has been saved successfully.");
-          window.location = '#/subdesign';
-        }
-        else {
-          vm.flag = true;
-          vm.status = info.status;
-        }
-      });
+      //           addsubdesigns.$save(function (info) {
+      //   if (!info.status) {
+      //     swal("Your record has been saved successfully.");
+      //     window.location = '#/subdesign';
+      //   }
+      //   else {
+      //     vm.flag = true;
+      //     vm.status = info.status;
+      //   }
+      // });
             } 
         }, function (resp) { //catch error
             console.log('Error status: ' + resp.status);
