@@ -71,7 +71,10 @@
 						<td class="top-purpal-color-row2">{{data.color}}</td>
 						<td class="top-purpal-color-row2">{{data.cloth}}</td>
 						<td class="top-purpal-color-row2">
-						<span>{{data.measurement}}</span></td>
+							<div ng-repeat="data in vm.temp2[$index]">{{data}}
+								<span>: {{vm.temp[$parent.$index][$index]}}</span>
+							</div>
+						</td>
 						<td class="top-purpal-color-row2">{{vm.order[$index].amount}}</td>
 						<td class="top-purpal-color-row2">{{data.status}}</td>
 					</tr>

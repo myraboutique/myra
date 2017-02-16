@@ -6,17 +6,30 @@ editcustomerController.$inject = ['$stateParams','$resource','$http']
 function editcustomerController($stateParams,$resource,$http) {
 
   var vm= this ;
-   vm.token = JSON.parse(localStorage.getItem('token'));
-    vm.birthdate = birthdate;
+  
+  vm.birthdate = birthdate;
   vm.anniversarydate = anniversarydate;
+  vm.save = save ;
+  vm.cancel = cancel ;
+  vm.data = JSON.parse($stateParams.referer);
+  vm.data.other = false;
+  
+
+  vm.customermeasurementname = JSON.parse(vm.data.measurementsname);
+  vm.customermeasurementvalue = JSON.parse(vm.data.measurementsvalue);
+  console.log(vm.customermeasurementvalue);
+
+  vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
     window.location = '#/login';
   }
-  vm.save = save ;
-  vm.cancel = cancel ;
-  vm.data = JSON.parse($stateParams.referer)
-   var myDate = new Date();
-var CustomerDetails = $resource('/api/customerdetails');
+
+  var myDate = new Date();
+
+  var managemeasurements = $resource('/api/managemeasurements')
+  managemeasurements.query(function(info){
+      vm.measurementstype = info ;
+   });
 
   function birthdate(date) {
     var b = date.split('/');
@@ -46,33 +59,30 @@ var CustomerDetails = $resource('/api/customerdetails');
     }
   }
 
-var customerdetails = new CustomerDetails()
-vm.data.other = true;
-function cancel(){
-  window.location = "#/customerdetails"
-}
-
-function save(form){
-  vm.formSubmitted = true;
-  if(form.$valid){
-    if(vm.data.other){
-      vm.data.billingAddress = vm.data.billingAddress;
-    } else {
-      vm.data.billingAddress = vm.data.address;
-    }
-     $http.put('/api/customerdetails', vm.data)
-        .then(
-            function(response){
-              console.log(swal("Your record has been saved successfully."))
-              window.location = '#/customerdetails';
-            },
-            function(response){
-                console.log("put unsuccessfull")
-            }
-         );
-
-       }
+  function cancel(){
+    window.location = "#/customerdetails"
   }
-    
 
+  function save(form){
+    vm.formSubmitted = true;
+    if(form.$valid){
+      if(vm.data.other){
+        vm.data.billingAddress = vm.data.billingAddress;
+      } else {
+        vm.data.billingAddress = vm.data.address;
+      }
+      vm.data.measurementsvalue = JSON.stringify(vm.customermeasurementvalue);
+      $http.put('/api/customerdetails', vm.data)
+          .then(
+              function(response){
+                console.log(swal("Your record has been saved successfully."))
+                window.location = '#/customerdetails';
+              },
+              function(response){
+                  console.log("put unsuccessfull")
+              }
+          );
+
+        }
+    }    
 }

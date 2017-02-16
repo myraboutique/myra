@@ -24,7 +24,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
     vm.order[vm.newinex].type2 = info;
   };
 
-   vm.inexforprompt = function (index) {
+  vm.inexforprompt = function (index) {
     console.log(index);
     vm.indexforpromptbox = index;
   };
@@ -39,6 +39,8 @@ function addProductController($resource, $state, $http, Upload, $window) {
   vm.orderDetails = [];
   vm.measu = [];
   vm.tempimg =[];
+  vm.hidepairbutton = [];
+  vm.pairs = [];
 
   vm.designSelect = designSelect;
   vm.submit = submit;
@@ -125,7 +127,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
       vm.orderDetails[index] = xyz;
     }
     else{
-    vm.orderDetails.push(xyz);
+      vm.orderDetails.push(xyz);
     }
   };
 
@@ -133,8 +135,6 @@ function addProductController($resource, $state, $http, Upload, $window) {
     vm.items.push({});
   }
 
-  vm.hidepairbutton = [];
-  vm.pairs = [];
   vm.submit2 = function(info) {
     vm.items.push({});
     vm.hidepairbutton[info] = true;
@@ -145,7 +145,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
 
 
  function beforefinal() {
-        vm.designs = [];
+    vm.designs = [];
     vm.infobuffer.forEach(function (element) {
       vm.designs.push(element.type.title + " (" + element.type2 + ")");
     }, this);
@@ -223,7 +223,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
             vm.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
         });
 
-beforefinal();
+        beforefinal();
 
     };
 //file uploa ==========================================

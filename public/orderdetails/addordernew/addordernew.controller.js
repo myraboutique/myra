@@ -191,6 +191,7 @@ var index = 0;
 
 var rOrder = function () {
 if (index < vm.selectedOrder.length) {
+        orderdetails.measurementname = vm.temp[index].type.measurement;
         orderdetails.measurement = JSON.stringify(vm.temp[index].measure);
         orderdetails.customerName = vm.temp[index].customerName;
         orderdetails.customerid = vm.temp[index].customerid;

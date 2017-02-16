@@ -43,9 +43,10 @@
 			<p>
 				<div class="search-box-main">
 					<input class="serchInput serchInput-mobile" type="text" ng-model="vm.search" placeholder="Search">
-					<select class="outside2" ng-model="vm.customerStatus" placeholder="Search by Name" ng-options="data as data.status for data in vm.status"
-						required name="customeruser">
-				 <option value="">Search by Status</option></select>
+					<select class="outside2" ng-model="vm.customerStatus" placeholder="Search by Name" required name="customeruser">
+				 	<option value="">Search by Status</option>
+					<option ng-repeat="data in vm.status">{{data.status}}</option>
+				 </select>
 
 					<div class="right-add-new-button"><a href="#/addProduct">Add Order</a></div>
 				</div>
@@ -114,7 +115,7 @@
 						<b><th>Status</th></b>
 					</tr>
 
-					<tr dir-paginate="data in vm.temp=(vm.type | filter:vm.customerStatus.status | filter:vm.search |itemsPerPage:20 | orderBy:vm.predicate)"
+					<tr dir-paginate="data in vm.temp=(vm.type | filter:vm.customerStatus | filter:vm.search |itemsPerPage:20 | orderBy:vm.predicate)"
 						ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
 						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link"><b>{{data.timestamp}}</b></a></td>
 						<td class="top-purpal-color-row2">{{data.type}}</td>

@@ -28,7 +28,7 @@
 	</div>
 	<!-- Header Section End Here -->
 
-	<div class="inner-heading-bar">{{vm.records.timestamp}}</div>
+	<div class="inner-heading-bar">Order # - {{vm.records.timestamp}}</div>
 	<form name="orderform" novalidate>
 		<div class="main-contant-part">
 
@@ -133,9 +133,9 @@
                         </td>
                       </tr>
                       <tr>
-                     
-													<td class="addproducttable-B">
-							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)">Details</a>
+						  <td class="addproducttable-B"><span class="hideeextratext">{{vm.productwiserecord[$index].customization}}</span>
+							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-hide="vm.productwiserecord[$index].customization">Details</a>
+							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-show="vm.productwiserecord[$index].customization">more</a>
 
 							<!-- Prompt Box For Add Customization-->
 							<!-- Modal -->
@@ -150,7 +150,7 @@
 										</div>
 										<div class="modal-body">
 											<textarea style="margin-top: 0px;" ng-model="vm.productwiserecord[vm.indexforpromptbox].customization"  rows="4" cols="50" placeholder="Customization Description"
-											class="customization-check-box-textarea" disabled ></textarea>
+											class="customization-check-box-textarea" ></textarea>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
@@ -162,8 +162,9 @@
 						</td>
                       </tr>
                       <tr>
-                        <td class="addproducttable-B">
-							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)">Comments</a>
+						<td class="addproducttable-B"><span class="hideeextratext">{{vm.productwiserecord[$index].cloth}}</span>
+							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-hide="vm.productwiserecord[$index].cloth">Comments</a>
+							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-show="vm.productwiserecord[$index].cloth">more</a>
 							<!-- Prompt Box For Add Details-->
 							<!-- Modal -->
 							<div class="modal fade" id="myModal3" role="dialog">
@@ -177,7 +178,7 @@
 										</div>
 										<div class="modal-body">
 											<textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.productwiserecord[vm.indexforpromptbox].cloth" class="customization-check-box-textarea" name="clothdesc{{$index}}"
-												placeholder="Summary" disabled>
+												placeholder="Summary">
 											</textarea>
 										</div>
 										<div class="modal-footer">

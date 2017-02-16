@@ -18,6 +18,7 @@ module.exports = (function () {
       db.sync().then(function () {
         models.create(
           {
+            measurementname: req.body.measurementname,
             browseimage: req.body.browseimage,
             timestamp: req.body.timestamp,
             customerid: req.body.customerid,
@@ -45,6 +46,7 @@ module.exports = (function () {
       db.sync().then(function () {
         models.update(
           {
+            measurementname: req.body.measurementname,
             browseimage: req.body.browseimage,
             timestamp: req.body.timestamp,
             customerid: req.body.customerid,
