@@ -82,7 +82,7 @@
 								</tr>
 								<tr ng-repeat="data in vm.selectedOrder track by $index">
 									<td style="width: 200px;">{{vm.selectedOrder[$index]}}
-										<img ng-src="{{vm.temp[$index].image.dataURL}}" height="50" width="50"/>
+										<img ng-src="/imgupload/{{vm.temp[$index].image.dataURL}}" height="50" width="50"/>
 									</td>
 									<td >
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
