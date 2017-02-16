@@ -106,10 +106,10 @@ display: inline;
 .managecustomer-left-menu-inner-page ul{margin: -9px 0 0 0; padding: 0px;}
 .managecustomer-left-menu-inner-page ul li{list-style: none; display: block; margin-bottom: 1px;}
 .managecustomer-left-menu-inner-page ul li a{font-size: 15px; padding: 0px 15px; color: #000;line-height: 46px; background: #f1f1f1;display: inline-block; width:100%;
-  -webkit-transition: all 0.2s linear; */
+      -webkit-transition: all 0.2s linear;
       -moz-transition: all 0.2s linear;
       -o-transition: all 0.2s linear;
-      /* transition: all 0.2s linear; */
+       transition: all 0.2s linear; 
 }
 .managecustomer-left-menu-inner-page ul li a:hover{ background: #dadada;}
 .managecustomer-left-menu-inner-page ul li a.active{ background: #dadada;}
@@ -133,6 +133,14 @@ display: inline;
   border-radius: 3px;
   border: 1px solid #969696;
   padding: 4px;
+}
+
+.hideeextratext {
+  display: block;
+  width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .addproducttable-main-box{

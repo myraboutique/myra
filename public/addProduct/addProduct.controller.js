@@ -6,6 +6,20 @@ addProductController.$inject = ['$resource', '$state', '$http' ,'Upload','$windo
 function addProductController($resource, $state, $http, Upload, $window) {
   var vm = this;
 
+//============DON'T DELETE=========//
+// vm.orderDetails =[{ xyz: []}];
+//  vm.getVal = function(j, i){
+//     var key = vm.customermeasurementname.indexOf(vm.measu[vm.newinex][j]);
+//     var val = vm.customermeasurementvalue[key];
+//     vm.orderDetails = vm.orderDetails || [{ xyz: []}];
+//     if(!orderDetails[i]){
+//       orderDetails[i] = {xyz:[]};
+//     }
+//     vm.orderDetails[i].xyz[j] = val;
+//     return val;
+//  };
+//=================================//
+
   vm.clicked = function (info) {
     vm.order[vm.newinex].type2 = info;
   };
@@ -21,7 +35,8 @@ function addProductController($resource, $state, $http, Upload, $window) {
   vm.uniqeno = myDate.getTime();
 
   vm.items = [{}];
-  vm.order = [{}];
+  vm.order = [];
+  vm.orderDetails = [];
   vm.measu = [];
   vm.tempimg =[];
 
@@ -64,6 +79,9 @@ function addProductController($resource, $state, $http, Upload, $window) {
 
   function selectCustomer(info) {
     vm.seleCust = info;
+    vm.customermeasurementname = JSON.parse(info.measurementsname);
+    vm.customermeasurementvalue = JSON.parse(info.measurementsvalue);
+
     if (localStorage.getItem('addProductscustomer')) {
      localStorage.removeItem('addProductscustomer');
      localStorage.setItem('addProductscustomer', JSON.stringify(info));
@@ -74,6 +92,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
   }
 
   function designSelect(info, index) {
+    
     vm.newinex = index;
     vm.order[vm.newinex].type2 = '';
 
@@ -94,6 +113,20 @@ function addProductController($resource, $state, $http, Upload, $window) {
         vm.measu[vm.newinex] = vm.measure.split(',');
       }
     }, this);
+
+    var xyz = [];
+    
+    for (var j = 0; j < vm.measu[vm.newinex].length; j++) {
+        var key = vm.customermeasurementname.indexOf(vm.measu[vm.newinex][j]);
+        var val = vm.customermeasurementvalue[key];
+        xyz.splice(key, 0, val);
+    }
+    if(vm.orderDetails[index]){
+      vm.orderDetails[index] = xyz;
+    }
+    else{
+    vm.orderDetails.push(xyz);
+    }
   };
 
   function submit() {
@@ -130,6 +163,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
       vm.infobuffer[index].customerid = vm.seleCust.id;
       vm.infobuffer[index].customerName = vm.seleCust.customerName;
       vm.infobuffer[index].pair = vm.pairs[index];
+      vm.infobuffer[index].measure = vm.orderDetails[index];
       console.log(vm.tempimg);
       vm.infobuffer[index].bimage = vm.tempimg[index];
       

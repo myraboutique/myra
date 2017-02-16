@@ -13,7 +13,7 @@
 				<li><a href="#/home">Home</a></li>
 				<li><a href="#/customerdetails">Customers</a></li>
 				<li><a href="#/order" class="active">Orders</a></li>
-				<li><a href="#/alert">Alerts</a></li>
+				<!--<li><a href="#/alert">Alerts</a></li>-->
 				<li><a href="#/register">Settings</a></li>
 				<li><a href="#/logout">Logout</a></li>
 			</ul>
@@ -126,8 +126,9 @@
 					</tr>
 
 					<tr>
-						<td class="addproducttable-B">
-							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)">Details</a>
+						<td class="addproducttable-B"><span class="hideeextratext">{{vm.order[$index].customization}}</span>
+							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-hide="vm.order[$index].customization">Details</a>
+							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-show="vm.order[$index].customization">more</a>
 
 							<!-- Prompt Box For Add Customization-->
 							<!-- Modal -->
@@ -155,8 +156,9 @@
 					</tr>
 
 					<tr>
-						<td class="addproducttable-B">
-							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)">Comments</a>
+						<td class="addproducttable-B"><span class="hideeextratext">{{vm.order[$index].cloth}}</span>
+							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-hide="vm.order[$index].cloth">Comments</a>
+							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-show="vm.order[$index].cloth">more</a>
 							<!-- Prompt Box For Add Details-->
 							<!-- Modal -->
 							<div class="modal fade" id="myModal3" role="dialog">
@@ -219,7 +221,7 @@
 						<td class="addproducttable-B">
 							<div ng-repeat="data in vm.measu[$index]">
 								<label>{{data}}</label>
-								<input style="width: 40%;" ng-model="vm.order[$parent.$index].xyz[$index]" class="measurement-input" name="measurement{{$index}}" required="required"
+								<input style="width: 40%;" ng-model="vm.orderDetails[$parent.$index][$index]" class="measurement-input" name="measurement{{$index}}" required="required"
 									type="text" />
 							</div>
 						</td>
