@@ -86,8 +86,8 @@ function editsubdesignController($resource, $stateParams, $http,$scope,Upload, $
         }).then(function (resp) { //upload function returns a promise
             if(resp.data.error_code === 0){ //validate success
                 vm.data.subdesignimage = resp.data.fname;
-                console.log( resp.data.fname);
-                console.log( vm.data.subdesignimage);
+                // console.log( resp.data.fname);
+                // console.log( vm.data.subdesignimage);
                       $http.put('/api/addsubdesign', vm.data)
                           .then(
                           function (response) {
@@ -95,22 +95,22 @@ function editsubdesignController($resource, $stateParams, $http,$scope,Upload, $
                                       vm.flag = true;
                           }
                           else{
-                            console.log("put successfull")
+                            // console.log("put successfull")
                             window.location = '#/subdesign';
                           }
                             
                           },
                           function (response) {
-                            console.log("put unsuccessfull")
+                            // console.log("put unsuccessfull")
                           });
             } 
         }, function (resp) { //catch error
-            console.log('Error status: ' + resp.status);
+            // console.log('Error status: ' + resp.status);
             $window.alert('Error status: ' + resp.status);
         }, function (evt) { 
-            console.log(evt);
+            // console.log(evt);
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+            // console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             vm.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
         });
     };

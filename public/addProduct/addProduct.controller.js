@@ -167,13 +167,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
             url: 'http://localhost:3000/upload', //webAPI exposed to upload the file
             data:{file:file} //pass file as data, should be user ng-model
         }).then(function (resp) { //upload function returns a promise
-            if(resp.data.error_code === 0){ //validate success
-                console.log(resp.data.fname);
-                // vm.mage = resp.data.fname;
-            vm.tempimg.push(resp.data.fname);
-  
-            
-                
+            if(resp.data.error_code === 0){ //validate success       
       //           addsubdesigns.$save(function (info) {
       //   if (!info.status) {
       //     swal("Your record has been saved successfully.");
@@ -185,18 +179,18 @@ function addProductController($resource, $state, $http, Upload, $window) {
       //   }
       // });
             } 
-                console.log(vm.tempimg);
-        beforefinal();
-
         }, function (resp) { //catch error
-            console.log('Error status: ' + resp.status);
+            // console.log('Error status: ' + resp.status);
             $window.alert('Error status: ' + resp.status);
         }, function (evt) { 
-            console.log(evt);
+            // console.log(evt);
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+            // console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             vm.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
         });
+
+beforefinal();
+
     };
 //file uploa ==========================================
 
