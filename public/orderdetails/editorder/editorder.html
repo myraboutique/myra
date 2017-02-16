@@ -73,7 +73,7 @@
 									<th>Amount</th>
 									<th>Status</th>
 								</tr>
-								<tr ng-repeat="i in vm.productwiserecord">
+								<tr ng-repeat="i in vm.productwiserecord" ng-class="{'some2': vm.productwiserecord[$index].pair}">
 									<td style="width: 200px">
 										<a href="#/editProduct">
 											<b>{{vm.productwiserecord[$index].type + " (" + vm.productwiserecord[$index].subdesign + ")"}}</b>

@@ -20,15 +20,11 @@ function editorderController($resource, $scope, $http) {
   vm.productwiserecord = [];
   var customer = $resource('/api/orderdetails');
   customer.query(function (response) {
-      // console.log(response);
       vm.something = response[1].timestamp;
-
-  console.log(vm.something);
 
       for (var index = 0; index < response.length; index++) {
         if(response[index].timestamp == vm.records.timestamp) {
           vm.productwiserecord.push(response[index]);
-          console.log(vm.productwiserecord);
         }
       }      
   });

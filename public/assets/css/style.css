@@ -644,7 +644,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
 .form-box{width: 100%;display: inline-block;position: relative;}
 .form-box-new{width: 50%;display: inline-block;position: relative;}
 
-
+.some2 {
+  background-color: #C3C3C3;
+}
 
 .customization-check-box{width: 70%; float: left;}
 .customization-check-box strong{font-style: normal;font-weight: 300; padding-left: 6px;}
