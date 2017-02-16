@@ -46,8 +46,13 @@
             <input id="" focus="true" ng-minlength="3" ng-maxlength="20" ng-required="true" ng-model="vm.customerName" name="customerName" type="text"
               placeholder="Customer Name" />
             <span ng-show="form.customerName.$error.required && (form.customerName.$dirty || vm.formSubmitted)">Customer Name is required.</span>
+<<<<<<< HEAD
             <span ng-show="form.customerName.$error.minlength && (form.customerName.$dirty || vm.formSubmitted)">Customer Name should be between 2 to 20 characters long.</span>
             <span ng-show="form.customerName.$error.maxlength && (form.customerName.$dirty || vm.formSubmitted)">Customer Name should be between 2 to 20 characters long.</span>
+=======
+            <span ng-show="form.customerName.$error.minlength && (form.customerName.$dirty || vm.formSubmitted)">Customer Name length must be 2 characters long.</span>
+            <span ng-show="form.customerName.$error.maxlength && (form.customerName.$dirty || vm.formSubmitted)">Customer Name length must be less than 20 characters.</span>
+>>>>>>> a45d90f836b194ce9cb33ca60917493401883d21
 
           </div>
           <div class="form-box">
@@ -104,7 +109,7 @@
           <input id="" ng-model="vm.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="10" ng-maxlength="10"  type="text" placeholder="Phone Number" />
 
           <!--<span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be digits.</span>-->
-          <span ng-show="(form.phonenumber.$error.minlength || form.phonenumber.$error.maxlength)&& (form.phonenumber.$dirty || vm.formSubmitted)">Please insert a valid 10-digit phone number.</span>
+          <span ng-show="(form.phonenumber.$error.minlength || form.phonenumber.$error.maxlength)&& (form.phonenumber.$dirty || vm.formSubmitted)">Please enter a valid 10-digit phone number.</span>
 
         </div>
 
