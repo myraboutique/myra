@@ -249,11 +249,5 @@
       'referer': null
             }
     })
-   . state('up', {
-      url: '/up',
-      templateUrl: 'up/up.html',
-      controller: 'MyCtrl',
-      controllerAs: 'up'
-    })
   }
 })();
