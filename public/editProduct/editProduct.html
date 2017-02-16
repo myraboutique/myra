@@ -83,25 +83,41 @@
 
                       <tr>
                         <td class="addproducttable-B">
-													<!--<input ng-model="vm.productwiserecord[$index].type" name="clothtype{{$index}}" disabled />-->
-													<select ng-model="vm.productwiserecord[$index].type" name="clothtype{{$index}}" >
-													<option ng-repeat="data in vm.type">{{data.title}}</option>
+													<select ng-model="vm.productwiserecord[$index].type" name="clothtype{{$index}}" ng-change="vm.designSelect(vm.productwiserecord[$index].type,$index)"
+								 						data-toggle="modal" data-target="#myModal">
+												<option ng-repeat="data in vm.type">{{data.title}}</option>
 													</select>
                         </td>
                       </tr>
                       <tr>
                         <td class="addproducttable-B">
-													<!--<input ng-model="vm.productwiserecord[$index].subdesign" name="clothtype{{$index}}" disabled />-->
-                          	<select ng-model="vm.productwiserecord[$index].subdesign" name="clothtype{{$index}}">
-															<option ng-repeat="data in vm.subdesign track by $index">{{data}}</option>
-														</select>
+																<input ng-model="vm.productwiserecord[$index].subdesign" name="clothtype{{$index}}" disabled />
+
+																<!-- Prompt Box -->
+																<!-- Modal -->
+																<div class="modal fade" id="myModal" role="dialog">
+																	<div class="modal-dialog">
+																		<!-- Modal content-->
+																		<div class="modal-content">
+																			<div class="modal-header">
+																				<button type="button" class="close" data-dismiss="modal">&times;</button>
+																				<h4 class="modal-title">select style</h4>
+																			</div>
+																			<div class="modal-body">
+																				<span ng-repeat="data in vm.subdesignimage">
+																					<img style="margin: 5px; border: 1px red solid" ng-src="{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
+																				</span>
+																			</div>
+																			<div class="modal-footer">
+																				<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+																			</div>
+																		</div>
+
+																	</div>
+																</div>
+																<!-- Prompt Box -->
                         </td>
                       </tr>
-											<!--<tr>
-												<td ng-repeat="data in vm.subdesignimage">
-													<img ng-hide="vm.flag" ng-src="{{data}}" ng-click="vm.clicked()" />
-												</td>
-											</tr>-->
                       <tr>
                         <td class="addproducttable-B">
 													<!--<input ng-model="vm.productwiserecord[$index].material" name="clothtype{{$index}}" disabled />-->

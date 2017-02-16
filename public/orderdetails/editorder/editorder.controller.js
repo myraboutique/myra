@@ -43,6 +43,26 @@ function editorderController($resource, $scope, $http) {
   vm.stitchingchange = stitchingchange;
   vm.forstitchingdate = forstitchingdate;
 
+  vm.sprayColour = sprayColour;
+  vm.sColor = true;
+
+  function  sprayColour(idx,arr){
+    if(idx > 0){
+      //check for previous matched colour and maintain a flag;
+      if(arr[idx].pair && arr[idx].pair != null && arr[idx].pair === arr[idx - 1].pair){
+        return vm.sColor;
+      }
+      else{
+        vm.sColor = !vm.sColor;
+        return vm.sColor;
+      }
+    }
+    else{
+      vm.sColor = true;
+      return vm.sColor;
+    }
+  }
+
 
   function forstitchingdate(index) {
     if (vm.productwiserecord[index].stitchingdate > vm.productwiserecord[index].deliverydate) {

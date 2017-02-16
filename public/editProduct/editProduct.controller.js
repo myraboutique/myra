@@ -62,10 +62,33 @@ function editProductController($resource, $state, $http) {
       for (var index = 0; index < response.length; index++) {
         if(response[index].timestamp == vm.records.timestamp) {
           vm.productwiserecord.push(response[index]);
-          console.log(vm.productwiserecord);
         }
       }      
   });
+
+
+  vm.clicked = function (info) {
+    vm.productwiserecord[vm.newinex].type = info;
+
+  };
+
+  vm.designSelect = function (info, index) {
+    vm.newinex = index;
+    vm.productwiserecord[vm.newinex].type2 = '';
+
+    addsubdesign.query(function (subdesigns) {
+      vm.subdesign = [];
+      vm.subdesignimage = [];
+      subdesigns.forEach(function (e) {
+        console.log(e);
+        if (e.design.trim() == info.title) {
+          vm.subdesignimage.push(e.subdesignimage);
+          vm.subdesign.push(e.subdesign);
+        }
+      });
+    });
+  };
+
 
   vm.update = function(info) {
     if(vm.order){
