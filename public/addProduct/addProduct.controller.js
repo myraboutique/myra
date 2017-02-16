@@ -110,11 +110,10 @@ function addProductController($resource, $state, $http, Upload, $window) {
     vm.pairs[info+1] = vm.uniqeno + info;
   }
 
-    
-  function final(info) {
-    vm.fileup();
-    vm.designs = [];
-    info.forEach(function (element) {
+
+ function beforefinal() {
+        vm.designs = [];
+    vm.infobuffer.forEach(function (element) {
       vm.designs.push(element.type.title + " (" + element.type2 + ")");
     }, this);
 
@@ -126,24 +125,30 @@ function addProductController($resource, $state, $http, Upload, $window) {
       localStorage.setItem('vmorder', JSON.stringify(vm.designs));
     }
 
-    for (var index = 0; index < info.length; index++) {
-      info[index].timestamp = vm.pid;
-      info[index].customerid = vm.seleCust.id;
-      info[index].customerName = vm.seleCust.customerName;
-      info[index].pair = vm.pairs[index];
+    for (var index = 0; index < vm.infobuffer.length; index++) {
+      vm.infobuffer[index].timestamp = vm.pid;
+      vm.infobuffer[index].customerid = vm.seleCust.id;
+      vm.infobuffer[index].customerName = vm.seleCust.customerName;
+      vm.infobuffer[index].pair = vm.pairs[index];
       console.log(vm.tempimg);
+      vm.infobuffer[index].bimage = vm.tempimg[index];
       
       if (localStorage.getItem('vmorder' + index)) {
         localStorage.removeItem('vmorder' + index);
-        localStorage.setItem('vmorder' + index, JSON.stringify(info[index]));
+        localStorage.setItem('vmorder' + index, JSON.stringify(vm.infobuffer[index]));
       }
       else {
-        localStorage.setItem('vmorder' + index, JSON.stringify(info[index]));
+        localStorage.setItem('vmorder' + index, JSON.stringify(vm.infobuffer[index]));
       }
     }
 
     window.location = '#/addordernew';
+ }
 
+
+  function final(info) {
+    vm.infobuffer = info;
+    vm.fileup();
   }
 
 
@@ -153,7 +158,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
      for(var i=0;i<vm.order.length;i++){
        if (vm.order[i].image) { //check if from is valid
             vm.upload(vm.order[i].image); //call upload function
-        }
+        }   
      }
     };
     
@@ -163,9 +168,12 @@ function addProductController($resource, $state, $http, Upload, $window) {
             data:{file:file} //pass file as data, should be user ng-model
         }).then(function (resp) { //upload function returns a promise
             if(resp.data.error_code === 0){ //validate success
+                console.log(resp.data.fname);
                 // vm.mage = resp.data.fname;
             vm.tempimg.push(resp.data.fname);
-                console.log(vm.tempimg);
+  
+            
+                
       //           addsubdesigns.$save(function (info) {
       //   if (!info.status) {
       //     swal("Your record has been saved successfully.");
@@ -177,6 +185,9 @@ function addProductController($resource, $state, $http, Upload, $window) {
       //   }
       // });
             } 
+                console.log(vm.tempimg);
+        beforefinal();
+
         }, function (resp) { //catch error
             console.log('Error status: ' + resp.status);
             $window.alert('Error status: ' + resp.status);

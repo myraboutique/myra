@@ -199,7 +199,7 @@ if (index < vm.selectedOrder.length) {
         orderdetails.color = vm.temp[index].color;
         orderdetails.customization = vm.temp[index].customization;
         if(vm.temp[index].image){
-          orderdetails.browseimage = vm.temp[index].image.dataURL;
+          orderdetails.browseimage = vm.temp[index].bimage;
         }
         orderdetails.material = vm.temp[index].materialtype.materialtype;
         orderdetails.type = vm.temp[index].type.title;
