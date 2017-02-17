@@ -34,23 +34,81 @@ function editProductController($resource, $state, $http, Upload, $window) {
           vm.measurename[index] = response[index].measurementname.split(',');
         }
       }  
+      vm.len = vm.productwiserecord.length;
   });
 
   vm.update = function(info) {
 
-    for (var index = 0; index < info.length; index++) {
-      info[index].measurement = JSON.stringify(vm.measurevalue[index]);
+      // vm.fileup();
+      for (var index = 0; index < info.length; index++) {
+        info[index].measurement = JSON.stringify(vm.measurevalue[index]);
+        info[index].browseimage = vm.tempimg[index];
+        $http.put('/api/orderdetails', info[index])
+          .then(
+          function (response) {
+            window.location = '#/editorder';
+          },
+          function (err) {
+            console.log(err);
+          });
+      }  
 
-      $http.put('/api/orderdetails', info[index])
-        .then(
-        function (response) {
-          window.location = '#/editorder';
-        },
-        function (err) {
-          console.log(err);
-        });
+    // vm.fileup().then(function () {
+    //   for (var index = 0; index < info.length; index++) {
+    //     info[index].measurement = JSON.stringify(vm.measurevalue[index]);
+    //     info[index].browseimage = vm.tempimg[index];
+    //     $http.put('/api/orderdetails', info[index])
+    //       .then(
+    //       function (response) {
+    //         window.location = '#/editorder';
+    //       },
+    //       function (err) {
+    //         console.log(err);
+    //       });
+    //   }
+    // });
+  };
+
+
+
+  var i = 1;
+  vm.fileup = function () {
+    if(vm.order){
+      vm.upload(vm.order[0].image);
     }
   };
+  vm.tempimg = [];
+  vm.upload = function (file) {
+    Upload.upload({
+      url: 'http://localhost:3000/upload',
+      data: { file: file } 
+    }).then(function (resp) { 
+      if (resp.data.error_code === 0) { 
+        if(resp.data.fname){
+          vm.tempimg.push(resp.data.fname);
+        }
+        else{
+          vm.tempimg.push("");
+        }
+        
+        console.log(vm.tempimg);
+
+        vm.upload(vm.order[i].image);
+        if (i < vm.len) {
+          i++;
+        }
+      }
+
+    }, function (resp) {
+      $window.alert('Error status: ' + resp.status);
+    }, function (evt) {
+      var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+      vm.progress = 'progress: ' + progressPercentage + '% ';
+    });
+  };
+
+
+
 }
 
 
