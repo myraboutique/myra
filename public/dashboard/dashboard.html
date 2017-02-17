@@ -105,7 +105,7 @@
 						<b><th>Status</th></b>
 					</tr>
 
-					<tr dir-paginate="data in vm.temp=(vm.type |itemsPerPage:5 | orderBy: 'deliverydate')"
+					<tr dir-paginate="data in vm.temp=(vm.type1 | orderBy: 'deliverydate' | itemsPerPage:5 )"
 						ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
 						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link"><b>{{data.timestamp}}</b></a></td>
 						<td class="top-purpal-color-row2">{{data.type}}</td>
@@ -177,7 +177,7 @@
 						<b><th>Status</th></b>
 					</tr>
 
-					<tr dir-paginate="data in vm.temp=(vm.type |itemsPerPage:5 | orderBy: '-orderdate')"
+					<tr dir-paginate="data in vm.temp=(vm.type2 | orderBy: '-timestamp' | itemsPerPage:5 )"
 						ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
 						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link"><b>{{data.timestamp}}</b></a></td>
 						<td class="top-purpal-color-row2">{{data.type}}</td>
@@ -248,7 +248,7 @@
 						<b><th>Status</th></b>
 					</tr>
 
-					<tr dir-paginate="data in vm.temp=(vm.type | itemsPerPage:5 | orderBy:vm.predicate)"
+					<tr dir-paginate="data in vm.temp=(vm.type3 | orderBy: '-timestamp' | itemsPerPage:5 )"
 						ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
 						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link"><b>{{data.timestamp}}</b></a></td>
 						<td class="top-purpal-color-row2">{{data.type}}</td>

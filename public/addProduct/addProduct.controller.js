@@ -6,6 +6,11 @@ addProductController.$inject = ['$resource', '$state', '$http', 'Upload', '$wind
 function addProductController($resource, $state, $http, Upload, $window) {
   var vm = this;
 
+  localStorage.removeItem('vmorder');
+  localStorage.removeItem('vmorder0');
+  localStorage.removeItem('vmorder1');
+  localStorage.removeItem('vmorder2');
+  localStorage.removeItem('vmord');
   //============DON'T DELETE=========//
   // vm.orderDetails =[{ xyz: []}];
   //  vm.getVal = function(j, i){

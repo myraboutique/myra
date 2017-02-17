@@ -34,179 +34,171 @@
 		<div class="main-contant-part">
 
 			<div class="form-box">
-                <!--<div class=" customer-detailsmain-box">
+				<!--<div class=" customer-detailsmain-box">
                   <label>Order #</label>&nbsp;{{vm.records.timestamp}}
                 </div>-->
 
-                <div class=" customer-detailsmain-box1">
+				<div class=" customer-detailsmain-box1">
 					<label>Order Date </label>
-							<datepicker date-format="dd/MM/yyyy">
-								<input id="mydate" ng-model="vm.records.orderdate" name="orderdate{{$index}}"
-									type="text" placeholder="Date of Order" />
-							</datepicker>
+					<datepicker date-format="dd/MM/yyyy">
+						<input id="mydate" ng-model="vm.records.orderdate" name="orderdate{{$index}}" type="text" placeholder="Date of Order" />
+					</datepicker>
 				</div>
 
-                <div class=" customer-detailsmain-box2"><label>Order Status </label><strong>{{}}</strong></div>
+				<div class=" customer-detailsmain-box2"><label>Order Status </label><strong>{{}}</strong></div>
 			</div>
 
-                <div class="form-box create-order-box">
-      						<div class=" customer-detailsmain-box">
-      							<label>Order by</label>&nbsp;{{vm.records.customerName}}
-      							<!--<select ng-model="vm.records.customerName" name="customeruser">
+			<div class="form-box create-order-box">
+				<div class=" customer-detailsmain-box">
+					<label>Order by</label>&nbsp;{{vm.records.customerName}}
+					<!--<select ng-model="vm.records.customerName" name="customeruser">
 											<option ng-repeat="data in vm.customer">{{data.customerName}}</option>
 										</select>-->
 
-      							<!--<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>-->
-      						</div>
+					<!--<span ng-show="orderform.customeruser.$invalid && (orderform.customeruser.$touched || vm.formSubmitted)">Customer name is required.</span>-->
+				</div>
 
-									<div class=" customer-detailsmain-box1"><label>Contact Number </label>&nbsp;<strong>{{vm.records2.mobileNumber}}</strong></div>
-      						<div class=" customer-detailsmain-box2"><label>Address </label>&nbsp;<strong>{{vm.records2.address}}</strong></div>
-      			 </div>
+				<div class=" customer-detailsmain-box1"><label>Contact Number </label>&nbsp;<strong>{{vm.records2.mobileNumber}}</strong></div>
+				<div class=" customer-detailsmain-box2"><label>Address </label>&nbsp;<strong>{{vm.records2.address}}</strong></div>
+			</div>
 
-                 <div class="addproducttable-main-box">
-                   <div class="left-list-addproduct">
-                     <ul>
-                      <li>Design</li>
-                      <li>Sub Design</li>
-                      <li>Material Type</li>
-                      <li>Color Code</li>
-                      <li>Customization</li>
-                      <li>Remarks</li>
-                      <li>Add Photo</li>
-                      <li>Measurement</li>
-                    </ul>
-                   </div>
+			<div class="addproducttable-main-box">
+				<div class="left-list-addproduct">
+					<ul>
+						<li>Design</li>
+						<li>Sub Design</li>
+						<li>Material Type</li>
+						<li>Color Code</li>
+						<li>Customization</li>
+						<li>Remarks</li>
+						<li>Add Photo</li>
+						<li>Measurement</li>
+					</ul>
+				</div>
 
 
 
-			          <div ng-repeat="i in vm.productwiserecord">
-                   <table style="width:20%">
+				<div ng-repeat="i in vm.productwiserecord">
+					<table style="width:20%">
 
-                      <tr>
-                        <td class="addproducttable-B">
-													<select ng-model="vm.productwiserecord[$index].type" name="clothtype{{$index}}" ng-change="vm.designSelect(vm.productwiserecord[$index].type,$index)"
-								 						data-toggle="modal" data-target="#myModal">
-												<option ng-repeat="data in vm.type">{{data.title}}</option>
-													</select>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="addproducttable-B">
-																<input ng-model="vm.productwiserecord[$index].subdesign" name="clothtype{{$index}}" disabled />
+<tr>
+	<td class="addproducttable-B">
+		<input ng-model="vm.productwiserecord[$index].type" disabled />
+		<!--<select ng-model="vm.productwiserecord[$index].type" ng-change="vm.designSelect(vm.productwiserecord[$index].type,$index)">
+			<option ng-repeat="data in vm.type">{{data.title}}</option>
+		</select>-->
+	</td>
+</tr>
+<tr>
+	<td class="addproducttable-B">
+		<input ng-model="vm.productwiserecord[$index].subdesign" disabled />
+		<!--<a ng-click="vm.designSelect(vm.productwiserecord[$index].type,$index)" data-toggle="modal" data-target="#myModal">Select</a>-->
 
-																<!-- Prompt Box -->
-																<!-- Modal -->
-																<div class="modal fade" id="myModal" role="dialog">
-																	<div class="modal-dialog">
-																		<!-- Modal content-->
-																		<div class="modal-content">
-																			<div class="modal-header">
-																				<button type="button" class="close" data-dismiss="modal">&times;</button>
-																				<h4 class="modal-title">select style</h4>
-																			</div>
-																			<div class="modal-body">
-																				<span ng-repeat="data in vm.subdesignimage">
-																					<img style="margin: 5px; border: 1px red solid" ng-src="{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
-																				</span>
-																			</div>
-																			<div class="modal-footer">
-																				<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-																			</div>
-																		</div>
+		<!-- Prompt Box -->
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">select style</h4>
+					</div>
+					<div class="modal-body">
+						<span ng-repeat="data in vm.subdesignimage">
+							<img style="margin: 5px; border: 1px red solid; width:200px;" ng-src="/imgupload/{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
+</span>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+</div>
+</div>
 
-																	</div>
-																</div>
-																<!-- Prompt Box -->
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="addproducttable-B">
-													<!--<input ng-model="vm.productwiserecord[$index].material" name="clothtype{{$index}}" disabled />-->
-													<select ng-model="vm.productwiserecord[$index].material" name="material{{$index}}">
+</div>
+</div>
+<!-- Prompt Box -->
+</td>
+</tr>
+<tr>
+	<td class="addproducttable-B">
+		<input ng-model="vm.productwiserecord[$index].material" disabled />
+		<!--<select ng-model="vm.productwiserecord[$index].material" name="material{{$index}}">
 														<option ng-repeat="data in vm.material track by $index">{{data.materialtype}}</option>
-														</select>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="addproducttable-B">
-                          	<input ng-model="vm.productwiserecord[$index].color" type="text"/>
-														<span ng-hide="true"></span>
-                        </td>
-                      </tr>
-                      <tr>
-						  <td class="addproducttable-B"><span class="hideeextratext">{{vm.productwiserecord[$index].customization}}</span>
-							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-hide="vm.productwiserecord[$index].customization">Details</a>
-							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-show="vm.productwiserecord[$index].customization">more</a>
+														</select>-->
+	</td>
+</tr>
+<tr>
+	<td class="addproducttable-B">
+		<input ng-model="vm.productwiserecord[$index].color" type="text" />
+		<span ng-hide="true"></span>
+	</td>
+</tr>
+<tr>
+	<td class="addproducttable-B"><span class="hideeextratext">{{vm.productwiserecord[$index].customization}}</span>
+		<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-hide="vm.productwiserecord[$index].customization">Details</a>
+		<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-show="vm.productwiserecord[$index].customization">more</a>
 
-							<!-- Prompt Box For Add Customization-->
-							<!-- Modal -->
-							<div class="modal fade" id="myModal2" role="dialog">
-								<div class="modal-dialog">
+		<!-- Prompt Box For Add Customization-->
+		<!-- Modal -->
+		<div class="modal fade" id="myModal2" role="dialog">
+			<div class="modal-dialog">
 
-									<!-- Modal content-->
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-											<h4 class="modal-title">Add Customization</h4>
-										</div>
-										<div class="modal-body">
-											<textarea style="margin-top: 0px;" ng-model="vm.productwiserecord[vm.indexforpromptbox].customization"  rows="4" cols="50" placeholder="Customization Description"
-											class="customization-check-box-textarea" ></textarea>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Prompt Box -->
-						</td>
-                      </tr>
-                      <tr>
-						<td class="addproducttable-B"><span class="hideeextratext">{{vm.productwiserecord[$index].cloth}}</span>
-							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-hide="vm.productwiserecord[$index].cloth">Comments</a>
-							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-show="vm.productwiserecord[$index].cloth">more</a>
-							<!-- Prompt Box For Add Details-->
-							<!-- Modal -->
-							<div class="modal fade" id="myModal3" role="dialog">
-								<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Add Customization</h4>
+					</div>
+					<div class="modal-body">
+						<textarea style="margin-top: 0px;" ng-model="vm.productwiserecord[vm.indexforpromptbox].customization" rows="4" cols="50" placeholder="Customization Description"
+class="customization-check-box-textarea" ></textarea>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Prompt Box -->
+</td>
+</tr>
+<tr>
+	<td class="addproducttable-B"><span class="hideeextratext">{{vm.productwiserecord[$index].cloth}}</span>
+		<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-hide="vm.productwiserecord[$index].cloth">Comments</a>
+		<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-show="vm.productwiserecord[$index].cloth">more</a>
+		<!-- Prompt Box For Add Details-->
+		<!-- Modal -->
+		<div class="modal fade" id="myModal3" role="dialog">
+			<div class="modal-dialog">
 
-									<!-- Modal content-->
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-											<h4 class="modal-title">Add Summary</h4>
-										</div>
-										<div class="modal-body">
-											<textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.productwiserecord[vm.indexforpromptbox].cloth" class="customization-check-box-textarea" name="clothdesc{{$index}}"
-												placeholder="Summary">
-											</textarea>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Prompt Box -->
-						</td>
-                      </tr>
-                      <tr>
-						<td class="addproducttable-B">
-							<input class="clothmeasurementinput"
-									type="file" 
-									ngf-select 
-									ng-model="vm.order[$index].image" 
-									name="file" 
-									ngf-pattern="'image/*'"
-									accept="image/*" 
-									ngf-max-size="20MB" 
-									required
-									/>
-								<img style="width:200px" ng-show="!!vm.vm.order[$index].image" ngf-thumbnail="vm.order[$index].image"/>
-							<img ng-hide="vm.order[$index].image" ng-src="imgupload/{{vm.productwiserecord[$index].browseimage}}" width="200"/>
-							<span ng-show="form.file.$error.required && (form.file.$dirty || vm.formSubmitted)">Image is required.</span><br>
-									<span ng-show="form.file.$error.maxSize">File too large 
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Add Summary</h4>
+					</div>
+					<div class="modal-body">
+						<textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.productwiserecord[vm.indexforpromptbox].cloth" class="customization-check-box-textarea"
+name="clothdesc{{$index}}" placeholder="Summary">
+</textarea>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Prompt Box -->
+</td>
+</tr>
+<tr>
+	<td class="addproducttable-B">
+		<input class="clothmeasurementinput" type="file" ngf-select ng-model="vm.order[$index].image" name="file" ngf-pattern="'image/*'"
+			accept="image/*" ngf-max-size="20MB" required />
+		<img style="width:200px" ng-show="!!vm.vm.order[$index].image" ngf-thumbnail="vm.order[$index].image"/>
+<img ng-hide="vm.order[$index].image" ng-src="imgupload/{{vm.productwiserecord[$index].browseimage}}" width="200" />
+<span ng-show="form.file.$error.required && (form.file.$dirty || vm.formSubmitted)">Image is required.</span><br>
+<span ng-show="form.file.$error.maxSize">File too large 
 									{{vm.vm.order[$index].image.size / 1000000|number:1}}MB: max 20M</i>
 									<p>{{vm.progress}}</p>
 						</td>
@@ -216,53 +208,53 @@
 							<div ng-repeat="data in vm.measu[$index]">
 								<label>{{data}}</label>
 								<input style="width: 40%;" ng-model="vm.orderDetails[$parent.$index][$index]" class="measurement-input" name="measurement{{$index}}" required="required"
-									type="text" />
-							</div>
-                        </td>
-                      </tr>
-                      <!--<tr>
+type="text" />
+</div>
+</td>
+</tr>
+<!--<tr>
                         <td class="addproducttable-B">
                           <div class="addproducttable-Add-BTN add-pair-box"> <input type="submit" value="Add Pair"></div>
                         </td>
                       </tr>-->
 
-                    </table>
-					 <!--<div class="addproducttable-Add-BTN"><input type="submit" value="Add" ng-click="vm.submit()" /></div>-->
+</table>
+<!--<div class="addproducttable-Add-BTN"><input type="submit" value="Add" ng-click="vm.submit()" /></div>-->
 
 
-			</div>
+</div>
 
 
-				</div>
-						<div class="submit-button">
-							<input type="submit" value="Update" ng-click="vm.update(vm.productwiserecord)" />
-						</div>
-			
-			<!-- Left Form Section End Here -->
+</div>
+<div class="submit-button">
+	<input type="submit" value="Update" ng-click="vm.update(vm.productwiserecord)" />
+</div>
+
+<!-- Left Form Section End Here -->
 
 
-		</div>
-		<!-- Footer Section Start Here -->
-		<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
-		<!-- Footer Section End Here -->
-	</form>
-	<script type="text/javascript">
+</div>
+<!-- Footer Section Start Here -->
+<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
+<!-- Footer Section End Here -->
+</form>
+<script type="text/javascript">
 
-		// 	var myDate = new Date();
-		// var month = myDate.getMonth() + 1;
-		// var prettyDate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
-		// $("#mydate").val(prettyDate);
+	// 	var myDate = new Date();
+	// var month = myDate.getMonth() + 1;
+	// var prettyDate = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
+	// $("#mydate").val(prettyDate);
 
-		$(document).ready(function (e) {
-			$(".menu-toggle").click(function () {
-				$(".navbar").slideToggle()
+	$(document).ready(function (e) {
+		$(".menu-toggle").click(function () {
+			$(".navbar").slideToggle()
 
-			})
-			$(".navbar ul li").click(function () {
-				$(this).find("ul").slideToggle()
-				$(this).toggleClass("active");
+		})
+		$(".navbar ul li").click(function () {
+			$(this).find("ul").slideToggle()
+			$(this).toggleClass("active");
 
-			})
+		})
 
-		});
-	</script>
+	});
+</script>
