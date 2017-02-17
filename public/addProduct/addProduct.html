@@ -43,10 +43,10 @@
 						<input id="mydate" required id ="" ng-model="vm.orderdate1" name="orderdate{{$index}}" type="text" placeholder="Date of Order" />
 					</datepicker>
 					<span ng-show="form.orderdate1.$error.required && (form.orderdate1.$dirty || vm.formSubmitted)">Order Date is required.</span>
-    
+
 				</div>
 
-				<div class=" customer-detailsmain-box2"><label>Order Status </label>&nbsp;<strong>NEW</strong></div>
+				<div class="customer-detailsmain-box2"><label>Order Status </label>&nbsp;<em>NEW</em></div>
 			</div>
 
 			<div class="form-box create-order-box">
@@ -59,11 +59,11 @@
 					<span ng-show="form.name.$error.required && (form.name.$dirty || vm.formSubmitted)">Customer Name is required.</span>
 				</div>
 
-				<div class=" customer-detailsmain-box1"><label>Contact Number </label>&nbsp;<strong>{{vm.seleCust.mobileNumber}}</strong></div>
+				<div class=" customer-detailsmain-box1"><label>Contact Number </label>&nbsp;<em>{{vm.seleCust.mobileNumber}}</em></div>
 
-				<div class=" customer-detailsmain-box2"><label>Address </label>&nbsp;<strong>{{vm.seleCust.address}}</strong></div>
+				<div class=" customer-detailsmain-box2 bdr-btm-none-mobile"><label class="addproduct-address-bx-label">Address </label><em class="addproduct-address-bx-em">{{vm.seleCust.address}}</em></div>
 			</div>
-				
+
 			<!-- Addproducttable Main Box Start Here -->
 			<div class="addproducttable-main-box">
 				<div class="left-list-addproduct">
@@ -78,10 +78,10 @@
 						<li>Measurement</li>
 					</ul>
 				</div>
-		
+
 				<!-- Table Repeat Section Start Here -->
 				<div ng-repeat="item in vm.items">
-					<table style="width:20%">
+					<table class="measurment-table-width">
 					<tr>
 						<td class="addproducttable-B">
 							<select required="required" ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.designSelect(vm.order[$index].type,$index)"
@@ -91,7 +91,7 @@
 
 						</td>
 					</tr>
-					
+
 					<tr>
 						<td class="addproducttable-B">
 							<input ng-model="vm.order[$index].type2" name="clothtype{{$index}}" disabled />
@@ -137,7 +137,7 @@
 							<input ng-model="vm.order[$index].color" ng-required="true" type="text" />
 	                      <span ng-show="form.order[$index].color.$error.required && (form.order[$index].color.$dirty || vm.formSubmitted)">Color Code  is required.</span>
 
-							
+
 						</td>
 					</tr>
 
@@ -231,7 +231,7 @@
 		<div class="submit-button">
 			<input type="submit" value="Save" ng-click="vm.final(orderform)" />
 		</div>
-	<!-- Main Contant Part End Here -->		
+	<!-- Main Contant Part End Here -->
 	</div>
 </form>
 	<!-- Footer Section Start Here -->
