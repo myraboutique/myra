@@ -76,7 +76,7 @@
 					<tr>
 						<td class="addproducttable-B">
 							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.designSelect(vm.order[$index].type,$index)"
-								ng-options="data as data.title for data in vm.type" data-toggle="modal" data-target="#myModal">
+								ng-options="data as data.title for data in vm.type">
 												<option value="">-- Please Select --</option>
 							</select>
 						</td>
@@ -84,8 +84,8 @@
 					
 					<tr>
 						<td class="addproducttable-B">
-							<input ng-model="vm.order[$index].type2" name="clothtype{{$index}}" disabled />
-
+							<input style="    width: 75%;" ng-model="vm.order[$index].type2" name="clothtype{{$index}}" disabled />
+							<a data-toggle="modal" data-target="#myModal">Select</a>
 							<!-- Prompt Box -->
 							<!-- Modal -->
 							<div class="modal fade" id="myModal" role="dialog">
@@ -242,7 +242,7 @@
 		</div>
 		<!-- Addproducttable Main Box End Here -->
 		<div class="submit-button">
-			<input type="submit" value="Save" ng-click="vm.final(vm.order)" />
+			<input type="submit" value="Save" ng-click="vm.final(vm.order,vm.orderdate1)" />
 		</div>
 	<!-- Main Contant Part End Here -->		
 	</div>

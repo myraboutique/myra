@@ -14,6 +14,10 @@ function dashboardController($resource, $state) {
     var orderdetails = $resource('/api/orderdetails');
     orderdetails.query(function(info){
         vm.type = info;
+        vm.delivery = [];
+        info.forEach(function(element) {
+            vm.delivery.push(element.deliverydate);
+        }, this);
         console.log(info);
     });
 }

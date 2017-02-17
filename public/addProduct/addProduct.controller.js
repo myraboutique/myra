@@ -144,7 +144,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
   }
 
 
-  function final(info) {
+  function final(info,date) {
     vm.fileup();
     vm.designs = [];
     info.forEach(function (element) {
@@ -165,6 +165,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
       info[index].customerName = vm.seleCust.customerName;
       info[index].pair = vm.pairs[index];
       info[index].measure = vm.orderDetails[index];
+      info[index].orderdate = date;
 
       if (localStorage.getItem('vmorder' + index)) {
         localStorage.removeItem('vmorder' + index);

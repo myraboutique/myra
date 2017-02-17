@@ -5,16 +5,19 @@ editProductController.$inject = ['$resource', '$state', '$http', 'Upload', '$win
 
 function editProductController($resource, $state, $http, Upload, $window) {
   var vm = this;
-     vm.inexforprompt = function (index) {
-    console.log(index);
+
+  vm.inexforprompt = function (index) {
     vm.indexforpromptbox = index;
   };
+
+  vm.measu = [];
+  vm.designSelect = designSelect;
+
   vm.data1 = localStorage.getItem('orderdetailsnew');
   vm.records = JSON.parse(vm.data1);
 
   vm.data2 = localStorage.getItem('customerdetailsnew');
   vm.records2 = JSON.parse(vm.data2);
-  // console.log(vm.records);
 
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
@@ -64,21 +67,59 @@ function editProductController($resource, $state, $http, Upload, $window) {
 
   };
 
-  vm.designSelect = function (info, index) {
-    vm.newinex = index;
-    vm.productwiserecord[vm.newinex].type2 = '';
+  // vm.designSelect = function (info, index) {
+  //   vm.newinex = index;
+  //   vm.productwiserecord[vm.newinex].type2 = '';
 
-    addsubdesign.query(function (subdesigns) {
+  //   addsubdesign.query(function (subdesigns) {
+  //     vm.subdesign = [];
+  //     vm.subdesignimage = [];
+  //     subdesigns.forEach(function (e) {
+  //       console.log(e);
+  //       if (e.design.trim() == info.title) {
+  //         vm.subdesignimage.push(e.subdesignimage);
+  //         vm.subdesign.push(e.subdesign);
+  //       }
+  //     });
+  //   });
+  // };
+
+    function designSelect(info, index) {
+
+    vm.newinex = index;
+    vm.order[vm.newinex].type2 = '';
+
+    addsubdesigns.query(function (subdesigns) {
       vm.subdesign = [];
       vm.subdesignimage = [];
       subdesigns.forEach(function (e) {
-        console.log(e);
         if (e.design.trim() == info.title) {
           vm.subdesignimage.push(e.subdesignimage);
           vm.subdesign.push(e.subdesign);
         }
       });
     });
+
+    vm.type.forEach(function (element) {
+      if (element.title == info.title && element.isActive) {
+        vm.measure = element.measurement;
+        vm.measu[vm.newinex] = vm.measure.split(',');
+      }
+    }, this);
+
+    var xyz = [];
+
+    for (var j = 0; j < vm.measu[vm.newinex].length; j++) {
+      var key = vm.customermeasurementname.indexOf(vm.measu[vm.newinex][j]);
+      var val = vm.customermeasurementvalue[key];
+      xyz.splice(key, 0, val);
+    }
+    if (vm.orderDetails[index]) {
+      vm.orderDetails[index] = xyz;
+    }
+    else {
+      vm.orderDetails.push(xyz);
+    }
   };
 
 
