@@ -239,6 +239,11 @@
       templateUrl: 'measurements/addnew/addmeasurements.html',
       controller: 'addmeasurementsController',
       controllerAs: 'vm'
+    }).state('dashboard', {
+      url: '/dashboard',
+      templateUrl: 'dashboard/dashboard.html',
+      controller: 'dashboardController',
+      controllerAs: 'vm'
     })
     .state('editmeasurements', {
       url: '/editmeasurements',

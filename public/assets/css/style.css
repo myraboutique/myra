@@ -122,6 +122,16 @@ display: inline;
   width: 100%;
 }
 
+.admin-setting-heading {
+  background: #ff36b6;
+  padding: 12px;
+  color: #fff;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: -15px;
+  margin-top: 25px;
+}
+
 .create-order-box{
   margin-bottom:30px;
   display: inline-block;
