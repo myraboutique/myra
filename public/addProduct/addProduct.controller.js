@@ -144,13 +144,18 @@ function addProductController($resource, $state, $http, Upload, $window) {
     window.location = '#/addordernew';
 
   }
+  var i=1;
   //file uploa ==========================================
    vm.fileup = function(){ //function to call on form submit
-     for(var i=0;i<vm.order.length;i++){
-       if (vm.order[i].image) { //check if from is valid
-            vm.upload(vm.order[i].image); //call upload function
+    //  for(var i=0;i<vm.order.length;i++){
+    //    if (vm.order[i].image) { //check if from is valid
+    //         vm.upload(vm.order[i].image); //call upload function
+    //     }
+    //  }
+      if (vm.order[0].image) { //check if from is valid
+             
+            vm.upload(vm.order[0].image); //call upload function
         }
-     }
     };
     
     vm.upload = function (file) {
@@ -162,16 +167,21 @@ function addProductController($resource, $state, $http, Upload, $window) {
                 // vm.mage = resp.data.fname;
             vm.tempimg.push(resp.data.fname);
                 console.log(vm.tempimg);
-                addsubdesign.$save(function (info) {
-        if (!info.status) {
-          swal("Your record has been saved successfully.");
-          window.location = '#/subdesign';
-        }
-        else {
-          vm.flag = true;
-          vm.status = info.status;
-        }
-      });
+
+                vm.upload(vm.order[i].image);
+                  if(i<vm.order.length){
+                    i++;
+                  }
+      //           addsubdesign.$save(function (info) {
+      //   if (!info.status) {
+      //     swal("Your record has been saved successfully.");
+      //     window.location = '#/subdesign';
+      //   }
+      //   else {
+      //     vm.flag = true;
+      //     vm.status = info.status;
+      //   }
+      // });
             } 
         }, function (resp) { //catch error
             console.log('Error status: ' + resp.status);
