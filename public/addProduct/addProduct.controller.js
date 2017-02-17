@@ -3,7 +3,7 @@ angular.module('myra')
 
 addProductController.$inject = ['$resource', '$state', '$http'];
 
-function addProductController($resource, $state, $http) {
+function addProductController($resource, $state, $http ) {
   var vm = this;
 
   vm.clicked = function (info) {
@@ -80,7 +80,7 @@ function addProductController($resource, $state, $http) {
       vm.subdesign = [];
       vm.subdesignimage = [];
       subdesigns.forEach(function (e) {
-        if (e.design.trim() == info.title) {
+        if (e.design.trim() == info.title && e.isActive) {
           vm.subdesignimage.push(e.subdesignimage);
           vm.subdesign.push(e.subdesign);
         }

@@ -11,7 +11,7 @@ module.exports = (function(){
             port: 3306,
             user: 'root',
             password: 'root',
-            database: 'demo2'
+            database: 'demo1'
 
         },
         logging: {

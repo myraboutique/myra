@@ -72,7 +72,7 @@
 						</th>
 
 						<th>
-							<!--<a href="" ng-click="vm.order('customerName')">-->
+							<a href="" ng-click="vm.order('customerName')">
 							<font color="#337ab7">Designs</font>&nbsp
 							<span ng-show="vm.predicate == 'customerName'">
                 <span ng-show="!vm.reverse">
@@ -86,7 +86,7 @@
 						</th>
 
 						<th>
-							<!--<a href="" ng-click="vm.order('customerName')">-->
+							<a href="" ng-click="vm.order('customerName')">
 							<font color="#337ab7">Customer Name</font>&nbsp
 							<span ng-show="vm.predicate == 'customerName'">
                 <span ng-show="!vm.reverse">
@@ -99,9 +99,9 @@
 							<!--	</a>-->
 						</th>
 						<th>
-							<a href="" ng-click="vm.order('date')">
+							<a href="" ng-click="vm.order('deliverydate')">
 								<font>Delivery Date</font>&nbsp
-								<span ng-show="vm.predicate == 'date'">
+								<span ng-show="vm.predicate == 'deliverydate'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="Zika Report">
                 </span>
@@ -114,7 +114,7 @@
 						<b><th>Status</th></b>
 					</tr>
 
-					<tr dir-paginate="data in vm.temp=(vm.type | filter:vm.customerStatus.status | filter:vm.search |itemsPerPage:20 | orderBy:vm.predicate)"
+					<tr dir-paginate="data in vm.temp=(vm.type | orderBy:vm.predicate:vm.reverse | filter:vm.customerStatus.status  | filter:vm.search |itemsPerPage:20 )"
 						ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
 						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link"><b>{{data.timestamp}}</b></a></td>
 						<td class="top-purpal-color-row2">{{data.type}}</td>

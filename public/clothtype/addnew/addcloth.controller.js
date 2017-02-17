@@ -32,7 +32,7 @@ function newclothController($resource, $scope) {
         }
       }
       if (vm.flagformeasure == 0) {
-        vm.selectMeasurement.push(data.trim());
+        vm.selectMeasurement.push(data);
         vm.measu = "";
       }
       else {

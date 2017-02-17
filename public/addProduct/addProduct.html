@@ -75,7 +75,7 @@
 					<tr>
 						<td class="addproducttable-B">
 							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.designSelect(vm.order[$index].type,$index)"
-								ng-options="data as data.title for data in vm.type" data-toggle="modal" data-target="#myModal">
+								ng-options="data as data.title for data in vm.type | filter:data.isActive != true" data-toggle="modal" data-target="#myModal">
 												<option value="">-- Please Select --</option>
 							</select>
 						</td>
@@ -96,8 +96,8 @@
 											<h4 class="modal-title">select style</h4>
 										</div>
 										<div class="modal-body">
-											<span ng-repeat="data in vm.subdesignimage">
-												<img style="margin: 5px; border: 1px red solid" ng-src="{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
+											<span ng-repeat="data in vm.subdesignimage ">
+												<img style="margin: 5px; border: 1px red solid ;width:200px" ng-src="/imgupload/{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
 											</span>
 										</div>
 										<div class="modal-footer">
@@ -113,7 +113,7 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material" name="material{{$index}}">
+							<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material | filter:data.isActive != true" name="material{{$index}}">
 								<option value="">-- Please Select --</option></select>
 							</select>
 						</td>
@@ -126,8 +126,8 @@
 					</tr>
 
 					<tr>
-						<td class="addproducttable-B">
-							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)">Details</a>
+						<td class="addproducttable-B">{{vm.order[$index].customization}}
+							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" >Details</a>
 
 							<!-- Prompt Box For Add Customization-->
 							<!-- Modal -->
@@ -142,10 +142,11 @@
 										</div>
 										<div class="modal-body">
 											<textarea style="margin-top: 0px;" ng-model="vm.order[vm.indexforpromptbox].customization"  rows="4" cols="50" placeholder="Customization Description"
-											class="customization-check-box-textarea" ></textarea>
+											class="customization-check-box-textarea"></textarea>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+								
 										</div>
 									</div>
 								</div>
@@ -187,6 +188,8 @@
 						<td class="addproducttable-B">
 							<input class="clothmeasurementinput" id="browseimage{{$index}}" type="file" accept="image/*" image="vm.order[$index].image" resize-max-height="200"
 								resize-max-width="200" resize-quality="0.7" required="required" name="browseimage{{$index}}" />
+
+
 							<img ng-show="vm.order[$index].image" ng-src="{{vm.order[$index].image.resized.dataURL}}" />
 						</td>
 					</tr>
@@ -209,6 +212,7 @@
 						</td>
 					</tr>
 				</table>
+				
 			</div>
 			<!-- Table Repeat Section End Here -->
 			<div class="addproducttable-Add-BTN"><input type="submit" value="Add" ng-click="vm.submit()" /></div>

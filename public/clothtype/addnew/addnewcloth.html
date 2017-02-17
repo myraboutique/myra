@@ -82,13 +82,13 @@
 						</select>
 						<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
 				
-		
+		<span ng-show="vm.flagformeasure">This measurement already added.</span>
 			 <span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
 			 </div>
 
 			 <div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
 				 {{data}}
-			<span ng-show="vm.flagformeasure">This measurement already added.</span>	 
+				 
 			 <button type="button" ng-click="vm.delete($index)">X</button>
 			  </div>
 

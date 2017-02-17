@@ -127,10 +127,15 @@
 				 	<span ng-show="(userform.address.$error.minlength || userform.address.$error.maxlength) && (userform.address.$dirty || vm.formSubmitted)">Address should be between 20 to 250 characters long.</span>
 
 		   </div>
+		   <div class="form-box">
+        <label>Is Active</label>
+       <input type="checkbox" ng-model="vm.active" class="billing-addres-checkbox clothcheck"/>
+
+     </div>
 
         <div class="register-btm-btn-box">
 					<div class="submit-button">
-            <input type="button" value="Save" class="register-submit-btn" ng-click=" vm.submit(userform.$valid)"/>
+            <input type="button" value="Save" class="register-submit-btn" ng-click=" vm.submit(!userform.$valid)"/>
  					</div>
 					<div class="cancel-button">
             <input type="submit" value="Cancel" class="register-cancel-btn" ui-sref="register"/>
