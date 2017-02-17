@@ -228,6 +228,7 @@ if (index < vm.selectedOrder.length) {
             window.location = '#/order';
         });
       localStorage.removeItem('vmorder' + index);
+      localStorage.removeItem('vmord');
     }
 
   }
