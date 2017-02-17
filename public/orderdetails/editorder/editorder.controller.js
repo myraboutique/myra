@@ -20,7 +20,7 @@ function editorderController($resource, $scope, $http) {
   vm.productwiserecord = [];
   var customer = $resource('/api/orderdetails');
   customer.query(function (response) {
-      vm.something = response[1].timestamp;
+      // vm.something = response[1].timestamp;
 
       for (var index = 0; index < response.length; index++) {
         if(response[index].timestamp == vm.records.timestamp) {

@@ -193,11 +193,13 @@
                       </tr>
                       <tr>
 						<td class="addproducttable-B">
+						
 							<img ng-src="imgupload/{{vm.productwiserecord[$index].browseimage}}" height="200" width="200"/>
 						</td>
 					  </tr>
                       <tr>
 						<td class="addproducttable-B">
+							
 							<div ng-repeat="data in vm.measu[$index]">
 								<label>{{data}}</label>
 								<input style="width: 40%;" ng-model="vm.orderDetails[$parent.$index][$index]" class="measurement-input" name="measurement{{$index}}" required="required"
