@@ -21,22 +21,8 @@ function editProductController($resource, $state, $http, Upload, $window) {
     window.location = '#/login';
   }
 
-  var customerdetails = $resource('/api/customerdetails');
-  customerdetails.query(function (info) {
-    vm.customer = info;
-  });
-
-  var measurement = $resource('/api/measurement');
-  measurement.query(function (info) {
-    vm.type = info;
-  });
-
-  var addmaterial = $resource('/api/addmaterial');
-  addmaterial.query(function (info) {
-    vm.material = info;
-  });
-
-
+  vm.measurevalue = [[]];
+  vm.measurename = [[]];
 
   var customer = $resource('/api/orderdetails');
   customer.query(function (response) {
@@ -44,17 +30,18 @@ function editProductController($resource, $state, $http, Upload, $window) {
       for (var index = 0; index < response.length; index++) {
         if(response[index].timestamp == vm.records.timestamp) {
           vm.productwiserecord.push(response[index]);
+          vm.measurevalue[index] = JSON.parse(response[index].measurement);
+          vm.measurename[index] = response[index].measurementname.split(',');
         }
       }  
   });
 
-
-
-
   vm.update = function(info) {
 
-    info.forEach(function(element) {
-      $http.put('/api/orderdetails', element)
+    for (var index = 0; index < info.length; index++) {
+      info[index].measurement = JSON.stringify(vm.measurevalue[index]);
+
+      $http.put('/api/orderdetails', info[index])
         .then(
         function (response) {
           window.location = '#/editorder';
@@ -62,7 +49,7 @@ function editProductController($resource, $state, $http, Upload, $window) {
         function (err) {
           console.log(err);
         });
-      }, this);
+    }
   };
 }
 
