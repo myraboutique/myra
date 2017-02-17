@@ -24,7 +24,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
     vm.order[vm.newinex].type2 = info;
   };
 
-  vm.inexforprompt = function (index) {
+   vm.inexforprompt = function (index) {
     console.log(index);
     vm.indexforpromptbox = index;
   };
@@ -94,7 +94,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
   }
 
   function designSelect(info, index) {
-    
+
     vm.newinex = index;
     vm.order[vm.newinex].type2 = '';
 
@@ -143,10 +143,11 @@ function addProductController($resource, $state, $http, Upload, $window) {
     vm.pairs[info+1] = vm.uniqeno + info;
   }
 
-
- function beforefinal() {
+    
+  function final(info) {
+    vm.fileup();
     vm.designs = [];
-    vm.infobuffer.forEach(function (element) {
+    info.forEach(function (element) {
       vm.designs.push(element.type.title + " (" + element.type2 + ")");
     }, this);
 
@@ -158,42 +159,39 @@ function addProductController($resource, $state, $http, Upload, $window) {
       localStorage.setItem('vmorder', JSON.stringify(vm.designs));
     }
 
-    for (var index = 0; index < vm.infobuffer.length; index++) {
-      vm.infobuffer[index].timestamp = vm.pid;
-      vm.infobuffer[index].customerid = vm.seleCust.id;
-      vm.infobuffer[index].customerName = vm.seleCust.customerName;
-      vm.infobuffer[index].pair = vm.pairs[index];
-      vm.infobuffer[index].measure = vm.orderDetails[index];
+    for (var index = 0; index < info.length; index++) {
+      info[index].timestamp = vm.pid;
+      info[index].customerid = vm.seleCust.id;
+      info[index].customerName = vm.seleCust.customerName;
+      info[index].pair = vm.pairs[index];
+      info[index].measure = vm.orderDetails[index];
       console.log(vm.tempimg);
-      vm.infobuffer[index].bimage = vm.tempimg[index];
+      info[index].bimage = vm.tempimg[index];
       
       if (localStorage.getItem('vmorder' + index)) {
         localStorage.removeItem('vmorder' + index);
-        localStorage.setItem('vmorder' + index, JSON.stringify(vm.infobuffer[index]));
+        localStorage.setItem('vmorder' + index, JSON.stringify(info[index]));
       }
       else {
-        localStorage.setItem('vmorder' + index, JSON.stringify(vm.infobuffer[index]));
+        localStorage.setItem('vmorder' + index, JSON.stringify(info[index]));
       }
     }
 
     window.location = '#/addordernew';
- }
 
-
-  function final(info) {
-    vm.infobuffer = info;
-    vm.fileup();
   }
-
-
-  
+  var i=1;
   //file uploa ==========================================
    vm.fileup = function(){ //function to call on form submit
-     for(var i=0;i<vm.order.length;i++){
-       if (vm.order[i].image) { //check if from is valid
-            vm.upload(vm.order[i].image); //call upload function
-        }   
-     }
+    //  for(var i=0;i<vm.order.length;i++){
+    //    if (vm.order[i].image) { //check if from is valid
+    //         vm.upload(vm.order[i].image); //call upload function
+    //     }
+    //  }
+      if (vm.order[0].image) { //check if from is valid
+             
+            vm.upload(vm.order[0].image); //call upload function
+        }
     };
     
     vm.upload = function (file) {
@@ -201,8 +199,16 @@ function addProductController($resource, $state, $http, Upload, $window) {
             url: 'http://localhost:3000/upload', //webAPI exposed to upload the file
             data:{file:file} //pass file as data, should be user ng-model
         }).then(function (resp) { //upload function returns a promise
-            if(resp.data.error_code === 0){ //validate success       
-      //           addsubdesigns.$save(function (info) {
+            if(resp.data.error_code === 0){ //validate success
+                // vm.mage = resp.data.fname;
+            vm.tempimg.push(resp.data.fname);
+                console.log(vm.tempimg);
+
+                vm.upload(vm.order[i].image);
+                  if(i<vm.order.length){
+                    i++;
+                  }
+      //           addsubdesign.$save(function (info) {
       //   if (!info.status) {
       //     swal("Your record has been saved successfully.");
       //     window.location = '#/subdesign';
@@ -214,20 +220,15 @@ function addProductController($resource, $state, $http, Upload, $window) {
       // });
             } 
         }, function (resp) { //catch error
-            // console.log('Error status: ' + resp.status);
+            console.log('Error status: ' + resp.status);
             $window.alert('Error status: ' + resp.status);
         }, function (evt) { 
-            // console.log(evt);
+            console.log(evt);
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-            // console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
             vm.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
         });
-
-        beforefinal();
-
     };
 //file uploa ==========================================
 
 }
-
-
