@@ -206,7 +206,9 @@ if (index < vm.selectedOrder.length) {
         if(vm.images[index]){
           orderdetails.browseimage = vm.images[index];
         }
+        if(vm.temp[index].materialtype){
         orderdetails.material = vm.temp[index].materialtype.materialtype;
+        }
         orderdetails.type = vm.temp[index].type.title;
         orderdetails.subdesign = vm.temp[index].type2;
         orderdetails.pair = vm.temp[index].pair;

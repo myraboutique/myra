@@ -191,15 +191,17 @@
 						</td>
                       </tr>
                       <tr>
-												<td class="addproducttable-B">
-													<input class="clothmeasurementinput" id="browseimage{{$index}}" type="file" accept="image/*" image="vm.order[$index].image" resize-max-height="200"
-														resize-max-width="200" resize-quality="0.7" required="required" name="browseimage{{$index}}" />
-													<img ng-show="vm.order[$index].image" ng-src="{{vm.order[$index].image.resized.dataURL}}" />
-													<img ng-hide="vm.order[$index].image"ng-src="{{vm.productwiserecord[$index].browseimage}}" height="200" width="200"/>
-												</td>
-											</tr>
+						<td class="addproducttable-B">
+							<img ng-src="imgupload/{{vm.productwiserecord[$index].browseimage}}" height="200" width="200"/>
+						</td>
+					  </tr>
                       <tr>
-                        <td class="addproducttable-B">
+						<td class="addproducttable-B">
+							<div ng-repeat="data in vm.measu[$index]">
+								<label>{{data}}</label>
+								<input style="width: 40%;" ng-model="vm.orderDetails[$parent.$index][$index]" class="measurement-input" name="measurement{{$index}}" required="required"
+									type="text" />
+							</div>
                         </td>
                       </tr>
                       <!--<tr>

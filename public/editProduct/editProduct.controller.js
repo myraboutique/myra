@@ -29,14 +29,6 @@ function editProductController($resource, $state, $http) {
   var measurement = $resource('/api/measurement');
   measurement.query(function (info) {
     vm.type = info;
-
-    info.forEach(function(element) {
-    if (element.title == vm.records.type) {
-      vm.measure = element.measurement;
-      vm.measu = vm.measure.split(',');
-    }
-    }, this);
-
   });
 
   var addmaterial = $resource('/api/addmaterial');
