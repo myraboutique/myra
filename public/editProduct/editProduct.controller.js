@@ -34,7 +34,7 @@ function editProductController($resource, $state, $http, Upload, $window) {
           vm.measurename[index] = response[index].measurementname.split(',');
         }
       }  
-      vm.len = vm.productwiserecord.length;
+      // vm.len = vm.productwiserecord.length;
   });
 
   vm.update = function(info) {
