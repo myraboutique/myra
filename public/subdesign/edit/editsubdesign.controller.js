@@ -18,33 +18,9 @@ function editsubdesignController($resource, $stateParams, $http,$scope,Upload, $
   //vm.data = JSON.parse($stateParams.referer);
   vm.data1=localStorage.getItem('subdesign');
   vm.data = JSON.parse(vm.data1);
-  console.log(vm.data);
-  // vm.subdesign = subdesign;
   vm.update = update;
-  // vm.delete = Delete;
   vm.selectMeasurement = vm.data.subdesign;
   vm.subdesignimage = vm.data.subdesignimage;
-
-  // function subdesign(data,image) {
-  //   if (data) {
-  //     vm.selectMeasurement.push(data);
-  //     vm.subdesi = "";
-  //   }
-  // }
-
-  // function Delete(number) {
-  //   vm.selectMeasurement.splice(number, 1);
-  // }
-
-
-//  $scope.single = function (image) {
-//       vm.src=image;
-//       // vm.subdesignimage = vm.data.subdesignimage;
-//        vm.data.subdesignimage = vm.src;
-
-      
-//     //console.log('src data'+vm.src);
-//   };
 
 
   function update(form) {

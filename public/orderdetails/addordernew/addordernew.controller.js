@@ -202,10 +202,10 @@ if (index < vm.selectedOrder.length) {
         orderdetails.cloth = vm.temp[index].cloth;
         orderdetails.color = vm.temp[index].color;
         orderdetails.customization = vm.temp[index].customization;
-        console.log(vm.images);
-        if(vm.images[index]){
+        console.log(vm.images[index]);
+        // if(vm.images[index]){
           orderdetails.browseimage = vm.images[index];
-        }
+        // }
         if(vm.temp[index].materialtype){
         orderdetails.material = vm.temp[index].materialtype.materialtype;
         }

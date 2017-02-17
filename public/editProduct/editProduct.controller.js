@@ -155,7 +155,6 @@ vm.tempimg = [];
       if (resp.data.error_code === 0) { //validate success
 
         vm.tempimg.push(resp.data.fname);
-        console.log(vm.order[i].image);
       //   vm.upload(vm.order[i].image);
       //   if (i < vm.order.length) {
       //     i++;

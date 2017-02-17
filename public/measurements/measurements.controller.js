@@ -37,12 +37,9 @@ function measurementsController($resource,$state) {
    
    }
  
-  var addmaterial = $resource('/api/managemeasurements')
+  var addmaterial = $resource('/api/managemeasurements');
   addmaterial.query(function(info){
-    console.log(info);
-     
       vm.measurements = info ;
-        
-   })
+   });
 
 }

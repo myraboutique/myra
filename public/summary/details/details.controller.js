@@ -34,7 +34,6 @@ function detailsController($resource, $stateParams) {
         vm.temp2.push("");
       }
     }, this);
-    console.log(vm.temp2);
   });
 
 }

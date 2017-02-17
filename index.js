@@ -41,7 +41,7 @@ var storage = multer.diskStorage({ //multers disk storage settings
         filename: function (req, file, cb) {
             var datetimestamp = Date.now();
              cd = file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1];
-             console.log(cd);
+            //  console.log(cd);
             cb(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1]);
     }
            
@@ -52,7 +52,7 @@ var storage = multer.diskStorage({ //multers disk storage settings
                 }).single('file');
 
 app.post('/upload', function(req, res) {
-    console.log("uploadAPIs");
+    // console.log("uploadAPIs");
          
           
         upload(req,res,function(err){
@@ -60,7 +60,7 @@ app.post('/upload', function(req, res) {
                  res.json({error_code:1,err_desc:err});
                  return;
             }
-            console.log(cd);
+            // console.log(cd);
              res.json({error_code:0,err_desc:null,fname:cd});
         });
     });

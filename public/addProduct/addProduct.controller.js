@@ -25,7 +25,6 @@ function addProductController($resource, $state, $http, Upload, $window) {
   };
 
   vm.inexforprompt = function (index) {
-    console.log(index);
     vm.indexforpromptbox = index;
   };
 

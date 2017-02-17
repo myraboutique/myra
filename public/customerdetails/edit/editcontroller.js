@@ -17,7 +17,6 @@ function editcustomerController($stateParams,$resource,$http) {
 
   vm.customermeasurementname = JSON.parse(vm.data.measurementsname);
   vm.customermeasurementvalue = JSON.parse(vm.data.measurementsvalue);
-  console.log(vm.customermeasurementvalue);
 
   vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){

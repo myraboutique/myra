@@ -18,7 +18,6 @@ function dashboardController($resource, $state) {
         info.forEach(function(element) {
             vm.delivery.push(element.deliverydate);
         }, this);
-        console.log(info);
     });
 }
 

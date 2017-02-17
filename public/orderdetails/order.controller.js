@@ -48,7 +48,6 @@ function orderController($resource, $state) {
             });
         });
         vm.type = info.reverse();
-        console.log(vm.type);
    });
 
     function sendData(info) {

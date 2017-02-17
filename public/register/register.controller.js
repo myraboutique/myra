@@ -45,7 +45,6 @@ function registerController($resource,$state) {
   }
 
   function resetPassword(data){
-    console.log(data);
      vm.selectData = JSON.stringify(data);
         $state.go("reset-password", { 'referer': vm.selectData });
   }

@@ -44,14 +44,12 @@ module.exports = (function () {
       db.sync().then(function () {
         models.findOne({ where: { subdesign: req.body.subdesign } }).then(function (info) {
           if (info && info.id != req.body.id) {
-            console.log("oyyyyyyyy");
             return res.json({
               msg: 'already00++--'
             })
           }
           else {
             db.sync().then(function () {
-              console.log("bbbbbbbbbbbbbbba");
               models.update({
                 design: req.body.design,
                 subdesign: req.body.subdesign,
