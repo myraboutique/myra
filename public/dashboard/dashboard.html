@@ -23,7 +23,7 @@
                         <li><a href='#/register'><span>Manage Users</span></a></li>
                         <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
                         <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
-                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Material Types</span></a></li>
                     </ul>-->
 				</li>
 				<li><a href="#/logout">Logout</a></li>
@@ -177,7 +177,7 @@
 						<b><th>Status</th></b>
 					</tr>
 
-					<tr dir-paginate="data in vm.temp=(vm.type |itemsPerPage:5 | orderBy:vm.predicate)"
+					<tr dir-paginate="data in vm.temp=(vm.type |itemsPerPage:5 | orderBy: '-orderdate')"
 						ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
 						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link"><b>{{data.timestamp}}</b></a></td>
 						<td class="top-purpal-color-row2">{{data.type}}</td>

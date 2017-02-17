@@ -14,13 +14,13 @@
 				<li><a href="#/dashboard">Dashboard</a></li>
 				<li><a href="#/customerdetails">Customers</a></li>
 				<li><a href="#/order" class="active">Orders</a></li>
-				<li><a href="#/alert">Alerts</a></li>
+				<!--<li><a href="#/alert">Alerts</a></li>-->
 				<li><a href="#/register">Settings</a>
 					<!--<ul>
                         <li><a href='#/register'><span>Manage Users</span></a></li>
                         <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
                         <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
-                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Material Types</span></a></li>
                     </ul>-->
 				</li>
 				<li><a href="#/logout">Logout</a></li>
@@ -193,8 +193,23 @@
                       </tr>
                       <tr>
 						<td class="addproducttable-B">
-						
-							<img ng-src="imgupload/{{vm.productwiserecord[$index].browseimage}}" height="200" width="200"/>
+
+							<input class="clothmeasurementinput"
+									type="file" 
+									ngf-select 
+									ng-model="vm.order[$index].image" 
+									name="file" 
+									ngf-pattern="'image/*'"
+									accept="image/*" 
+									ngf-max-size="20MB" 
+									required
+									/>
+								<img style="width:200px" ng-show="!!vm.vm.order[$index].image" ngf-thumbnail="vm.order[$index].image"/>
+							<img ng-hide="vm.order[$index].image" ng-src="imgupload/{{vm.productwiserecord[$index].browseimage}}" width="200"/>
+							<span ng-show="form.file.$error.required && (form.file.$dirty || vm.formSubmitted)">Image is required.</span><br>
+									<span ng-show="form.file.$error.maxSize">File too large 
+									{{vm.vm.order[$index].image.size / 1000000|number:1}}MB: max 20M</i>
+									<p>{{vm.progress}}</p>
 						</td>
 					  </tr>
                       <tr>

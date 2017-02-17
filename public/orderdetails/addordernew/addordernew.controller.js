@@ -217,7 +217,7 @@ if (index < vm.selectedOrder.length) {
         orderdetails.stitchingdate = info[index].stitchingdate;
         orderdetails.deliverydate = info[index].deliverydate;
         orderdetails.amount = info[index].amount;
-        orderdetails.orderdate = vm.orderdate1;
+        orderdetails.orderdate = vm.temp[0].orderdate;
 
     
 
@@ -228,6 +228,7 @@ if (index < vm.selectedOrder.length) {
             window.location = '#/order';
         });
       localStorage.removeItem('vmorder' + index);
+      localStorage.removeItem('vmord');
     }
 
   }
