@@ -35,26 +35,17 @@ function clothtypeController($resource,$state,$scope) {
 
   measurement.query(function(info){
     vm.type = info;  
-
+    //=======================DON'T DELETE=================
     // for (var index = 0; index < info.length; index++) {
+    //   vm.buffer = [];
     //   vm.m = info[index].measurement.split(',');
     //   vm.m.forEach(function(element2) {
-    //   vm.dynamicmeasure[index].push(vm.manamgemeasure[element2].name);
-    //     console.log(vm.dynamicmeasure[index]);
-    //   }, this);  
-    // }  
-
-    // info.forEach(function(element) {
-
-    //   vm.m = element.measurement.split(',');
-
-    //   vm.m.forEach(function(element2) {
-    //     vm.dynamicmeasure[0].push(vm.manamgemeasure[element2].name);
+    //   vm.buffer.push(vm.manamgemeasure[element2].name);
+    //   vm.dynamicmeasure[index] = vm.buffer;
     //   }, this);
-    // console.log(vm.dynamicmeasure[0]);
-
-    // }, this);
-
+    // }
+    //====================================================
+    
   });
 
    function editpage(x)
