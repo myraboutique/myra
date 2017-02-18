@@ -28,7 +28,8 @@ module.exports = (function () {
         status: Sequelize.STRING,
         subdesign: Sequelize.STRING,
         browseimage: Sequelize.BLOB,  
-        measurementname: Sequelize.STRING    
+        measurementname: Sequelize.STRING,
+        completetime:  Sequelize.STRING
         }, {
             timestamps: false
         });

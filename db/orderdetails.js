@@ -64,7 +64,8 @@ module.exports = (function () {
             amount: req.body.amount,
             subdesign: req.body.subdesign,
             stitchingdate: req.body.stitchingdate,
-            pair: req.body.pair
+            pair: req.body.pair,
+            completetime: req.body.completetime
           },
           {
             where: { id: req.body.id }
