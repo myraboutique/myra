@@ -106,7 +106,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
       vm.subdesign = [];
       vm.subdesignimage = [];
       subdesigns.forEach(function (e) {
-        if (e.design.trim() == info.title) {
+        if (e.design.trim() == info.title && e.isActive) {
           vm.subdesignimage.push(e.subdesignimage);
           vm.subdesign.push(e.subdesign);
         }

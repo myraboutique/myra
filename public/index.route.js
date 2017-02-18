@@ -239,7 +239,8 @@
       templateUrl: 'measurements/addnew/addmeasurements.html',
       controller: 'addmeasurementsController',
       controllerAs: 'vm'
-    }).state('dashboard', {
+    })
+    .state('dashboard', {
       url: '/dashboard',
       templateUrl: 'dashboard/dashboard.html',
       controller: 'dashboardController',

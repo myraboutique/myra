@@ -48,7 +48,7 @@ function registerController($resource,$state) {
      vm.selectData = JSON.stringify(data);
         $state.go("reset-password", { 'referer': vm.selectData });
   }
-
+vm.active = true;
   function submit(userform){
     vm.formSubmitted = true;
     if(!vm.check && userform){
@@ -72,7 +72,7 @@ function registerController($resource,$state) {
     register.password = vm.password;
     register.number = vm.number;
     register.address = vm.address;
-    register.isActive = true;
+    register.isActive = vm.active;
     
     register.$save(function(info){
       // console.log(info.status);

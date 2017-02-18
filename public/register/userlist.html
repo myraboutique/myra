@@ -80,6 +80,7 @@
 						<th>Type</th>
 						<th>Email Address</th>
 						<th>Action</th>
+						<th>Status</th>
 					</tr>
 					<!-- ng-repeat="data in vm.user" -->
 
@@ -93,6 +94,8 @@
 						<td data-th="Type: " class="top-purpal-color-row2">{{data.type}}</td>
 						<td data-th="Email: " class="top-purpal-color-row2">{{data.email}}</td>
 						<td data-th="Action: " class="top-purpal-color-row2 alerts-table-mobile"><a class="reset-button" ng-click="vm.resetPassword(data)">Reset</a></td>
+						<td ng-if="data.isActive" class="top-purpal-color-row2">Active</td>
+						<td ng-if="data.isActive == false" class="top-purpal-color-row2">Inactive</td>
 					</tr>
 
 				</table>
