@@ -40,21 +40,21 @@
 
 				</div>
 
-				<div class="customer-detailsmain-box2"><label>Order Status </label>&nbsp;<em>NEW</em></div>
+				<div class="customer-detailsmain-box2"><label class="orderstatus-value">Order Status </label>&nbsp;<em>NEW</em></div>
 			</div>
 
 			<div class="form-box create-order-box">
 				<div class=" customer-detailsmain-box">
-					<label>Order by</label>
+					<label class="orderby-label">Order by</label>
 					<select ng-model="temp" ng-change="vm.selectCustomer(temp)" ng-options="data as data.customerName for data in vm.customer"
 						name="customeruser">{{vm.name}}
 				 		<option value="">-- Please Select --</option>
 					</select>
 				</div>
 
-				<div class=" customer-detailsmain-box1"><label>Contact Number </label>&nbsp;<em>{{vm.seleCust.mobileNumber}}</em></div>
+				<div class="customer-detailsmain-box3"><label>Contact Number </label>&nbsp;<em>{{vm.seleCust.mobileNumber}}</em></div>
 
-				<div class=" customer-detailsmain-box2 bdr-btm-none-mobile"><label class="addproduct-address-bx-label">Address </label><em class="addproduct-address-bx-em">{{vm.seleCust.address}}</em></div>
+				<div class="customer-detailsmain-box2 bdr-btm-none-mobile createorder-address-ipad"><label class="addproduct-address-bx-label">Address </label><em class="addproduct-address-bx-em">{{vm.seleCust.address}}</em></div>
 			</div>
 
 			<!-- Addproducttable Main Box Start Here -->
@@ -86,7 +86,7 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<input style="    width: 75%;" ng-model="vm.order[$index].type2" name="clothtype{{$index}}" disabled />
+							<input style="width: 75%;" ng-model="vm.order[$index].type2" name="clothtype{{$index}}" disabled />
 							<a data-toggle="modal" data-target="#myModal">Select</a>
 							<!-- Prompt Box -->
 							<!-- Modal -->
@@ -194,7 +194,7 @@
 
 					<tr>
 						<td class="addproducttable-B">
-								<input class="clothmeasurementinput"
+								<input
 									type="file" 
 									ngf-select 
 									ng-model="vm.order[$index].image" 
@@ -204,7 +204,7 @@
 									ngf-max-size="20MB" 
 									required
 									/>
-								<img style="width:200px" ng-show="!!vm.vm.order[$index].image" ngf-thumbnail="vm.order[$index].image"/>
+								<img ng-show="!!vm.vm.order[$index].image" ngf-thumbnail="vm.order[$index].image"/>
 								<!--<span ng-show="form.file.$error.required && (form.design.$dirty || vm.formSubmitted)">Image is required.</span>
 								<span ng-show="form.file.$error.maxSize && (form.design.$dirty || vm.formSubmitted)">Image is required.</span>-->
 								

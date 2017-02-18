@@ -183,6 +183,7 @@ display: inline;
   padding: 3px 4px 3px 4px;
   font-size: 15px;
   width: 100%;
+  font-size: 14px;
 }
 .addproducttable-Add-BTN{
   width:65px; float: left; padding:10px 0px 9px 0; box-sizing: border-box; text-align: center;
@@ -231,10 +232,27 @@ display: inline;
 .logo{float: left; margin: 13px 0 0 30px;}
 
 .customer-detailsmain-box {
-  width: 26%;
+  width: 30%;
   float: left;
   margin-right: 2%;
 }
+.customer-detailsmain-box2 .orderstatus-value{padding-right: 29px;}
+.customer-detailsmain-box .orderby-label{width: 40%; float: left;margin-right: 3px;}
+.customer-detailsmain-box3{width:25%;float: left;margin-right: 2%;}
+.customer-detailsmain-box3 em{font-style: normal;padding-left: 10px;}
+
+.customer-detailsmain-box1 datepicker input{
+  border: 1px solid #454545;
+border-radius: 3px;
+padding: 3px 10px;
+}
+.customer-detailsmain-box select{
+border: 1px solid #454545;
+border-radius: 3px;
+padding: 3px 10px;
+width: 51%;
+}
+
 .customer-detailsmain-box1 {
   width: 30%;
   float: left;
@@ -685,6 +703,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
   margin-bottom: 25px;
   margin-left: 0px;
 }
+.addproducttable-B div{padding-bottom: 4px;}
+.addproducttable-B img{padding-top: 8px;width: 200px;}
+.addproducttable-B label{width:50%;text-align: right;padding-right: 4px;font-size: 14px;}
 .customization-check-box-textarea{width: 100% !important;margin-top: -12px;}
 .measurement-li-box{width:100%; display: inline-block;}
 .measurement-li-box ul{margin: 0px; padding: 0px;}
@@ -1000,6 +1021,14 @@ border-radius: 3px;
 
 
 @media only screen and (min-width: 1024px) and (max-width: 1170px) {
+  .customer-detailsmain-box1 datepicker input{padding: 3px 5px;}
+  .customer-detailsmain-box .orderby-label {margin-right: 5px;width: 41%;}  
+  .customer-detailsmain-box select{padding: 3px 4px;width: 56%;}
+  .customer-detailsmain-box {
+    width: 31%;
+    margin-right: 1%;
+}
+  
   .addsubdesign-browse-img {margin-left: 150px;}
   .customer-detailsmain-box1 label {width: 44% !important;}
   .addproduct-address-bx-label {width: 18%;}
@@ -1041,13 +1070,25 @@ border-radius: 3px;
     width: 84% !important;
 }
 .register-btm-btn-box{width: 62%;margin-left: 38%;padding: 10px 0 0 0;}
+.customer-detailsmain-box1 {width: 40%;}
 .submit-button input{width: 90px !important;}
 .cancel-button input{width: 90px !important;}
+.customer-detailsmain-box {width: 40%;}
+.customer-detailsmain-box .orderby-label {width: 30%;}
+.customer-detailsmain-box select{width:60%;}
+.customer-detailsmain-box3 {width: 30%;}
+.createorder-address-ipad{
+  width: 100% !important;
+  display: inline-block;
+  margin-top: 18px;
+}
+.customer-detailsmain-box2 .orderstatus-value{width:44%;}
+.addproduct-address-bx-label {width: 12% !important;}
 
-  .customer-detailsmain-box1 label {width: 100% !important;}
-  .addproduct-address-bx-label {width: 100%;}
+  .customer-detailsmain-box1 label {width:31% !important;}
+  
   .customer-detailsmain-box2 em{padding-left: 0px;}
-  .addproduct-address-bx-em {width: 100%;}
+  .addproduct-address-bx-em {width:88%; padding-left: 2px;}
   .customer-detailsmain-box1 em{padding-left: 0px;}
   .customer-detailsmain-box2 label{width: 100%;}
   .left-list-addproduct {width: 17%;}
@@ -1121,13 +1162,26 @@ border-radius: 3px;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  .addproducttable-B img {width: 100%;}
+  .customer-detailsmain-box .orderby-label{width:36%;padding-top: 3px;}
+  .customer-detailsmain-box2 .orderstatus-value {
+    padding-right: 0;
+    width: 36%;
+}
+  .customer-detailsmain-box select{width:61%;}
+  .customer-detailsmain-box3{
+    width: 100%;
+border-bottom: 1px solid #ccc;
+padding-bottom: 5px;
+padding-top: 10px;
+    }
   .addsubdesign-browse-img {margin-left: 0px; margin-top: 12px;}
   .customer-detailsmain-box {width: 100%;margin-right: 0;border-bottom: 1px solid #ccc;padding-bottom: 10px;}
-  .customer-detailsmain-box1{width: 100%;margin-right: 0;border-bottom: 1px solid #ccc;padding-bottom: 10px;padding-top: 15px;}
+  .customer-detailsmain-box1{width: 100%;margin-right: 0;border-bottom: 1px solid #ccc;padding-bottom: 10px;}
   .customer-detailsmain-box2{width: 100%;margin-right: 0;margin-top:10px;border-bottom: 1px solid #ccc;padding-bottom: 10px;}
   .customer-detailsmain-box2 label {width: 100%;margin-bottom: 2px;}
   .customer-detailsmain-box2 em{padding-left: 0px;}
-  .customer-detailsmain-box1 label {width: 100% !important;margin-bottom: 2px;}
+  .customer-detailsmain-box1 label {width: 36% !important;margin-bottom: 2px;}
   .customer-detailsmain-box label {width: 100%;}
   .customer-detailsmain-box1 em{padding-left: 0px;}
   .addproduct-address-bx-em{width: 100%;}
