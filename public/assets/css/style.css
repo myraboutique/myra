@@ -55,6 +55,28 @@ body{margin:0px; padding:0px; background:#292929 !important; font-family: 'Open 
 .customer-detail-th-width-1{width: 18% !important;}
 .customer-detail-th-width-1 a{color: #4c9ee4;}
 .table-tr-alternate-color{background: #f8f8f8;}
+.customer-detailsmain-box1 datepicker{width: 50%;}
+.addsubdesign-browse-img{margin-left:200px ;width:200px}
+.addproducttable-B .modal-content .modal-body{display: inline-block;padding: 9px;}
+.addproducttable-B .modal-content .modal-body span{width:179px; height:130px; float: left; margin: 7px;padding:1px;border: 1px solid #e4e4e4;}
+.addproducttable-B .modal-content .modal-body span img{ cursor: pointer;width:100%; height: 100%; padding-top: 0px;}
+.addproducttable-B .modal-content .modal-body span img:hover{border: 3px solid #ff36b6;}
+.addproducttable-B .modal-dialog .modal-content .modal-header button{
+  color: #000;
+  font-size: 27px;
+  margin-top: -6px;
+}
+.select-phot-input{width: 65% !important; display: inline-block;}
+
+.addproducttable-B button{
+  border-radius: 3px;
+  border: 1px solid #ff36b6;
+  padding: 3px 7px;
+  background: #ff36b6;
+  color: #fff;
+  font-size: 14px;
+  margin-left: 6px;
+}
 
 a:hover, a:focus {
     color: #fff;
@@ -106,8 +128,8 @@ display: inline;
 }
 .managecustomer-left-menu-inner-page ul{margin: -9px 0 0 0; padding: 0px;}
 .managecustomer-left-menu-inner-page ul li{list-style: none; display: block; margin-bottom: 1px;}
-.managecustomer-left-menu-inner-page ul li a{font-size: 15px; padding: 0px 15px; color: #000;line-height: 46px; background: #f1f1f1;display: inline-block; width:100%;
-      -webkit-transition: all 0.2s linear;
+.managecustomer-left-menu-inner-page ul li a{font-size: 15px; padding: 11px 15px; color: #000; background: #f1f1f1;display: inline-block; width:100%;
+  -webkit-transition: all 0.2s linear; 
       -moz-transition: all 0.2s linear;
       -o-transition: all 0.2s linear;
        transition: all 0.2s linear; 
@@ -192,6 +214,7 @@ display: inline;
   padding: 3px 4px 3px 4px;
   font-size: 15px;
   width: 100%;
+  font-size: 14px;
 }
 .addproducttable-Add-BTN{
   width:65px; float: left; padding:10px 0px 9px 0; box-sizing: border-box; text-align: center;
@@ -234,16 +257,33 @@ display: inline;
 
 
 
-._720kb-datepicker-calendar{margin-top: 34px !important;}
+/*._720kb-datepicker-calendar{margin-top: 34px !important;}*/
 .container{width:1170px; margin: 0 auto; display: block;}
 .main-header{width:100%; display: inline-block; background: #fff;}
 .logo{float: left; margin: 13px 0 0 30px;}
 
 .customer-detailsmain-box {
-  width: 26%;
+  width: 30%;
   float: left;
   margin-right: 2%;
 }
+.customer-detailsmain-box2 .orderstatus-value{padding-right: 29px;}
+.customer-detailsmain-box .orderby-label{width: 40%; float: left;margin-right: 3px;}
+.customer-detailsmain-box3{width:25%;float: left;margin-right: 2%;}
+.customer-detailsmain-box3 em{font-style: normal;padding-left: 10px;}
+
+.customer-detailsmain-box1 datepicker input{
+  border: 1px solid #454545;
+border-radius: 3px;
+padding: 3px 10px;
+}
+.customer-detailsmain-box select{
+border: 1px solid #454545;
+border-radius: 3px;
+padding: 3px 10px;
+width: 51%;
+}
+
 .customer-detailsmain-box1 {
   width: 30%;
   float: left;
@@ -251,7 +291,7 @@ display: inline;
 
 }
 .customer-detailsmain-box1 label {
-  width: 41% !important;
+  width: 41% !important; float: left;margin-top: 2px !important;
 }
 
 .customer-detailsmain-box1 strong {
@@ -259,15 +299,23 @@ font-weight: normal;
     padding-top: 10px;
     display: inline-block;
 }
+.customer-detailsmain-box1 em{
+  font-style: normal;padding-left: 5px;
+}
 .customer-detailsmain-box2 {
   width: 40%;
   float: left;
+}
+.customer-detailsmain-box2 em{
+  font-style: normal;padding-left: 5px;
 }
 .customer-detailsmain-box2 strong {
 font-weight: normal;
     padding-top: 10px;
     display: inline-block;
 }
+.addproduct-address-bx-label{width: 16%;float: left;}
+.addproduct-address-bx-em{width: 83%;float: left;}
 .dateon-input {
   width : 70% !important;
 }
@@ -686,11 +734,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
   margin-bottom: 25px;
   margin-left: 0px;
 }
+.addproducttable-B div{padding-bottom: 4px;}
+.addproducttable-B img{padding-top: 8px;width: 200px;}
+.addproducttable-B label{width:50%;text-align: right;padding-right: 4px;font-size: 14px;}
 .customization-check-box-textarea{width: 100% !important;margin-top: -12px;}
 .measurement-li-box{width:100%; display: inline-block;}
 .measurement-li-box ul{margin: 0px; padding: 0px;}
-.measurement-li-box ul li{list-style: none; display: table;/* background:url("../images/mesurment-li-icon.png") no-repeat left; */line-height:19px;padding-left: 34px;width:66%;font-weight: 600;font-size: 14px;color: #474747;}
-.measurement-li-box ul li i{line-height: 60px; font-style: normal;display: inline-block;padding-top: 4px;}
+.measurement-li-box ul li{list-style: none;text-align: right; display: table;/* background:url("../images/mesurment-li-icon.png") no-repeat left; */line-height:19px;padding-left: 34px;width:66%;font-weight: 600;font-size: 14px;color: #474747;}
+.measurement-li-box ul li i{line-height: 60px;padding-right: 7px; font-style: normal;display: inline-block;padding-top: 4px;}
 .measurement-li-box ul li strong{float: right; position: relative;width: 60%; font-weight: 400;}
 .measurement-li-box ul li strong span {
     color: #da2d2d;
@@ -755,7 +806,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
 
 .add-new-form{
   margin: 0 auto;
-  width:55%;
+  width:80%;
   float: none;
   background: #f5f5f5;
   border-radius: 4px;
@@ -997,9 +1048,24 @@ border-radius: 3px;
 
 .cancel-button-black{background: #414141 !important; border: 1px solid #414141 !important;}
 .addorder-amount-icon{width: 64% !important;}
+.measurment-table-width{width: 20% !important;}
 
 
 @media only screen and (min-width: 1024px) and (max-width: 1170px) {
+  .select-phot-input {width: 56% !important;}
+  .customer-detailsmain-box1 datepicker input{padding: 3px 5px;}
+  .customer-detailsmain-box .orderby-label {margin-right: 5px;width: 41%;}  
+  .customer-detailsmain-box select{padding: 3px 4px;width: 56%;}
+  .customer-detailsmain-box {
+    width: 31%;
+    margin-right: 1%;
+}
+  
+  .addsubdesign-browse-img {margin-left: 150px;}
+  .customer-detailsmain-box1 label {width: 44% !important;}
+  .addproduct-address-bx-label {width: 18%;}
+  .addproduct-address-bx-em {width: 81%;}
+
   .addorder-amount-icon {width:63% !important;}
   .add-new-form{width: 70%;}
   .inner-heading-bar{line-height: 48px;font-size: 22px;padding: 0 0 0 23px;}
@@ -1028,6 +1094,39 @@ border-radius: 3px;
 
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .select-phot-input {width: 53% !important;}
+  .addsubdesign-browse-img {
+    margin-left: 133px;
+    width: 190px;
+}
+  .subdesign-submenu {
+    width: 84% !important;
+}
+.register-btm-btn-box{width: 62%;margin-left: 38%;padding: 10px 0 0 0;}
+.customer-detailsmain-box1 {width: 40%;}
+.submit-button input{width: 90px !important;}
+.cancel-button input{width: 90px !important;}
+.customer-detailsmain-box {width: 40%;}
+.customer-detailsmain-box .orderby-label {width: 30%;}
+.customer-detailsmain-box select{width:60%;}
+.customer-detailsmain-box3 {width: 30%;}
+.createorder-address-ipad{
+  width: 100% !important;
+  display: inline-block;
+  margin-top: 18px;
+}
+.customer-detailsmain-box2 .orderstatus-value{width:44%;}
+.addproduct-address-bx-label {width: 12% !important;}
+
+  .customer-detailsmain-box1 label {width:31% !important;}
+  
+  .customer-detailsmain-box2 em{padding-left: 0px;}
+  .addproduct-address-bx-em {width:88%; padding-left: 2px;}
+  .customer-detailsmain-box1 em{padding-left: 0px;}
+  .customer-detailsmain-box2 label{width: 100%;}
+  .left-list-addproduct {width: 17%;}
+  .measurment-table-width {width: 24% !important;}
+
   .measurement-li-box ul li{width: 73%;}
   .addorder-amount-icon {width: 57% !important;}
   .clothmeasurementinput {width: 54% !important;}
@@ -1035,15 +1134,15 @@ border-radius: 3px;
   .form-box-measurement-add {margin-left: 34%;width: 65%;}
   .form-box span{margin-left: 34%;}
   .add-next-btn-box{margin-left:0%;}
-  .form-section-box label{width: 32%;}
-  .form-section-box input {width: 66%;}
-  .form-section-box select {width: 66%;}
-  .customization-check-box {width: 66%;}
-  .form-section-box textarea{width: 66%;}
+  .form-section-box label{width: 36%;}
+  .form-section-box input {width: 62%;}
+  .form-section-box select {width: 62%;}
+  .customization-check-box {width: 62%;}
+  .form-section-box textarea{width: 62%;}
   .inner-heading-bar{line-height: 45px;font-size: 20px;padding: 0 0 0 23px;}
-  .datepickerbx { width:66%;}
+  .datepickerbx { width:62%;}
   .alerts-page-table{width:100%;}
-  .add-new-form{width:80%;}
+  .add-new-form{width:80%;padding: 15px;}
   .table-part .top-purpal-color-row th {
   	font-size: 13px;
   }
@@ -1096,6 +1195,39 @@ border-radius: 3px;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  .addproducttable-B .modal-content .modal-body span {width: 95%;height: auto;}
+  .addproducttable-B .modal-content .modal-body span img{height: auto;}
+  .select-phot-input {width:46% !important;}
+  .addproducttable-B img {width: 100%;}
+  .customer-detailsmain-box .orderby-label{width:36%;padding-top: 3px;}
+  .customer-detailsmain-box2 .orderstatus-value {
+    padding-right: 0;
+    width: 36%;
+}
+  .customer-detailsmain-box select{width:61%;}
+  .customer-detailsmain-box3{
+    width: 100%;
+border-bottom: 1px solid #ccc;
+padding-bottom: 5px;
+padding-top: 10px;
+    }
+  .addsubdesign-browse-img {margin-left: 0px; margin-top: 12px;}
+  .customer-detailsmain-box {width: 100%;margin-right: 0;border-bottom: 1px solid #ccc;padding-bottom: 10px;}
+  .customer-detailsmain-box1{width: 100%;margin-right: 0;border-bottom: 1px solid #ccc;padding-bottom: 10px;}
+  .customer-detailsmain-box2{width: 100%;margin-right: 0;margin-top:10px;border-bottom: 1px solid #ccc;padding-bottom: 10px;}
+  .customer-detailsmain-box2 label {width: 100%;margin-bottom: 2px;}
+  .customer-detailsmain-box2 em{padding-left: 0px;}
+  .customer-detailsmain-box1 label {width: 36% !important;margin-bottom: 2px;}
+  .customer-detailsmain-box label {width: 100%;}
+  .customer-detailsmain-box1 em{padding-left: 0px;}
+  .addproduct-address-bx-em{width: 100%;}
+  .create-order-box{margin-top: 10px;}
+  .bdr-btm-none-mobile{ border-bottom: 0px; padding-bottom: 0px;}
+  .left-list-addproduct {width: 43%;}
+  .measurment-table-width {width: 57% !important;float: right !important;}
+  .addproducttable-Add-BTN{float: right;clear: both;margin-right: 0px;}
+  .addproducttable-Add-BTN input{float: right;}
+
   .float-right {
     float: none;
     width: 100% !important;
@@ -1108,7 +1240,7 @@ border-radius: 3px;
   .addorder-amount-icon {width:85% !important;}
   .form-box span {margin-left: 0%;margin-top: 0px;padding-bottom: 0px;}
   .form-box-measurement-add{margin-left: 0%;width: 99%;margin-bottom: 0px;margin-top: 10px;}
-  .clothmeasurementinput {width: 75% !important;}
+  .clothmeasurementinput {width: 100% !important;}
   .paging {width: 100%;}
   .add-next-btn-box {margin-left: 0px;}
   .outside2 {margin-left: 0px;width: 62%;}
@@ -1125,7 +1257,8 @@ border-radius: 3px;
   .form-section-box .birthdate {width: 30% !important;}
   .add-new-btm-btn{margin-left: 0px;width: 100%;}
 .order-form-left-section {width: 100%;}
-.form-heading{margin: 0px 0 20px 0;}
+.form-heading{margin: 0px 0 8px 0;}
+.measurement-heading-mobile{padding-top: 20px;}
 .form-section-box label{width: 100%;text-align: left;}
 .form-section-box select{width: 100%;margin-bottom: 0px;}
 .outside{width: 100%;margin-bottom: 0px;}
@@ -1133,8 +1266,8 @@ border-radius: 3px;
 .customization-check-box {width: 100%;}
 .form-section-box textarea{width: 100%;margin-bottom: 0px;}
 .date-icon-right{top: 10px;}
-.measurement-li-box ul li{width:100%;}
-.measurement-li-box ul li strong{width: 52%;}
+.measurement-li-box ul li{width:100%;padding-left: 0px;}
+.measurement-li-box ul li strong{width:46%;}
 .measurement-li-box ul li span{width: 50%;}
 .measurement-li-submit-btn-mobile{margin-right: 15px !important;}
 .order-form-right-address-section {width: 100%;margin-top:0px;}

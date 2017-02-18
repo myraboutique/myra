@@ -57,7 +57,7 @@
 		<!-- Left Form Section Start Here -->
 		<form name="form" novalidate>
 
-    <div class="order-form-left-section add-new-form subdesign-submenu">
+    <div class="order-form-left-section add-new-form">
       <div class="form-section-box">
 
 
@@ -105,7 +105,7 @@
                 ngf-max-size="20MB" 
 				required
                 />
-            <img style="margin-left:200px ;width:200px" ng-show="!!vm.file" ngf-thumbnail="vm.file"/>
+            <img class="addsubdesign-browse-img" ng-show="!!vm.file" ngf-thumbnail="vm.file"/>
 			<!--<span ng-show="form.file.$error.required && (form.design.$dirty || vm.formSubmitted)">Image is required.</span>
 			<span ng-show="form.file.$error.maxSize && (form.design.$dirty || vm.formSubmitted)">Image is required.</span>-->
 			
