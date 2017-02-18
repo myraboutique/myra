@@ -5,6 +5,7 @@ editProductController.$inject = ['$resource', '$state', '$http', 'Upload', '$win
 
 function editProductController($resource, $state, $http, Upload, $window) {
   var vm = this;
+  vm.abcd =[];
 
   vm.inexforprompt = function (index) {
     vm.indexforpromptbox = index;
@@ -42,8 +43,8 @@ function editProductController($resource, $state, $http, Upload, $window) {
       vm.fileup(function(){
         for (var index = 0; index < info.length; index++) {
           info[index].measurement = JSON.stringify(vm.measurevalue[index]);
-          info[index].browseimage = vm.tempimg[index];
-          console.log(info[index]);
+          info[index].browseimage = vm.abcd[index];
+
           $http.put('/api/orderdetails', info[index])
             .then(
             function (response) {
@@ -57,16 +58,15 @@ function editProductController($resource, $state, $http, Upload, $window) {
   };
 
   vm.tempimg = [];
-
- var i = 0;
+ vm.i = 0;
   //file uploa ==========================================
   vm.fileup = function (cb) { //function to call on form submit
-    if (vm.order[i].image) { //check if from is valid
-      vm.upload(vm.order[i].image,cb); //call upload function
+    if (vm.order[vm.i]) { //check if from is valid
+      vm.upload(vm.order[vm.i].image,cb); //call upload function
     }
     else{
       vm.tempimg.push("");
-      i++;
+     vm.i++;
       vm.fileup(cb);
     }
   };
@@ -79,16 +79,20 @@ function editProductController($resource, $state, $http, Upload, $window) {
     }).then(function (resp) { //upload function returns a promise
       if (resp.data.error_code === 0) { //validate success
         
-        vm.tempimg.push(resp.data.fname);
+        vm.abcd[vm.i] = resp.data.fname;
 
-        if (i < vm.order.length -1) {
-          i++;
-          vm.upload(vm.order[i].image,cb);
+        if (vm.i < vm.len -1) {
+          vm.i++;
+          if(vm.order[vm.i]){
+          vm.upload(vm.order[vm.i].image,cb);
+          }else{
+            cb();
+          }
         }
         else{
           cb();
         }
-        console.log(vm.tempimg);
+        console.log(vm.abcd[vm.i]);
         
       }
 
