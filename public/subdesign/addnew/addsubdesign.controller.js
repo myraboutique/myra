@@ -38,7 +38,7 @@ var addsubdesign = new AddSubDesign();
     
     vm.upload = function (file) {
         Upload.upload({
-            url: 'http://localhost:3000/upload', //webAPI exposed to upload the file
+            url: 'http://myraboutique.herokuapp.com/upload' || 'https://myraboutique.herokuapp.com/upload', //webAPI exposed to upload the file
             data:{file:file} //pass file as data, should be user ng-model
         }).then(function (resp) { //upload function returns a promise
             if(resp.data.error_code === 0){ //validate success
