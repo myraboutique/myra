@@ -127,15 +127,9 @@
 					</tr>
 
 					<tr>
-<<<<<<< HEAD
 						<td class="addproducttable-B"><span class="hideeextratext"><cite title="{{vm.order[$index].customization}}">{{vm.order[$index].customization}}</cite></span>
-							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-hide="vm.order[$index].customization">Details</a>
-							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-show="vm.order[$index].customization">more</a>
-=======
-						<td class="addproducttable-B"><span class="hideeextratext">{{vm.order[$index].customization}}</span>
 							<a href="" data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-hide="vm.order[$index].customization">Details</a>
 							<a href="" data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-show="vm.order[$index].customization">more</a>
->>>>>>> origin/bhavin_19feb
 
 							<!-- Prompt Box For Add Customization-->
 							<!-- Modal -->
@@ -149,7 +143,7 @@
 											<h4 class="modal-title">Add Customization</h4>
 										</div>
 										<div class="modal-body">
-											<textarea style="margin-top: 0px;" ng-model="vm.order[vm.indexforpromptbox].customization"  rows="4" cols="50" placeholder="Customization Description"
+											<textarea style="margin-top: 0px;" ng-model="vm.order[vm.indexforpromptbox].customization" rows="4" placeholder="Customization"
 											class="customization-check-box-textarea"></textarea>
 										</div>
 										<div class="modal-footer">
@@ -164,7 +158,7 @@
 					</tr>
 
 					<tr>
-						<td class="addproducttable-B"><span class="hideeextratext">{{vm.order[$index].cloth}}</span>
+						<td class="addproducttable-B"><span class="hideeextratext"><cite title="{{vm.order[$index].cloth}}">{{vm.order[$index].cloth}}</cite></span>
 							<a href="" data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-hide="vm.order[$index].cloth">Comments</a>
 							<a href="" data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-show="vm.order[$index].cloth">more</a>
 							<!-- Prompt Box For Add Details-->
@@ -176,11 +170,11 @@
 									<div class="modal-content">
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal">&times;</button>
-											<h4 class="modal-title">Add Summary</h4>
+											<h4 class="modal-title">Add Remarks</h4>
 										</div>
 										<div class="modal-body">
-											<textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.order[vm.indexforpromptbox].cloth" class="customization-check-box-textarea" name="clothdesc{{$index}}"
-												placeholder="Summary">
+											<textarea style="margin-top: 0px;" ng-model="vm.order[vm.indexforpromptbox].cloth" rows="4" class="customization-check-box-textarea" name="clothdesc{{$index}}"
+												placeholder="Remarks">
 											</textarea>
 										</div>
 										<div class="modal-footer">

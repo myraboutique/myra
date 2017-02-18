@@ -195,7 +195,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
   var i = 0;
   //file uploa ==========================================
   vm.fileup = function (cb) { //function to call on form submit
-    if (vm.order[i].image) { //check if from is valid
+    if (vm.order[i]) { //check if from is valid
       vm.upload(vm.order[i].image,cb); //call upload function
     }
     else{
@@ -227,12 +227,12 @@ function addProductController($resource, $state, $http, Upload, $window) {
       }
 
     }, function (resp) { //catch error
-      // console.log('Error status: ' + resp.status);
+      console.log('Error status: ' + resp.status);
       $window.alert('Error status: ' + resp.status);
     }, function (evt) {
-      // console.log(evt);
+      console.log(evt);
       var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-      // console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+      console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
       vm.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
     });
   };

@@ -158,7 +158,7 @@ display: inline;
 
 .hideeextratext {
   display: block;
-  width: 100px;
+  width: 190px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
