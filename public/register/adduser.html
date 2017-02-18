@@ -1,4 +1,4 @@
-  <div class="container">
+ <div class="container">
 
 	<!-- Header Section Start Here -->
 	<div class="main-header">
@@ -65,7 +65,8 @@
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Username</label>
 			  <input id=""  focus="true" name="username" ng-minlength="3" ng-maxlength="20" required="required" type="text" ng-model="vm.username" placeholder="Username"/>
 				<span ng-show="userform.username.$error.required && (userform.username.$dirty || vm.formSubmitted)">Username is required.</span>
-			  <span ng-show="(userform.username.$error.minlength || userform.username.$error.maxlength) && (userform.username.$dirty || vm.formSubmitted)">Username should be between 2 to 20 characters long.</span>
+			  <span ng-show="(userform.username.$error.minlength || userform.username.$error.maxlength) && (userform.username.$dirty || vm. formSubmitted)">Username should be between 2 to 20 characters long.</span>
+			  <span ng-show="vm.flag">Username already exists.</span>
 
 		   </div>
 			 <div class="form-box">

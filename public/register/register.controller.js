@@ -7,6 +7,7 @@ function registerController($resource,$state) {
   var vm = this;
   vm.order = order;
   vm.check = false;
+  vm.flag= false;
    vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
     window.location = '#/login';
@@ -80,9 +81,18 @@ vm.active = true;
       // if(info.status){
       //   swal(info.status);
       // } else {
-      swal("Your record has been saved successfully.");
-         window.location = '#/register';
+      // swal("Your record has been saved successfully.");
+      //    window.location = '#/register';
       //}
+       if (!info.status) {
+          swal("Your record has been saved successfully.");
+          window.location = '#/register';
+        }
+        else {
+          vm.flag = true;
+          vm.status = info.status;
+        }
+      
      
     });
   }
