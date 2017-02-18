@@ -25,8 +25,9 @@
     "angular-bootstrap": "^2.3.0",
     "ngSweetAlert": "angular-sweetalert#^1.1.2",
     "angularjs-datepicker": "^2.1.7",
-    "angularUtils-pagination": "angular-utils-pagination#^0.11.1", 
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
     "angular-bootstrap-colorpicker": "^3.0.25",
-    "angularjs-imageupload-directive": "*"
+    "angularjs-imageupload-directive": "*",
+    "ng-file-upload": "^12.2.13"
   }
 }

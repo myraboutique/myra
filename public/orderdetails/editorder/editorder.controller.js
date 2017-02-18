@@ -20,15 +20,11 @@ function editorderController($resource, $scope, $http) {
   vm.productwiserecord = [];
   var customer = $resource('/api/orderdetails');
   customer.query(function (response) {
-      // console.log(response);
       vm.something = response[1].timestamp;
-
-  console.log(vm.something);
 
       for (var index = 0; index < response.length; index++) {
         if(response[index].timestamp == vm.records.timestamp) {
           vm.productwiserecord.push(response[index]);
-          console.log(vm.productwiserecord);
         }
       }      
   });
@@ -46,6 +42,26 @@ function editorderController($resource, $scope, $http) {
   vm.alertchange = alertchange;
   vm.stitchingchange = stitchingchange;
   vm.forstitchingdate = forstitchingdate;
+
+  vm.sprayColour = sprayColour;
+  vm.sColor = true;
+
+  function  sprayColour(idx,arr){
+    if(idx > 0){
+      //check for previous matched colour and maintain a flag;
+      if(arr[idx].pair && arr[idx].pair != null && arr[idx].pair === arr[idx - 1].pair){
+        return vm.sColor;
+      }
+      else{
+        vm.sColor = !vm.sColor;
+        return vm.sColor;
+      }
+    }
+    else{
+      vm.sColor = true;
+      return vm.sColor;
+    }
+  }
 
 
   function forstitchingdate(index) {
@@ -82,14 +98,26 @@ function editorderController($resource, $scope, $http) {
       alertDay.setHours(0, 0, 0, 0, 0);
       var alertday = alertDay.getUTCDate() + '/' + alertDay.getUTCMonth() + '/' + alertDay.getUTCFullYear();
       vm.productwiserecord[index].alertday = '';
+
+      
+      //stitchingdate setring
+      var stitchingDay = new Date(a[2], a[1], a[0] - 4);
+      stitchingDay.setHours(0, 0, 0, 0, 0);
+      var stitchingday = stitchingDay.getUTCDate() + '/' + stitchingDay.getUTCMonth() + '/' + stitchingDay.getUTCFullYear();
+
+      //stitchingdate setring
       console.log(vm.productwiserecord[index].alertday);
       if (deliveryDate < orderDate) {
         vm.date1 = true;
         vm.productwiserecord[index].alertday = alertday;
+        vm.productwiserecord[index].stitchingdate = stitchingday;
+        
         alertchange(orderDate, deliveryDate, vm.productwiserecord[index].alertday);
       } else {
         vm.date1 = false;
         vm.productwiserecord[index].alertday = alertday;
+        vm.productwiserecord[index].stitchingdate = stitchingday;
+        
         alertchange(orderDate, deliveryDate, vm.productwiserecord[index].alertday);
       }
     }

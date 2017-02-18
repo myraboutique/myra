@@ -43,7 +43,7 @@
 					<label>Order Date </label><strong>{{vm.records.orderdate}}</strong>
 				</div>
 
-                <div class=" customer-detailsmain-box2"><label>Order Status </label><strong></strong></div>
+				<div class=" customer-detailsmain-box2"><label>Order Status </label>&nbsp;<strong>{{vm.productwiserecord[0].status}}</strong></div>
 			</div>
 
                 <div class="form-box create-order-box">
@@ -73,8 +73,13 @@
 									<th>Amount</th>
 									<th>Status</th>
 								</tr>
-								<tr ng-repeat="i in vm.productwiserecord">
-									<td style="width: 200px"><a href="#/editProduct"><b>{{vm.productwiserecord[$index].type}}</b></a></td>
+								<tr ng-repeat="i in vm.productwiserecord" ng-class="{'some2': vm.sprayColour($index,vm.productwiserecord)}">
+									<td style="width: 200px">
+										<a href="#/editProduct">
+											<b>{{vm.productwiserecord[$index].type + " (" + vm.productwiserecord[$index].subdesign + ")"}}</b>
+										</a>
+										<img ng-src="{{vm.productwiserecord[$index].browseimage}}" height="50" width="50"/>
+									</td>
 									<td>
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
 										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.productwiserecord[$index].deliverydate" ng-change="vm.change(vm.records.orderdate,$index)"
@@ -101,7 +106,7 @@
 									<td>
 			
 										<select style="width: 100%" ng-model="vm.productwiserecord[$index].status" name="material{{$index}}">
-										<option value="{{vm.productwiserecord[$index].status}}">{{vm.productwiserecord[$index].status}}</option>
+										<!--<option value="{{vm.productwiserecord[$index].status}}">{{vm.productwiserecord[$index].status}}</option>-->
 										<option  ng-repeat="data in vm.statusdata">{{data.status}}</option>
 										</select>
 									</td>

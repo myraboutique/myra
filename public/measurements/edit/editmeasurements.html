@@ -43,8 +43,8 @@
 					<h4 class="admin-setting-heding">Settings</h4>
 					<ul>
 						<li><a href='#/register'><span>Manage Users</span></a></li>
-						<li><a href='#/statustype'><span>Manage Status</span></a></li>
-						<li><a href='#/measurements' class="active"><span>Manage Measurement</span></a></li>
+						<li><a href='#/statustype'><span>Manage Order Status</span></a></li>
+						<li><a href='#/measurements' class="active"><span>Manage Measurements</span></a></li>
 						<li><a href='#/clothtype'><span>Manage Designs</span></a></li>
 						<li><a href='#/subdesign'><span>Manage Styles</span></a></li>
 						<li><a href='#/materialtype'><span>Manage Materials</span></a></li>
@@ -60,12 +60,12 @@
 
      <div class="form-box">
       <label><em id="mandatory" style="color:Red">*</em> Measurement</label>
-      <input id="mtype" name="measurementtype" type="text" ng-minlength="2" ng-maxlength="50" ng-model="vm.data.name"  placeholder="Measurement Type" required/>
+      <input id="mtype" name="measurementtype" type="text" ng-minlength="2" ng-maxlength="50" ng-model="vm.data.name"  placeholder="Measurement" required/>
 
       	<span ng-show="frm.measurementtype.$error.required && (frm.measurementtype.$dirty || vm.formSubmitted)">Measurement name is required.</span>
-        	<span ng-show="frm.measurementtype.$error.minlength && (frm.measurementtype.$dirty || vm.formSubmitted)">Measurement name length must be greater than 02 characters.</span>
-          	<span ng-show="frm.measurementtype.$error.maxlength && (frm.measurementtype.$dirty || vm.formSubmitted)">Measurement name must be less than 20 characters.</span>
-			<span ng-if="vm.flag">This Measurement is already exists.</span>
+        	<span ng-show="(frm.measurementtype.$error.minlength || frm.measurementtype.$error.maxlength) && (frm.measurementtype.$dirty || vm.formSubmitted)">Measurement Name should be between 2 to 20 characters long.</span>
+          	<!--<span ng-show="frm.measurementtype.$error.maxlength && (frm.measurementtype.$dirty || vm.formSubmitted)">Measurement name must be less than 20 characters.</span>-->
+			<span ng-if="vm.flag">This Measurement already exists.</span>
       </div>
 
      <div class="form-box">
@@ -90,10 +90,6 @@
 		</div>
 
 		<!-- Customer Details page Section End Here -->
-		<div class="paging">
-			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
-			</dir-pagination-controls>
-		</div>
 	</div>
 	<!-- Footer Section Start Here -->
 	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>

@@ -12,7 +12,7 @@ module.exports = (function () {
         },
         design: Sequelize.STRING,
         subdesign: Sequelize.STRING,
-        subdesignimage: Sequelize.BLOB,
+        subdesignimage: Sequelize.STRING,
         isActive: Sequelize.BOOLEAN
         // image: Sequelize.BLOB
     }, {

@@ -10,6 +10,7 @@ module.exports = (function () {
             autoIncrement: true,
             primaryKey: true,
         },
+        pair: Sequelize.STRING,
         timestamp: Sequelize.STRING,
         customerid: Sequelize.INTEGER,
         customerName: Sequelize.STRING,
@@ -26,7 +27,7 @@ module.exports = (function () {
         stitchingdate: Sequelize.STRING,
         status: Sequelize.STRING,
         subdesign: Sequelize.STRING,
-        browseimage: Sequelize.BLOB
+        browseimage: Sequelize.BLOB        
         }, {
             timestamps: false
         });

@@ -21,7 +21,7 @@ function clothtypeController($resource,$state,$scope) {
     vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;
     vm.predicate = predicate;
   };
-
+ 
   vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
     window.location = '#/login';
@@ -32,10 +32,11 @@ function clothtypeController($resource,$state,$scope) {
     vm.type = info;
     // console.log(vm.type);
     // info.forEach(function (e){
-    //   vm.image = e.image.split('###');
-    //   vm.images.push(vm.image);
+    //   vm.mesu1 = e.measurement;
+    //   vm.mesu = vm.mesu1.split(',');
+    //   vm.measure.push(vm.mesu); 
     // });
-    // console.log(vm.images);
+    // console.log(vm.measure);
   });
 
    function editpage(x)

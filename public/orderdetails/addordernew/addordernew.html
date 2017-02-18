@@ -13,8 +13,8 @@
 		<div class="navbar">
 			<ul>
 				<li><a href="#/home">Home</a></li>
-				<li><a href="#/customerdetails">Customer Details</a></li>
-				<li><a href="#/order" class="active">Create Order</a></li>
+				<li><a href="#/customerdetails">Customers</a></li>
+				<li><a href="#/order" class="active">Orders</a></li>
 				<li><a href="#/alert">Alerts</a></li>
 				<li><a href="#/register">Settings</a>
 					<!--<ul>
@@ -39,7 +39,7 @@
 
 					<div class="form-box">
 						<div class=" customer-detailsmain-box">
-							<label>Order #</label>{{vm.orderidfromlastpage}}
+							<label>Order #</label>{{vm.temp[0].timestamp}}
 						</div>
 						<div class=" customer-detailsmain-box1">
 							<label>Order Date </label><strong>{{vm.orderdate1}}</strong>
@@ -80,8 +80,10 @@
 									<th>Amount</th>
 									<th>Status</th>
 								</tr>
-								<tr ng-repeat="data in vm.selectedOrder">
-									<td style="width: 200px;">{{data}}</td>
+								<tr ng-repeat="data in vm.selectedOrder track by $index">
+									<td style="width: 200px;">{{vm.selectedOrder[$index]}}
+										<img ng-src="/imgupload/{{vm.temp[$index].image.dataURL}}" height="50" width="50"/>
+									</td>
 									<td >
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
 										<!--New change 00 --index inject -->
@@ -149,6 +151,7 @@
 		<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
 		<!-- Footer Section End Here -->
 	</form>
+</div>
 	<script type="text/javascript">
 		$(document).ready(function (e) {
 			$(".menu-toggle").click(function () {

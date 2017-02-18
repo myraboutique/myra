@@ -1,4 +1,4 @@
-/// <reference path="../typings/tsd.d.ts" />
+// <reference path="../typings/tsd.d.ts" />
 
 module.exports = (function () {
   var models = require('../models').addsubdesign;
@@ -6,7 +6,7 @@ module.exports = (function () {
   var sequelize = require('sequelize');
 
 
-  var m = {
+ var m = {
     find: function (req, res) {
       db.sync().then(function () {
         models.findAll().then(function (info) {
@@ -34,13 +34,13 @@ module.exports = (function () {
                 res.json(user);
               })
 
-            })
+           })
           }
         })
       })
     },
 
-    Update: function (req, res) {
+   Update: function (req, res) {
       db.sync().then(function () {
         models.findOne({ where: { subdesign: req.body.subdesign } }).then(function (info) {
           if (info && info.id != req.body.id) {
@@ -70,5 +70,5 @@ module.exports = (function () {
     }
   };
 
-  return m;
+ return m;
 })();

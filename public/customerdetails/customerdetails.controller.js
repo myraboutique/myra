@@ -6,6 +6,7 @@ customerdetailsController.$inject = ['$scope', '$resource', '$state'];
 function customerdetailsController($scope, $resource, $state) {
 
   var vm = this;
+  
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
     window.location = '#/login';

@@ -33,7 +33,7 @@ module.exports = (function(){
 //             port: 3306,
 //             user: 'root',
 //             password: 'root',
-//             database: 'demo1'
+//             database: 'demo2'
 //         },
 //         logging: {
 //             level: "info"

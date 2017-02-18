@@ -33,7 +33,7 @@ function addmeasurementsController($resource) {
 
       if(!info.status){
 
-        console.log(swal("Record saved successfully."));
+        console.log(swal("Your record has been saved successfully."));
          window.location = "#/measurements"
       }
       else {

@@ -43,8 +43,8 @@
 					<h4 class="admin-setting-heding">Settings</h4>
 					<ul>
 						<li><a href='#/register' ><span>Manage Users</span></a></li>
-						<li><a href='#/statustype'><span>Manage Status</span></a></li>
-						<li><a href='#/measurements'><span>Manage Measurement</span></a></li>
+						<li><a href='#/statustype'><span>Manage Order Status</span></a></li>
+						<li><a href='#/measurements'><span>Manage Measurements</span></a></li>
 						<li><a href='#/clothtype' class="active"><span>Manage Designs</span></a></li>
 						<li><a href='#/subdesign'><span>Manage Styles</span></a></li>
 						<li><a href='#/materialtype'><span>Manage Materials</span></a></li>
@@ -57,7 +57,7 @@
 		<!-- Customer Details page Section Start Here -->
 		<div class="customer-detail-page-contant">
      <div class="right-add-new-button"><a href="#/addclothtype">Add New</a></div>
-		    <div class="search-box-main"><input class="serchInput" type="text" ng-model="vm.search" placeholder="Search"></div>
+		    <div class="search-box-main"><input class="serchInput" type="text" ng-model="vm.search" placeholder="Search here..."></div>
 				<div class="details-table">
 									<h2 class="no-record-found-text" ng-hide="vm.temp.length">No record found</h2>
 			 	<table ng-show="vm.temp.length" class="table-part" border="0" cellspacing="0" cellpadding="0">
@@ -76,12 +76,12 @@
 								</span>
 							</a>
 						</th>
-						<th>Measurement</th>
+						<th>Measurements</th>
 						<!--<th>Images</th>-->
 						<th>Status</th>
 					</tr>
           <!-- ng-repeat="data in vm.type"  -->
-					<tr dir-paginate="data in vm.temp=(vm.type| filter:vm.search |itemsPerPage:10  ) " ng-class="{
+					<tr dir-paginate="data in vm.temp=(vm.type| orderBy:vm.predicate:vm.reverse | filter:vm.search |itemsPerPage:10  ) " ng-class="{
 
               'some':$index%2 == 0,
               'table-tr-alternate-color':$index%2 != 0

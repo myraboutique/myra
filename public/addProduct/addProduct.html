@@ -14,14 +14,7 @@
 				<li><a href="#/customerdetails">Customers</a></li>
 				<li><a href="#/order" class="active">Orders</a></li>
 				<li><a href="#/alert">Alerts</a></li>
-				<li><a href="#/register">Settings</a>
-					<!--<ul>
-                        <li><a href='#/register'><span>Manage Users</span></a></li>
-                        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
-                        <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
-                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
-                    </ul>-->
-				</li>
+				<li><a href="#/register">Settings</a></li>
 				<li><a href="#/logout">Logout</a></li>
 			</ul>
 		</div>
@@ -40,7 +33,7 @@
 				<div class=" customer-detailsmain-box1">
 					<label>Order Date </label>
 					<datepicker date-format="dd/MM/yyyy">
-						<input id="mydate" required id ="" ng-model="vm.orderdate1" name="orderdate{{$index}}" type="text" placeholder="Date of Order" />
+						<input id="mydate" ng-model="vm.orderdate1" name="orderdate{{$index}}" type="text" placeholder="Date of Order" />
 					</datepicker>
 					<span ng-show="form.orderdate1.$error.required && (form.orderdate1.$dirty || vm.formSubmitted)">Order Date is required.</span>
 
@@ -52,11 +45,10 @@
 			<div class="form-box create-order-box">
 				<div class=" customer-detailsmain-box">
 					<label>Order by</label>
-					<select ng-model="vm.name" ng-required="true" ng-change="vm.selectCustomer(vm.name)" ng-options="data as data.customerName for data in vm.customer"
+					<select ng-model="temp" ng-change="vm.selectCustomer(temp)" ng-options="data as data.customerName for data in vm.customer"
 						name="customeruser">{{vm.name}}
 				 		<option value="">-- Please Select --</option>
 					</select>
-					<span ng-show="form.name.$error.required && (form.name.$dirty || vm.formSubmitted)">Customer Name is required.</span>
 				</div>
 
 				<div class=" customer-detailsmain-box1"><label>Contact Number </label>&nbsp;<em>{{vm.seleCust.mobileNumber}}</em></div>
@@ -84,11 +76,10 @@
 					<table class="measurment-table-width">
 					<tr>
 						<td class="addproducttable-B">
-							<select required="required" ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.designSelect(vm.order[$index].type,$index)"
+							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.designSelect(vm.order[$index].type,$index)"
 								ng-options="data as data.title for data in vm.type" data-toggle="modal" data-target="#myModal">
-												<option value="">-- Please Select --</option></select>
-												<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Design is required.</span>
-
+												<option value="">-- Please Select --</option>
+							</select>
 						</td>
 					</tr>
 
@@ -108,7 +99,7 @@
 										</div>
 										<div class="modal-body">
 											<span ng-repeat="data in vm.subdesignimage">
-												<img style="margin: 5px; border: 1px red solid" ng-src="{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
+												<img style="margin: 5px; border: 1px red solid ;width:200px" ng-src="/imgupload/{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
 											</span>
 										</div>
 										<div class="modal-footer">
@@ -124,11 +115,9 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<select ng-model="vm.order[$index].materialtype"  required="required" "ng-options="data as data.materialtype for data in vm.material" name="material{{$index}}">
+							<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material" name="material{{$index}}">
 								<option value="">-- Please Select --</option></select>
 							</select>
-							<span ng-show="form.order[$index].materialtype.$error.required && (form.order[$index].materialtype.$dirty || vm.formSubmitted)">Material Type is required.</span>
-
 						</td>
 					</tr>
 
@@ -143,9 +132,9 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<a data-toggle="modal" data-target="#myModal2">Details</a>
+							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)">Details</a>
 
-							<!-- Prompt Box For Add Details-->
+							<!-- Prompt Box For Add Customization-->
 							<!-- Modal -->
 							<div class="modal fade" id="myModal2" role="dialog">
 								<div class="modal-dialog">
@@ -157,7 +146,7 @@
 											<h4 class="modal-title">Add Customization</h4>
 										</div>
 										<div class="modal-body">
-											<textarea style="margin-top: 0px;" ng-model="vm.order[$index].customization"  rows="4" cols="50" placeholder="Customization Description"
+											<textarea style="margin-top: 0px;" ng-model="vm.order[vm.indexforpromptbox].customization"  rows="4" cols="50" placeholder="Customization Description"
 											class="customization-check-box-textarea" ></textarea>
 										</div>
 										<div class="modal-footer">
@@ -172,7 +161,7 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<a data-toggle="modal" data-target="#myModal3">Comments</a>
+							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)">Comments</a>
 							<!-- Prompt Box For Add Details-->
 							<!-- Modal -->
 							<div class="modal fade" id="myModal3" role="dialog">
@@ -185,12 +174,12 @@
 											<h4 class="modal-title">Add Summary</h4>
 										</div>
 										<div class="modal-body">
-											<textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.order[$index].cloth" class="customization-check-box-textarea" name="clothdesc{{$index}}"
+											<textarea style="margin-top: 0px;" rows="4" cols="50" ng-model="vm.order[vm.indexforpromptbox].cloth" class="customization-check-box-textarea" name="clothdesc{{$index}}"
 												placeholder="Summary">
 											</textarea>
 										</div>
 										<div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.submit(orderform)>Save</button>
+											<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
 										</div>
 									</div>
 								</div>
@@ -201,9 +190,33 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<input class="clothmeasurementinput" id="browseimage{{$index}}" type="file" accept="image/*" image="vm.order[$index].image" resize-max-height="200"
+							<!--<input class="clothmeasurementinput" id="browseimage{{$index}}" type="file" accept="image/*" image="vm.order[$index].image" resize-max-height="200"
 								resize-max-width="200" resize-quality="0.7" required="required" name="browseimage{{$index}}" />
-							<img ng-show="vm.order[$index].image" ng-src="{{vm.order[$index].image.resized.dataURL}}" />
+							<img ng-show="vm.order[$index].image" ng-src="{{vm.order[$index].image.resized.dataURL}}" />-->
+
+								<input class="clothmeasurementinput"
+									type="file" 
+									ngf-select 
+									ng-model="vm.order[$index].image" 
+									name="file" 
+									ngf-pattern="'image/*'"
+									accept="image/*" 
+									ngf-max-size="20MB" 
+									required
+									/>
+								<img style="width:200px" ng-show="!!vm.vm.order[$index].image" ngf-thumbnail="vm.order[$index].image"/>
+								<!--<span ng-show="form.file.$error.required && (form.design.$dirty || vm.formSubmitted)">Image is required.</span>
+								<span ng-show="form.file.$error.maxSize && (form.design.$dirty || vm.formSubmitted)">Image is required.</span>-->
+								
+								<span ng-show="form.file.$error.required && (form.file.$dirty || vm.formSubmitted)">Image is required.</span><br>
+								<span ng-show="form.file.$error.maxSize">File too large 
+								{{vm.vm.order[$index].image.size / 1000000|number:1}}MB: max 20M</i>
+							<!--  Multiple files
+								<div class="button" ngf-select ng-model="up.files" ngf-multiple="true">Select</div>
+								Drop files: <div ngf-drop ng-model="up.files" class="drop-box">Drop</div> -->
+								<!--<button type="submit" ng-click="vm.submit()">submit</button>-->
+								<p>{{vm.progress}}</p>
+
 						</td>
 					</tr>
 
@@ -211,7 +224,7 @@
 						<td class="addproducttable-B">
 							<div ng-repeat="data in vm.measu[$index]">
 								<label>{{data}}</label>
-								<input style="width: 50%;" ng-model="vm.order[$parent.$index].xyz[$index]" class="measurement-input" name="measurement{{$index}}" required="required"
+								<input style="width: 40%;" ng-model="vm.order[$parent.$index].xyz[$index]" class="measurement-input" name="measurement{{$index}}" required="required"
 									type="text" />
 							</div>
 						</td>
@@ -219,7 +232,9 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<div class="addproducttable-Add-BTN add-pair-box"> <input type="submit" value="Add Pair" ng-click="vm.submit()"></div>
+							<div class="addproducttable-Add-BTN add-pair-box">
+								 <input ng-hide="vm.hidepairbutton[$index]" type="submit" value="Add Pair" ng-click="vm.submit2($index)">
+							</div>
 						</td>
 					</tr>
 				</table>
@@ -229,13 +244,13 @@
 		</div>
 		<!-- Addproducttable Main Box End Here -->
 		<div class="submit-button">
-			<input type="submit" value="Save" ng-click="vm.final(orderform)" />
+			<input type="submit" value="Save" ng-click="vm.final(vm.order)" />
 		</div>
 	<!-- Main Contant Part End Here -->
 	</div>
 </form>
 	<!-- Footer Section Start Here -->
-	<div class="footer-section">Copyright © 2016 ProT Systems. All rights reserved.</div>
+	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
 	<!-- Footer Section End Here -->
 </div>
 

@@ -5,6 +5,7 @@ addordernewController.$inject = ['$resource', '$scope','$http'];
 
 function addordernewController($resource, $scope, $http) {
   var vm = this;
+  vm.temp = [];
 
   vm.data1=localStorage.getItem('addProductscustomer');
   vm.addProductscustomer = JSON.parse(vm.data1);
@@ -15,23 +16,28 @@ function addordernewController($resource, $scope, $http) {
   vm.data3=localStorage.getItem('customerdetailsnew');
   vm.customerdetailsnew = JSON.parse(vm.data3);
 
+  for (var index = 0; index < vm.selectedOrder.length; index++) {
+
+    vm.data4=localStorage.getItem('vmorder' + index);
+    vm.temp[index] = JSON.parse(vm.data4);
+    console.log(vm.temp[index]);
+
+  }
+
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
     window.location = '#/login';
   }
 
+  var myDate = new Date();
+  var month = myDate.getMonth() + 1;
+  vm.orderdate1 = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
+
   var customerdetails = $resource('/api/customerdetails');
-  var orderdetails = $resource('/api/orderdetails');
-  orderdetails.query(function(info) {
-    vm.orderidfromlastpage = info[info.length -1].timestamp;
-    vm.orderdate1 = info[info.length -1].orderdate;
-    vm.lastid = info[info.length -1].id;
-    // console.log(vm.lastid);
-  });
-  
+  var Orderdetails = $resource('/api/orderdetails');
   var addstatus = $resource('/api/addstatuses');
+  
   addstatus.query(function(info){
-    // console.log(info);
       vm.statusdata = info ;
   });
 
@@ -85,14 +91,24 @@ function addordernewController($resource, $scope, $http) {
       alertDay.setHours(0, 0, 0, 0, 0);
       var alertday = alertDay.getUTCDate() + '/' + alertDay.getUTCMonth() + '/' + alertDay.getUTCFullYear();
       vm.order[index].alertday = '';
+
+      //stitchingdate setring
+      var stitchingDay = new Date(a[2], a[1], a[0] - 4);
+      stitchingDay.setHours(0, 0, 0, 0, 0);
+      var stitchingday = stitchingDay.getUTCDate() + '/' + stitchingDay.getUTCMonth() + '/' + stitchingDay.getUTCFullYear();
+      vm.order[index].stitchingdate = '';
+
+      //stitchingdate setring
       console.log(vm.order[index].alertday);
       if (deliveryDate < orderDate) {
         vm.date1 = true;
         vm.order[index].alertday = alertday;
+        vm.order[index].stitchingdate = stitchingday;
         alertchange(orderDate, deliveryDate, vm.order[index].alertday);
       } else {
         vm.date1 = false;
         vm.order[index].alertday = alertday;
+        vm.order[index].stitchingdate = stitchingday;
         alertchange(orderDate, deliveryDate, vm.order[index].alertday);
       }
     }
@@ -163,27 +179,52 @@ function addordernewController($resource, $scope, $http) {
 
 
 //=============================================================
-
   vm.updateOrder = function(info) {
+    // vm.temp = [];
+    
+    // for (var index = 0; index < vm.selectedOrder.length; index++) {
 
+        // vm.data4=localStorage.getItem('vmorder' + index);
+        // vm.temp[index] = JSON.parse(vm.data4);
+var orderdetails = new Orderdetails();
+var index = 0;
 
-for (var index = 0; index < vm.selectedOrder.length; index++) {
-      info[index].orderdate = vm.orderdate;
-      info[index].id = vm.lastid;
-      vm.lastid--;
-      console.log(info[index]);
-      
-       $http.put('/api/orderdetails',  info[index])
-      .then(
-      function (response) {
-        swal("Record add successfully.");
-        window.location = '#/order';
-      },
-      function (err) {
-        console.log(err);
-      });  
-}
+var rOrder = function () {
+if (index < vm.selectedOrder.length) {
+        orderdetails.measurement = JSON.stringify(vm.temp[index].xyz);
+        orderdetails.customerName = vm.temp[index].customerName;
+        orderdetails.customerid = vm.temp[index].customerid;
+        orderdetails.timestamp = vm.temp[index].timestamp;
+        orderdetails.cloth = vm.temp[index].cloth;
+        orderdetails.color = vm.temp[index].color;
+        orderdetails.customization = vm.temp[index].customization;
+        if(vm.temp[index].image){
+          orderdetails.browseimage = vm.temp[index].image.dataURL;
+        }
+        orderdetails.material = vm.temp[index].materialtype.materialtype;
+        orderdetails.type = vm.temp[index].type.title;
+        orderdetails.subdesign = vm.temp[index].type2;
+        orderdetails.pair = vm.temp[index].pair;
+        orderdetails.status = info[index].status;
+        orderdetails.alertday = info[index].alertday;
+        orderdetails.stitchingdate = info[index].stitchingdate;
+        orderdetails.deliverydate = info[index].deliverydate;
+        orderdetails.amount = info[index].amount;
+        orderdetails.orderdate = vm.orderdate1;
+
+    
+
+        orderdetails.$save(function (info) {
+            index++;
+            rOrder();
+            swal("Record saved successfully.");
+            window.location = '#/order';
+        });
+      localStorage.removeItem('vmorder' + index);
+    }
 
   }
 
+  rOrder();
+  }
 }
