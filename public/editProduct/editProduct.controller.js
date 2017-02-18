@@ -80,7 +80,7 @@ function editProductController($resource, $state, $http, Upload, $window) {
   vm.tempimg = [];
   vm.upload = function (file) {
     Upload.upload({
-      url: 'http://localhost:3000/upload',
+      url: 'https://myraboutique.herokuapp.com/upload',
       data: { file: file } 
     }).then(function (resp) { 
       if (resp.data.error_code === 0) { 
