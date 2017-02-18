@@ -36,7 +36,7 @@ node_modules/
 bower_components/
 
 #Image Uploads Folder
-uploads/*
+#uploads/*
 
 # Debug log from npm
 npm-debug.log
