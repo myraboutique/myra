@@ -30,12 +30,9 @@ function statusController($resource,$state) {
     vm.predicate = predicate;
   };
 
-  var addstatus = $resource('/api/addstatuses')
+  var addstatus = $resource('/api/addstatuses');
   addstatus.query(function(info){
-    console.log(info);
-     
       vm.statusdata = info ;
-        
-   })
+   });
 
 }

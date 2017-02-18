@@ -14,7 +14,10 @@ function addordernewController($resource, $scope, $http) {
   vm.selectedOrder = JSON.parse(vm.data2);
   
   vm.data3=localStorage.getItem('customerdetailsnew');
-  vm.customerdetailsnew = JSON.parse(vm.data3);
+  vm.customerdetailsnew = JSON.parse(vm.data3);  
+  
+  vm.data4=localStorage.getItem('vmord');
+  vm.images = JSON.parse(vm.data4);
 
   for (var index = 0; index < vm.selectedOrder.length; index++) {
 
@@ -191,17 +194,21 @@ var index = 0;
 
 var rOrder = function () {
 if (index < vm.selectedOrder.length) {
-        orderdetails.measurement = JSON.stringify(vm.temp[index].xyz);
+        orderdetails.measurementname = vm.temp[index].type.measurement;
+        orderdetails.measurement = JSON.stringify(vm.temp[index].measure);
         orderdetails.customerName = vm.temp[index].customerName;
         orderdetails.customerid = vm.temp[index].customerid;
         orderdetails.timestamp = vm.temp[index].timestamp;
         orderdetails.cloth = vm.temp[index].cloth;
         orderdetails.color = vm.temp[index].color;
         orderdetails.customization = vm.temp[index].customization;
-        if(vm.temp[index].image){
-          orderdetails.browseimage = vm.temp[index].image.dataURL;
-        }
+        console.log(vm.images[index]);
+        // if(vm.images[index]){
+          orderdetails.browseimage = vm.images[index];
+        // }
+        if(vm.temp[index].materialtype){
         orderdetails.material = vm.temp[index].materialtype.materialtype;
+        }
         orderdetails.type = vm.temp[index].type.title;
         orderdetails.subdesign = vm.temp[index].type2;
         orderdetails.pair = vm.temp[index].pair;
@@ -210,7 +217,7 @@ if (index < vm.selectedOrder.length) {
         orderdetails.stitchingdate = info[index].stitchingdate;
         orderdetails.deliverydate = info[index].deliverydate;
         orderdetails.amount = info[index].amount;
-        orderdetails.orderdate = vm.orderdate1;
+        orderdetails.orderdate = vm.temp[0].orderdate;
 
     
 
@@ -221,6 +228,7 @@ if (index < vm.selectedOrder.length) {
             window.location = '#/order';
         });
       localStorage.removeItem('vmorder' + index);
+      localStorage.removeItem('vmord');
     }
 
   }

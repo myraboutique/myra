@@ -6,10 +6,9 @@ clothtypeController.$inject = ['$resource','$state','$scope'];
 function clothtypeController($resource,$state,$scope) {
   var vm = this;
 
-  // vm.image = [];
-  // vm.images = [];
   vm.editpage = editpage;
   vm.order = order;
+  vm.dynamicmeasure = [[]];
 
   vm.temp = function(data) {
     $scope.index = data;
@@ -28,15 +27,25 @@ function clothtypeController($resource,$state,$scope) {
   }
 
   var measurement = $resource('/api/measurement');
+  var managemeasurements = $resource('/api/managemeasurements');
+  
+  managemeasurements.query(function(info){
+    vm.manamgemeasure = info;
+  });
+
   measurement.query(function(info){
-    vm.type = info;
-    // console.log(vm.type);
-    // info.forEach(function (e){
-    //   vm.mesu1 = e.measurement;
-    //   vm.mesu = vm.mesu1.split(',');
-    //   vm.measure.push(vm.mesu); 
-    // });
-    // console.log(vm.measure);
+    vm.type = info;  
+    //=======================DON'T DELETE=================
+    // for (var index = 0; index < info.length; index++) {
+    //   vm.buffer = [];
+    //   vm.m = info[index].measurement.split(',');
+    //   vm.m.forEach(function(element2) {
+    //   vm.buffer.push(vm.manamgemeasure[element2].name);
+    //   vm.dynamicmeasure[index] = vm.buffer;
+    //   }, this);
+    // }
+    //====================================================
+    
   });
 
    function editpage(x)

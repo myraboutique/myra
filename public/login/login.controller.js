@@ -12,16 +12,22 @@ function loginController($resource,$state) {
   function data(myform){
     vm.formSubmitted = true;
     if(myform.$valid){
-    var login = new Login()
+    var login = new Login();
     login.username = vm.username;
     login.password = vm.password;
     login.$save(function(info){
       if(info.username){
-        localStorage.setItem('token',JSON.stringify(info));
-       // window.location = '#/home';
-        $state.go('home');
+        if(info.isActive==1){
+          localStorage.setItem('token',JSON.stringify(info));
+          // window.location = '#/home';
+          $state.go('home');
+        }
+        else{
+          vm.validationmsg = "Username might be inactive.";
+        }
+
       } else {
-        vm.validationmsg = "Username and/or Password does not match!"
+        vm.validationmsg = "Username and/or Password does not match!";
       } 
     });
   }

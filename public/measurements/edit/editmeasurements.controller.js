@@ -41,7 +41,6 @@ function update(frm) {
       $http.put('/api/managemeasurements', vm.data)
         .then(
         function (response) {
-        console.log(response.data.msg);
         if(response.data.msg){
            vm.flag = true;
         }

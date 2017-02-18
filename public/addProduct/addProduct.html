@@ -11,9 +11,10 @@
 		<div class="navbar">
 			<ul>
 				<li><a href="#/home">Home</a></li>
+				<li><a href="#/dashboard">Dashboard</a></li>
 				<li><a href="#/customerdetails">Customers</a></li>
 				<li><a href="#/order" class="active">Orders</a></li>
-				<li><a href="#/alert">Alerts</a></li>
+				<!--<li><a href="#/alert">Alerts</a></li>-->
 				<li><a href="#/register">Settings</a></li>
 				<li><a href="#/logout">Logout</a></li>
 			</ul>
@@ -26,9 +27,9 @@
 		<div class="main-contant-part">
 		<!-- Main Contant Part Start Here -->
 			<div class="form-box">
-				<div class=" customer-detailsmain-box">
+				<!--<div class=" customer-detailsmain-box">
 					<label>Order</label>
-				</div>
+				</div>-->
 
 				<div class=" customer-detailsmain-box1">
 					<label>Order Date </label>
@@ -77,7 +78,7 @@
 					<tr>
 						<td class="addproducttable-B">
 							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.designSelect(vm.order[$index].type,$index)"
-								ng-options="data as data.title for data in vm.type" data-toggle="modal" data-target="#myModal">
+								ng-options="data as data.title for data in vm.type">
 												<option value="">-- Please Select --</option>
 							</select>
 						</td>
@@ -85,8 +86,8 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<input ng-model="vm.order[$index].type2" name="clothtype{{$index}}" disabled />
-
+							<input style="    width: 75%;" ng-model="vm.order[$index].type2" name="clothtype{{$index}}" disabled />
+							<a data-toggle="modal" data-target="#myModal">Select</a>
 							<!-- Prompt Box -->
 							<!-- Modal -->
 							<div class="modal fade" id="myModal" role="dialog">
@@ -99,7 +100,7 @@
 										</div>
 										<div class="modal-body">
 											<span ng-repeat="data in vm.subdesignimage">
-												<img style="margin: 5px; border: 1px red solid ;width:200px" ng-src="/imgupload/{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
+												<img style="margin: 5px; border: 1px red solid ;width:200px;" ng-src="/imgupload/{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
 											</span>
 										</div>
 										<div class="modal-footer">
@@ -115,7 +116,7 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material" name="material{{$index}}">
+							<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material | filter:data.isActive != true" name="material{{$index}}">
 								<option value="">-- Please Select --</option></select>
 							</select>
 						</td>
@@ -131,8 +132,9 @@
 					</tr>
 
 					<tr>
-						<td class="addproducttable-B">
-							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)">Details</a>
+						<td class="addproducttable-B"><span class="hideeextratext">{{vm.order[$index].customization}}</span>
+							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-hide="vm.order[$index].customization">Details</a>
+							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-show="vm.order[$index].customization">more</a>
 
 							<!-- Prompt Box For Add Customization-->
 							<!-- Modal -->
@@ -147,10 +149,11 @@
 										</div>
 										<div class="modal-body">
 											<textarea style="margin-top: 0px;" ng-model="vm.order[vm.indexforpromptbox].customization"  rows="4" cols="50" placeholder="Customization Description"
-											class="customization-check-box-textarea" ></textarea>
+											class="customization-check-box-textarea"></textarea>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+								
 										</div>
 									</div>
 								</div>
@@ -160,8 +163,9 @@
 					</tr>
 
 					<tr>
-						<td class="addproducttable-B">
-							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)">Comments</a>
+						<td class="addproducttable-B"><span class="hideeextratext">{{vm.order[$index].cloth}}</span>
+							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-hide="vm.order[$index].cloth">Comments</a>
+							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-show="vm.order[$index].cloth">more</a>
 							<!-- Prompt Box For Add Details-->
 							<!-- Modal -->
 							<div class="modal fade" id="myModal3" role="dialog">
@@ -190,10 +194,6 @@
 
 					<tr>
 						<td class="addproducttable-B">
-							<!--<input class="clothmeasurementinput" id="browseimage{{$index}}" type="file" accept="image/*" image="vm.order[$index].image" resize-max-height="200"
-								resize-max-width="200" resize-quality="0.7" required="required" name="browseimage{{$index}}" />
-							<img ng-show="vm.order[$index].image" ng-src="{{vm.order[$index].image.resized.dataURL}}" />-->
-
 								<input class="clothmeasurementinput"
 									type="file" 
 									ngf-select 
@@ -216,7 +216,6 @@
 								Drop files: <div ngf-drop ng-model="up.files" class="drop-box">Drop</div> -->
 								<!--<button type="submit" ng-click="vm.submit()">submit</button>-->
 								<p>{{vm.progress}}</p>
-
 						</td>
 					</tr>
 
@@ -224,7 +223,7 @@
 						<td class="addproducttable-B">
 							<div ng-repeat="data in vm.measu[$index]">
 								<label>{{data}}</label>
-								<input style="width: 40%;" ng-model="vm.order[$parent.$index].xyz[$index]" class="measurement-input" name="measurement{{$index}}" required="required"
+								<input style="width: 40%;" ng-model="vm.orderDetails[$parent.$index][$index]" class="measurement-input" name="measurement{{$index}}" required="required"
 									type="text" />
 							</div>
 						</td>
@@ -238,13 +237,14 @@
 						</td>
 					</tr>
 				</table>
+				
 			</div>
 			<!-- Table Repeat Section End Here -->
 			<div class="addproducttable-Add-BTN"><input type="submit" value="Add" ng-click="vm.submit()" /></div>
 		</div>
 		<!-- Addproducttable Main Box End Here -->
 		<div class="submit-button">
-			<input type="submit" value="Save" ng-click="vm.final(vm.order)" />
+			<input type="submit" value="Save" ng-click="vm.final(vm.order,vm.orderdate1)" />
 		</div>
 	<!-- Main Contant Part End Here -->
 	</div>

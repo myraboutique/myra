@@ -23,7 +23,6 @@ function addmeasurementsController($resource) {
   function materialsave(frm) {
     vm.formSubmitted = true;
       if(frm.$valid){
-    console.log("inside save function")
     var addmaterial = new AddMeasurement();
     addmaterial.isActive = vm.active;
     addmaterial.name = vm.measure;

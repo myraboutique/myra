@@ -13,15 +13,16 @@
 		<div class="navbar">
 			<ul>
 				<li><a href="#/home">Home</a></li>
+				<li><a href="#/dashboard">Dashboard</a></li>
 				<li><a href="#/customerdetails">Customers</a></li>
 				<li><a href="#/order" class="active">Orders</a></li>
-				<li><a href="#/alert">Alerts</a></li>
+				<!--<li><a href="#/alert">Alerts</a></li>-->
 				<li><a href="#/register">Settings</a>
 					<!--<ul>
                         <li><a href='#/register'><span>Manage Users</span></a></li>
                         <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
                         <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
-                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Material Types</span></a></li>
                     </ul>-->
 				</li>
 				<li><a href="#/logout">Logout</a></li>
@@ -30,7 +31,7 @@
 	</div>
 	<!-- Header Section End Here -->
 
-	<div class="inner-heading-bar">Order Details</div>
+	<div class="inner-heading-bar">Order # - {{vm.temp[0].timestamp}}</div>
 	<form name="orderform" novalidate>
 		<div class="main-contant-part">
 			<div class="form-section-box">
@@ -38,11 +39,11 @@
 					<!--<div class="form-heading">Customer Details</div>-->
 
 					<div class="form-box">
-						<div class=" customer-detailsmain-box">
+						<!--<div class=" customer-detailsmain-box">
 							<label>Order #</label>{{vm.temp[0].timestamp}}
-						</div>
+						</div>-->
 						<div class=" customer-detailsmain-box1">
-							<label>Order Date </label><strong>{{vm.orderdate1}}</strong>
+							<label>Order Date </label><strong>{{vm.temp[0].orderdate}}</strong>
 							<!--<datepicker date-format="dd/MM/yyyy">
 								<input id="mydate" ng-model="vm.orderdate1" name="orderdate{{$index}}" ng-change="vm.change(vm.alertdat1,$index)" type="text" placeholder="Date of Order" />
 								</datepicker>-->
@@ -82,7 +83,7 @@
 								</tr>
 								<tr ng-repeat="data in vm.selectedOrder track by $index">
 									<td style="width: 200px;">{{vm.selectedOrder[$index]}}
-										<img ng-src="/imgupload/{{vm.temp[$index].image.dataURL}}" height="50" width="50"/>
+										<img ng-src="/imgupload/{{vm.images[$index]}}" height="50" width="50"/>
 									</td>
 									<td >
 										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">

@@ -25,19 +25,9 @@ var addsubdesign = new AddSubDesign();
     vm.formSubmitted  = true;
     if (form.$valid) {
       vm.submit();
-
-      // var newArr = vm.selectMeasurement.join(",");
-    
-      
-      
       addsubdesign.design = vm.designs;
-      // addsubdesign.subdesign = newArr;
       addsubdesign.subdesign = vm.subdesigns;
-      console.log(vm.file);
       addsubdesign.isActive = vm.isActive;
-     
-      
-
     }
   }
    vm.submit = function(){ //function to call on form submit
@@ -53,7 +43,6 @@ var addsubdesign = new AddSubDesign();
         }).then(function (resp) { //upload function returns a promise
             if(resp.data.error_code === 0){ //validate success
                 addsubdesign.subdesignimage = resp.data.fname;
-                console.log(vm.addsubdesignimage);
                 addsubdesign.$save(function (info) {
         if (!info.status) {
           swal("Your record has been saved successfully.");

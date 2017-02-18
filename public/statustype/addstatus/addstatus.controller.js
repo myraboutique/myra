@@ -23,14 +23,12 @@ function addstatusController($resource) {
   function statussave(frm) {
     vm.formSubmitted = true;
       if(frm.$valid){
-    console.log("inside save function")
     var addstatus = new Addstatus();
     addstatus.isActive = vm.isActive;
     addstatus.status = vm.status;
 
 
     addstatus.$save(function (info) {
-    console.log(info.status);
       if(info.status != 'already00++--'){
 
         console.log(swal("Your record has been saved successfully."));

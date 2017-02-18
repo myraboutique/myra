@@ -21,12 +21,19 @@ function detailsController($resource, $stateParams) {
   // measurement.query(function (info) {
   //   vm.type = info;
   // });
-
+  vm.temp = [];
+  vm.temp2 = [];
   Summary.query({ id: vm.data.id }, function (info) {
     vm.order = info;
+    info.forEach(function(element) {
+      vm.temp.push(JSON.parse(element.measurement));
+      if(element.measurementname){
+        vm.temp2.push(element.measurementname.split(','));
+      }
+      else{
+        vm.temp2.push("");
+      }
+    }, this);
   });
 
-    // for (var index = 0; index < info.length; index++) {
-    //   vm.order[index].measurement = JSON.parse(info[index].measurement);
-    // }
 }

@@ -13,18 +13,18 @@
 		<div class="navbar">
 			<ul>
 				<li><a href="#/home">Home</a></li>
-
+				<li><a href="#/dashboard">Dashboard</a></li>
 
 				<li><a href="#/customerdetails">Customers </a></li>
 				<li><a href="#/order">Orders</a></li>
 
-				<li><a href="#/alert">Alerts</a></li>
+				<!--<li><a href="#/alert">Alerts</a></li>-->
 				<li><a href="#/register" class="active">Settings</a>
 					<!--<ul>
                         <li><a href='#/register'><span>Manage Users</span></a></li>
                         <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
                         <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
-                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
+                        <li><a href='#/materialtype'><span>Manage Material Types</span></a></li>
                     </ul>-->
 				</li>
 				<li><a href="#/logout">Logout</a></li>
@@ -47,12 +47,12 @@
 						<li><a href='#/measurements'><span>Manage Measurements</span></a></li>
 						<li><a href='#/clothtype'><span>Manage Designs</span></a></li>
 						<li><a href='#/subdesign'><span>Manage Styles</span></a></li>
-						<li><a href='#/materialtype' class="active"><span>Manage Materials</span></a></li>
+						<li><a href='#/materialtype' class="active"><span>Manage Material Types</span></a></li>
 					</ul>
 				</div>
 			</div>
 	<div class="col-md-9 col-sm-9 col-xs-12">
-    <h4 class="admin-setting-heding">Manage Materials</h4>
+    <h4 class="admin-setting-heding">Manage Material Types</h4>
 			
   <!-- Customer Details page Section Start Here -->
   <div class="customer-detail-page-contant">
@@ -64,7 +64,7 @@
       <tr class="top-purpal-color-row">
        <th class="customer-detail-th-width-1">
 							<a href="" ng-click="vm.order('materialtype')">
-								<font color="#337ab7">Material</font>
+								<font color="#337ab7">Material Type</font>
 								<span ng-show="vm.predicate == 'materialtype'">
                 				<span ng-show="!vm.reverse">
                    				 <img src="assets/images/up-arrow-1.png" alt="">

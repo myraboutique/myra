@@ -240,6 +240,12 @@
       controller: 'addmeasurementsController',
       controllerAs: 'vm'
     })
+    .state('dashboard', {
+      url: '/dashboard',
+      templateUrl: 'dashboard/dashboard.html',
+      controller: 'dashboardController',
+      controllerAs: 'vm'
+    })
     .state('editmeasurements', {
       url: '/editmeasurements',
       templateUrl: 'measurements/edit/editmeasurements.html',
