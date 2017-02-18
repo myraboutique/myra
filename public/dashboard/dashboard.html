@@ -248,7 +248,7 @@
 						</th>
 						<b><th>Status</th></b>
 					</tr>
-					<tr dir-paginate="data in vm.temp=(vm.type3 | orderBy: '-timestamp' | itemsPerPage:5 )"
+					<tr dir-paginate="data in vm.temp=(vm.type3 | orderBy: '-completetime' | itemsPerPage:5 )"
 						ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
 						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link"><b>{{data.timestamp}}</b></a></td>
 						<td class="top-purpal-color-row2">{{data.type}}</td>
