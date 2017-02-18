@@ -10,8 +10,8 @@ module.exports = (function(){
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: '123456',
-            database: 'demo1'
+            password: 'root',
+            database: 'demo2'
         },
         logging: {
             level: "info"
