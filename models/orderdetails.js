@@ -27,7 +27,7 @@ module.exports = (function () {
         stitchingdate: Sequelize.STRING,
         status: Sequelize.STRING,
         subdesign: Sequelize.STRING,
-        browseimage: Sequelize.BLOB,  
+        browseimage: Sequelize.STRING,  
         measurementname: Sequelize.STRING,
         completetime:  Sequelize.STRING
         }, {
