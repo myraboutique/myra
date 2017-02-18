@@ -34,80 +34,75 @@ function editProductController($resource, $state, $http, Upload, $window) {
           vm.measurename[index] = response[index].measurementname.split(',');
         }
       }  
-      // vm.len = vm.productwiserecord.length;
+      vm.len = vm.productwiserecord.length;
   });
 
   vm.update = function(info) {
 
-      // vm.fileup();
-      for (var index = 0; index < info.length; index++) {
-        info[index].measurement = JSON.stringify(vm.measurevalue[index]);
-        info[index].browseimage = vm.tempimg[index];
-        $http.put('/api/orderdetails', info[index])
-          .then(
-          function (response) {
-            window.location = '#/editorder';
-          },
-          function (err) {
-            console.log(err);
-          });
-      }  
-
-    // vm.fileup().then(function () {
-    //   for (var index = 0; index < info.length; index++) {
-    //     info[index].measurement = JSON.stringify(vm.measurevalue[index]);
-    //     info[index].browseimage = vm.tempimg[index];
-    //     $http.put('/api/orderdetails', info[index])
-    //       .then(
-    //       function (response) {
-    //         window.location = '#/editorder';
-    //       },
-    //       function (err) {
-    //         console.log(err);
-    //       });
-    //   }
-    // });
+      vm.fileup(function(){
+        for (var index = 0; index < info.length; index++) {
+          info[index].measurement = JSON.stringify(vm.measurevalue[index]);
+          info[index].browseimage = vm.tempimg[index];
+          console.log(info[index]);
+          $http.put('/api/orderdetails', info[index])
+            .then(
+            function (response) {
+              window.location = '#/editorder';
+            },
+            function (err) {
+              console.log(err);
+            });
+        }  
+      });
   };
 
+  vm.tempimg = [];
 
-
-  var i = 1;
-  vm.fileup = function () {
-    if(vm.order){
-      vm.upload(vm.order[0].image);
+ var i = 0;
+  //file uploa ==========================================
+  vm.fileup = function (cb) { //function to call on form submit
+    if (vm.order[i].image) { //check if from is valid
+      vm.upload(vm.order[i].image,cb); //call upload function
+    }
+    else{
+      vm.tempimg.push("");
+      i++;
+      vm.fileup(cb);
     }
   };
-  vm.tempimg = [];
-  vm.upload = function (file) {
+
+  vm.upload = function (file,cb) {
     Upload.upload({
-      url: 'http://localhost:3000/upload',
-      data: { file: file } 
-    }).then(function (resp) { 
-      if (resp.data.error_code === 0) { 
-        if(resp.data.fname){
-          vm.tempimg.push(resp.data.fname);
+      // url: 'https://myraboutique.herokuapp.com/upload', //webAPI exposed to upload the file
+      url: 'http://localhost:3000/upload', //webAPI exposed to upload the file
+      data: { file: file } //pass file as data, should be user ng-model
+    }).then(function (resp) { //upload function returns a promise
+      if (resp.data.error_code === 0) { //validate success
+        
+        vm.tempimg.push(resp.data.fname);
+
+        if (i < vm.order.length -1) {
+          i++;
+          vm.upload(vm.order[i].image,cb);
         }
         else{
-          vm.tempimg.push("");
+          cb();
         }
-        
         console.log(vm.tempimg);
-
-        vm.upload(vm.order[i].image);
-        if (i < vm.len) {
-          i++;
-        }
+        
       }
 
-    }, function (resp) {
+    }, function (resp) { //catch error
+      // console.log('Error status: ' + resp.status);
       $window.alert('Error status: ' + resp.status);
     }, function (evt) {
+      // console.log(evt);
       var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-      vm.progress = 'progress: ' + progressPercentage + '% ';
+      // console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+      vm.progress = 'progress: ' + progressPercentage + '% '; // capture upload progress
     });
   };
-
-
+  //file uploa ==========================================
 
 }
 

@@ -25,14 +25,14 @@ function orderController($resource, $state) {
     var customer = $resource('/api/customerdetails/:id');
     vm.customerid = [];
     vm.customername = [];
-     vm.order = order;
+    vm.order = order;
 
 
     vm.filters = {
         search: ''
     };
 
-    vm.predicate = '';
+    vm.predicate = 'timestamp';
     vm.reverse = true;
     function order(predicate) {
         vm.reverse = (vm.predicate === predicate) ? !vm.reverse : false;

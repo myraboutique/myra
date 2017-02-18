@@ -57,6 +57,7 @@ function editsubdesignController($resource, $stateParams, $http,$scope,Upload, $
     
     vm.upload = function (file) {
         Upload.upload({
+            // url: 'https://myraboutique.herokuapp.com/upload', //webAPI exposed to upload the file
             url: 'http://localhost:3000/upload', //webAPI exposed to upload the file
             data:{file:file} //pass file as data, should be user ng-model
         }).then(function (resp) { //upload function returns a promise

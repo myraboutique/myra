@@ -1,9 +1,9 @@
 angular.module('myra')
   .controller('addProductController', addProductController);
 
-addProductController.$inject = ['$resource', '$state', '$http', 'Upload', '$window', '$q'];
+addProductController.$inject = ['$resource', '$state', '$http', 'Upload', '$window'];
 
-function addProductController($resource, $state, $http, Upload, $window, $q) {
+function addProductController($resource, $state, $http, Upload, $window) {
   var vm = this;
 
   localStorage.removeItem('vmorder');
@@ -67,7 +67,12 @@ function addProductController($resource, $state, $http, Upload, $window, $q) {
 
   Orderdetails.query(function (info) {
     vm.temp = info[info.length - 1].timestamp;
-    vm.pid1 = Number(vm.temp) + 1;
+    if(vm.temp == null){
+      vm.pid1 = 1;
+    }
+    else{
+      vm.pid1 = Number(vm.temp) + 1;
+    }
     vm.pid = pad(vm.pid1, 5);
   });
 
@@ -150,16 +155,8 @@ function addProductController($resource, $state, $http, Upload, $window, $q) {
 
   function final(info,date) {
 
-          // var deferred = $q.defer();
-
-          // vm.fileup().then(function(response) {
-          //   deferred.resolve(response);
-          // }, function(error) {
-          //   deferred.reject(error);
-          // });
-
-    vm.fileup();
-    vm.designs = [];
+    vm.fileup(function(){
+      vm.designs = [];
     info.forEach(function (element) {
       vm.designs.push(element.type.title + " (" + element.type2 + ")");
     }, this);
@@ -179,6 +176,7 @@ function addProductController($resource, $state, $http, Upload, $window, $q) {
       info[index].pair = vm.pairs[index];
       info[index].measure = vm.orderDetails[index];
       info[index].orderdate = date;
+      info[index].tempimg =  vm.tempimg[index];
 
       if (localStorage.getItem('vmorder' + index)) {
         localStorage.removeItem('vmorder' + index);
@@ -190,36 +188,42 @@ function addProductController($resource, $state, $http, Upload, $window, $q) {
     }
 
     window.location = '#/addordernew';
+    });
+    
 
   }
-  var i = 1;
+  var i = 0;
   //file uploa ==========================================
-  vm.fileup = function () { //function to call on form submit
-    if (vm.order[0].image) { //check if from is valid
-      vm.upload(vm.order[0].image); //call upload function
+  vm.fileup = function (cb) { //function to call on form submit
+    if (vm.order[i].image) { //check if from is valid
+      vm.upload(vm.order[i].image,cb); //call upload function
+    }
+    else{
+      vm.tempimg.push("");
+      i++;
+      vm.fileup(cb);
     }
   };
 
-  vm.upload = function (file) {
+  vm.upload = function (file,cb) {
     Upload.upload({
+      // url: 'https://myraboutique.herokuapp.com/upload', //webAPI exposed to upload the file
       url: 'http://localhost:3000/upload', //webAPI exposed to upload the file
       data: { file: file } //pass file as data, should be user ng-model
     }).then(function (resp) { //upload function returns a promise
       if (resp.data.error_code === 0) { //validate success
-
+        
         vm.tempimg.push(resp.data.fname);
-        if (localStorage.getItem('vmord')) {
-          localStorage.removeItem('vmord');
-          localStorage.setItem('vmord', JSON.stringify(vm.tempimg));
-        }
-        else {
-          localStorage.setItem('vmord', JSON.stringify(vm.tempimg));
-        }
 
-        vm.upload(vm.order[i].image);
-        if (i < vm.order.length) {
+        if (i < vm.order.length -1) {
           i++;
+          vm.upload(vm.order[i].image,cb);
         }
+        else{
+          cb();
+        }
+        console.log(vm.tempimg);
+        
       }
 
     }, function (resp) { //catch error

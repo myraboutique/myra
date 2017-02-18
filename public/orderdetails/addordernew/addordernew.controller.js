@@ -15,16 +15,10 @@ function addordernewController($resource, $scope, $http) {
   
   vm.data3=localStorage.getItem('customerdetailsnew');
   vm.customerdetailsnew = JSON.parse(vm.data3);  
-  
-  vm.data4=localStorage.getItem('vmord');
-  vm.images = JSON.parse(vm.data4);
 
   for (var index = 0; index < vm.selectedOrder.length; index++) {
-
     vm.data4=localStorage.getItem('vmorder' + index);
     vm.temp[index] = JSON.parse(vm.data4);
-    console.log(vm.temp[index]);
-
   }
 
   vm.token = JSON.parse(localStorage.getItem('token'));
@@ -202,10 +196,7 @@ if (index < vm.selectedOrder.length) {
         orderdetails.cloth = vm.temp[index].cloth;
         orderdetails.color = vm.temp[index].color;
         orderdetails.customization = vm.temp[index].customization;
-        console.log(vm.images[index]);
-        // if(vm.images[index]){
-          orderdetails.browseimage = vm.images[index];
-        // }
+        orderdetails.browseimage = vm.temp[index].tempimg;
         if(vm.temp[index].materialtype){
         orderdetails.material = vm.temp[index].materialtype.materialtype;
         }

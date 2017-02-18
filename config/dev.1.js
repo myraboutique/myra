@@ -7,15 +7,15 @@ module.exports = (function(){
         },
         db: {
             type: 'mysql',
-            host: 'localhost',
-            port: 3306,
-            user: 'root',
-            password: 'root',
-            database: 'demo2'
+            host: '85.10.205.173',
+            port: 3307,
+            user: 'myraboutique',
+            password: 'myra@123',
+            database: 'myra'
         },
         logging: {
             level: "info"
         }
     };
-    return m;
+   return m;
 })();
