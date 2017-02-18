@@ -127,9 +127,15 @@
 					</tr>
 
 					<tr>
+<<<<<<< HEAD
 						<td class="addproducttable-B"><span class="hideeextratext"><cite title="{{vm.order[$index].customization}}">{{vm.order[$index].customization}}</cite></span>
 							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-hide="vm.order[$index].customization">Details</a>
 							<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-show="vm.order[$index].customization">more</a>
+=======
+						<td class="addproducttable-B"><span class="hideeextratext">{{vm.order[$index].customization}}</span>
+							<a href="" data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-hide="vm.order[$index].customization">Details</a>
+							<a href="" data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-show="vm.order[$index].customization">more</a>
+>>>>>>> origin/bhavin_19feb
 
 							<!-- Prompt Box For Add Customization-->
 							<!-- Modal -->
@@ -158,9 +164,9 @@
 					</tr>
 
 					<tr>
-						<td class="addproducttable-B"><span class="hideeextratext"><cite title="{{vm.order[$index].cloth}}">{{vm.order[$index].cloth}}</cite></span>
-							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-hide="vm.order[$index].cloth">Comments</a>
-							<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-show="vm.order[$index].cloth">more</a>
+						<td class="addproducttable-B"><span class="hideeextratext">{{vm.order[$index].cloth}}</span>
+							<a href="" data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-hide="vm.order[$index].cloth">Comments</a>
+							<a href="" data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-show="vm.order[$index].cloth">more</a>
 							<!-- Prompt Box For Add Details-->
 							<!-- Modal -->
 							<div class="modal fade" id="myModal3" role="dialog">
@@ -198,6 +204,7 @@
 									accept="image/*" 
 									ngf-max-size="20MB" 
 									required
+									style="color: transparent;border: transparent;"
 									/>
 								<img style="width:200px" ng-show="!!vm.vm.order[$index].image" ngf-thumbnail="vm.order[$index].image"/>
 								<!--<span ng-show="form.file.$error.required && (form.design.$dirty || vm.formSubmitted)">Image is required.</span>

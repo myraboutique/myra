@@ -90,8 +90,8 @@
 				</tr>
 				<tr>
 					<td class="addproducttable-B"><span class="hideeextratext">{{vm.productwiserecord[$index].customization}}</span>
-						<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-hide="vm.productwiserecord[$index].customization">Details</a>
-						<a data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-show="vm.productwiserecord[$index].customization">more</a>
+						<a href="" data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-hide="vm.productwiserecord[$index].customization">Details</a>
+						<a href="" data-toggle="modal" data-target="#myModal2" ng-click="vm.inexforprompt($index)" ng-show="vm.productwiserecord[$index].customization">more</a>
 
 						<!-- Prompt Box For Add Customization-->
 						<!-- Modal -->
@@ -119,8 +119,8 @@
 				</tr>
 				<tr>
 					<td class="addproducttable-B"><span class="hideeextratext">{{vm.productwiserecord[$index].cloth}}</span>
-						<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-hide="vm.productwiserecord[$index].cloth">Comments</a>
-						<a data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-show="vm.productwiserecord[$index].cloth">more</a>
+						<a href="" data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-hide="vm.productwiserecord[$index].cloth">Comments</a>
+						<a href="" data-toggle="modal" data-target="#myModal3" ng-click="vm.inexforprompt($index)" ng-show="vm.productwiserecord[$index].cloth">more</a>
 						<!-- Prompt Box For Add Details-->
 						<!-- Modal -->
 						<div class="modal fade" id="myModal3" role="dialog">
@@ -149,7 +149,7 @@
 				<tr>
 					<td class="addproducttable-B">
 						<input class="clothmeasurementinput" type="file" ngf-select ng-model="vm.order[$index].image" name="file" ngf-pattern="'image/*'"
-							accept="image/*" ngf-max-size="20MB" required />
+							accept="image/*" ngf-max-size="20MB" required style="color: transparent ; border: transparent;" />
 						<img style="width:200px" ng-show="!!vm.vm.order[$index].image" ngf-thumbnail="vm.order[$index].image"/>
 						<img style="width:200px" ng-hide="vm.order[$index].image" ng-src="imgupload/{{vm.productwiserecord[$index].browseimage}}"/>
 						<span ng-show="form.file.$error.required && (form.file.$dirty || vm.formSubmitted)">Image is required.</span><br>
