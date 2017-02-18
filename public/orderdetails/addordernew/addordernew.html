@@ -107,7 +107,7 @@
 									</td>
 									<td>
 										<input style="width: 100% !important; margin-bottom: 0px;" class="addorder-amount-icon" id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required"
-										ng-model="vm.order[$index].amount" type="text" placeholder="Amount" style="width: 100% !important;"/>
+										ng-model="vm.order[$index].amount" type="number" placeholder="Amount" style="width: 100% !important;"/>
 									</td>
 									<td>
 										<input ng-init="vm.order[$index].status = 'New'" ng-model="vm.order[$index].status" disabled />
