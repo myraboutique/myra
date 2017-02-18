@@ -1,9 +1,9 @@
 angular.module('myra')
   .controller('addProductController', addProductController);
 
-addProductController.$inject = ['$resource', '$state', '$http', 'Upload', '$window'];
+addProductController.$inject = ['$resource', '$state', '$http', 'Upload', '$window', '$q'];
 
-function addProductController($resource, $state, $http, Upload, $window) {
+function addProductController($resource, $state, $http, Upload, $window, $q) {
   var vm = this;
 
   localStorage.removeItem('vmorder');
@@ -149,6 +149,15 @@ function addProductController($resource, $state, $http, Upload, $window) {
 
 
   function final(info,date) {
+
+          // var deferred = $q.defer();
+
+          // vm.fileup().then(function(response) {
+          //   deferred.resolve(response);
+          // }, function(error) {
+          //   deferred.reject(error);
+          // });
+
     vm.fileup();
     vm.designs = [];
     info.forEach(function (element) {
