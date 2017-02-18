@@ -87,7 +87,7 @@
 					<tr>
 						<td class="addproducttable-B">
 
-							<input style="width: 65%;" ng-model="vm.order[$index].type2" name="clothtype{{$index}}" disabled />
+							<input class="select-phot-input" ng-model="vm.order[$index].type2" name="clothtype{{$index}}" disabled />
 							<button ng-disabled="!vm.order[$index].type" ng-click="vm.designSelect(vm.order[$index].type,$index)" data-toggle="modal" data-target="#myModal">Select</button>
 							<!-- Prompt Box -->
 							<!-- Modal -->
@@ -101,7 +101,7 @@
 										</div>
 										<div class="modal-body">
 											<span ng-repeat="data in vm.subdesignimage">
-												<img style="margin: 5px; border: 1px red solid ;width:200px;" ng-src="/imgupload/{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
+												<img ng-src="/imgupload/{{data}}" ng-click="vm.clicked(vm.subdesign[$index])" />
 											</span>
 										</div>
 										<div class="modal-footer">
