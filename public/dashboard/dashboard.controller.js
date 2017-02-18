@@ -1,5 +1,4 @@
 angular.module('myra')
-<<<<<<< HEAD
     .controller('dashboardController', dashboardController);
 
 dashboardController.$inject = ['$resource', '$state'];
@@ -7,20 +6,11 @@ dashboardController.$inject = ['$resource', '$state'];
 function dashboardController($resource, $state) {
     var vm = this;
 
-=======
-  .controller('dashboardController', dashboardController);
-
-dashboardController.$inject = ['$resource','$http'];
-
-function dashboardController($resource, $state) {
-    var vm = this;
->>>>>>> origin/kajal_16feb
     vm.token = JSON.parse(localStorage.getItem('token'));
     if (!vm.token) {
 
         window.location = '#/login';
     }
-<<<<<<< HEAD
 
     var myDate = new Date();
     var month = myDate.getMonth() + 1;
@@ -51,21 +41,3 @@ function dashboardController($resource, $state) {
                 console.log(info);
     });
 }
-
-
-
-
-
-=======
-    
-    var orderdetails = $resource('/api/orderdetails');
-        orderdetails.query(function(info){
-      vm.type=info;
-      console.log(info);
-   });
-
-
-   
-}
-
->>>>>>> origin/kajal_16feb

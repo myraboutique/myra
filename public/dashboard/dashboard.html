@@ -13,7 +13,6 @@
 		<div class="navbar">
 			<ul>
 				<li><a href="#/home">Home</a></li>
-<<<<<<< HEAD
 				<li><a href="#/dashboard" class="active">Dashboard</a></li>
 				<li><a href="#/customerdetails">Customers</a></li>
 				<li><a href="#/order">Orders</a></li>
@@ -27,29 +26,12 @@
                         <li><a href='#/materialtype'><span>Manage Material Types</span></a></li>
                     </ul>-->
 				</li>
-=======
-
-				
-				<li><a href="#/dashboard" class="active">Dashboard </a></li>
-				<li><a href="#/order">Orders</a></li>
-               <li><a href="#/customerdetails">Customers</a></li>
-				<li><a href="#/alert">Alerts</a></li>
-				<li><a href="#/register">Settings</a>
-                    <!--<ul>
-                        <li><a href='#/register'><span>Manage Users</span></a></li>
-                        <li><a href='#/clothtype'><span>Manage Designs</span></a></li>
-                        <li><a href='#/subdesign'><span>Manage Styles</span></a></li>
-                        <li><a href='#/materialtype'><span>Manage Materials</span></a></li>
-                    </ul>-->
-                </li>
->>>>>>> origin/kajal_16feb
 				<li><a href="#/logout">Logout</a></li>
 			</ul>
 		</div>
 	</div>
 	<!-- Header Section End Here -->
 
-<<<<<<< HEAD
 	<div class="inner-heading-bar">Dashboard</div>
 
 	<div class="main-contant-part minpageheight">
@@ -69,20 +51,7 @@
 						<th>
 							<!--<a href="" ng-click="vm.order('customerid')">-->
 							<font>Order Id</font>&nbsp;
-=======
-	<div class="inner-heading-bar">Dashboard </div>
 
-	<div class="main-contant-part">
-					<div class="details-table">
-<b> Deliverable Orders</b>
-				<!--<h2 class="no-record-found-text" ng-hide="vm.temp.length">No record found</h2>-->
-
-				<table ng-show="vm.temp.length" class="table-part" border="0" cellspacing="0" cellpadding="0">
-					<tr class="top-purpal-color-row">
-						<th>
-							<a href="" ng-click="vm.order('customerid')">
-							<font color="#337ab7">Order Id</font>&nbsp;
->>>>>>> origin/kajal_16feb
 							<span ng-show="vm.predicate == 'customerid'">
 								<span ng-show="!vm.reverse">
 									<img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -91,20 +60,12 @@
 									<img src="assets/images/down-arrow-1.png" alt="Zika Report">
 								</span>
 							</span>
-<<<<<<< HEAD
 							<!--</a>-->
-=======
-							</a>
->>>>>>> origin/kajal_16feb
 						</th>
 
 						<th>
 							<!--<a href="" ng-click="vm.order('customerName')">-->
-<<<<<<< HEAD
 							<font>Designs</font>&nbsp
-=======
-							<font color="#337ab7">Designs</font>&nbsp
->>>>>>> origin/kajal_16feb
 							<span ng-show="vm.predicate == 'customerName'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -118,11 +79,7 @@
 
 						<th>
 							<!--<a href="" ng-click="vm.order('customerName')">-->
-<<<<<<< HEAD
 							<font>Customer Name</font>&nbsp
-=======
-							<font color="#337ab7">Customer Name</font>&nbsp
->>>>>>> origin/kajal_16feb
 							<span ng-show="vm.predicate == 'customerName'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -134,11 +91,7 @@
 							<!--	</a>-->
 						</th>
 						<th>
-<<<<<<< HEAD
 							<!--<a href="" ng-click="vm.order('date')">-->
-=======
-							<a href="" ng-click="vm.order('date')">
->>>>>>> origin/kajal_16feb
 								<font>Delivery Date</font>&nbsp
 								<span ng-show="vm.predicate == 'date'">
                 <span ng-show="!vm.reverse">
@@ -148,24 +101,14 @@
                    <img src="assets/images/down-arrow-1.png" alt="Zika Report">
                 </span>
 								</span>
-<<<<<<< HEAD
 							<!--</a>-->
-=======
-							</a>
->>>>>>> origin/kajal_16feb
 						</th>
 						<b><th>Status</th></b>
 					</tr>
 
-<<<<<<< HEAD
 					<tr dir-paginate="data in vm.temp=(vm.type1 | orderBy: 'deliverydate' | itemsPerPage:5 )"
 						ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
 						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link"><b>{{data.timestamp}}</b></a></td>
-=======
-					<tr dir-paginate="data in vm.temp=(vm.type | itemsPerPage:5 | orderBy:vm.predicate)"
-						ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
-						<td class="top-purpal-color-row2"><a ng-click="vm.data" class="customer-name-link"><b>{{data.timestamp}}</b></a></td>
->>>>>>> origin/kajal_16feb
 						<td class="top-purpal-color-row2">{{data.type}}</td>
 						<td class="top-purpal-color-row2">{{data.customerName}}</td>
 						<!--<td class="top-purpal-color-row2">{{data.stitchingdate | date:"dd/MM/yyyy"}}</td>-->
@@ -174,7 +117,6 @@
 					</tr>
 
 				</table>
-<<<<<<< HEAD
 
 <h4 class="admin-setting-heading">New Orders</h4>
 				<table class="table-part" border="0" cellspacing="0" cellpadding="0">
@@ -182,18 +124,6 @@
 						<th>
 							<!--<a href="" ng-click="vm.order('customerid')">-->
 							<font>Order Id</font>&nbsp;
-=======
-			</div>	
-			<div class="details-table">
-<b> New Orders</b>
-				<h2 class="no-record-found-text" ng-hide="vm.temp.length">No record found</h2>
-
-				<table ng-show="vm.temp.length" class="table-part" border="0" cellspacing="0" cellpadding="0">
-					<tr class="top-purpal-color-row">
-						<th>
-							<a href="" ng-click="vm.order('customerid')">
-							<font color="#337ab7">Order Id</font>&nbsp;
->>>>>>> origin/kajal_16feb
 							<span ng-show="vm.predicate == 'customerid'">
 								<span ng-show="!vm.reverse">
 									<img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -202,20 +132,12 @@
 									<img src="assets/images/down-arrow-1.png" alt="Zika Report">
 								</span>
 							</span>
-<<<<<<< HEAD
 							<!--</a>-->
-=======
-							</a>
->>>>>>> origin/kajal_16feb
 						</th>
 
 						<th>
 							<!--<a href="" ng-click="vm.order('customerName')">-->
-<<<<<<< HEAD
 							<font>Designs</font>&nbsp
-=======
-							<font color="#337ab7">Designs</font>&nbsp
->>>>>>> origin/kajal_16feb
 							<span ng-show="vm.predicate == 'customerName'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -229,11 +151,7 @@
 
 						<th>
 							<!--<a href="" ng-click="vm.order('customerName')">-->
-<<<<<<< HEAD
 							<font>Customer Name</font>&nbsp
-=======
-							<font color="#337ab7">Customer Name</font>&nbsp
->>>>>>> origin/kajal_16feb
 							<span ng-show="vm.predicate == 'customerName'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -245,11 +163,7 @@
 							<!--	</a>-->
 						</th>
 						<th>
-<<<<<<< HEAD
 							<!--<a href="" ng-click="vm.order('date')">-->
-=======
-							<a href="" ng-click="vm.order('date')">
->>>>>>> origin/kajal_16feb
 								<font>Delivery Date</font>&nbsp
 								<span ng-show="vm.predicate == 'date'">
                 <span ng-show="!vm.reverse">
@@ -259,24 +173,14 @@
                    <img src="assets/images/down-arrow-1.png" alt="Zika Report">
                 </span>
 								</span>
-<<<<<<< HEAD
 							<!--</a>-->
-=======
-							</a>
->>>>>>> origin/kajal_16feb
 						</th>
 						<b><th>Status</th></b>
 					</tr>
 
-<<<<<<< HEAD
 					<tr dir-paginate="data in vm.temp=(vm.type2 | orderBy: '-timestamp' | itemsPerPage:5 )"
 						ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
 						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link"><b>{{data.timestamp}}</b></a></td>
-=======
-					<tr dir-paginate="data in vm.temp=(vm.type | itemsPerPage:5 | orderBy:vm.predicate)"
-						ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
-						<td class="top-purpal-color-row2"><a ng-click="vm.data" class="customer-name-link"><b>{{data.timestamp}}</b></a></td>
->>>>>>> origin/kajal_16feb
 						<td class="top-purpal-color-row2">{{data.type}}</td>
 						<td class="top-purpal-color-row2">{{data.customerName}}</td>
 						<!--<td class="top-purpal-color-row2">{{data.stitchingdate | date:"dd/MM/yyyy"}}</td>-->
@@ -285,25 +189,12 @@
 					</tr>
 
 				</table>
-<<<<<<< HEAD
-<h4 class="admin-setting-heading">Completed Orders</h4>
+				<h4 class="admin-setting-heading">Completed Orders</h4>
 				<table class="table-part" border="0" cellspacing="0" cellpadding="0">
 					<tr class="top-purpal-color-row">
 						<th>
 							<!--<a href="" ng-click="vm.order('customerid')">-->
 							<font>Order Id</font>&nbsp;
-=======
-			</div>	
-			<div class="details-table">
-<b> Completed Orders</b>
-				<h2 class="no-record-found-text" ng-hide="vm.temp.length">No record found</h2>
-
-				<table ng-show="vm.temp.length" class="table-part" border="0" cellspacing="0" cellpadding="0">
-					<tr class="top-purpal-color-row">
-						<th>
-							<a href="" ng-click="vm.order('customerid')">
-							<font color="#337ab7">Order Id</font>&nbsp;
->>>>>>> origin/kajal_16feb
 							<span ng-show="vm.predicate == 'customerid'">
 								<span ng-show="!vm.reverse">
 									<img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -312,20 +203,12 @@
 									<img src="assets/images/down-arrow-1.png" alt="Zika Report">
 								</span>
 							</span>
-<<<<<<< HEAD
 							<!--</a>-->
-=======
-							</a>
->>>>>>> origin/kajal_16feb
 						</th>
 
 						<th>
 							<!--<a href="" ng-click="vm.order('customerName')">-->
-<<<<<<< HEAD
 							<font>Designs</font>&nbsp
-=======
-							<font color="#337ab7">Designs</font>&nbsp
->>>>>>> origin/kajal_16feb
 							<span ng-show="vm.predicate == 'customerName'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -339,11 +222,7 @@
 
 						<th>
 							<!--<a href="" ng-click="vm.order('customerName')">-->
-<<<<<<< HEAD
 							<font>Customer Name</font>&nbsp
-=======
-							<font color="#337ab7">Customer Name</font>&nbsp
->>>>>>> origin/kajal_16feb
 							<span ng-show="vm.predicate == 'customerName'">
                 <span ng-show="!vm.reverse">
                     <img src="assets/images/up-arrow-1.png" alt="Zika Report">
@@ -355,11 +234,7 @@
 							<!--	</a>-->
 						</th>
 						<th>
-<<<<<<< HEAD
 							<!--<a href="" ng-click="vm.order('date')">-->
-=======
-							<a href="" ng-click="vm.order('date')">
->>>>>>> origin/kajal_16feb
 								<font>Delivery Date</font>&nbsp
 								<span ng-show="vm.predicate == 'date'">
                 <span ng-show="!vm.reverse">
@@ -369,32 +244,19 @@
                    <img src="assets/images/down-arrow-1.png" alt="Zika Report">
                 </span>
 								</span>
-<<<<<<< HEAD
 							<!--</a>-->
-=======
-							</a>
->>>>>>> origin/kajal_16feb
 						</th>
 						<b><th>Status</th></b>
 					</tr>
-
-<<<<<<< HEAD
 					<tr dir-paginate="data in vm.temp=(vm.type3 | orderBy: '-timestamp' | itemsPerPage:5 )"
 						ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
 						<td class="top-purpal-color-row2"><a ng-click="vm.sendData(data)" class="customer-name-link"><b>{{data.timestamp}}</b></a></td>
-=======
-				<tr dir-paginate="data in vm.temp=(vm.type | itemsPerPage:5 | orderBy:vm.predicate)"
-						ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
-						<td class="top-purpal-color-row2"><a ng-click="vm.data" class="customer-name-link"><b>{{data.timestamp}}</b></a></td>
->>>>>>> origin/kajal_16feb
 						<td class="top-purpal-color-row2">{{data.type}}</td>
 						<td class="top-purpal-color-row2">{{data.customerName}}</td>
 						<!--<td class="top-purpal-color-row2">{{data.stitchingdate | date:"dd/MM/yyyy"}}</td>-->
 						<td class="top-purpal-color-row2">{{data.deliverydate}}</td>
 						<td class="top-purpal-color-row2">{{data.status}}</td>
 					</tr>
-
-<<<<<<< HEAD
 				</table>
 			</div>
 		</div>
@@ -411,27 +273,6 @@
 
 </div>
 
-=======
-
-				</table>
-			</div>	
-		</div>
-
-		<!-- Customer Details page Section Start Here -->
-		
-		</div>
-
-		<!-- Customer Details page Section End Here -->
-		<!--<div class="paging">
-			<dir-pagination-controls max-size="10" direction-links="true" boundary-links="true">
-			</dir-pagination-controls>
-		</div>-->
-	</div>
-	<!-- Footer Section Start Here -->
-	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
-	<!-- Footer Section End Here -->
-</div>
->>>>>>> origin/kajal_16feb
 <script type="text/javascript">
 	$(document).ready(function (e) {
 		$(".menu-toggle").click(function () {
