@@ -1,5 +1,24 @@
 angular.module('myra')
-  .controller('registerController', registerController);
+  .controller('registerController', registerController)
+   .directive('myDirective', function() {
+     function link(scope, elem, attrs, ngModel) {
+          ngModel.$parsers.push(function(viewValue) {
+            var reg = /^[^`~!@#$%\^&*()_+={}|[\]\\:';"<>?,./]*$/;            
+            if (viewValue.match(reg)) {
+              return viewValue;
+            }
+            var transformedValue = ngModel.$modelValue;
+            ngModel.$setViewValue(transformedValue);
+            ngModel.$render();
+            return transformedValue;
+          });
+      }
+      return {
+          restrict: 'A',
+          require: 'ngModel',
+          link: link
+      };      
+  });
 
 registerController.$inject = ['$resource','$state'];
 
@@ -8,6 +27,7 @@ function registerController($resource,$state) {
   vm.order = order;
   vm.check = false;
   vm.flag= false;
+  
    vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
     window.location = '#/login';
@@ -27,7 +47,8 @@ function registerController($resource,$state) {
   var Register = $resource('/api/register');
   
   vm.filters = {
-    search: ''
+    search: 'username'
+  
   };
 
   Register.query(function(info){
@@ -64,8 +85,8 @@ vm.active = true;
             }
             txt += c;
        }
-  
-
+      
+   
     register.name = txt;
     register.email = vm.email;
     register.username = vm.username;

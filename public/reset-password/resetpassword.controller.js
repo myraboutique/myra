@@ -46,18 +46,20 @@ function cancel()
 
   function change(form){
    vm.formSubmitted= true;
-    vm.token.password = vm.newpassword;
+    vm.userData[0].password = vm.newpassword;
 
    if(form.$valid && !vm.same){
       
 
-       $http.put('/api/register',vm.token)
+       $http.put('/api/register',vm.userData[0])
         .then(
           function(response){
+        
+      
             vm.token.password = vm.newpassword;
             localStorage.setItem('token',JSON.stringify(vm.token));
             window.location = '#/register';
-            console.log(swal("Password Updated Successfully."))
+            console.log("Password Updated Successfully.")
                 // window.location = '#/alert';
                 window.location = '#/register';
         },

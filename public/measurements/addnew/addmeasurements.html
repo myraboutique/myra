@@ -61,7 +61,7 @@
      <div class="form-box">
 
       <label><em id="mandatory" style="color:Red">*</em>&nbsp;Measurement</label>
-      <input id="mtype" focus="true" name="materialtype" type="text" ng-minlength="2" ng-maxlength="20" ng-model="vm.measure"  placeholder="Measurement" required/>
+      <input id="mtype" my-directive focus="true" name="materialtype" type="text" ng-minlength="2" ng-maxlength="20" ng-model="vm.measure"  placeholder="Measurement" required/>
       	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Measurement is required.</span>
         	<span ng-show="(frm.materialtype.$error.minlength || frm.materialtype.$error.maxlength) && (frm.materialtype.$dirty || vm.formSubmitted)">Measurement Name should be between 2 to 20 characters long.</span>
           	<!--<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Measurement length must be less than 02 characters.</span>-->

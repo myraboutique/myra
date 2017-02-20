@@ -61,7 +61,7 @@
      <div class="form-box">
 
       <label><em id="mandatory" style="color:Red">*</em>&nbsp;Status</label>
-      <input id="stype" focus="true" name="statuses" type="text" ng-minlength="3" ng-maxlength="20" ng-model="vm.status"  placeholder="Status" required/>
+      <input id="stype" my-directive focus="true" name="statuses" type="text" ng-minlength="3" ng-maxlength="20" ng-model="vm.status"  placeholder="Status" required/>
       	<span ng-show="frm.statuses.$error.required && (frm.status.$dirty || vm.formSubmitted)">Status is required.</span>
         	<span ng-show="(frm.statuses.$error.minlength || frm.statuses.$error.maxlength) && (frm.status.$dirty || vm.formSubmitted)">Status should be between 2 to 20 characters long</span>
             <span ng-show="vm.flag">This status already exists.</span>
