@@ -1,5 +1,24 @@
 angular.module('myra')
-  .controller('newsubdesignController', newsubdesignController);
+  .controller('newsubdesignController', newsubdesignController)
+  .directive('myDirective', function() {
+     function link(scope, elem, attrs, ngModel) {
+          ngModel.$parsers.push(function(viewValue) {
+            var reg = /^[^`~!@#$%\^&*()_+={}|[\]\\:';"<>?,./]*$/;            
+            if (viewValue.match(reg)) {
+              return viewValue;
+            }
+            var transformedValue = ngModel.$modelValue;
+            ngModel.$setViewValue(transformedValue);
+            ngModel.$render();
+            return transformedValue;
+          });
+      }
+      return {
+          restrict: 'A',
+          require: 'ngModel',
+          link: link
+      };      
+  }); 
 
 newsubdesignController.$inject = ['$resource', '$scope','Upload','$window'];
 

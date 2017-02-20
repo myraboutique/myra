@@ -63,7 +63,7 @@
      <div class="form-box">
 
       <label><em id="mandatory" style="color:Red">*</em>&nbsp;Material Type</label>
-      <input id="mtype" focus="true" name="materialtype" type="text" ng-minlength="3" ng-maxlength="20" ng-model="vm.materialtype"  placeholder="Material Type" required/>
+      <input id="mtype" my-directive focus="true" name="materialtype" type="text" ng-minlength="3" ng-maxlength="20" ng-model="vm.materialtype"  placeholder="Material Type" required/>
       	<span ng-show="frm.materialtype.$error.required && (frm.materialtype.$dirty || vm.formSubmitted)">Material Type is required.</span>
         	<span ng-show="(frm.materialtype.$error.minlength || frm.materialtype.$error.maxlength) && (frm.materialtype.$dirty || vm.formSubmitted)">Material Type Name should be between 2 to 20 characters long.</span>
           	<!--<span ng-show="frm.materialtype.$error.maxlength && (frm.materialtype.$dirty || vm.formSubmitted)">Material type name length must be less than 20 characters.</span>-->

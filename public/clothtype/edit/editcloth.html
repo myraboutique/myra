@@ -61,7 +61,7 @@
 
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em> Design</label>
-			  <input id="" name="style" required="required" type="text" ng-minlength="02" ng-maxlength="20" placeholder="Style" ng-model="vm.data.title"/>
+			  <input id="" my-directive name="style" required="required" type="text" ng-minlength="02" ng-maxlength="20" placeholder="Style" ng-model="vm.data.title"/>
 					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Design is required.</span>
 					<span ng-show="(form.style.$error.minlength || form.style.$error.maxlength) && (form.style.$dirty || vm.formSubmitted)">Design Name should be between 2 to 20 characters long.</span>
           	         <!--<span ng-show="form.style.$error.maxlength && (form.style.$dirty || vm.formSubmitted)">Design name length must be less than 02 characters.</span>-->

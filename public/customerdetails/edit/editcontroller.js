@@ -1,6 +1,6 @@
 angular.module('myra')
-  .controller('editcustomerController', editcustomerController);
-
+  .controller('editcustomerController', editcustomerController)
+  
 editcustomerController.$inject = ['$stateParams','$resource','$http']
 
 function editcustomerController($stateParams,$resource,$http) {

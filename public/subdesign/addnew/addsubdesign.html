@@ -42,7 +42,7 @@
 				<div class="managecustomer-left-menu-inner-page">
 					<h4 class="admin-setting-heding">Settings</h4>
 					<ul>
-						<li><a href='#/register' class="active"><span>Manage Users</span></a></li>
+						<li><a href='#/register'><span>Manage Users</span></a></li>
 						<li><a href='#/statustype'><span>Manage Order Status</span></a></li>
 						<li><a href='#/measurements'><span>Manage Measurements</span></a></li>
 						<li><a href='#/clothtype'><span>Manage Designs</span></a></li>
@@ -64,7 +64,7 @@
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Style</label>
 
-					  	<input ng-model="vm.subdesigns" name="style" ng-minlength="02" ng-maxlength="20" type="text" required="required" class="clothmeasurementinput" placeholder="Style"/>
+					  	<input ng-model="vm.subdesigns" my-directive  name="style" ng-minlength="02" ng-maxlength="20" type="text" required="required" class="clothmeasurementinput" placeholder="Style"/>
  					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style is required.</span>
 						<span ng-show="(form.style.$error.minlength || form.style.$error.maxlength) && (form.style.$dirty || vm.formSubmitted)">Style should be between 2 to 20 characters long.</span>
           				<!--<span ng-show="form.style.$error.maxlength && (form.style.$dirty || vm.formSubmitted)">Style name must be less than 20 characters.</span>-->
