@@ -155,7 +155,8 @@ function addProductController($resource, $state, $http, Upload, $window) {
 
   function final(info,date) {
 
-    vm.fileup(function(){
+   // vm.fileup(
+   //   function(){
       vm.designs = [];
     info.forEach(function (element) {
       vm.designs.push(element.type.title + " (" + element.type2 + ")");
@@ -188,7 +189,7 @@ function addProductController($resource, $state, $http, Upload, $window) {
     }
 
     window.location = '#/addordernew';
-    });
+//    });
     
 
   }
