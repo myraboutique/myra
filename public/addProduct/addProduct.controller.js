@@ -170,4 +170,4 @@ vm.inexforprompt = function (index) {
       }
 
 }
-  }
+}}
