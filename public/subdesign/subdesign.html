@@ -83,15 +83,13 @@
 						<th>Status</th>
 					</tr>
           <!-- ng-repeat="data in vm.type"  -->
-					<tr dir-paginate="data in vm.temp=(vm.type|  orderBy:vm.predicate:vm.reverse | filter:vm.search |itemsPerPage:10  ) " ng-class="{
-              'some':$index%2 == 0,
-              'table-tr-alternate-color':$index%2 != 0
-          }">
-						<td class="top-purpal-color-row2"><span><a ng-click="vm.editpage(data)" class="customer-name-link">{{data.subdesign}}</a></span></td>
-						<td class="top-purpal-color-row2">{{data.design}}</td>
+					<tr dir-paginate="data in vm.temp=(vm.type|  orderBy:vm.predicate:vm.reverse | filter:vm.search |itemsPerPage:10  ) " 
+					ng-class="{'some':$index%2 == 0,'table-tr-alternate-color':$index%2 != 0}">
+						<td data-th="Style: " class="top-purpal-color-row2"><span><a ng-click="vm.editpage(data)" class="customer-name-link">{{data.subdesign}}</a></span></td>
+						<td data-th="Design: " class="top-purpal-color-row2">{{data.design}}</td>
 						<!--<td class="top-purpal-color-row2"><a ng-click="vm.temp($index)">Back</a></td>-->
-						<td ng-if="data.isActive" class="top-purpal-color-row2">Active</td>
-						<td ng-if="data.isActive == false" class="top-purpal-color-row2">Inactive</td>
+						<td data-th="Status: " ng-if="data.isActive" class="top-purpal-color-row2">Active</td>
+						<td data-th="Status: " ng-if="data.isActive == false" class="top-purpal-color-row2">Inactive</td>
 					</tr>
 
 				</table>
