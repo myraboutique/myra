@@ -35,7 +35,6 @@
 	<form name="orderform" novalidate>
 		<div class="main-contant-part">
 			<div class="form-section-box">
-				<div class="form-section-box">
 					<!--<div class="form-heading">Customer Details</div>-->
 
 					<div class="form-box">
@@ -49,7 +48,7 @@
 								</datepicker>-->
 						</div>
 
-		                <div class=" customer-detailsmain-box2"><label>Order Status </label><strong>New</strong></div>
+		                <div class=" customer-detailsmain-box2"><label class="orderstatus-addordernew-mobile">Order Status </label><strong>New</strong></div>
 					</div>
 
 
@@ -57,12 +56,12 @@
 
                 <div class="form-box create-order-box">
       						<div class=" customer-detailsmain-box">
-      							<label>Order by</label>&nbsp;<strong>{{vm.addProductscustomer.customerName}}</strong>
+      							<label class="orderby-label">Order by</label>&nbsp;<strong style="font-weight: normal;padding-left: 2px !important;">{{vm.addProductscustomer.customerName}}</strong>
       						</div>
 
-      						<div class=" customer-detailsmain-box1"><label>Contact Number </label><strong>{{vm.addProductscustomer.mobileNumber}}</strong></div>
+      						<div class="customer-detailsmain-box3"><label class="addordernew-Contact-Number-width">Contact Number </label><strong>{{vm.addProductscustomer.mobileNumber}}</strong></div>
 
-      						<div class=" customer-detailsmain-box2"><label>Address </label><strong>{{vm.addProductscustomer.address}}</strong></div>
+      						<div class=" customer-detailsmain-box2 address-addordernew-width-ipad"><label class="address-addordernew-width">Address </label><strong class="addproduct-address-bx-em">{{vm.addProductscustomer.address}}</strong></div>
       			 </div>
 				   
 					
@@ -72,7 +71,7 @@
 						<!--<div class="form-heading"></div>-->
 
 						<div class="form-box">
-							<table class="table table-part" border="1" cellspacing="0" cellpadding="0">
+							<table class="table-part" border="0" cellspacing="0" cellpadding="0">
 								<tr class="top-purpal-color-row">
 									<th>Design</th>
 									<th>Delivery Date</th>
@@ -82,35 +81,35 @@
 									<th>Status</th>
 								</tr>
 								<tr ng-repeat="data in vm.selectedOrder track by $index">
-									<td style="width: 200px;">{{vm.selectedOrder[$index]}}
-										<img ng-src="/imgupload/{{vm.temp[$index].tempimg}}" height="50" width="50"/>
+									<td data-th="Design: " class="top-purpal-color-row2">{{vm.selectedOrder[$index]}}
+										<img ng-src="/imgupload/{{vm.temp[$index].tempimg}}" height="50" width="50" style="padding-bottom: 10px;" />
 									</td>
-									<td >
-										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
+									<td data-th="Delivery Date: " class="top-purpal-color-row2">
+										<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
 										<!--New change 00 --index inject -->
-										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.orderdate1,$index)"
+										<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.orderdate1,$index)"
 										id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
 										</datepicker>
 									</td>
 									
-									<td>
-									<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
-									<input style="margin-bottom: 0px;" class="inputdatipicker " ng-model="vm.order[$index].stitchingdate" name="stitchingdate{{$index}}" required="required" ng-change="vm.stitchingchange(vm.order[$index].stitchingdate,$index)"
+									<td data-th="Stiching Date: " class="top-purpal-color-row2">
+									<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+									<input class="inputdatipicker " ng-model="vm.order[$index].stitchingdate" name="stitchingdate{{$index}}" required="required" ng-change="vm.stitchingchange(vm.order[$index].stitchingdate,$index)"
 									type="text" placeholder="Date of Stitching" />
 									</datepicker>
 									</td>
-									<td>
-										<datepicker style="width: 100%;" class="datepickerbx" date-format="dd/MM/yyyy">
-										<input style="margin-bottom: 0px;" class="inputdatipicker" ng-model="vm.order[$index].alertday" ng-change="vm.alertchange(vm.orderdate1,vm.order[$index].deliverydate,vm.order[$index].alertday)"
+									<td data-th="Alert Date: " class="top-purpal-color-row2">
+										<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
+										<input class="inputdatipicker" ng-model="vm.order[$index].alertday" ng-change="vm.alertchange(vm.orderdate1,vm.order[$index].deliverydate,vm.order[$index].alertday)"
 										id="" name="alertdate{{$index}}" required type="text" placeholder="Date of Alert" />
 										</datepicker>
 									</td>
-									<td>
-										<input style="width: 100% !important; margin-bottom: 0px;" class="addorder-amount-icon" id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required"
-										ng-model="vm.order[$index].amount" type="number" placeholder="Amount" style="width: 100% !important;"/>
+									<td data-th="Amount: " class="top-purpal-color-row2">
+										<input class="addorder-amount-icon datepicker-input-margin-btm-none" id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required"
+										ng-model="vm.order[$index].amount" type="number" placeholder="Amount" />
 									</td>
-									<td>
-										<input ng-init="vm.order[$index].status = 'New'" ng-model="vm.order[$index].status" disabled />
+									<td data-th="Status: " class="top-purpal-color-row2">
+										<input class="datepicker-input-margin-btm-none" ng-init="vm.order[$index].status = 'New'" ng-model="vm.order[$index].status" disabled />
 										<!--<select ng-model="vm.order[$index].status" name="material{{$index}}">
 										<option value="">-- Please Select --</option>
 										<option ng-repeat="data in vm.statusdata">{{data.status}}</option>
@@ -142,7 +141,6 @@
 
 						<div class="right-add-new-button"><a ng-click="vm.updateOrder(vm.order)">Add Order</a></div>
 					</div>
-			</div>
 
 
 
