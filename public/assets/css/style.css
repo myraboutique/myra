@@ -1392,7 +1392,7 @@ padding-top: 10px;
   display: inline-table;
   width: 100%;
   line-height: 27px;
-  word-break: break-all;
+  /*word-break: break-all;*/
 }
 .table-part .top-purpal-color-row2:before {
 	content: attr(data-th);
