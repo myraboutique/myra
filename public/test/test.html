@@ -1,7 +1,7 @@
 <div class="container">
 
 	<!-- Header Section Start Here -->
-   <div class="main-header">
+   <!--<div class="main-header">
    	<div class="logo"><a href="#/home"><img src="assets/images/logo.png" alt=""></a></div>
 		<span class="menu-toggle">
       <i></i>
@@ -27,7 +27,7 @@
 			<li><a href="#/logout">Logout</a></li>
 		 </ul>
 		</div>
-	 </div>
+	 </div>-->
 	 <!-- Header Section End Here -->
 
 	 <div class="inner-heading-bar">TEST</div>
@@ -37,25 +37,46 @@
  		<div class="customer-detail-page-contant">
  		 <div class="details-table minpageheight">
  			 <table class="table-part alerts-page-table" border="0" cellspacing="0" cellpadding="0">
-                  <tr class="top-purpal-color-row">
-                    <th>Customer Name</th>
-                    <th>Anniversary Date</th>
-                    <th>Date of Birth</th>
-										<th>Action</th>
-                  </tr>
+
+
                   <!-- ng-repeat="data in vm.user" -->
 									<button class="btn btn-primary" ng-click="vm.addc()">add col</button>
                   <tr ng-repeat="data in vm.addtable">
 
-										<td data-th="Customer Name: " class="top-purpal-color-row2"><b>{{data.customerName}}</b></td>
-                    <td data-th="Anniversary Date: " class="top-purpal-color-row2"><input type="checkbox"  name="Anniversary Date" value="" class="checkbox" ng-model="data.anniversaryAlert"></td>
-                    <td data-th="Date of Birth: " class="top-purpal-color-row2"><input type="checkbox" name="Date of Birth" value="" class="checkbox" ng-model="data.birthdayAlert"></td>
-										<td ng-repeat="dt in vm.addcol" data-th="Action: " class="top-purpal-color-row2 alerts-table-mobile"><button class="reset-button" ng-click="vm.update(data)">Update</button></td>
+										<!--<td data-th="Customer Name: " class="top-purpal-color-row2"><b>{{data.customerName}}</b></td>-->
+                    <!--<td data-th="Anniversary Date: " class="top-purpal-color-row2"><input type="checkbox"  name="Anniversary Date" value="" class="checkbox" ng-model="data.anniversaryAlert"></td>-->
+                    <td class="top-purpal-color-row2"><input type="checkbox" class="checkbox" ng-model="vm.cbox[$index].selected"></td>
+										<td ng-repeat="dt in vm.addcol" class="top-purpal-color-row2"><input type="text" ng-model="vm.txtbox[$index].name"></input></td>
+										<td class="top-purpal-color-row2 alerts-table-mobile"><button class="reset-button" ng-click="vm.add()">add row</button></td>
+                  </tr>
+                </table>
+
+			<button class="btn btn-primary" ng-click="vm.pair()">add pair</button>
+ 		 </div>
+
+			 		 <div class="details-table minpageheight" ng-show="vm.addpair.length>0" ng-repeat="pair in vm.addpair">
+ 			 <table class="table-part alerts-page-table" border="0" cellspacing="0" cellpadding="0">
+                  <tr class="top-purpal-color-row">
+                    <!--<th>Customer Name</th>-->
+                    <!--<th>Anniversary Date</th>-->
+                    <th>Date of Birth</th>
+										<th>Action</th>
+                  </tr>
+                  <!-- ng-repeat="data in vm.user" -->
+									<!--<button class="btn btn-primary" ng-click="vm.addc()">add col</button>-->
+                  <tr>
+
+										<!--<td data-th="Customer Name: " class="top-purpal-color-row2"><b>{{data.customerName}}</b></td>-->
+                    <!--<td data-th="Anniversary Date: " class="top-purpal-color-row2"><input type="checkbox"  name="Anniversary Date" value="" class="checkbox" ng-model="data.anniversaryAlert"></td>-->
+                    <td class="top-purpal-color-row2"><input type="checkbox" name="Date of Birth" value="" class="checkbox" ng-model="data.birthdayAlert"></td>
+						
+										<td class="top-purpal-color-row2 alerts-table-mobile"><button class="reset-button" ng-click="vm.update(data)">Update</button></td>
                   </tr>
                 </table>
  		 </div>
+
  		</div>
-		 <button class="btn btn-primary" ng-click="vm.add()">add row</button>
+		 <button class="btn btn-primary" ng-click="vm.remove(vm.cbox)">remove row</button>{{vm.cbox}}
  		<!-- Customer Details page Section End Here -->
     <div class="paging">
      <dir-pagination-controls
