@@ -169,5 +169,5 @@ vm.inexforprompt = function (index) {
         
       }
 
-}
+    });
 }}

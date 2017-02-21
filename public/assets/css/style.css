@@ -620,11 +620,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
   margin-bottom: 15px;
 }
 .form-box span{
-  margin-left: 30%;
+  margin-left: 41%;
   color: #da2d2d;
-  margin-top: -15px;
+  margin-top: 0px;
   float: left;
-  padding-bottom: 15px;
+  padding-bottom: 0px;
 }
 .form-section-box textarea{
   width: 70%;
@@ -751,7 +751,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff36b6', end
   margin-left: 0px;
 }
 .addproducttable-B div{padding-bottom: 4px;}
-.addproducttable-B img{padding-top: 8px;width: 200px;}
+.addproducttable-B img{padding-top: 8px;width: 189px;}
 .addproducttable-B label{width:50%;text-align: right;padding-right: 4px;font-size: 14px;}
 .customization-check-box-textarea{width: 100% !important;margin-top: -12px;}
 .measurement-li-box{width:100%; display: inline-block;}
