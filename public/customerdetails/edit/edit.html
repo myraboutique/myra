@@ -121,7 +121,7 @@
 
 
           <label> Email Address</label>
-          <input id="" ng-model="vm.data.email" name="email" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/" type="email" placeholder="Email address" ng-minlength="10" ng-maxlength="50" />
+          <input id="" ng-model="vm.data.email" name="email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]*\.([a-z]{2,4})$/" type="email" placeholder="Email address" ng-minlength="10" ng-maxlength="50" />
 				 	<!--<span ng-show="form.email.$invalid && (form.email.$touched || vm.formSubmitted)">Enter a valid Email Address.</span>-->
             <span ng-show="(form.email.$error.minlength || form.email.$error.pattern ) && (form.email.$dirty || vm.formSubmitted)">Please enter a valid Email Address(e.g. example@email.com).</span>
           <span ng-show="form.email.$error.maxlength && (form.email.$dirty || vm.formSubmitted)">Email must be greater than 250.</span>
@@ -132,7 +132,7 @@
           <label><em id="mandatory" style="color:Red">*</em>&nbsp;Address</label>
           <textarea ng-model="vm.data.address" required rows="4" cols="50" placeholder="Address" name="address" ng-minlength="2" ng-maxlength="250" ></textarea>
           <span ng-show="form.address.$error.required && (form.address.$dirty || vm.formSubmitted)">Address is required.</span>
-           <span ng-show="(form.address.$error.minlength || form.address.$error.maxlength) && (form.address.$dirty || vm.formSubmitted)">Address should be between 20 to 250 characters long.</span>
+           <span ng-show="(form.address.$error.minlength || form.address.$error.maxlength) && (form.address.$dirty || vm.formSubmitted)">Address should be between 02 to 250 characters long.</span>
 
         </div>
 

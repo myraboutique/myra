@@ -80,7 +80,8 @@
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Design</label>
 					<select   class="clothmeasurementinput" ng-model="vm.designs" type="text" required="required" name="design"  >
 						 <option value="">Please Select</option>
-						<option  ng-repeat="x in vm.design"> {{x.title}}</option>
+						 
+						<option  ng-if="x.isActive" ng-repeat="x in vm.design"> {{x.title}}</option>
 						</select>
 						<span ng-show="form.design.$error.required && (form.design.$dirty || vm.formSubmitted)">Design is required.</span>
        </div>

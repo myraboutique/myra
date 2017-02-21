@@ -27,6 +27,7 @@ function registerController($resource,$state) {
   vm.order = order;
   vm.check = false;
   vm.flag= false;
+  vm.editpage = editpage;
   
    vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
@@ -42,6 +43,9 @@ function registerController($resource,$state) {
   
  var vm = this;
   vm.submit = submit;
+  vm.update = update;
+  vm.data = [];
+  // vm.data = JSON.parse($stateParams.referer);
   vm.confirm = confirm;
   vm.resetPassword = resetPassword;
   var Register = $resource('/api/register');
@@ -118,4 +122,42 @@ vm.active = true;
     });
   }
   }
+
+ function editpage(x)
+   {
+     vm.selectData = JSON.stringify(x);
+
+      if(localStorage.getItem('edituser')){
+       localStorage.removeItem('edituser');
+       localStorage.setItem('edituser',vm.selectData);
+     }
+     else{
+            localStorage.setItem('edituser',vm.selectData);       
+     }
+     $state.go("edituser",{ 'referer': vm.selectData});
+   
+   }
+ 
+
+ function update(userform){
+   vm.formSubmitted = true;
+
+   if(userform.$valid){
+     $http.put('api/register', vm.data)
+      .then(
+              function(response){
+                console.log(swal("Your record has been saved successfully."))
+                window.location = '#/register';
+              },
+              function(response){
+                  console.log("put unsuccessfull")
+              }
+          );
+
+   }
+
+
+ }
+
+
 }

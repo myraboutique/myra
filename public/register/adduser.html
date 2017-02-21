@@ -93,7 +93,7 @@
 			 <div class="form-box">
 
 			  <label> Email Address</label>
-			  <input id="username"  name="emailAddress" required="required" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/" ng-model="vm.email"  ng-minlength="10" ng-maxlength="50"  type="email" placeholder="Email Address"/>
+			  <input id="username"  name="emailAddress" required="required" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]*\.([a-z]{2,4})$/" ng-model="vm.email"  ng-minlength="10" ng-maxlength="50"  type="email" placeholder="Email Address"/>
 		        <span ng-show="(userform.emailAddress.$error.minlength || userform.emailAddress.$error.pattern) && (userform.emailAddress.$dirty || vm.formSubmitted)">Please enter a valid Email Address (e.g. example@email.com).</span>
 				<span ng-show="userform.emailAddress.$error.maxlength && (userform.emailAddress.$dirty || vm.formSubmitted)">Email must be greater than 250.</span>		
 

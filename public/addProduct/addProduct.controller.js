@@ -27,6 +27,8 @@ vm.inexforprompt = function (index) {
 
   vm.designSelect = designSelect;
   vm.submit = submit;
+  vm.cancel = cancel;
+  vm.flag = false;
   vm.final = final;
   vm.selectCustomer = selectCustomer;
 
@@ -98,6 +100,10 @@ vm.inexforprompt = function (index) {
 
   function submit() {
     vm.items.push({});
+    vm.flag = true;
+  }
+  function cancel(){
+    vm.items.pop({});
   }
 
   vm.hidepairbutton = [];

@@ -215,7 +215,7 @@ if (index < vm.selectedOrder.length) {
         orderdetails.$save(function (info) {
             index++;
             rOrder();
-            swal("Record saved successfully.");
+            swal("Your record has been saved successfully.");
             window.location = '#/order';
         });
       localStorage.removeItem('vmorder' + index);
