@@ -63,8 +63,9 @@
               <div class="form-box">
 
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Username</label>
-			  <input id=""  focus="true" name="username" ng-minlength="3" ng-maxlength="20" required="required" type="text" ng-model="vm.username" placeholder="Username"/>
+			  <input id="12" ng-trim="true" my-directive focus="true" name="username" ng-minlength="3" ng-maxlength="20"  required="required"  type="text" ng-model="vm.username" placeholder="Username"/>
 				<span ng-show="userform.username.$error.required && (userform.username.$dirty || vm.formSubmitted)">Username is required.</span>
+<!-- ng-pattern="/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/"<span ng-show="userform.username.$error.pattern">Please use alphanumbers letters only</span>-->
 			  <span ng-show="(userform.username.$error.minlength || userform.username.$error.maxlength) && (userform.username.$dirty || vm. formSubmitted)">Username should be between 2 to 20 characters long.</span>
 			  <span ng-show="vm.flag">Username already exists.</span>
 
@@ -72,7 +73,7 @@
 			 <div class="form-box">
 
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Full Name</label>
-			  <input id=""  name="name" ng-minlength="3" ng-maxlength="20" required="required" type="text" ng-model="vm.name" placeholder="Full Name"/>
+			  <input id="" my-directive name="name" ng-minlength="3" ng-maxlength="20" required="required" type="text" ng-model="vm.name" placeholder="Full Name"/>
 				<span ng-show="userform.name.$error.required && (userform.name.$dirty || vm.formSubmitted)">Full Name is required.</span>
 			  <span ng-show="(userform.name.$error.minlength || userform.name.$error.maxlength) && (userform.name.$dirty || vm.formSubmitted)">Full Name should be between 2 to 20 characters long, and should include UPPERCASE letters, lowercase letters and numbers.</span>
 				<!--<span ng-show="userform.name.$error.maxlength && (userform.name.$dirty || vm.formSubmitted)">Full Name must be less than 20 characters.</span>						-->
@@ -92,7 +93,7 @@
 			 <div class="form-box">
 
 			  <label> Email Address</label>
-			  <input id="username" name="emailAddress" required="required" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/" ng-model="vm.email"  ng-minlength="10" ng-maxlength="50"  type="email" placeholder="Email Address"/>
+			  <input id="username"  name="emailAddress" required="required" ng-pattern="/^[_A-Za-z0-9]+[a-zA-Z0-9_+-]+(\.[_A-Za-z0-9+-]+)*@[A-Za-z0-9+-_]+(\.[A-Za-z0-9+-]+)*(\.[A-Za-z]{2,5})$/" ng-model="vm.email"  ng-minlength="10" ng-maxlength="50"  type="email" placeholder="Email Address"/>
 		        <span ng-show="(userform.emailAddress.$error.minlength || userform.emailAddress.$error.pattern) && (userform.emailAddress.$dirty || vm.formSubmitted)">Please enter a valid Email Address (e.g. example@email.com).</span>
 				<span ng-show="userform.emailAddress.$error.maxlength && (userform.emailAddress.$dirty || vm.formSubmitted)">Email must be greater than 250.</span>		
 
@@ -100,7 +101,7 @@
 
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Password</label>
-			     <input id="" name="password"  ng-minlength="3" ng-maxlength="20" required="required" ng-change="vm.confirm()"  type="password" placeholder="Password" ng-model="vm.password1"/>
+			     <input id="" my-directive name="password"  ng-minlength="3" ng-maxlength="20" required="required" ng-change="vm.confirm()"  type="password" placeholder="Password" ng-model="vm.password1"/>
        	            <span ng-show="userform.password.$error.required && (userform.password.$dirty || vm.formSubmitted)">Password is required.</span>
 				 	<span ng-show="(userform.password.$error.minlength || userform.password.$error.maxlength) && (userform.password.$dirty || vm.formSubmitted)">Password should be between 2 to 20 characters long, and should include UPPERCASE letters, lowercase letters and numbers. </span>
 						
@@ -108,23 +109,23 @@
 		   </div>
 
 			  <div class="form-box">
-     <label><em id="mandatory" style="color:Red">*</em>&nbsp;Confirm Password</label>
-			     <input id="" name="confirm" required="required"  ng-model="vm.password" type="password" placeholder="Confirm Password" ng-change="vm.confirm()"/>
+     <label><em id="mandatory"  style="color:Red">*</em>&nbsp;Confirm Password</label>
+			     <input id="" my-directive name="confirm" required="required"  ng-model="vm.password" type="password" placeholder="Confirm Password" ng-change="vm.confirm()"/>
        	<span ng-show="userform.confirm.$invalid && (userform.confirm.$dirty || vm.formSubmitted)">Confirm Password is required.</span>	
 				 <span ng-if="vm.check">Password and Confirm Password do not match.</span>						
 		   </div>
 
 
          <div class="form-box">
-			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Phone Number</label>
-			  <input id="" name="phonenumber" required="required" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-minlength="10" ng-model="vm.number" placeholder="Phone Number" />
+			  <label><em id="mandatory"  style="color:Red">*</em>&nbsp;Phone Number</label>
+			  <input id="" my-directive name="phonenumber" required="required" type="text" ng-pattern="/^[0-9]{1,10}$/" ng-minlength="10" ng-model="vm.number" placeholder="Phone Number" />
 		   	<span ng-show="userform.phonenumber.$error.required && (userform.phonenumber.$dirty || vm.formSubmitted)">Phone Number is required.</span>
 				 <span ng-show="(userform.phonenumber.$error.minlength || userform.phonenumber.$error.pattern) && (userform.phonenumber.$dirty || vm.formSubmitted)">Please enter a valid 10-digit phone number.</span>			
 		   </div>
 
         <div class="form-box">
-			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Address</label>
-			  <textarea rows="4" cols="50"  placeholder="Address" ng-minlength="2" ng-maxlength="250" ng-model="vm.address" name="address" required></textarea>
+			  <label><em id="mandatory"  style="color:Red">*</em>&nbsp;Address</label>
+			  <textarea rows="4" cols="50"  my-directive placeholder="Address" ng-minlength="2" ng-maxlength="250" ng-model="vm.address" name="address" required></textarea>
 			 	<span ng-show="userform.address.$error.required && (userform.address.$dirty || vm.formSubmitted)">Address is required.</span>
 				 	<span ng-show="(userform.address.$error.minlength || userform.address.$error.maxlength) && (userform.address.$dirty || vm.formSubmitted)">Address should be between 20 to 250 characters long.</span>
 

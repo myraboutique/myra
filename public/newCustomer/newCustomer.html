@@ -43,7 +43,7 @@
           <div class="form-box">
 
             <label><em id="mandatory" style="color:Red">*</em>&nbsp;Customer Name</label>
-            <input id="" focus="true" ng-minlength="3" ng-maxlength="20" ng-required="true" ng-model="vm.customerName" name="customerName" type="text"
+            <input id="12" my-directive focus="true" ng-minlength="3" ng-maxlength="20" ng-required="true" ng-model="vm.customerName" name="customerName" type="text"
               placeholder="Customer Name" />
             <span ng-show="form.customerName.$error.required && (form.customerName.$dirty || vm.formSubmitted)">Customer Name is required.</span>
             <span ng-show="(form.customerName.$error.minlength || form.customerName.$error.maxlength) && (form.customerName.$dirty || vm.formSubmitted)">Customer Name should be between 2 to 20 characters long.</span>
@@ -90,7 +90,7 @@
 
         <div class="form-box">
           <label><em id="mandatory" style="color:Red">*</em>&nbsp;Mobile Number</label>
-          <input id="" ng-model="vm.mobileNumber" ng-pattern="/^[0-9]{1,10}$/" name="mobilenumber" ng-minlength="10" ng-maxlength="10" required="required" type="text" placeholder="Mobile Number" />
+          <input id="" my-directive ng-model="vm.mobileNumber" ng-pattern="/^[0-9]{1,10}$/" name="mobilenumber" ng-minlength="10" ng-maxlength="10" required="required" type="text" placeholder="Mobile Number" />
 
           <span ng-show="form.mobilenumber.$error.required && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number is required.</span>
 
@@ -100,7 +100,7 @@
 
         <div class="form-box">
           <label> Phone Number</label>
-          <input id="" ng-model="vm.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="10" ng-maxlength="10"  type="text" placeholder="Phone Number" />
+          <input id="" my-directive ng-model="vm.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="10" ng-maxlength="10"  type="text" placeholder="Phone Number" />
 
           <!--<span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be digits.</span>-->
           <span ng-show="(form.phonenumber.$error.minlength || form.phonenumber.$error.maxlength)&& (form.phonenumber.$dirty || vm.formSubmitted)">Please enter a valid 10-digit phone number.</span>
@@ -121,7 +121,7 @@
 
         <div class="form-box">
           <label><em id="mandatory" style="color:Red">*</em>&nbsp;Address</label>
-          <textarea ng-model="vm.address" required rows="4" cols="50" placeholder="Address" name="address" ng-minlength="2" ng-maxlength="250" ></textarea>
+          <textarea my-directive ng-model="vm.address" required rows="4" cols="50" placeholder="Address" name="address" ng-minlength="2" ng-maxlength="250" ></textarea>
           <span ng-show="form.address.$error.required && (form.address.$dirty || vm.formSubmitted)">Address is required.</span>
 
 
@@ -133,7 +133,7 @@
         <div class="form-box">
           <label><em ng-show="vm.other" id="mandatory" style="color:Red">*</em>&nbsp;Billing Address</label>
           <div class="customization-check-box">
-            <input type="checkbox" ng-model="vm.other" name="vehicle" value="" class="checkbox">
+            <input type="checkbox" my-directive ng-model="vm.other" name="vehicle" value="" class="checkbox">
             <strong class="billing-addres-checkbox">Other</strong>
             <textarea required  ng-minlength="2" ng-maxlength="250" ng-if="vm.other" name="billaddress" ng-model="vm.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
              </textarea>
@@ -146,7 +146,7 @@
         <div class="form-box">
 <label>Remarks</label>
 
-          <textarea name="remarks" ng-model="vm.remarks" rows="4" cols="50" ng-maxlength="200" placeholder="Remarks Description"></textarea>
+          <textarea my-directive name="remarks" ng-model="vm.remarks" rows="4" cols="50" ng-maxlength="200" placeholder="Remarks Description"></textarea>
           <span ng-show="form.remarks.$error.maxlength && (form.remarks.$dirty || vm.formSubmitted)">Remark description cannot be more than 200 characters long.</span>
 
         </div>

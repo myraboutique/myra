@@ -20,5 +20,6 @@ module.exports = (function () {
     m.route('/api/forgot')    
         .post(api.forgotpassword)
         .put(api.Update1)
+        
     return m;
 })();
