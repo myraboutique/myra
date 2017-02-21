@@ -5,7 +5,7 @@ addProductController.$inject = ['$resource', '$state', '$http'];
 
 function addProductController($resource, $state, $http) {
   var vm = this;
-
+  vm.flg=false;
   vm.clicked = function (info) {
     vm.order[vm.newinex].type2 = info;
   };
@@ -169,5 +169,6 @@ vm.inexforprompt = function (index) {
         
       }
 
-}
-}}
+    });
+    }}
+

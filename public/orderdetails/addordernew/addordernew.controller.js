@@ -40,13 +40,19 @@ function addordernewController($resource, $scope, $http) {
 
 
 // =============================================================
-
+      vm.newMsg=false;
+        vm.newMsg1=false;
+ vm.newMsg2=false;
+            vm.newMsg3=false;          
+            vm.newMsg4=false;          
+ 
   vm.date1 = false;
   vm.date2 = false;
   vm.date3 = false;
 
   vm.tempalert = false;
   vm.date4 = false;
+  vm.xmsg=false;
 
   vm.change = change;
   vm.alertchange = alertchange;
@@ -55,6 +61,7 @@ function addordernewController($resource, $scope, $http) {
 
 
   function forstitchingdate(index) {
+
     if (vm.order[index].stitchingdate > vm.order[index].deliverydate) {
       console.log("Oyye");
       vm.date4 = true;
@@ -74,7 +81,18 @@ function addordernewController($resource, $scope, $http) {
       }
     }
 
+
     if (vm.order[index].deliverydate) {
+      if(vm.order[index].deliverydate<=vm.orderdate1){
+         vm.order[index].stitchingdate="";
+             vm.order[index].alertday=""; 
+            vm.newMsg=true;       
+        }
+        else{
+            vm.newMsg=false;          
+        }
+
+
       var b = orderdate.split('/');
       var a = vm.order[index].deliverydate.split('/');
       console.log(a);
@@ -97,6 +115,8 @@ function addordernewController($resource, $scope, $http) {
 
       //stitchingdate setring
       console.log(vm.order[index].alertday);
+
+     
       if (deliveryDate < orderDate) {
         vm.date1 = true;
         vm.order[index].alertday = alertday;
@@ -108,13 +128,50 @@ function addordernewController($resource, $scope, $http) {
         vm.order[index].stitchingdate = stitchingday;
         alertchange(orderDate, deliveryDate, vm.order[index].alertday);
       }
+
+      //  if(stitchingday<=orderdate){
+      //   vm.newMsg1=true;
+      //   vm.order[index].stitchingdate="";
+      // }
+      // else{
+      //   vm.newMsg1=false;
+      // }
     }
+    
+
+    // if(deliveryDate<=orderDate){
+    //   vm.order[index].stitchingdate="";
+    //   vm.order[index].alertday="";      
+    //   vm.newMsg=true;
+    // }
+    // else{     
+    //   if(vm.adt<=orderDate){
+    //     vm.newMsg2=true;
+    //     vm.order[index].alertday="";
+    //   }
+    //   else{
+    //     vm.newMsg2=false;
+    //   }
+    //   vm.newMsg=false;
+    // }
+
+
 
   }
 
   // new change 00 --index inject
   function stitchingchange(stitchingdate, index) {
-
+    if(vm.order[index].stitchingdate){
+        if(vm.order[index].stitchingdate<=vm.orderdate1){
+            vm.newMsg1=true;
+        }
+        else{
+            vm.newMsg1=false;          
+        }
+         
+    }
+  
+    
     if (vm.order[index].orderdate) {
       console.log(orderdate);
       console.log(stitchingdate);
@@ -126,23 +183,40 @@ function addordernewController($resource, $scope, $http) {
       var orderDate = new Date(b[2], b[1] - 1, b[0]);
       orderDate.setHours(0, 0, 0, 0, 0);
       stitchingDate.setHours(0, 0, 0, 0, 0);
-
+      vm.stitchingDT=stitchingDate;
       if (stitchingDate < orderDate) {
         vm.tempalert = true;
       } else {
         vm.tempalert = false;
       }
       console.log(vm.tempalert);
+    
+     
     }
     if (vm.order[index].deliverydate) {
       forstitchingdate(index);
-    }
+    }    
   }
 
   function alertchange(orderdate, deliverydate, alertdate) {
-    console.log(orderdate);
-    console.log(deliverydate);
-    console.log(alertdate);
+  
+if(vm.order[0].stitchingdate){
+  if(vm.order[0].stitchingdate<=vm.orderdate1){
+    vm.newMsg1=true;
+  }
+  else{
+    vm.newMsg1=false;
+  }
+}
+  if(vm.order[0].alertday){
+        if(vm.order[0].alertday<=vm.orderdate1){
+            vm.newMsg2=true;
+        }
+        else{
+             vm.newMsg2=false;          
+        }
+
+    }
 
     var type = typeof orderdate;
     if (type == 'string') {
@@ -169,14 +243,35 @@ function addordernewController($resource, $scope, $http) {
     } else {
       vm.date3 = false;
     }
+    vm.adt=alertDate;
+
+            
   }
 
-
-
+vm.check=function(info){
+   if(vm.order[0].alertday>vm.order[0].deliverydate){
+            vm.newMsg4=true;
+        }
+        else{
+            vm.newMsg4=false;          
+        }
+          if(vm.order[0].stitchingdate>vm.order[0].deliverydate){
+            vm.newMsg3=true;
+        }
+        else{
+            vm.newMsg3=false;          
+        }
+        if(!vm.newMsg3 && !vm.newMsg4){
+          vm.updateOrder(info);
+        }
+}
 
 
 //=============================================================
   vm.updateOrder = function(info) {
+
+
+   
     // vm.temp = [];
     
     // for (var index = 0; index < vm.selectedOrder.length; index++) {
@@ -215,7 +310,7 @@ if (index < vm.selectedOrder.length) {
         orderdetails.$save(function (info) {
             index++;
             rOrder();
-            swal("Record saved successfully.");
+            swal("Order placed successfully.");
             window.location = '#/order';
         });
       localStorage.removeItem('vmorder' + index);
