@@ -89,13 +89,13 @@
 			        'some':$index%2 == 0,
 			        'table-tr-alternate-color':$index%2 != 0
 			    }">
-                        <td data-th="User Name: " class="top-purpal-color-row2"><span><b>{{data.username}}</b></span></td>
+						<td data-th="User Name: " class="top-purpal-color-row2"><span><b><a  ng-click="vm.editpage(data)" class="customer-name-link">{{data.username}}</b></a></span></td>
                         <td data-th="User Name: " class="top-purpal-color-row2"><b>{{data.name}}</b></td>
 						<td data-th="Type: " class="top-purpal-color-row2">{{data.type}}</td>
 						<td data-th="Email: " class="top-purpal-color-row2">{{data.email}}</td>
 						<td data-th="Action: " class="top-purpal-color-row2 alerts-table-mobile"><a class="reset-button" ng-click="vm.resetPassword(data)">Reset</a></td>
 						<td ng-if="data.isActive" class="top-purpal-color-row2">Active</td>
-						<td ng-if="data.isActive == false" class="top-purpal-color-row2">Inactive</td>
+						
 					</tr>
 
 				</table>

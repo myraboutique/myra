@@ -311,6 +311,7 @@ if (index < vm.selectedOrder.length) {
             index++;
             rOrder();
             swal("Order placed successfully.");
+
             window.location = '#/order';
         });
       localStorage.removeItem('vmorder' + index);

@@ -126,8 +126,8 @@
 							<span ng-if="vm.newMsg1">Stiching date should be greater than Order date.<br></span>
 							<span ng-if="vm.newMsg2">Alert date should be greater than Order date.<br></span>
 							<!--<span ng-if="vm.newMsg3">please select stiching date greater than Order date.<br></span>-->
-							<span ng-if="vm.newMsg3">please select stiching date less than delivery date.<br></span>
-							<span ng-if="vm.newMsg4">please select alert date less than delivery date.<br></span>
+							<span ng-if="vm.newMsg3">Stiching date should be less than delivery date.<br></span>
+							<span ng-if="vm.newMsg4">Alert date should be less than delivery date.<br></span>
 							
 							<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Delivery date must be greater than Date of Order.<br></span>
 

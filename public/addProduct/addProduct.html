@@ -244,8 +244,13 @@
 				
 			</div>
 			<!-- Table Repeat Section End Here -->
-			<div class="addproducttable-Add-BTN"><input type="submit" value="Add" ng-click="vm.submit()" /></div>
+
+			<div class="addproducttable-Add-BTN"><input type="submit" value="Add" ng-click="vm.submit()" />
+              <span ng-show="vm.flag" onclick="vm.submit()">
+					 <div class="addproducttable-Add-BTN"><input type="submit" value="Cancel" ng-click="vm.cancel()" /></div></span>
+
 			</div>
+
 		</div>
 		<!-- Addproducttable Main Box End Here -->
 		<div class="submit-button">
