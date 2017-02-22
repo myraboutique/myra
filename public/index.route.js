@@ -42,6 +42,13 @@
       controller: 'registerController',
       controllerAs: 'vm'
     })
+    .state('edituser', {
+      url: '/edituser',
+      templateUrl: 'register/edituser.html',
+      controller: 'registerController',
+      controllerAs: 'vm'
+    })
+
     .state('order', {
       url: '/order',
       templateUrl: 'orderdetails/orderdetails.html',

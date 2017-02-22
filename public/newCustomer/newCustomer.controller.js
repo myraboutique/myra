@@ -28,7 +28,7 @@ function newCustomerController($resource) {
   vm.measurementstype = [] ;
   vm.mname = [];
   vm.mvalue = [];
-
+  vm.flag = false;
   vm.token = JSON.parse(localStorage.getItem('token'));
   vm.birthdate = birthdate;
   vm.anniversarydate = anniversarydate;
@@ -120,9 +120,17 @@ function newCustomerController($resource) {
       customerdetails.measurementsvalue = JSON.stringify(vm.mvalue);
 
       customerdetails.$save(function(info){
+       if(!info.status){
 
-       swal("Your record has been saved successfully.");
-          window.location = '#/customerdetails';
+          console.log(swal("Your record has been saved successfully."));
+           window.location = "#/customerdetails";
+      }
+      else {
+            vm.flag = true;
+            vm.status = info.status ;
+          }
+
+
        })
 
 

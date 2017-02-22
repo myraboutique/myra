@@ -15,27 +15,40 @@ module.exports = (function () {
     },
 
     create: function (req, res) {
-      db.sync().then(function () {
-        models.create(
-          {
-            customerName: req.body.customerName,
-            gender: req.body.gender,
-            birthDate: req.body.birthDate,
-            anniversaryDate: req.body.anniversaryDate,
-            birthdayAlert: req.body.birthdayAlert,
-            anniversaryAlert: req.body.anniversaryAlert,
-            other: req.body.other,
-            mobileNumber: req.body.mobileNumber,
-            phoneNumber: req.body.phoneNumber,
-            email: req.body.email,
-            address: req.body.address,
-            billingAddress: req.body.billingAddress,
-            remarks: req.body.remarks,
-            measurementsname: req.body.measurementsname,
-            measurementsvalue: req.body.measurementsvalue
-          }).then(function (user) {
-            res.json(user);
-          })
+       db.sync().then(function () {
+       models.findOne({ where: { customerName: req.body.customerName } }).then(function (user) {
+          if (user) {
+            return res.status(200).json({
+              status: "This customerName already exits."
+            });
+          }
+          else {
+            db.sync().then(function () {
+              models.create(
+              {
+                  customerName: req.body.customerName,
+                  gender: req.body.gender,
+                  birthDate: req.body.birthDate,
+                  anniversaryDate: req.body.anniversaryDate,
+                  birthdayAlert: req.body.birthdayAlert,
+                  anniversaryAlert: req.body.anniversaryAlert,
+                  other: req.body.other,
+                  mobileNumber: req.body.mobileNumber,
+                  phoneNumber: req.body.phoneNumber,
+                  email: req.body.email,
+                  address: req.body.address,
+                  billingAddress: req.body.billingAddress,
+                  remarks: req.body.remarks,
+                  measurementsname: req.body.measurementsname,
+                  measurementsvalue: req.body.measurementsvalue
+             }).then(function (user) {
+             res.json(user);
+         })
+
+           })
+          }
+      
+         })
       })
     },
 
