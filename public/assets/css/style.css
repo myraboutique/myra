@@ -853,6 +853,7 @@ padding-bottom: 15px;
 
 .customer-detail-page-contant{width: 100%; float: left;}
 .right-add-new-button{float: right;}
+.left-add-new-button{float: left !important;}
 .right-add-new-button a{
   width:130px;
   text-align: center;
