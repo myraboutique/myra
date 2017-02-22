@@ -246,9 +246,11 @@
 			</div>
 			<!-- Table Repeat Section End Here -->
 
-			<div class="addproducttable-Add-BTN"><input type="submit" value="Add" ng-click="vm.submit()" />
+			<div class="addproducttable-Add-BTN">
+				<input type="submit" value="+" ng-click="vm.submit()" />
               <span ng-show="vm.flag" onclick="vm.submit()">
-					 <div class="addproducttable-Add-BTN"><input type="submit" value="Cancel" ng-click="vm.cancel()" /></div></span>
+				<input style="font-size: 16px;font-weight: bold;" type="submit" value="X" ng-click="vm.cancel()" />
+			  </span>
 
 			</div>
 
@@ -264,6 +266,7 @@
 		<span ng-if="vm.rqmsg">Fields are mandatory with sign *.<br></span>
 		</div>
 </form>
+</div>
 	<!-- Footer Section Start Here -->
 	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
 	<!-- Footer Section End Here -->

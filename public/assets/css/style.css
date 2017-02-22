@@ -221,14 +221,19 @@ display: inline;
   font-size: 14px;
 }
 .addproducttable-Add-BTN{
-  width:65px; float: left; padding:10px 0px 9px 0; box-sizing: border-box; text-align: center;
+  width:80px; float: left; padding:10px 0px 9px 0; box-sizing: border-box; text-align: center;
 }
 .addproducttable-Add-BTN input{
   border-radius: 3px;
   border: 1px solid #ff36b6;
-  padding: 4px 10px;
   background: #ff36b6;
   color: #fff;
+  float: left;
+  font-size: 23px;
+  width: 27px;
+  height: 26px;
+  line-height: 24px;
+  margin-left: 6px;
 }
 .addproducttable-Add-BTN input:hover{
   background: #f027a7;
@@ -257,6 +262,9 @@ display: inline;
   padding-top: 3px;
   padding-bottom: 0px;
 }
+.add-pair-box input{
+  width:70px; font-size: 14px;line-height: 18px;height: 25px;
+}
 
 
 
@@ -272,7 +280,7 @@ display: inline;
   margin-right: 2%;
 }
 .customer-detailsmain-box2 .orderstatus-value{padding-right: 29px;}
-.customer-detailsmain-box .orderby-label{width: 40%; float: left;margin-right: 3px;text-align: left;margin-top: 0px;}
+.customer-detailsmain-box .orderby-label{width: 40%; float: left;margin-right: 0px;text-align: left;margin-top: 0px;}
 .customer-detailsmain-box3{width:25%;float: left;margin-right: 2%;}
 .customer-detailsmain-box3 em{font-style: normal;padding-left: 10px;}
 .customer-detailsmain-box3 strong{font-weight: normal;}
@@ -651,6 +659,7 @@ padding-bottom: 15px;
 .form-section-box select{
   width: 70%;
   float: left;
+  height: 38px;
   color: #8F8F8F;
   font-size: 14px;
   padding: 8px 12px 8px 8px;
@@ -693,6 +702,7 @@ padding-bottom: 15px;
 .outside2{
   margin-left: 11px;
   width: 20%;
+  height: 38px;
   float: left;
   color: #8F8F8F;
   font-size: 14px;
@@ -866,6 +876,9 @@ padding-bottom: 15px;
   box-shadow: none;
 }
 .right-add-new-button a:hover{background: #e0229b;color: #fff;}
+.right-add-new-button a:focus, a:hover {
+    color: #fff;
+}
 
 .alerts-page-table{width:70%;margin: 0 auto;float: none;}
 
@@ -1070,6 +1083,9 @@ border-radius: 3px;
 
 
 @media only screen and (min-width: 1024px) and (max-width: 1170px) {
+  .customer-detail-th-width-1 {
+    width: 19% !important;
+}
   .addproduct-scrollbar-bx {width: 28%;}
   .addordernew-Contact-Number-width {width: 56% !important;}
   .orderstatus-addordernew-mobile{width: 33% !important;}
@@ -1078,7 +1094,7 @@ border-radius: 3px;
 }
   .addclothtype-Measurement-addbtn-mobile{width: 56% !important;}
   .select-phot-input {width: 56% !important;}
-  .customer-detailsmain-box1 datepicker input{padding: 3px 5px;}
+  .customer-detailsmain-box1 datepicker input{padding: 3px 5px;width: 154px;}
   .customer-detailsmain-box .orderby-label {margin-right: 5px;width: 41%;}  
   .customer-detailsmain-box select{padding: 3px 4px;width: 56%;}
   .customer-detailsmain-box {
@@ -1089,7 +1105,7 @@ border-radius: 3px;
   .addsubdesign-browse-img {margin-left: 150px;}
   .customer-detailsmain-box1 label {width: 44% !important;}
   .addproduct-address-bx-label {width: 18%;}
-  .addproduct-address-bx-em {width: 81%;}
+  .addproduct-address-bx-em {width: 80%;}
 
   .addorder-amount-icon {width:63% !important;}
   .add-new-form{width:82%;margin-top: 20px;padding: 25px 15px 15px 15px;}
@@ -1119,6 +1135,9 @@ border-radius: 3px;
 
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .customer-detail-th-width-1 {
+    width: 25% !important;
+}
   .editsubdesign-editstyle-addimg{margin-left: 38%;}
   .addProduct-createorder-scrollbar-btm {width: 83%;}
   .addproduct-scrollbar-bx {width: 38%;}
@@ -1155,7 +1174,7 @@ border-radius: 3px;
   .customer-detailsmain-box1 label {width:31% !important;}
   
   .customer-detailsmain-box2 em{padding-left: 0px;}
-  .addproduct-address-bx-em {width:88%; padding-left: 2px;}
+  .addproduct-address-bx-em {width:87%; padding-left: 2px;}
   .customer-detailsmain-box1 em{padding-left: 0px;}
   .customer-detailsmain-box2 label{width: 100%;}
   .left-list-addproduct {width: 17%;}
@@ -1164,9 +1183,9 @@ border-radius: 3px;
   .measurement-li-box ul li{width: 73%;}
   .addorder-amount-icon {width: 90% !important;}
   .clothmeasurementinput {width:48% !important;}
-  .add-new-btm-btn {margin-left: 34%;}
+  .add-new-btm-btn {margin-left: 38%;}
   .form-box-measurement-add {margin-left:38%;width: 61%;}
-  .form-box span{margin-left: 34%;}
+  .form-box span{margin-left: 38%;}
   .add-next-btn-box{margin-left:0%;}
   .form-section-box label{width: 36%;}
   .form-section-box input {width: 62%;}

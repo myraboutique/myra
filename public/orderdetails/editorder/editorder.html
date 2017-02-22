@@ -44,17 +44,17 @@
 					<label>Order Date </label><strong>{{vm.records.orderdate}}</strong>
 				</div>
 
-				<div class=" customer-detailsmain-box2"><label>Order Status </label>&nbsp;<strong>{{vm.productwiserecord[0].status}}</strong></div>
+				<div class=" customer-detailsmain-box2"><label class="orderstatus-value">Order Status </label>&nbsp;<strong>{{vm.productwiserecord[0].status}}</strong></div>
 			</div>
 
                 <div class="form-box create-order-box">
       						<div class=" customer-detailsmain-box">
-      							<label>Order by</label>&nbsp;{{vm.records.customerName}}
+      							<label class="orderby-label">Order by</label>&nbsp;{{vm.records.customerName}}
       						</div>
 
-      						<div class=" customer-detailsmain-box1"><label>Contact Number </label><strong>{{vm.customerdetailsnew.mobileNumber}}</strong></div>
+      						<div class="customer-detailsmain-box3"><label>Contact Number </label><em>{{vm.customerdetailsnew.mobileNumber}}</em></div>
 
-      						<div class=" customer-detailsmain-box2"><label>Address </label>&nbsp;<strong>{{vm.customerdetailsnew.address}}</strong></div>
+      						<div class=" customer-detailsmain-box2 createorder-address-ipad"><label class="addproduct-address-bx-label">Address</label><em class="addproduct-address-bx-em">{{vm.customerdetailsnew.address}}</em></div>
       			 </div>
 			
 			
