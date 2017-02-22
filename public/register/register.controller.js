@@ -3,7 +3,7 @@ angular.module('myra')
    .directive('myDirective', function() {
      function link(scope, elem, attrs, ngModel) {
           ngModel.$parsers.push(function(viewValue) {
-            var reg = /^[^`~!@#$%\^&*()_+={}|[\]\\:';"<>?,./]*$/;            
+            var reg = /^[^`~!@#$%\^&*()-_+={}|[\]\\:';"<>?,./]*$/;            
             if (viewValue.match(reg)) {
               return viewValue;
             }

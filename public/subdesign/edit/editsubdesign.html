@@ -101,7 +101,7 @@
 					<img style="margin-left:200px ;width:200px" ng-show="!!vm.file" ngf-thumbnail="vm.file"/>
 					<span ng-show="form.file.$error.required">Image is required.</span><br>
 					<span ng-show="form.file.$error.maxSize">File too large 
-					{{vm.file.size / 1000000|number:1}}MB: max 20M</i>
+					 <i>{{vm.file.size / 1000000|number:1}}MB: max 20M</i>
 					<p>{{vm.progress}}</p>
 		</div>
 <!--file upload-->
@@ -118,7 +118,7 @@
 
       <div class="add-new-btm-btn">
 			<div class="submit-button">
-				<input type="submit" value="Save" ng-click="vm.update(form)"/>
+				<input type="submit" onclick="this.disabled=true" value="Save" ng-click="vm.update(form)"/>
 			</div>
 			<div class="cancel-button">
 				<input type="submit" value="Cancel" ui-sref="subdesign"/>

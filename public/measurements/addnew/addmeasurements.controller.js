@@ -3,7 +3,7 @@ angular.module('myra')
   .directive('myDirective', function() {
      function link(scope, elem, attrs, ngModel) {
           ngModel.$parsers.push(function(viewValue) {
-            var reg = /^[^`~!@#$%\^&*()_+={}|[\]\\:';"<>?,./]*$/;            
+            var reg = /^[^`~!@#$%\^&*()-_+={}|[\]\\:';"<>?,./]*$/;            
             if (viewValue.match(reg)) {
               return viewValue;
             }
@@ -20,6 +20,7 @@ angular.module('myra')
       };      
   }); 
 
+  
 
 addmeasurementsController.$inject = ['$resource'];
 
@@ -28,6 +29,7 @@ function addmeasurementsController($resource) {
   var AddMeasurement = $resource('/api/managemeasurements')
 
   var vm = this;
+  //vm.$scope.isDisabled = false;
   vm.flag = false ;
   vm.materialsave = materialsave;
   vm.materialcancel = materialcancel;
@@ -46,7 +48,7 @@ function addmeasurementsController($resource) {
     var addmaterial = new AddMeasurement();
     addmaterial.isActive = vm.active;
     addmaterial.name = vm.measure;
-
+    //vm.$scope.isDisabled = true;
 
     addmaterial.$save(function (info) {
 

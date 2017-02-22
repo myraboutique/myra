@@ -43,7 +43,7 @@
           <div class="form-box">
             <label><em id="mandatory" style="color:Red">*</em>&nbsp;Customer Name
                                                 </label>
-            <input id="" ng-minlength="3" ng-maxlength="20" ng-required="true" ng-model="vm.data.customerName" name="customerName" type="text"
+            <input id="" my-directive ng-minlength="3" ng-maxlength="20" ng-required="true" ng-model="vm.data.customerName" name="customerName" type="text"
               placeholder="Customer Name" />
             <span ng-show="form.customerName.$error.required && (form.customerName.$dirty || vm.formSubmitted)">Customer Name is required.</span>
             <span ng-show="(form.customerName.$error.minlength || form.customerName.$error.maxlength) && (form.customerName.$dirty || vm.formSubmitted)">Customer Name should be between 2 to 20 characters long.</span>
@@ -63,7 +63,7 @@
           <div class="form-box">
             <label><em id="mandatory" style="color:Red">*</em>&nbsp;Birth Date</label>
             <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-              <input class="inputdatipicker" id="" ng-model="vm.data.birthDate" name="birthDate" ng-change="vm.birthdate(vm.data.birthDate)" type="text" placeholder="Select Date"/>
+              <input class="inputdatipicker" id=""  ng-model="vm.data.birthDate" name="birthDate" ng-change="vm.birthdate(vm.data.birthDate)" type="text" placeholder="Select Date"/>
             </datepicker>
              <span ng-show="form.birthDate.$error.required && (form.gender.$dirty || vm.formSubmitted)">Birth date is required.</span>
             <span ng-if="vm.date1">Birth Date cannot be a future date.</span>
@@ -72,7 +72,7 @@
           <div class="form-box">
             <label>Anniversary</label>
             <datepicker class="datepickerbx" date-format="dd/MM/yyyy">
-              <input class="inputdatipicker" id="" ng-model="vm.data.anniversaryDate" name="" ng-change="vm.anniversarydate(vm.data.anniversaryDate)" type="text" placeholder="Select Date"
+              <input class="inputdatipicker" id=""  ng-model="vm.data.anniversaryDate" name="" ng-change="vm.anniversarydate(vm.data.anniversaryDate)" type="text" placeholder="Select Date"
               />
             </datepicker>
              <span ng-if="vm.date2">Anniversary Date cannot be a future date.</span>
@@ -103,7 +103,7 @@
 
    <div class="form-box">
           <label><em id="mandatory" style="color:Red">*</em>&nbsp;Mobile Number</label>
-          <input id="" ng-model="vm.data.mobileNumber" ng-pattern="/^[0-9]{1,10}$/" name="mobilenumber" ng-minlength="10" ng-maxlength="10" required="required" type="text" placeholder="Mobile Number" />
+          <input id=""   ng-model="vm.data.mobileNumber" ng-pattern="/^[0-9]{1,10}$/" name="mobilenumber" ng-minlength="10" ng-maxlength="10" required="required" type="number" placeholder="Mobile Number" />
           <span ng-show="form.mobilenumber.$error.required && (form.mobilenumber.$dirty || vm.formSubmitted)">Mobile Number is required.</span>
           <span ng-show="(form.mobilenumber.$error.pattern || form.mobilenumber.$error.minlength) && (form.mobilenumber.$dirty || vm.formSubmitted)">Please enter a valid 10-digit mobile number.</span>
 
@@ -111,7 +111,7 @@
 
         <div class="form-box">
           <label> Phone Number</label>
-          <input id="" ng-model="vm.data.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="10" ng-maxlength="10"  type="text" placeholder="Phone Number" />
+          <input id=""   ng-model="vm.data.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="10" ng-maxlength="10"  type="number" placeholder="Phone Number" />
 
           <span ng-show="(form.phonenumber.$error.pattern || form.phonenumber.$error.minlength) && (form.phonenumber.$dirty || vm.formSubmitted)">Please enter a valid 10-digit phone number.</span>
         </div>
@@ -121,7 +121,7 @@
 
 
           <label> Email Address</label>
-          <input id="" ng-model="vm.data.email" name="email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]*\.([a-z]{2,4})$/" type="email" placeholder="Email address" ng-minlength="10" ng-maxlength="50" />
+          <input id="" my-directive ng-model="vm.data.email" name="email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]*\.([a-z]{2,4})$/" type="email" placeholder="Email address" ng-minlength="10" ng-maxlength="50" />
 				 	<!--<span ng-show="form.email.$invalid && (form.email.$touched || vm.formSubmitted)">Enter a valid Email Address.</span>-->
             <span ng-show="(form.email.$error.minlength || form.email.$error.pattern ) && (form.email.$dirty || vm.formSubmitted)">Please enter a valid Email Address(e.g. example@email.com).</span>
           <span ng-show="form.email.$error.maxlength && (form.email.$dirty || vm.formSubmitted)">Email must be greater than 250.</span>
@@ -130,7 +130,7 @@
 
         <div class="form-box">
           <label><em id="mandatory" style="color:Red">*</em>&nbsp;Address</label>
-          <textarea ng-model="vm.data.address" required rows="4" cols="50" placeholder="Address" name="address" ng-minlength="2" ng-maxlength="250" ></textarea>
+          <textarea  my-directive ng-model="vm.data.address" required rows="4" cols="50" placeholder="Address" name="address" ng-minlength="2" ng-maxlength="250" ></textarea>
           <span ng-show="form.address.$error.required && (form.address.$dirty || vm.formSubmitted)">Address is required.</span>
            <span ng-show="(form.address.$error.minlength || form.address.$error.maxlength) && (form.address.$dirty || vm.formSubmitted)">Address should be between 02 to 250 characters long.</span>
 
@@ -140,19 +140,19 @@
 
           <label><em ng-show="vm.data.other" id="mandatory" style="color:Red">*</em> &nbsp;Billing Address</label>
           <div class="customization-check-box">
-            <input type="checkbox" ng-model="vm.data.other"  value="" class="checkbox">
+            <input type="checkbox" my-directive ng-model="vm.data.other"  value="" class="checkbox">
             <strong class="billing-addres-checkbox">Other</strong>
             <textarea  required  ng-minlength="2" ng-maxlength="250" name="billaddress" ng-if="vm.data.other" ng-model="vm.data.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
        </textarea>
           </div>
           <!--New change00 -->
           <span ng-if="vm.data.other" ng-show="form.billaddress.$error.required && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address is required.</span>
-           <span ng-if="vm.data.other" ng-show="(form.billaddress.$error.minlength || form.billaddress.$error.maxlength) && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should be between 20 to 250 characters long.</span>
+           <span ng-if="vm.data.other" ng-show="(form.billaddress.$error.minlength || form.billaddress.$error.maxlength) && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should be between 02 to 250 characters long.</span>
         </div>
 
         <div class="form-box">
           <label>Remarks</label>
-          <textarea ng-model="vm.data.remarks" rows="4" cols="50" placeholder="Remarks Description"></textarea>
+          <textarea my-directive ng-model="vm.data.remarks" rows="4" cols="50" placeholder="Remarks Description"></textarea>
         </div>
 
         <div class="form-section-box">
