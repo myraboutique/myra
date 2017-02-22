@@ -176,5 +176,5 @@ vm.inexforprompt = function (index) {
       }
 
     });
-    }}
 
+}}
