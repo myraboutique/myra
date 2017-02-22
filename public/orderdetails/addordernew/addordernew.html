@@ -88,25 +88,25 @@
 										<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
 										<!--New change 00 --index inject -->
 										<input class="inputdatipicker" ng-model="vm.order[$index].deliverydate" ng-change="vm.change(vm.orderdate1,$index)"
-										id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="Date of Delivery" />
+										id="" name="deliverydate{{$index}}" required="required" type="text" placeholder="* Date of Delivery" />
 										</datepicker>
 									</td>
 									
 									<td data-th="Stiching Date: " class="top-purpal-color-row2">
 									<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
 									<input class="inputdatipicker " ng-model="vm.order[$index].stitchingdate" name="stitchingdate{{$index}}" required="required" ng-change="vm.stitchingchange(vm.order[$index].stitchingdate,$index)"
-									type="text" placeholder="Date of Stitching" />
+									type="text" placeholder="* Date of Stitching" />
 									</datepicker>
 									</td>
 									<td data-th="Alert Date: " class="top-purpal-color-row2">
 										<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
 										<input class="inputdatipicker" ng-model="vm.order[$index].alertday" ng-change="vm.alertchange(vm.orderdate1,vm.order[$index].deliverydate,vm.order[$index].alertday)"
-										id="" name="alertdate{{$index}}" required type="text" placeholder="Date of Alert" />
+										id="" name="alertdate{{$index}}" required type="text" placeholder="* Date of Alert" />
 										</datepicker>
 									</td>
 									<td data-th="Amount: " class="top-purpal-color-row2">
 										<input class="addorder-amount-icon datepicker-input-margin-btm-none" id="" name="amount{{$index}}" ng-pattern="/^[0-9]{1,10}$/" ng-maxlength="10" required="required"
-										ng-model="vm.order[$index].amount" type="number" placeholder="Amount" />
+										ng-model="vm.order[$index].amount" type="number" placeholder="* Amount" />
 									</td>
 									<td data-th="Status: " class="top-purpal-color-row2">
 										<input class="datepicker-input-margin-btm-none" ng-init="vm.order[$index].status = 'New'" ng-model="vm.order[$index].status" disabled />
@@ -128,6 +128,7 @@
 							<!--<span ng-if="vm.newMsg3">please select stiching date greater than Order date.<br></span>-->
 							<span ng-if="vm.newMsg3">Stiching date should be less than delivery date.<br></span>
 							<span ng-if="vm.newMsg4">Alert date should be less than delivery date.<br></span>
+							<span ng-if="vm.reqmsg">* All fields are mandatory.<br></span>
 							
 							<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Delivery date must be greater than Date of Order.<br></span>
 
@@ -146,7 +147,7 @@
 </div>
 						<!--validation-->
 
-						<div class="right-add-new-button"><a ng-click="vm.check(vm.order)">Add Order</a></div>
+						<div class="right-add-new-button"><a ng-click="vm.check(vm.order)">Submit Order</a></div>
 					</div>
 
 

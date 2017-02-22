@@ -26,8 +26,10 @@ function addordernewController($resource, $scope, $http) {
     window.location = '#/login';
   }
 
-  var myDate = new Date();
-  var month = myDate.getMonth() + 1;
+  var odate=localStorage.getItem("orderdatetp");
+  var xdate=odate.split('/');
+  var myDate = new Date(xdate[2],xdate[1],xdate[0]);
+  var month = myDate.getMonth();
   vm.orderdate1 = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
 
   var customerdetails = $resource('/api/customerdetails');
@@ -53,6 +55,7 @@ function addordernewController($resource, $scope, $http) {
   vm.tempalert = false;
   vm.date4 = false;
   vm.xmsg=false;
+      vm.reqmsg=false;    
 
   vm.change = change;
   vm.alertchange = alertchange;
@@ -249,6 +252,17 @@ if(vm.order[0].stitchingdate){
   }
 
 vm.check=function(info){
+  if(vm.order[0].alertday==undefined || vm.order[0].deliverydate==undefined ||vm.order[0].stitchingdate==undefined){
+      vm.reqmsg=true;
+  }
+  else{
+    if(vm.order[0].amount==undefined || vm.order[0].amount==null){
+      vm.reqmsg=true; 
+    }   
+    else{
+      vm.reqmsg=false;
+    }
+  }
    if(vm.order[0].alertday>vm.order[0].deliverydate){
             vm.newMsg4=true;
         }
@@ -261,7 +275,7 @@ vm.check=function(info){
         else{
             vm.newMsg3=false;          
         }
-        if(!vm.newMsg3 && !vm.newMsg4){
+        if(!vm.newMsg3 && !vm.newMsg4 && !vm.reqmsg){
           vm.updateOrder(info);
         }
 }

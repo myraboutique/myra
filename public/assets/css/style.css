@@ -49,7 +49,7 @@
 
 body{margin:0px; padding:0px; background:#292929 !important; font-family: 'Open Sans', sans-serif;}
 .home-page{display:table; text-align:center;margin: 0 auto;}
-
+.btn-align{width: 190px !important;}
 .no-record-found-text{background: #e1e1e1;text-align: center;font-size: 20px;font-weight: 600;padding:12px 0;border-radius: 4px;}
 .no-record-found-tex2{background: #e1e1e1;text-align: center;font-size: 20px;font-weight: 600;padding:12px 0;border-radius: 4px;margin-top: 15px;}
 .customer-detail-th-width-1{width: 18% !important;}
@@ -844,7 +844,7 @@ padding-bottom: 15px;
 .customer-detail-page-contant{width: 100%; float: left;}
 .right-add-new-button{float: right;}
 .right-add-new-button a{
-  width:105px;
+  width:130px;
   text-align: center;
   cursor: pointer;
   text-decoration: none;

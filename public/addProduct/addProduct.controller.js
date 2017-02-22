@@ -18,12 +18,15 @@ vm.inexforprompt = function (index) {
 
   var myDate = new Date();
   var month = myDate.getMonth() + 1;
+
   vm.orderdate1 = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
   vm.uniqeno = myDate.getTime();
 
   vm.items = [{}];
   vm.order = [{}];
   vm.measu = [];
+          vm.rqmsg=false;
+          vm.rqmsg1=false;
 
   vm.designSelect = designSelect;
   vm.submit = submit;
@@ -116,9 +119,39 @@ vm.inexforprompt = function (index) {
     vm.pairs[info+1] = vm.uniqeno + info;
   }
 
+vm.odatechange=function(){
+   if (localStorage.getItem("orderdatetp")) {
+        localStorage.removeItem("orderdatetp");
+        localStorage.setItem("orderdatetp" ,vm.orderdate1);
+      }
+      else {
+        localStorage.setItem("orderdatetp" , vm.orderdate1);
+      }
+}
 
   function final(info,date) {
-
+    if(info.length>=0){     
+    for(var i=0;i<info.length;i++){
+      // for(var j=0;j<vm.orderDetails.length;j++){
+      //   if(vm.orderDetails[i].j==""){
+      //     vm.rqmsg1=true;
+      //   }
+      //   else{
+      //     vm.rqmsg1=false;
+      //   }
+      // }
+        if(info[i].type2==undefined ||info[i].type2==""||info[i].type==undefined ||info[i].type.title==undefined || info[i].type.measurement==undefined){
+          vm.rqmsg=true;
+        }
+        else{
+          vm.rqmsg=false;
+        }
+    }
+    }
+    else{
+      vm.rqmsg=true;
+    }
+    if(!vm.rqmsg){
    // vm.fileup(
    //   function(){
       vm.designs = [];
@@ -150,8 +183,10 @@ vm.inexforprompt = function (index) {
       }
     }
 
-    window.location = '#/addordernew';
+    
 
+    window.location = '#/addordernew';
+  }
   }
 
   vm.upload = function (file,cb) {

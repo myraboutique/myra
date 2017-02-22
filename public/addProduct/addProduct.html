@@ -39,6 +39,7 @@
 					<span ng-show="form.orderdate1.$error.required && (form.orderdate1.$dirty || vm.formSubmitted)">Order Date is required.</span>
 
 				</div>
+			
 
 				<div class="customer-detailsmain-box2"><label class="orderstatus-value">Order Status </label>&nbsp;<em>NEW</em></div>
 			</div>
@@ -61,14 +62,14 @@
 			<div class="addproducttable-main-box">
 				<div class="left-list-addproduct">
 					<ul>
-						<li>Design</li>
-						<li>Sub Design</li>
+						<li>* Design</li>
+						<li>* Sub Design</li>
 						<li>Material Type</li>
 						<li>Color Code</li>
 						<li>Customization</li>
 						<li>Remarks</li>
 						<li>Add Photo</li>
-						<li>Measurement</li>
+						<li>* Measurement</li>
 					</ul>
 				</div>
 
@@ -253,11 +254,15 @@
 
 		</div>
 		<!-- Addproducttable Main Box End Here -->
-		<div class="submit-button">
-			<input type="submit" value="Save" ng-click="vm.final(vm.order,vm.orderdate1)" />
+		<div class="submit-button ">
+			<input class="btn-align" type="submit" value="Proceed with Order" ng-click="vm.odatechange();vm.final(vm.order,vm.orderdate1)" />
 		</div>
 	<!-- Main Contant Part End Here -->
+		
 	</div>
+	<div style="color: red">
+		<span ng-if="vm.rqmsg">Fields are mandatory with sign *.<br></span>
+		</div>
 </form>
 	<!-- Footer Section Start Here -->
 	<div class="footer-section">Copyright © 2017 ProT Systems. All rights reserved.</div>
