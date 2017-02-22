@@ -42,7 +42,7 @@
 				<div class="managecustomer-left-menu-inner-page">
 					<h4 class="admin-setting-heding">Settings</h4>
 					<ul>
-						<li><a href='#/register' class="active"><span>Manage Users</span></a></li>
+						<li><a href='#/register'><span>Manage Users</span></a></li>
 						<li><a href='#/statustype'><span>Manage Order Status</span></a></li>
 						<li><a href='#/measurements'><span>Manage Measurements</span></a></li>
 						<li><a href='#/clothtype'><span>Manage Designs</span></a></li>
@@ -56,7 +56,7 @@
 			
 		<!-- Left Form Section Start Here -->
 		<form name="form" novalidate>
-    <div class="order-form-left-section add-new-form subdesign-submenu">
+    <div class="order-form-left-section add-new-form">
       <div class="form-section-box">
 	
 			 <div class="form-box">
@@ -98,7 +98,7 @@
 						accept="image/*" 
 						ngf-max-size="20MB" 
 						/>
-					<img style="margin-left:200px ;width:200px" ng-show="!!vm.file" ngf-thumbnail="vm.file"/>
+					<img class="editsubdesign-editstyle-addimg" ng-show="!!vm.file" ngf-thumbnail="vm.file"/>
 					<span ng-show="form.file.$error.required">Image is required.</span><br>
 					<span ng-show="form.file.$error.maxSize">File too large 
 					{{vm.file.size / 1000000|number:1}}MB: max 20M</i>
@@ -106,7 +106,7 @@
 		</div>
 <!--file upload-->
 
-<img  ng-hide="vm.file" style="margin-left:200px;width:200px" ng-src="imgupload/{{vm.subdesignimage}}"/>
+                    <img class="editsubdesign-editstyle-addimg" ng-hide="vm.file" ng-src="imgupload/{{vm.subdesignimage}}"/>
 			 <div class="form-box">
 				  <label> Is Active</label>
 				 <input type="checkbox" class="billing-addres-checkbox clothcheck"  ng-model="vm.data.isActive" />
@@ -131,6 +131,7 @@
 
 			
 			</div>
+		</div>
 		</div>
 
 		<!-- Customer Details page Section End Here -->
