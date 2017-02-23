@@ -39,12 +39,34 @@ function editclothController($resource, $stateParams, $http) {
   vm.selectMeasurement = [];
   vm.selectMeasurement = vm.data.measurement.split(',');
 
+  // function measuremet(data) {
+  //   if (data) {
+  //     vm.selectMeasurement.push(data);
+  //     vm.measu = "";
+  //    } else {
+  //       console.log("Already Exists");
+  //     } 
+  //   }
+  
+  //New change 
   function measuremet(data) {
+    vm.flagformeasure = 0;
     if (data) {
-      vm.selectMeasurement.push(data);
-      vm.measu = "";
+      for (var i = 0; i < vm.selectMeasurement.length + 1; i++) {
+        if (vm.selectMeasurement[i] == data) {
+          vm.flagformeasure++;
+        }
+      }
+      if (vm.flagformeasure == 0) {
+        vm.selectMeasurement.push(data);
+        vm.measu = "";
+      }
+      else {
+        console.log("Already Exists");
+      }
     }
   }
+
 
   function Delete(number) {
     vm.selectMeasurement.splice(number, 1);

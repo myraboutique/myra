@@ -136,18 +136,15 @@
 
         </div>
 
-        <div class="form-box">
-
-          <label><em ng-show="vm.data.other" id="mandatory" style="color:Red">*</em> &nbsp;Billing Address</label>
+      <div class="form-box">
+          <label>Billing Address:</label>
           <div class="customization-check-box">
-            <input type="checkbox" my-directive ng-model="vm.data.other"  value="" class="checkbox">
+            <input type="checkbox" ng-model="vm.data.other"  value="" class="checkbox">
             <strong class="billing-addres-checkbox">Other</strong>
-            <textarea  required  ng-minlength="2" ng-maxlength="250" name="billaddress" ng-if="vm.data.other" ng-model="vm.data.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
-       </textarea>
+            <textarea my-directive ng-if="vm.data.other" ng-model="vm.data.billingAddress" ng-minlength="2" ng-maxlength="250" class="customization-check-box-textarea" rows="4" cols="50" placeholder=""> </textarea>
+            <span ng-if="vm.other" ng-show="(form.billaddress.$error.minlength || form.billaddress.$error.maxlength) && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should be between 2 to 250 characters long.</span>
           </div>
-          <!--New change00 -->
-          <span ng-if="vm.data.other" ng-show="form.billaddress.$error.required && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address is required.</span>
-           <span ng-if="vm.data.other" ng-show="(form.billaddress.$error.minlength || form.billaddress.$error.maxlength) && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should be between 02 to 250 characters long.</span>
+          
         </div>
 
         <div class="form-box">

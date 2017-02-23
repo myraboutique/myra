@@ -100,10 +100,10 @@
 
         <div class="form-box">
           <label> Phone Number</label>
-          <input id="" ng-model="vm.phoneNumber" ng-pattern="/^[0-9]{1,10}$/" name="phonenumber" ng-minlength="10" ng-maxlength="10"  type="number" placeholder="Phone Number" />
+          <input id="" ng-model="vm.phoneNumber" ng-pattern="/^[0-9]{1,11}$/" name="phonenumber" ng-minlength="11" ng-maxlength="11"  type="number" placeholder="Phone Number" />
 
           <span ng-show="form.phonenumber.$error.pattern && (form.phonenumber.$dirty || vm.formSubmitted)">Phone Number should be digits.</span>
-          <span ng-show="(form.phonenumber.$error.minlength || form.phonenumber.$error.maxlength)&& (form.phonenumber.$dirty || vm.formSubmitted)">Please enter a valid 10-digit phone number.</span>
+          <span ng-show="(form.phonenumber.$error.minlength || form.phonenumber.$error.maxlength)&& (form.phonenumber.$dirty || vm.formSubmitted)">Please enter a valid 11-digit phone number.</span>
 
         </div>
 
@@ -130,17 +130,10 @@
 
         </div>
 
-        <!--<div class="form-box">
-          <label><em ng-show="vm.other" id="mandatory" style="color:Red">*</em>&nbsp;Billing Address</label>
-          <div class="customization-check-box">
-            <input type="checkbox" my-directive ng-model="vm.other" name="vehicle" value="" class="checkbox">
-            <strong class="billing-addres-checkbox">Other</strong>
-            <textarea required  ng-minlength="2" ng-maxlength="250" ng-if="vm.other" name="billaddress" ng-model="vm.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="">
-             </textarea>-->
         <div class="form-box">
           <label>Billing Address:</label>
           <div class="customization-check-box">
-            <input type="checkbox" ng-model="vm.data.other"  value="" class="checkbox">
+            <input type="checkbox" ng-model="vm.data.other"  value="" class="checkbox" ng-click = "checkbox.unchecked == vm.data.billingAddress == ''"> 
             <strong class="billing-addres-checkbox">Other</strong>
             <textarea my-directive ng-if="vm.data.other" ng-model="vm.data.billingAddress" ng-minlength="2" ng-maxlength="250" class="customization-check-box-textarea" rows="4" cols="50" placeholder=""> </textarea>
             <span ng-if="vm.other" ng-show="(form.billaddress.$error.minlength || form.billaddress.$error.maxlength) && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should be between 2 to 250 characters long.</span>
@@ -176,7 +169,7 @@
 
       <div class="add-new-btm-btn">
         <div class="submit-button">
-          <input type="submit" onclick="this.disabled=true" value="Save" ng-click="vm.check(form)" />
+          <input type="submit"  onclick="this.disabled=true" value="Save" ng-click="vm.check(form)" />
         </div>
         <div class="cancel-button">
           <input type="submit" value="Cancel" ng-click="vm.cancel()" />

@@ -31,6 +31,7 @@ vm.inexforprompt = function (index) {
   vm.designSelect = designSelect;
   vm.submit = submit;
   vm.cancel = cancel;
+  vm.cancel1 = cancel1;
   vm.flag = false;
   vm.final = final;
   vm.selectCustomer = selectCustomer;
@@ -188,7 +189,9 @@ vm.odatechange=function(){
     window.location = '#/addordernew';
   }
   }
-
+ function cancel1() {
+    window.location = '#/order';
+  }
   vm.upload = function (file,cb) {
     Upload.upload({
       url: 'http://myraboutique.herokuapp.com/uploads', //webAPI exposed to upload the file

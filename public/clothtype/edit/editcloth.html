@@ -69,15 +69,31 @@
 					<span ng-if="vm.flag">This Design already exits.</span>
 
 		   </div>
-			 <div class="form-box">
+			 <!--<div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em> Measurement</label>
-        <!--<input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>-->
-				<select ng-model="vm.measu"  class="clothmeasurementinput" >
+        <input id="" name="measu"  type="text" ng-model="vm.measu" placeholder="Measurement" class="clothmeasurementinput"/>-->
+				<!--<select ng-model="vm.measu"  class="clothmeasurementinput" >
 	                         <option value="">Please Select</option>				
 							<option ng-if="x.isActive" ng-repeat="x in vm.measurementstype"> {{x.name}}</option>
 				</select>
 				<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
+							 <span ng-show="vm.flagformeasure">This measurement already added.</span>
+
+
 				<span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required</span>
+			 </div>-->
+           
+
+			 <div class="form-box">
+				 <label><em id="mandatory" style="color:Red">*</em> Measurement</label>
+				 <select ng-model="vm.measu" name="measurement" ng-required="vm.selectMeasurement.length == 0" placeholder="Measurement" class="addclothtype-Measurement-addbtn-mobile" >
+                             <option value="">Please Select</option>
+							<option ng-if="x.isActive" ng-repeat="x in vm.measurementstype"> {{x.name}}</option>
+						</select>
+						<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
+						 <span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
+	
+			            <span ng-show="vm.flagformeasure">This measurement already added.</span>
 			 </div>
 
 			 <div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">
