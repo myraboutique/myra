@@ -1,23 +1,23 @@
 angular.module('myra')
   .controller('addordernewController', addordernewController);
 
-addordernewController.$inject = ['$resource', '$scope','$http'];
+addordernewController.$inject = ['$resource', '$scope', '$http'];
 
 function addordernewController($resource, $scope, $http) {
   var vm = this;
   vm.temp = [];
 
-  vm.data1=localStorage.getItem('addProductscustomer');
+  vm.data1 = localStorage.getItem('addProductscustomer');
   vm.addProductscustomer = JSON.parse(vm.data1);
-  
-  vm.data2=localStorage.getItem('vmorder');
+
+  vm.data2 = localStorage.getItem('vmorder');
   vm.selectedOrder = JSON.parse(vm.data2);
-  
-  vm.data3=localStorage.getItem('customerdetailsnew');
-  vm.customerdetailsnew = JSON.parse(vm.data3);  
+
+  vm.data3 = localStorage.getItem('customerdetailsnew');
+  vm.customerdetailsnew = JSON.parse(vm.data3);
 
   for (var index = 0; index < vm.selectedOrder.length; index++) {
-    vm.data4=localStorage.getItem('vmorder' + index);
+    vm.data4 = localStorage.getItem('vmorder' + index);
     vm.temp[index] = JSON.parse(vm.data4);
   }
 
@@ -26,36 +26,39 @@ function addordernewController($resource, $scope, $http) {
     window.location = '#/login';
   }
 
-  var odate=localStorage.getItem("orderdatetp");
-  var xdate=odate.split('/');
-  var myDate = new Date(xdate[2],xdate[1],xdate[0]);
+  var odate = localStorage.getItem("orderdatetp");
+  var xdate = odate.split('/');
+  var myDate = new Date(xdate[2], xdate[1], xdate[0]);
   var month = myDate.getMonth();
   vm.orderdate1 = myDate.getDate() + '/' + month + '/' + myDate.getFullYear();
 
   var customerdetails = $resource('/api/customerdetails');
   var Orderdetails = $resource('/api/orderdetails');
   var addstatus = $resource('/api/addstatuses');
-  
-  addstatus.query(function(info){
-      vm.statusdata = info ;
+
+  addstatus.query(function (info) {
+    vm.statusdata = info;
   });
 
 
-// =============================================================
-      vm.newMsg=false;
-        vm.newMsg1=false;
- vm.newMsg2=false;
-            vm.newMsg3=false;          
-            vm.newMsg4=false;          
- 
+  // =============================================================
+  vm.newMsg = false;
+  vm.newMsg1 = false;
+  vm.newMsg2 = false;
+  vm.newMsg3 = false;
+  vm.newMsg4 = false;
+
   vm.date1 = false;
   vm.date2 = false;
   vm.date3 = false;
 
   vm.tempalert = false;
   vm.date4 = false;
-  vm.xmsg=false;
-      vm.reqmsg=false;    
+  vm.xmsg = false;
+
+  vm.reqmsg=[];
+  vm.reqmsg[0] = false;
+  
 
   vm.change = change;
   vm.alertchange = alertchange;
@@ -86,14 +89,14 @@ function addordernewController($resource, $scope, $http) {
 
 
     if (vm.order[index].deliverydate) {
-      if(vm.order[index].deliverydate<=vm.orderdate1){
-         vm.order[index].stitchingdate="";
-             vm.order[index].alertday=""; 
-            vm.newMsg=true;       
-        }
-        else{
-            vm.newMsg=false;          
-        }
+      if (vm.order[index].deliverydate <= vm.orderdate1) {
+        vm.order[index].stitchingdate = "";
+        vm.order[index].alertday = "";
+        vm.newMsg = true;
+      }
+      else {
+        vm.newMsg = false;
+      }
 
 
       var b = orderdate.split('/');
@@ -119,7 +122,7 @@ function addordernewController($resource, $scope, $http) {
       //stitchingdate setring
       console.log(vm.order[index].alertday);
 
-     
+
       if (deliveryDate < orderDate) {
         vm.date1 = true;
         vm.order[index].alertday = alertday;
@@ -140,7 +143,7 @@ function addordernewController($resource, $scope, $http) {
       //   vm.newMsg1=false;
       // }
     }
-    
+
 
     // if(deliveryDate<=orderDate){
     //   vm.order[index].stitchingdate="";
@@ -164,17 +167,17 @@ function addordernewController($resource, $scope, $http) {
 
   // new change 00 --index inject
   function stitchingchange(stitchingdate, index) {
-    if(vm.order[index].stitchingdate){
-        if(vm.order[index].stitchingdate<=vm.orderdate1){
-            vm.newMsg1=true;
-        }
-        else{
-            vm.newMsg1=false;          
-        }
-         
+    if (vm.order[index].stitchingdate) {
+      if (vm.order[index].stitchingdate <= vm.orderdate1) {
+        vm.newMsg1 = true;
+      }
+      else {
+        vm.newMsg1 = false;
+      }
+
     }
-  
-    
+
+
     if (vm.order[index].orderdate) {
       console.log(orderdate);
       console.log(stitchingdate);
@@ -186,41 +189,42 @@ function addordernewController($resource, $scope, $http) {
       var orderDate = new Date(b[2], b[1] - 1, b[0]);
       orderDate.setHours(0, 0, 0, 0, 0);
       stitchingDate.setHours(0, 0, 0, 0, 0);
-      vm.stitchingDT=stitchingDate;
+      vm.stitchingDT = stitchingDate;
       if (stitchingDate < orderDate) {
         vm.tempalert = true;
       } else {
         vm.tempalert = false;
       }
       console.log(vm.tempalert);
-    
-     
+
+
     }
     if (vm.order[index].deliverydate) {
       forstitchingdate(index);
-    }    
+    }
   }
 
   function alertchange(orderdate, deliverydate, alertdate) {
-  
-if(vm.order[0].stitchingdate){
-  if(vm.order[0].stitchingdate<=vm.orderdate1){
-    vm.newMsg1=true;
-  }
-  else{
-    vm.newMsg1=false;
-  }
-}
-  if(vm.order[0].alertday){
-        if(vm.order[0].alertday<=vm.orderdate1){
-            vm.newMsg2=true;
-        }
-        else{
-             vm.newMsg2=false;          
-        }
+for(var y=0;y< vm.len;y++){
+
+    if (vm.order[y].stitchingdate) {
+      if (vm.order[y].stitchingdate <= vm.orderdate1) {
+        vm.newMsg1 = true;
+      }
+      else {
+        vm.newMsg1 = false;
+      }
+    }
+    if (vm.order[y].alertday) {
+      if (vm.order[y].alertday <= vm.orderdate1) {
+        vm.newMsg2 = true;
+      }
+      else {
+        vm.newMsg2 = false;
+      }
 
     }
-
+}
     var type = typeof orderdate;
     if (type == 'string') {
       var b = orderdate.split('/');
@@ -246,57 +250,71 @@ if(vm.order[0].stitchingdate){
     } else {
       vm.date3 = false;
     }
-    vm.adt=alertDate;
+    vm.adt = alertDate;
 
-            
+
   }
 
-vm.check=function(info){
-  if(vm.order[0].alertday==undefined || vm.order[0].deliverydate==undefined ||vm.order[0].stitchingdate==undefined){
-      vm.reqmsg=true;
-  }
-  else{
-    if(vm.order[0].amount==undefined || vm.order[0].amount==null){
-      vm.reqmsg=true; 
-    }   
-    else{
-      vm.reqmsg=false;
+  vm.check = function (info) {   
+    var keys = Object.keys(info);
+    vm.len = keys.length;
+
+    for (var x = 0; x < vm.len; x++) {
+      if (vm.order[x].alertday == undefined || vm.order[x].deliverydate == undefined || vm.order[x].stitchingdate == undefined) {
+        vm.reqmsg[x] = true;
+      }
+      else {
+        if (vm.order[x].amount == undefined || vm.order[x].amount == null) {
+          vm.reqmsg[x] = true;
+        }
+        else {
+          vm.reqmsg[x] = false;
+        }
+      }
+      if (vm.order[x].alertday > vm.order[x].deliverydate) {
+        vm.newMsg4 = true;
+      }
+      else {
+        vm.newMsg4 = false;
+      }
+      if (vm.order[x].stitchingdate > vm.order[x].deliverydate) {
+        vm.newMsg3 = true;
+      }
+      else {
+        vm.newMsg3 = false;
+      }
+      
     }
+   for(var v=0;v<vm.reqmsg.length;v++){
+     if(vm.reqmsg[v]==true){
+       vm.finalmsg=true;
+     }
+     else{
+       vm.finalmsg=false;
+     }
+   }//yo hmra
+    if (!vm.newMsg3 && !vm.newMsg4 && vm.finalmsg) {
+        vm.updateOrder(info);
+      }
   }
-   if(vm.order[0].alertday>vm.order[0].deliverydate){
-            vm.newMsg4=true;
-        }
-        else{
-            vm.newMsg4=false;          
-        }
-          if(vm.order[0].stitchingdate>vm.order[0].deliverydate){
-            vm.newMsg3=true;
-        }
-        else{
-            vm.newMsg3=false;          
-        }
-        if(!vm.newMsg3 && !vm.newMsg4 && !vm.reqmsg){
-          vm.updateOrder(info);
-        }
-}
 
 
-//=============================================================
-  vm.updateOrder = function(info) {
+  //=============================================================
+  vm.updateOrder = function (info) {
 
 
-   
+
     // vm.temp = [];
-    
+
     // for (var index = 0; index < vm.selectedOrder.length; index++) {
 
-        // vm.data4=localStorage.getItem('vmorder' + index);
-        // vm.temp[index] = JSON.parse(vm.data4);
-var orderdetails = new Orderdetails();
-var index = 0;
+    // vm.data4=localStorage.getItem('vmorder' + index);
+    // vm.temp[index] = JSON.parse(vm.data4);
+    var orderdetails = new Orderdetails();
+    var index = 0;
 
-var rOrder = function () {
-if (index < vm.selectedOrder.length) {
+    var rOrder = function () {
+      if (index < vm.selectedOrder.length) {
         orderdetails.measurementname = vm.temp[index].type.measurement;
         orderdetails.measurement = JSON.stringify(vm.temp[index].measure);
         orderdetails.customerName = vm.temp[index].customerName;
@@ -306,8 +324,8 @@ if (index < vm.selectedOrder.length) {
         orderdetails.color = vm.temp[index].color;
         orderdetails.customization = vm.temp[index].customization;
         orderdetails.browseimage = vm.temp[index].tempimg;
-        if(vm.temp[index].materialtype){
-        orderdetails.material = vm.temp[index].materialtype.materialtype;
+        if (vm.temp[index].materialtype) {
+          orderdetails.material = vm.temp[index].materialtype.materialtype;
         }
         orderdetails.type = vm.temp[index].type.title;
         orderdetails.subdesign = vm.temp[index].type2;
@@ -319,21 +337,21 @@ if (index < vm.selectedOrder.length) {
         orderdetails.amount = info[index].amount;
         orderdetails.orderdate = vm.temp[0].orderdate;
 
-    
+
 
         orderdetails.$save(function (info) {
-            index++;
-            rOrder();
-            swal("Order placed successfully.");
+          index++;
+          rOrder();
+          swal("Order placed successfully.");
 
-            window.location = '#/order';
+          window.location = '#/order';
         });
-      localStorage.removeItem('vmorder' + index);
-      localStorage.removeItem('vmord');
+        localStorage.removeItem('vmorder' + index);
+        localStorage.removeItem('vmord');
+      }
+
     }
 
-  }
-
-  rOrder();
+    rOrder();
   }
 }

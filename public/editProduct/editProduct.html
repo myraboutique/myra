@@ -151,7 +151,7 @@
 						<input class="clothmeasurementinput" type="file" ngf-select ng-model="vm.order[$index].image" name="file" ngf-pattern="'image/*'"
 							accept="image/*" ngf-max-size="20MB" required style="color: transparent ; border: transparent;" />
 						<img style="width:200px" ng-show="!!vm.vm.order[$index].image" ngf-thumbnail="vm.order[$index].image"/>
-						<img style="width:200px" ng-hide="vm.order[$index].image" ng-src="imgupload/{{vm.productwiserecord[$index].browseimage}}"/>
+						<img style="width:200px" ng-hide="vm.order[$index].image" ng-src="{{vm.productwiserecord[$index].browseimage}}"/>
 						<span ng-show="form.file.$error.required && (form.file.$dirty || vm.formSubmitted)">Image is required.</span><br>
 						<span ng-show="form.file.$error.maxSize">File too large {{vm.vm.order[$index].image.size / 1000000|number:1}} MB: max 20M</i>
 						<p>{{vm.progress}}</p>

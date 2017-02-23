@@ -82,7 +82,7 @@
 								</tr>
 								<tr ng-repeat="data in vm.selectedOrder track by $index">
 									<td data-th="Design: " class="top-purpal-color-row2">{{vm.selectedOrder[$index]}}
-										<img ng-src="/imgupload/{{vm.temp[$index].tempimg}}" height="50" width="50" style="padding-bottom: 10px;" />
+										<img ng-src="{{vm.temp[$index].tempimg}}" height="50" width="50" style="padding-bottom: 10px;" />
 									</td>
 									<td data-th="Delivery Date: " class="top-purpal-color-row2">
 										<datepicker class="datepickerbx" date-format="dd/MM/yyyy">
@@ -128,7 +128,7 @@
 							<!--<span ng-if="vm.newMsg3">please select stiching date greater than Order date.<br></span>-->
 							<span ng-if="vm.newMsg3">Stiching date should be less than delivery date.<br></span>
 							<span ng-if="vm.newMsg4">Alert date should be less than delivery date.<br></span>
-							<span ng-if="vm.reqmsg">* All fields are mandatory.<br></span>
+							<div ng-repeat="dt in vm.reqmsg track by $index"><span ng-if="dt">* All fields are mandatory.<br></span></div>
 							
 							<span ng-show="orderform['deliverydate'+$index].$error.required && (orderform['deliverydate'+$index].$dirty || vm.formSubmitted)">Delivery date must be greater than Date of Order.<br></span>
 

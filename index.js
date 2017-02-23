@@ -20,7 +20,7 @@ app.use(urlencodedParser);
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public'));
-app.use('/imgupload',express.static(__dirname + '/uploads'));
+app.use(express.static(__dirname + '/uploads'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
