@@ -81,9 +81,9 @@
 							<option ng-if="x.isActive" ng-repeat="x in vm.measurementstype"> {{x.name}}</option>
 						</select>
 						<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
-				
-			 <span ng-show="vm.flagformeasure">This measurement already added.</span>
-			 <span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
+				          <span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
+			                <span ng-show="vm.flagformeasure">This measurement already added.</span>
+			 
 			 </div>
 
 			 <div class="form-box form-box-measurement-add" ng-repeat="data in vm.selectMeasurement">

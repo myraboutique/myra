@@ -80,8 +80,10 @@
 					<tr>
 						<td class="addproducttable-B">
 							<select ng-model="vm.order[$index].type" name="clothtype{{$index}}" ng-change="vm.designSelect(vm.order[$index].type,$index)"
-								ng-options="data as data.title for data in vm.type">
-												<option value="">-- Please Select --</option>
+								ng-options="data as data.title for data in vm.type | filter:data.isActive != true">
+									<option value="">Please Select</option>
+							  
+
 							</select>
 						</td>
 					</tr>
@@ -121,7 +123,7 @@
 					<tr>
 						<td class="addproducttable-B">
 							<select ng-model="vm.order[$index].materialtype" ng-options="data as data.materialtype for data in vm.material | filter:data.isActive != true" name="material{{$index}}">
-								<option value="">-- Please Select --</option></select>
+								<option value="">Please Select</option></select>
 							</select>
 						</td>
 					</tr>
@@ -257,9 +259,12 @@
 		</div>
 		<!-- Addproducttable Main Box End Here -->
 		<div class="submit-button ">
-			<input class="btn-align" type="submit" value="Proceed with Order" ng-click="vm.odatechange();vm.final(vm.order,vm.orderdate1)" />
+			<input class="btn-align" type="submit" onclick="this.disabled=true" value="Proceed with Order" ng-click="vm.odatechange();vm.final(vm.order,vm.orderdate1)" />
 
 		</div>
+		<div class="cancel-button">
+          <input type="submit" value="Cancel" ng-click="vm.cancel1()" />
+        </div>
 	<!-- Main Contant Part End Here -->
 		
 	</div>

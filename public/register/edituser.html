@@ -100,7 +100,7 @@
 
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Password</label>
-			     <input id="" my-directive name="password"  ng-minlength="3" ng-maxlength="20" required="required" ng-change="vm.confirm()"  type="password" placeholder="Password" ng-model="vm.password1"/>
+			     <input id=""  name="password"  ng-minlength="3" ng-maxlength="20" required="required" ng-change="vm.confirm()"  type="password" placeholder="Password" ng-model="vm.password1"/>
        	            <span ng-show="userform.password.$error.required && (userform.password.$dirty || vm.formSubmitted)">Password is required.</span>
 				 	<span ng-show="(userform.password.$error.minlength || userform.password.$error.maxlength) && (userform.password.$dirty || vm.formSubmitted)">Password should be between 2 to 20 characters long, and should include UPPERCASE letters, lowercase letters and numbers. </span>
 						
@@ -109,7 +109,7 @@
 
 			  <div class="form-box">
      <label><em id="mandatory"  style="color:Red">*</em>&nbsp;Confirm Password</label>
-			     <input id="" my-directive name="confirm" required="required"  ng-model="vm.password" type="password" placeholder="Confirm Password" ng-change="vm.confirm()"/>
+			     <input id="" name="confirm" required="required"  ng-model="vm.password" type="password" placeholder="Confirm Password" ng-change="vm.confirm()"/>
        	<span ng-show="userform.confirm.$invalid && (userform.confirm.$dirty || vm.formSubmitted)">Confirm Password is required.</span>	
 				 <span ng-if="vm.check">Password and Confirm Password do not match.</span>						
 		   </div>
@@ -126,7 +126,7 @@
 			  <label><em id="mandatory"  style="color:Red">*</em>&nbsp;Address</label>
 			  <textarea rows="4" cols="50"  my-directive placeholder="Address" ng-minlength="2" ng-maxlength="250" ng-model="vm.address" name="address" required></textarea>
 			 	<span ng-show="userform.address.$error.required && (userform.address.$dirty || vm.formSubmitted)">Address is required.</span>
-				 	<span ng-show="(userform.address.$error.minlength || userform.address.$error.maxlength) && (userform.address.$dirty || vm.formSubmitted)">Address should be between 20 to 250 characters long.</span>
+				 	<span ng-show="(userform.address.$error.minlength || userform.address.$error.maxlength) && (userform.address.$dirty || vm.formSubmitted)">Address should be between 2 to 250 characters long.</span>
 
 		   </div>
 		   <div class="form-box">

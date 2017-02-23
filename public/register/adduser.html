@@ -33,7 +33,7 @@
 	</div>
 	<!-- Header Section End Here -->
 
-	<div class="inner-heading-bar">Manage Customers </div>
+	<div class="inner-heading-bar">Manage Settings </div>
 
 	<div class="main-contant-part">
 		<!-- Customer Details page Section Start Here -->
@@ -101,7 +101,7 @@
 
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Password</label>
-			     <input id="" my-directive name="password"  ng-minlength="3" ng-maxlength="20" required="required" ng-change="vm.confirm()"  type="password" placeholder="Password" ng-model="vm.password1"/>
+			     <input id="" name="password"  ng-minlength="3" ng-maxlength="20" required="required" ng-change="vm.confirm()"  type="password" placeholder="Password" ng-model="vm.password1"/>
        	            <span ng-show="userform.password.$error.required && (userform.password.$dirty || vm.formSubmitted)">Password is required.</span>
 				 	<span ng-show="(userform.password.$error.minlength || userform.password.$error.maxlength) && (userform.password.$dirty || vm.formSubmitted)">Password should be between 2 to 20 characters long, and should include UPPERCASE letters, lowercase letters and numbers. </span>
 						
@@ -110,7 +110,7 @@
 
 			  <div class="form-box">
      <label><em id="mandatory"  style="color:Red">*</em>&nbsp;Confirm Password</label>
-			     <input id="" my-directive name="confirm" required="required"  ng-model="vm.password" type="password" placeholder="Confirm Password" ng-change="vm.confirm()"/>
+			     <input id="" name="confirm" required="required"  ng-model="vm.password" type="password" placeholder="Confirm Password" ng-change="vm.confirm()"/>
        	<span ng-show="userform.confirm.$invalid && (userform.confirm.$dirty || vm.formSubmitted)">Confirm Password is required.</span>	
 				 <span ng-if="vm.check">Password and Confirm Password do not match.</span>						
 		   </div>
@@ -138,7 +138,7 @@
 
         <div class="register-btm-btn-box">
 					<div class="submit-button">
-            <input type="button" value="Save"  class="register-submit-btn" ng-click=" vm.submit(userform.$valid)"/>
+            <input type="button" value="Save"  onclick="this.disabled=true" class="register-submit-btn" ng-click=" vm.submit(userform.$valid)"/>
  					</div>
 					<div class="cancel-button">
             <input type="submit" value="Cancel" class="register-cancel-btn" ui-sref="register"/>
