@@ -33,7 +33,7 @@
 	</div>
 	<!-- Header Section End Here -->
 
-	<div class="inner-heading-bar">Manage Customers </div>
+	<div class="inner-heading-bar">Manage Settings</div>  <!--new change(rupa) -->
 
 	<div class="main-contant-part">
 		<!-- Customer Details page Section Start Here -->
@@ -60,7 +60,7 @@
 
      <div class="form-box">
       <label><em id="mandatory" style="color:Red">*</em> Status</label>
-      <input id="stype" my-directive name="statustype" type="text" ng-minlength="3" ng-maxlength="20" ng-model="vm.data.status"  placeholder="Status" required/>
+      <input id="stype" no-special-char name="statustype" type="text" ng-minlength="3" ng-maxlength="20" ng-model="vm.data.status"  placeholder="Status" required/>
       	<span ng-show="frm.statustype.$error.required && (frm.statustype.$dirty || vm.formSubmitted)">Status is required.</span>
 			<span ng-show="(frm.statustype.$error.minlength || frm.statustype.$error.maxlength) && (frm.statustype.$dirty || vm.formSubmitted)">Status should be between 2 to 20 characters long.</span>
 			<span ng-if="vm.flag">This status already exists.</span>

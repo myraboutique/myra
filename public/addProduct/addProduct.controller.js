@@ -51,7 +51,7 @@ vm.inexforprompt = function (index) {
   }
   
   Orderdetails.query(function (info) {
-    vm.temp = info[info.length -1].timestamp;
+    vm.temp = info[info.length -1]
     vm.pid1 = Number(vm.temp) + 1;
     vm.pid = pad(vm.pid1,5);
   });

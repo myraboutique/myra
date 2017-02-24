@@ -42,10 +42,11 @@
       controller: 'registerController',
       controllerAs: 'vm'
     })
+    //new change
     .state('edituser', {
       url: '/edituser',
-      templateUrl: 'register/edituser.html',
-      controller: 'registerController',
+      templateUrl: 'register/edituser/edituser.html',
+      controller: 'edituserController',
       controllerAs: 'vm'
     })
 

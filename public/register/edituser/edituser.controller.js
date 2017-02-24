@@ -1,6 +1,7 @@
 angular.module('myra')
-  .controller('editstatusController', editstatusController)
-  .directive('noSpecialChar', function() {
+  .controller('edituserController', edituserController)
+  //new chnage(rupa)
+  .directive('noSpecialChar', function() {  
     return {
       require: 'ngModel',
       restrict: 'A',
@@ -18,41 +19,41 @@ angular.module('myra')
       }
     }
   });
+edituserController.$inject = ['$resource', '$stateParams', '$http'];
 
-editstatusController.$inject = ['$resource', '$stateParams', '$http'];
-
-function editstatusController($resource, $stateParams, $http) {
+function edituserController($resource, $stateParams, $http) {
   var vm = this;
-   vm.flag = false;
-  vm.statuscancel = statuscancel;
+  vm.flag = false;
+  vm.cancel = cancel;
   vm.token = JSON.parse(localStorage.getItem('token'));
   if (!vm.token) {
     window.location = '#/login';
   }
-  vm.data = JSON.parse($stateParams.referer);
+ // vm.data = JSON.parse($stateParams.referer);
+ vm.data1=localStorage.getItem('edituser');
+  vm.data = JSON.parse(vm.data1);
   vm.update = update;
 
-  function statuscancel(){
-    window.location = '#/statustype';
+  function cancel(){
+    window.location = '#/register';
   }
 
-  function update(frm) {
+
+function update(userform) {
     if (frm.$valid) {
-      $http.put('/api/addstatuses', vm.data)
+      $http.put('/api/users', vm.data)
         .then(
         function (response) {
-        // Console.log(response.data.msg) 
-         if(response.data.msg){
-            vm.flag = true;
+        if(response.data.msg){
+           vm.flag = true;
         }
-         else{
-            
-            console.log(swal("Your record has been Updated."));
+        else
+        { 
+           
+           console.log(swal("Your record has been Updated."));
            console.log("put successfull")
-          window.location = '#/statustype';
- 
+          window.location = '#/register';
         }
-    
         
         });
     }

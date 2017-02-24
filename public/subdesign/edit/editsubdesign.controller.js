@@ -1,24 +1,23 @@
 angular.module('myra')
   .controller('editsubdesignController', editsubdesignController)
-  .directive('myDirective', function() {
-     function link(scope, elem, attrs, ngModel) {
-          ngModel.$parsers.push(function(viewValue) {
-            var reg = /^[^`~!@#$%\^&*()-_+={}|[\]\\:';"<>?,./]*$/;            
-            if (viewValue.match(reg)) {
-              return viewValue;
-            }
-            var transformedValue = ngModel.$modelValue;
-            ngModel.$setViewValue(transformedValue);
-            ngModel.$render();
-            return transformedValue;
-          });
+  .directive('noSpecialChar', function() {
+    return {
+      require: 'ngModel',
+      restrict: 'A',
+      link: function(scope, element, attrs, modelCtrl) {
+        modelCtrl.$parsers.push(function(inputValue) {
+          if (inputValue == null)
+            return ''
+          cleanInputValue = inputValue.replace(/[^\w\s]/gi, '');
+          if (cleanInputValue != inputValue) {
+            modelCtrl.$setViewValue(cleanInputValue);
+            modelCtrl.$render();
+          }
+          return cleanInputValue;
+        });
       }
-      return {
-          restrict: 'A',
-          require: 'ngModel',
-          link: link
-      };      
-  }); 
+    }
+  });
 
 editsubdesignController.$inject = ['$resource', '$stateParams', '$http', '$scope','Upload','$window'];
 
@@ -53,6 +52,8 @@ function editsubdesignController($resource, $stateParams, $http,$scope,Upload, $
                                       vm.flag = true;
                           }
                           else{
+
+                            console.log(swal("Your record has been Updated."));
                             console.log("put successfull")
                             window.location = '#/subdesign';
                           }

@@ -1,34 +1,31 @@
 angular.module('myra')
   .controller('registerController', registerController)
-   .directive('myDirective', function() {
-     function link(scope, elem, attrs, ngModel) {
-          ngModel.$parsers.push(function(viewValue) {
-            var reg = /^[^`~!@#$%\^&*()-_+={}|[\]\\:';"<>?,./]*$/;            
-            if (viewValue.match(reg)) {
-              return viewValue;
-            }
-            var transformedValue = ngModel.$modelValue;
-            ngModel.$setViewValue(transformedValue);
-            ngModel.$render();
-            return transformedValue;
-          });
+  .directive('noSpecialChar', function() {
+    return {
+      require: 'ngModel',
+      restrict: 'A',
+      link: function(scope, element, attrs, modelCtrl) {
+        modelCtrl.$parsers.push(function(inputValue) {
+          if (inputValue == null)
+            return ''
+          cleanInputValue = inputValue.replace(/[^\w\s]/gi, '');
+          if (cleanInputValue != inputValue) {
+            modelCtrl.$setViewValue(cleanInputValue);
+            modelCtrl.$render();
+          }
+          return cleanInputValue;
+        });
       }
-      return {
-          restrict: 'A',
-          require: 'ngModel',
-          link: link
-      };      
+    }
   });
 
 registerController.$inject = ['$resource','$state'];
 
 function registerController($resource,$state) {
   var vm = this;
+  vm.editpage = editpage;
   vm.order = order;
   vm.check = false;
-  vm.flag= false;
-  vm.editpage = editpage;
-  
    vm.token = JSON.parse(localStorage.getItem('token'));
   if(!vm.token){
     window.location = '#/login';
@@ -43,20 +40,17 @@ function registerController($resource,$state) {
   
  var vm = this;
   vm.submit = submit;
-  vm.update = update;
-  vm.data = [];
-  // vm.data = JSON.parse($stateParams.referer);
   vm.confirm = confirm;
   vm.resetPassword = resetPassword;
   var Register = $resource('/api/register');
   
   vm.filters = {
-    search: 'username'
-  
+    search: ''
   };
 
   Register.query(function(info){
-    vm.user = info;
+   // vm.user = info(reverse);
+     vm.user = info.reverse();
   })
 
   function confirm(){
@@ -71,10 +65,11 @@ function registerController($resource,$state) {
   }
 
   function resetPassword(data){
+    console.log(data);
      vm.selectData = JSON.stringify(data);
         $state.go("reset-password", { 'referer': vm.selectData });
   }
-vm.active = true;
+
   function submit(userform){
     vm.formSubmitted = true;
     if(!vm.check && userform){
@@ -89,8 +84,8 @@ vm.active = true;
             }
             txt += c;
        }
-      
-   
+   console.log(txt);
+
     register.name = txt;
     register.email = vm.email;
     register.username = vm.username;
@@ -101,29 +96,20 @@ vm.active = true;
     register.isActive = vm.active;
     
     register.$save(function(info){
-      // console.log(info.status);
-      // console.log(info);
-      // if(info.status){
-      //   swal(info.status);
-      // } else {
-      // swal("Your record has been saved successfully.");
-      //    window.location = '#/register';
-      //}
-       if (!info.status) {
-          swal("Your record has been saved successfully.");
-          window.location = '#/register';
-        }
-        else {
-          vm.flag = true;
-          vm.status = info.status;
-        }
-      
+      console.log(info.status);
+      console.log(info);
+      if(info.status){
+        swal(info.status);
+      } else {
+      swal("Your record has been  saved successfully.");
+         window.location = '#/register';
+      }
      
     });
   }
   }
 
- function editpage(x)
+  function editpage(x)
    {
      vm.selectData = JSON.stringify(x);
 
@@ -137,27 +123,4 @@ vm.active = true;
      $state.go("edituser",{ 'referer': vm.selectData});
    
    }
- 
-
- function update(userform){
-   vm.formSubmitted = true;
-
-   if(userform.$valid){
-     $http.put('api/register', vm.data)
-      .then(
-              function(response){
-                console.log(swal("Your record has been saved successfully."))
-                window.location = '#/register';
-              },
-              function(response){
-                  console.log("put unsuccessfull")
-              }
-          );
-
-   }
-
-
- }
-
-
 }

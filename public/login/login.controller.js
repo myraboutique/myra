@@ -25,7 +25,6 @@ function loginController($resource,$state) {
         else{
           vm.validationmsg = "Username might be inactive.";
         }
-
       } else {
         vm.validationmsg = "Username and/or Password does not match!";
       } 

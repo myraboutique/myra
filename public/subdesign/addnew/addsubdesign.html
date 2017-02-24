@@ -33,7 +33,7 @@
 	</div>
 	<!-- Header Section End Here -->
 
-	<div class="inner-heading-bar">Manage Customers </div>
+	<div class="inner-heading-bar">Manage Settings </div> <!--new change(rupa) -->
 
 	<div class="main-contant-part">
 		<!-- Customer Details page Section Start Here -->
@@ -64,7 +64,7 @@
 			 <div class="form-box">
 			  <label><em id="mandatory" style="color:Red">*</em>&nbsp;Style</label>
 
-					  	<input ng-model="vm.subdesigns" my-directive  name="style" ng-minlength="02" ng-maxlength="20" type="text" required="required" class="clothmeasurementinput" placeholder="Style"/>
+					  	<input ng-model="vm.subdesigns" no-special-char  name="style" ng-minlength="02" ng-maxlength="20" type="text" required="required" class="clothmeasurementinput" placeholder="Style"/>
  					<span ng-show="form.style.$error.required && (form.style.$dirty || vm.formSubmitted)">Style is required.</span>
 						<span ng-show="(form.style.$error.minlength || form.style.$error.maxlength) && (form.style.$dirty || vm.formSubmitted)">Style should be between 2 to 20 characters long.</span>
           				<!--<span ng-show="form.style.$error.maxlength && (form.style.$dirty || vm.formSubmitted)">Style name must be less than 20 characters.</span>-->
