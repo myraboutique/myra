@@ -86,12 +86,12 @@
 
 			 <div class="form-box">
 				 <label><em id="mandatory" style="color:Red">*</em> Measurement</label>
-				 <select ng-model="vm.measu" name="measurement" ng-required="vm.selectMeasurement.length == 0" placeholder="Measurement" class="addclothtype-Measurement-addbtn-mobile" >
+				 <select ng-model="vm.measu" name="measurement" required placeholder="Measurement" class="addclothtype-Measurement-addbtn-mobile" >
                              <option value="">Please Select</option>
 							<option ng-if="x.isActive" ng-repeat="x in vm.measurementstype"> {{x.name}}</option>
 						</select>
 						<strong class="clothaddbutton"><a href="" ng-click="vm.measurement(vm.measu)">Add</a></strong>
-						 <span ng-if="vm.selectMeasurement.length == '0' && (vm.formSubmitted)">Measurement is required.</span>
+						 <span ng-show="form.measurement.$error.required && (vm.measurement.$dirty  || vm.formSubmitted)">Measurement is required.</span>
 	
 			            <span ng-show="vm.flagformeasure">This measurement already added.</span>
 			 </div>

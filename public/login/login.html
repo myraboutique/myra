@@ -1,5 +1,3 @@
-
-
     <div class="centered">
 		<div id="login" class="animate form">
         <form   autocomplete="on" style="padding-top:20px;" name="myform" novalidate>
@@ -9,14 +7,14 @@
 
            
 
-            <span style="color:red" ng-show="myform.username.$error.required && (myform.username.$dirty || vm.formSubmitted)">Username is required.</span><br/>
+            <span style="color:red" ng-show="myform.username.$error.required && (myform.username.$dirty || vm.formSubmitted)">username is required.</span><br/>
             <span style="color:red" ng-show="myform.username.$error.pattern && (myform.username.$dirty || vm.formSubmitted)">Invalid email address.Please try again.</span><br/>
 
           </p>
           <p class="paragraph">
-            <input id="password" name="password" ng-model="vm.password" required="required" type="password" placeholder="Password" />
-            <span style="color:red" ng-show="myform.password.$error.required && vm.formSubmitted">Password is required.</span>
-            <span style="color:red" >{{vm.validationmsg}}</span>
+            <input id="password" ng-keyup="vm.validationmsg=''" name="password" ng-model="vm.password" required="required" type="password" placeholder="Password" />
+            <span style="color:red"  ng-show="myform.password.$error.required && vm.formSubmitted">Password is required.</span>
+            <span  style="color:red">{{vm.validationmsg}}</span>
           </p>
 
           <p class="login button float-left login-btn-mobile-css" style="text-align: center;float: left;">
@@ -30,3 +28,4 @@
       </form>
     </div>
 	</div>
+Add Comment

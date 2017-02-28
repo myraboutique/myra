@@ -51,27 +51,27 @@ module.exports = (function () {
         })
       })
     },
- updateforregister: function (req, res) {
-      db.sync().then(function () {
-        models.update({
-          name: req.body.name,
-                email: req.body.email,
-                type: req.body.type,
-                password: req.body.password,
-                number: req.body.mobilenumber,
-                address: req.body.address,
-                isActive: req.body.isActive,
-                username: req.body.username
-        },
-          {
-            where: {
-              id: req.body.id
-            }
-          }).then(function (info) {
-            res.json(info)
-          });
-      })
-    },
+//  update: function (req, res) {
+//       db.sync().then(function () {
+//         models.update({
+//           name: req.body.name,
+//                 email: req.body.email,
+//                 type: req.body.type,
+//                 password: req.body.password,
+//                 number: req.body.mobilenumber,
+//                 address: req.body.address,
+//                 isActive: req.body.isActive,
+//                 username: req.body.username
+//         },
+//           {
+//             where: {
+//               id: req.body.id
+//             }
+//           }).then(function (info) {
+//             res.json(info)
+//           });
+//       })
+//     },
 
     update: function (req, res) {
 

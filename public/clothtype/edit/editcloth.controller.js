@@ -66,14 +66,13 @@ function editclothController($resource, $stateParams, $http) {
     }
   }
 
-
   function Delete(number) {
     vm.selectMeasurement.splice(number, 1);
   }
 
   function update(form) {
-    if (form.$valid) {
-      vm.data.measurement = vm.selectMeasurement.join(',');
+  if (form.$valid && vm.selectMeasurement.length > 0) {     
+    vm.data.measurement = vm.selectMeasurement.join(',');
 
       $http.put('/api/measurement', vm.data)
         .then(

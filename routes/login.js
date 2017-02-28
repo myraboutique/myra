@@ -14,7 +14,7 @@ module.exports = (function () {
 
     m.route('/api/register')
         .post(api.Register)
-        .put(api.Update)
+        .put(api.PUT)
         .get(api.GET);
 
     m.route('/api/forgot')    

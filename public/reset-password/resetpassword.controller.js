@@ -65,9 +65,10 @@ function cancel()
         },
         function(err){
           console.log(err);
-        })
+        });
    }
 
   }
 
 }
+

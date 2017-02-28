@@ -43,12 +43,12 @@
       controllerAs: 'vm'
     })
     //new change
-    .state('edituser', {
-      url: '/edituser',
-      templateUrl: 'register/edituser/edituser.html',
-      controller: 'edituserController',
-      controllerAs: 'vm'
-    })
+    // .state('edituser', {
+    //   url: '/edituser',
+    //   templateUrl: 'register/edituser/edituser.html',
+    //   controller: 'edituserController',
+    //   controllerAs: 'vm'
+    // })
 
     .state('order', {
       url: '/order',

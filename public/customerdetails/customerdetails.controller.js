@@ -35,9 +35,17 @@ function customerdetailsController($scope, $resource, $state) {
   })
 
   function editpage(x) {
-    vm.selectData = JSON.stringify(x);
-    $state.go("edit", { 'referer': vm.selectData });
-  }
+     vm.selectData = JSON.stringify(x);
+     if(localStorage.getItem('edit')){
+       localStorage.removeItem('edit');
+       localStorage.setItem('edit',vm.selectData);
+     }
+     else{
+            localStorage.setItem('edit',vm.selectData);       
+     }
+     //localStorage.setItem('edit',vm.selectData);
+     $state.go("edit",{ 'referer': vm.selectData});
+   }
 
   function summary(x) {
     vm.selectData = JSON.stringify(x);

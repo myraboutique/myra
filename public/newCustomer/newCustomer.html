@@ -128,20 +128,20 @@
         
 
         </div>
-
+       <!-- New Change(rupa)  -->
         <div class="form-box">
-          <label>Billing Address:</label>
+          <label><em ng-show="vm.other" id="mandatory" style="color:Red">*</em>&nbsp;Billing Address</label>
           <div class="customization-check-box">
-            <input type="checkbox" ng-model="vm.data.other"  value="" class="checkbox" ng-click = "this.clear=true"> 
+            <input type="checkbox" ng-model="vm.other"  name="billaddress" ng-change="vm.billingAddress=''" value="" class="checkbox">
             <strong class="billing-addres-checkbox">Other</strong>
-            <textarea no-special-char ng-if="vm.data.other" ng-model="vm.data.billingAddress" name="billingAddress" required ng-minlength="2" ng-maxlength="250" class="customization-check-box-textarea" rows="4" cols="50" placeholder="Billing Address"> </textarea>
-            <span  ng-show="(form.billingAddress.$error.minlength || form.billingAddress.$error.maxlength) && (form.billingAddress.$dirty || vm.formSubmitted)">Billing Address should be between 2 to 250 characters long.</span>
+            <textarea required  no-special-char ng-minlength="2" ng-maxlength="250" ng-if="vm.other" name="billaddress" ng-model="vm.billingAddress" class="customization-check-box-textarea" rows="4" cols="50" placeholder="Billing Address">
+             </textarea>
           </div>
-          
+           <span ng-if="vm.other" ng-show="(form.billaddress.$error.minlength || form.billaddress.$error.maxlength) && (form.billaddress.$dirty || vm.formSubmitted)">Billing Address should be between 2 to 250 characters long.</span>
         </div>
 
         <div class="form-box">
-<label>Remarks</label>
+         <label>Remarks</label>
 
           <textarea no-special-char name="remarks" ng-model="vm.remarks" rows="4" cols="50" ng-maxlength="200" placeholder="Remarks Description"></textarea>
           <span ng-show="form.remarks.$error.maxlength && (form.remarks.$dirty || vm.formSubmitted)">Remark description cannot be more than 200 characters long.</span>

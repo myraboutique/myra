@@ -8,9 +8,9 @@ module.exports = (function(){
          Register: function(req, res, next){
           db.login.register(req, res);
         },
-       PUT : function(req,res,next){
-        db.customerdetails.updateforRegister(req,res);
-      },
+    //    PUT : function(req,res,next){
+    //     db.register.updateforRegister(req,res);
+    //   },
         Update: function(req, res, next){
             db.login.update(req,res);
         },

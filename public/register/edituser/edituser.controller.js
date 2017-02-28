@@ -32,16 +32,16 @@ function edituserController($resource, $stateParams, $http) {
  // vm.data = JSON.parse($stateParams.referer);
  vm.data1=localStorage.getItem('edituser');
   vm.data = JSON.parse(vm.data1);
-  vm.update = update;
+  vm.updateforRegister = updateforRegister;
 
   function cancel(){
     window.location = '#/register';
   }
 
 
-function update(userform) {
+function updateforRegister(userform) {
     if (frm.$valid) {
-      $http.put('/api/users', vm.data)
+      $http.put('/api/register', vm.data)
         .then(
         function (response) {
         if(response.data.msg){
